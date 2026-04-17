@@ -1,0 +1,97 @@
+---
+import { t, type Locale } from '../i18n/util';
+import ContactForm from './ContactForm.astro';
+import { socialLinks } from '../data/social';
+
+export interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+---
+<section class="section contact-section" id="contact" aria-labelledby="contact-heading">
+  <div class="container contact-inner">
+    <header class="contact-header">
+      <span class="section-label">{t(locale, 'contact.label')}</span>
+      <h2 id="contact-heading" class="contact-heading">{t(locale, 'contact.heading')}</h2>
+      <p class="contact-body">{t(locale, 'contact.body')}</p>
+    </header>
+
+    <ContactForm locale={locale} />
+
+    <aside class="contact-social">
+      <h3 class="social-heading">{t(locale, 'contact.social.heading')}</h3>
+      <ul>
+        {socialLinks.map((link) => (
+          <li>
+            <a href={link.url} rel="noopener external me" target="_blank">
+              {link.label} ↗
+            </a>
+            {link.isPlaceholder && <span class="todo-placeholder">TODO: handle</span>}
+          </li>
+        ))}
+      </ul>
+    </aside>
+  </div>
+</section>
+
+<style>
+  .contact-section {
+    background: var(--color-surface);
+  }
+  .contact-inner {
+    display: grid;
+    gap: var(--space-7);
+    grid-template-columns: minmax(0, 1fr);
+  }
+  @media (min-width: 48rem) {
+    .contact-inner {
+      grid-template-columns: 1fr 1.5fr;
+      gap: var(--space-8);
+    }
+  }
+
+  .contact-header {
+    max-width: 32ch;
+  }
+  .contact-heading {
+    font-size: var(--fs-2xl);
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    margin-block: var(--space-4) var(--space-4);
+  }
+  .contact-body {
+    font-size: var(--fs-md);
+    color: var(--color-text-muted);
+    line-height: var(--lh-relaxed);
+  }
+
+  .contact-social {
+    grid-column: 1 / -1;
+    border-top: 1px solid var(--color-border);
+    padding-top: var(--space-5);
+  }
+  .social-heading {
+    font-family: var(--font-mono);
+    font-size: var(--fs-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--color-text-subtle);
+    font-weight: 500;
+    margin-bottom: var(--space-3);
+  }
+  .contact-social ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-5);
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .contact-social li {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: var(--fs-md);
+  }
+</style>

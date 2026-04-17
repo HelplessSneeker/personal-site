@@ -1,0 +1,88 @@
+---
+import LegalLayout from '../layouts/LegalLayout.astro';
+import { t, getAltUrl } from '../i18n/util';
+
+export const prerender = true;
+
+const locale = 'de' as const;
+const altUrl = getAltUrl(Astro.url.pathname, locale);
+---
+<LegalLayout
+  title={t(locale, 'legal.privacy.title')}
+  description={t(locale, 'legal.privacy.description')}
+  locale={locale}
+  altLocaleUrl={altUrl}
+  canonicalPath="/datenschutz"
+>
+  <p class="todo-placeholder">
+    TODO Benjamin: Diese Datenschutzerklärung vor dem Livegang mit den tatsächlichen Auftragsverarbeitern,
+    Cookie-Setzungen und Adressen abgleichen.
+  </p>
+
+  <h2>Verantwortlicher</h2>
+  <address>
+    <strong>Benjamin Nößler</strong><br />
+    <span class="todo-placeholder">TODO: Adresse aus Impressum</span><br />
+    E-Mail: <a href="mailto:benjamin@noessler.at">benjamin@noessler.at</a>
+  </address>
+
+  <h2>Allgemein</h2>
+  <p>
+    Diese Website verarbeitet personenbezogene Daten ausschließlich im gesetzlich erlaubten Rahmen
+    (DSGVO, DSG). Es werden keine Daten zur Analyse weitergegeben und keine Tracking-Cookies gesetzt.
+  </p>
+
+  <h2>Server-Logs</h2>
+  <p>
+    Der Webserver speichert automatisch Informationen, die dein Browser übermittelt (IP-Adresse,
+    abgerufene Seite, Zeitpunkt, Referrer, User-Agent). Diese Daten dienen der technischen
+    Fehleranalyse und werden nach maximal 14 Tagen gelöscht.
+  </p>
+  <p>
+    <strong>Hoster:</strong> Hetzner Online GmbH, Industriestr. 25, 91710 Gunzenhausen, Deutschland.
+    <a href="https://www.hetzner.com/rechtliches/datenschutz" rel="noopener external" target="_blank">
+      Datenschutzhinweise Hetzner ↗
+    </a>
+  </p>
+
+  <h2>Kontaktformular</h2>
+  <p>
+    Wenn du das Kontaktformular nutzt, verarbeite ich die von dir übermittelten Daten (Name, E-Mail,
+    optional Projekttyp, Nachricht) ausschließlich zur Beantwortung deiner Anfrage.
+    Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO (vorvertragliche Maßnahmen) bzw.
+    lit. f DSGVO (berechtigtes Interesse an der Kommunikation).
+  </p>
+  <p>Zum Versand der Nachrichten werden folgende Auftragsverarbeiter eingesetzt:</p>
+  <ul>
+    <li>
+      <strong>Resend</strong> (E-Mail-Zustellung) — Resend, Inc., USA.
+      <a href="https://resend.com/legal/privacy-policy" rel="noopener external" target="_blank">Datenschutzerklärung ↗</a>
+    </li>
+    <li>
+      <strong>Cloudflare Turnstile</strong> (Spam-Schutz) — Cloudflare, Inc., USA.
+      <a href="https://www.cloudflare.com/privacypolicy/" rel="noopener external" target="_blank">Datenschutzerklärung ↗</a>
+    </li>
+  </ul>
+  <p>
+    Beide Dienste verarbeiten Daten in den USA. Der Datentransfer erfolgt auf Basis der
+    Standardvertragsklauseln der Europäischen Kommission.
+  </p>
+
+  <h2>Speicherdauer</h2>
+  <p>
+    Anfragen über das Kontaktformular werden bis zum Abschluss der Kommunikation aufbewahrt und
+    anschließend gelöscht, sofern keine gesetzlichen Aufbewahrungspflichten entgegenstehen.
+  </p>
+
+  <h2>Deine Rechte</h2>
+  <p>
+    Dir stehen grundsätzlich die Rechte auf Auskunft, Berichtigung, Löschung, Einschränkung,
+    Datenübertragbarkeit, Widerruf und Widerspruch zu. Zusätzlich kannst du dich bei der
+    österreichischen Datenschutzbehörde beschweren:
+    <a href="https://www.dsb.gv.at" rel="noopener external" target="_blank">dsb.gv.at ↗</a>.
+  </p>
+
+  <p class="text-muted">
+    <small>Stand: {new Date().toLocaleDateString('de-AT', { year: 'numeric', month: 'long' })}</small>
+  </p>
+</LegalLayout>

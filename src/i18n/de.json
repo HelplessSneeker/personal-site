@@ -1,0 +1,104 @@
+{
+  "site": {
+    "title": "Benjamin Nößler — Fullstack-Entwickler · Wien",
+    "description": "Fullstack-Entwickler aus Wien. Ich baue Webanwendungen mit TypeScript und NestJS. Verfügbar für Freelance-Projekte."
+  },
+  "nav": {
+    "about": "Über",
+    "work": "Arbeiten",
+    "contact": "Kontakt",
+    "skipToContent": "Zum Inhalt springen",
+    "backToTop": "Zurück nach oben"
+  },
+  "hero": {
+    "headline": "Fullstack-Entwickler aus Wien.",
+    "body": "Ich baue Webanwendungen mit TypeScript und NestJS. Aktuell als technischer Berater bei Wien Digital, nebenberuflich verfügbar für Freelance-Projekte.",
+    "availability": "Aktuell Kapazität für 1–2 Projekte · Wien oder remote"
+  },
+  "currently": {
+    "label": "Aktuell",
+    "items": [
+      "Technischer Berater bei Wien Digital",
+      "Nebenbei Freelance-Entwicklung für ausgewählte Kunden",
+      "Arbeite an stream-stash, einem persönlichen Projekt"
+    ]
+  },
+  "work": {
+    "label": "Ausgewählte Arbeiten",
+    "roleLabel": "Rolle",
+    "stackLabel": "Stack",
+    "visitLink": "Website besuchen",
+    "githubLink": "GitHub Repository"
+  },
+  "experience": {
+    "label": "Berufserfahrung",
+    "presentLabel": "heute",
+    "cvLinkLabel": "Vollständiger Lebenslauf (PDF)"
+  },
+  "skills": {
+    "label": "Stack",
+    "body": "Täglicher Stack: TypeScript, NestJS, React, Next.js, PostgreSQL, Docker. Auch unterwegs mit Angular, Java/Spring, Python und Ionic. Infrastruktur auf Hetzner mit Coolify."
+  },
+  "contact": {
+    "label": "Kontakt",
+    "heading": "Lass uns reden.",
+    "body": "Für Projektanfragen, Zusammenarbeit oder einfach Hallo — schreib mir gerne über das Formular oder auf LinkedIn.",
+    "form": {
+      "nameLabel": "Name",
+      "namePlaceholder": "Dein Name",
+      "emailLabel": "E-Mail",
+      "emailPlaceholder": "du@example.com",
+      "projectTypeLabel": "Projekttyp (optional)",
+      "projectTypeOptions": {
+        "freelance": "Freelance-Projekt",
+        "job": "Job-Opportunity",
+        "other": "Sonstiges"
+      },
+      "projectTypeNone": "Bitte wählen",
+      "messageLabel": "Nachricht",
+      "messagePlaceholder": "Worum geht es? Gerne 2–3 Sätze zum Projekt oder zur Anfrage.",
+      "submitLabel": "Nachricht senden",
+      "submittingLabel": "Wird gesendet…",
+      "successHeading": "Danke für deine Nachricht.",
+      "successBody": "Ich melde mich in der Regel innerhalb von 48 Stunden.",
+      "errorHeading": "Das hat leider nicht geklappt.",
+      "errorBody": "Bitte versuche es nochmal oder schreib direkt an benjamin@noessler.at.",
+      "validation": {
+        "nameRequired": "Bitte gib deinen Namen an.",
+        "emailRequired": "Bitte gib eine E-Mail-Adresse an.",
+        "emailInvalid": "Bitte gib eine gültige E-Mail-Adresse an.",
+        "messageRequired": "Bitte schreib eine Nachricht.",
+        "messageTooShort": "Die Nachricht sollte mindestens 20 Zeichen lang sein.",
+        "captchaMissing": "Bitte bestätige, dass du kein Roboter bist.",
+        "captchaFailed": "Die Spam-Prüfung ist fehlgeschlagen. Bitte lade die Seite neu."
+      }
+    },
+    "social": {
+      "heading": "Oder finde mich hier",
+      "github": "GitHub",
+      "linkedin": "LinkedIn"
+    }
+  },
+  "footer": {
+    "builtWith": "Gebaut mit Astro · Gehostet auf Hetzner",
+    "viewSource": "Quellcode ansehen",
+    "imprint": "Impressum",
+    "privacy": "Datenschutz",
+    "backToHome": "Zur Startseite"
+  },
+  "legal": {
+    "imprint": {
+      "title": "Impressum",
+      "description": "Impressum gemäß §5 E-Commerce-Gesetz und §25 Mediengesetz."
+    },
+    "privacy": {
+      "title": "Datenschutzerklärung",
+      "description": "Informationen zur Verarbeitung personenbezogener Daten auf dieser Website."
+    }
+  },
+  "language": {
+    "toggleLabel": "Sprache wechseln",
+    "de": "Deutsch",
+    "en": "Englisch"
+  }
+}

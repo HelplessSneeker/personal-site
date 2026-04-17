@@ -1,0 +1,35 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Hero from '../components/Hero.astro';
+import Currently from '../components/Currently.astro';
+import SelectedWork from '../components/SelectedWork.astro';
+import Experience from '../components/Experience.astro';
+import Skills from '../components/Skills.astro';
+import Contact from '../components/Contact.astro';
+import { t, getAltUrl } from '../i18n/util';
+
+export const prerender = true;
+
+const locale = 'de' as const;
+const altUrl = getAltUrl(Astro.url.pathname, locale);
+---
+<BaseLayout
+  title={t(locale, 'site.title')}
+  description={t(locale, 'site.description')}
+  locale={locale}
+  altLocaleUrl={altUrl}
+  canonicalPath="/"
+>
+  <Header locale={locale} />
+  <main id="main">
+    <Hero locale={locale} />
+    <Currently locale={locale} />
+    <SelectedWork locale={locale} />
+    <Experience locale={locale} />
+    <Skills locale={locale} />
+    <Contact locale={locale} />
+  </main>
+  <Footer locale={locale} />
+</BaseLayout>

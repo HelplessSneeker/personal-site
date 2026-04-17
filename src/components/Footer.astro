@@ -1,0 +1,77 @@
+---
+import { t, type Locale, getLocalizedPath } from '../i18n/util';
+
+export interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const year = new Date().getFullYear();
+const imprintPath = locale === 'de' ? '/impressum' : '/en/imprint';
+const privacyPath = locale === 'de' ? '/datenschutz' : '/en/privacy';
+const home = getLocalizedPath(locale, '/');
+
+// TODO: Benjamin — set actual repo URL once pushed to GitHub
+const sourceUrl = 'https://github.com/benjamin-noessler/personal-site';
+---
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <p class="footer-primary">
+      © {year} Benjamin Nößler · <span>{t(locale, 'footer.builtWith')}</span> ·
+      <a href={sourceUrl} rel="noopener external" target="_blank">
+        {t(locale, 'footer.viewSource')} ↗
+      </a>
+    </p>
+    <nav aria-label={locale === 'de' ? 'Rechtliches' : 'Legal'} class="footer-legal">
+      <a href={imprintPath}>{t(locale, 'footer.imprint')}</a>
+      <span aria-hidden="true">·</span>
+      <a href={privacyPath}>{t(locale, 'footer.privacy')}</a>
+      {Astro.url.pathname !== home && (
+        <>
+          <span aria-hidden="true">·</span>
+          <a href={home}>{t(locale, 'footer.backToHome')}</a>
+        </>
+      )}
+    </nav>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    border-top: 1px solid var(--color-border);
+    padding-block: var(--space-6) var(--space-7);
+    font-size: var(--fs-xs);
+    color: var(--color-text-muted);
+  }
+  .footer-inner {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: var(--space-3) var(--space-5);
+  }
+  .footer-primary {
+    line-height: var(--lh-snug);
+  }
+  .footer-primary a {
+    color: inherit;
+    text-decoration: underline;
+    text-decoration-color: var(--color-border);
+  }
+  .footer-primary a:hover {
+    color: var(--color-accent);
+    text-decoration-color: currentColor;
+  }
+  .footer-legal {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    align-items: center;
+  }
+  .footer-legal a {
+    color: var(--color-text-muted);
+    text-decoration: none;
+  }
+  .footer-legal a:hover {
+    color: var(--color-accent);
+  }
+</style>

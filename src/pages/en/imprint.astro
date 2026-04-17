@@ -1,0 +1,60 @@
+---
+import LegalLayout from '../../layouts/LegalLayout.astro';
+import { t, getAltUrl } from '../../i18n/util';
+
+export const prerender = true;
+
+const locale = 'en' as const;
+const altUrl = getAltUrl(Astro.url.pathname, locale);
+---
+<LegalLayout
+  title={t(locale, 'legal.imprint.title')}
+  description={t(locale, 'legal.imprint.description')}
+  locale={locale}
+  altLocaleUrl={altUrl}
+  canonicalPath="/en/imprint"
+>
+  <p class="todo-placeholder">
+    TODO Benjamin: Replace placeholders with real details before going live. This is only a scaffold.
+  </p>
+
+  <h2>Information pursuant to §5 ECG and §25 MedienG (Austria)</h2>
+  <address>
+    <strong>Benjamin Nößler</strong><br />
+    <span class="todo-placeholder">TODO: Street and number</span><br />
+    <span class="todo-placeholder">TODO: Postcode and Vienna</span><br />
+    Austria
+  </address>
+  <p>
+    <strong>Email:</strong> <a href="mailto:benjamin@noessler.at">benjamin@noessler.at</a>
+  </p>
+  <p>
+    <strong>Business activity:</strong>
+    <span class="todo-placeholder">TODO: e.g. "Information technology services"</span>
+  </p>
+  <p>
+    <strong>VAT ID:</strong>
+    <span class="todo-placeholder">TODO: VAT ID or "not VAT-liable"</span>
+  </p>
+
+  <h2>Regulatory authority / Trade Regulation Act</h2>
+  <p>
+    <span class="todo-placeholder">TODO: District authority / municipal authority based on business location</span>
+    · <a href="https://www.wko.at" rel="noopener external" target="_blank">WKO chamber membership ↗</a>
+  </p>
+
+  <h2>Disclaimer</h2>
+  <p>
+    The content of this website has been prepared with the utmost care. However, no warranty is
+    given for the accuracy, completeness or timeliness of the content.
+  </p>
+  <p>
+    The operators of linked external sites are solely responsible for their content.
+  </p>
+
+  <h2>Copyright</h2>
+  <p>
+    All content on this website (text, images, graphics, layout) is protected by Austrian
+    copyright law. Use beyond the limits of copyright law requires the author's written consent.
+  </p>
+</LegalLayout>

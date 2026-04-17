@@ -1,0 +1,87 @@
+---
+import '../styles/global.css';
+
+export interface Props {
+  title: string;
+  description: string;
+  locale: 'de' | 'en';
+  altLocaleUrl?: string;
+  canonicalPath?: string;
+  ogImage?: string;
+}
+
+const {
+  title,
+  description,
+  locale,
+  altLocaleUrl,
+  canonicalPath = Astro.url.pathname,
+  ogImage = '/og-image.png',
+} = Astro.props;
+
+const siteUrl = Astro.site?.toString().replace(/\/$/, '') ?? 'https://benjamin.noessler.at';
+const canonicalUrl = `${siteUrl}${canonicalPath}`;
+const ogImageUrl = ogImage.startsWith('http') ? ogImage : `${siteUrl}${ogImage}`;
+
+const personSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Benjamin Nößler',
+  jobTitle: locale === 'de' ? 'Fullstack-Entwickler' : 'Fullstack Developer',
+  url: siteUrl,
+  email: 'mailto:benjamin@noessler.at',
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Wien',
+    addressCountry: 'AT',
+  },
+  sameAs: [
+    // TODO: Benjamin — add GitHub + LinkedIn URLs
+  ],
+};
+---
+<!doctype html>
+<html lang={locale}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="color-scheme" content="light dark" />
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalUrl} />
+
+    <link rel="alternate" hreflang={locale} href={canonicalUrl} />
+    {altLocaleUrl && (
+      <link
+        rel="alternate"
+        hreflang={locale === 'de' ? 'en' : 'de'}
+        href={`${siteUrl}${altLocaleUrl}`}
+      />
+    )}
+    <link rel="alternate" hreflang="x-default" href={`${siteUrl}/`} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:locale" content={locale === 'de' ? 'de_AT' : 'en_US'} />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageUrl} />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(personSchema)} />
+
+    <slot name="head" />
+  </head>
+  <body>
+    <a href="#main" class="visually-hidden">Skip to content</a>
+    <slot />
+  </body>
+</html>

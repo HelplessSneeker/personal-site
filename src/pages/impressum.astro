@@ -1,0 +1,62 @@
+---
+import LegalLayout from '../layouts/LegalLayout.astro';
+import { t, getAltUrl } from '../i18n/util';
+
+export const prerender = true;
+
+const locale = 'de' as const;
+const altUrl = getAltUrl(Astro.url.pathname, locale);
+---
+<LegalLayout
+  title={t(locale, 'legal.imprint.title')}
+  description={t(locale, 'legal.imprint.description')}
+  locale={locale}
+  altLocaleUrl={altUrl}
+  canonicalPath="/impressum"
+>
+  <p class="todo-placeholder">
+    TODO Benjamin: Echte Angaben vor dem Livegang einsetzen. Dieses Template ist nur ein Gerüst.
+  </p>
+
+  <h2>Angaben gemäß §5 ECG, §25 MedienG</h2>
+  <address>
+    <strong>Benjamin Nößler</strong><br />
+    <span class="todo-placeholder">TODO: Straße und Hausnummer</span><br />
+    <span class="todo-placeholder">TODO: PLZ und Wien</span><br />
+    Österreich
+  </address>
+  <p>
+    <strong>E-Mail:</strong> <a href="mailto:benjamin@noessler.at">benjamin@noessler.at</a>
+  </p>
+  <p>
+    <strong>Unternehmensgegenstand:</strong>
+    <span class="todo-placeholder">TODO: z. B. „Dienstleistungen in der Informationstechnologie"</span>
+  </p>
+  <p>
+    <strong>UID-Nummer:</strong>
+    <span class="todo-placeholder">TODO: UID oder Hinweis „nicht UID-pflichtig"</span>
+  </p>
+
+  <h2>Zuständige Aufsichtsbehörde / Gewerbeordnung</h2>
+  <p>
+    <span class="todo-placeholder">TODO: Bezirkshauptmannschaft / Magistrat gemäß Gewerbestandort</span>
+    · <a href="https://www.wko.at" rel="noopener external" target="_blank">Kammerzugehörigkeit WKO ↗</a>
+  </p>
+
+  <h2>Haftungsausschluss</h2>
+  <p>
+    Die Inhalte dieser Website wurden mit größtmöglicher Sorgfalt erstellt. Für die Richtigkeit,
+    Vollständigkeit und Aktualität der Inhalte wird jedoch keine Gewähr übernommen.
+  </p>
+  <p>
+    Für Inhalte externer Links, auf die auf dieser Website verwiesen wird, sind ausschließlich
+    deren Betreiber verantwortlich.
+  </p>
+
+  <h2>Urheberrecht</h2>
+  <p>
+    Alle Inhalte dieser Website (Texte, Bilder, Grafiken, Layout) unterliegen dem österreichischen
+    Urheberrecht. Die Verwendung außerhalb der Grenzen des Urheberrechtsgesetzes bedarf der
+    schriftlichen Zustimmung des Urhebers.
+  </p>
+</LegalLayout>

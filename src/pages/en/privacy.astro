@@ -1,0 +1,87 @@
+---
+import LegalLayout from '../../layouts/LegalLayout.astro';
+import { t, getAltUrl } from '../../i18n/util';
+
+export const prerender = true;
+
+const locale = 'en' as const;
+const altUrl = getAltUrl(Astro.url.pathname, locale);
+---
+<LegalLayout
+  title={t(locale, 'legal.privacy.title')}
+  description={t(locale, 'legal.privacy.description')}
+  locale={locale}
+  altLocaleUrl={altUrl}
+  canonicalPath="/en/privacy"
+>
+  <p class="todo-placeholder">
+    TODO Benjamin: Review this privacy policy before going live — confirm actual data processors,
+    cookie usage, and address details.
+  </p>
+
+  <h2>Controller</h2>
+  <address>
+    <strong>Benjamin Nößler</strong><br />
+    <span class="todo-placeholder">TODO: Address from imprint</span><br />
+    Email: <a href="mailto:benjamin@noessler.at">benjamin@noessler.at</a>
+  </address>
+
+  <h2>General</h2>
+  <p>
+    This website processes personal data only within the bounds of applicable law (GDPR, Austrian
+    Data Protection Act). No data is shared for analytics purposes and no tracking cookies are set.
+  </p>
+
+  <h2>Server logs</h2>
+  <p>
+    The web server automatically stores information your browser transmits (IP address, requested
+    page, timestamp, referrer, user agent). This data is used for technical troubleshooting and is
+    deleted after a maximum of 14 days.
+  </p>
+  <p>
+    <strong>Host:</strong> Hetzner Online GmbH, Industriestr. 25, 91710 Gunzenhausen, Germany.
+    <a href="https://www.hetzner.com/rechtliches/datenschutz" rel="noopener external" target="_blank">
+      Hetzner privacy notice ↗
+    </a>
+  </p>
+
+  <h2>Contact form</h2>
+  <p>
+    When you use the contact form, the data you provide (name, email, optional project type,
+    message) is processed solely to respond to your inquiry. The legal basis is Art. 6(1)(b) GDPR
+    (pre-contractual measures) or Art. 6(1)(f) GDPR (legitimate interest in communication).
+  </p>
+  <p>The following data processors are involved in handling your message:</p>
+  <ul>
+    <li>
+      <strong>Resend</strong> (email delivery) — Resend, Inc., USA.
+      <a href="https://resend.com/legal/privacy-policy" rel="noopener external" target="_blank">Privacy policy ↗</a>
+    </li>
+    <li>
+      <strong>Cloudflare Turnstile</strong> (spam protection) — Cloudflare, Inc., USA.
+      <a href="https://www.cloudflare.com/privacypolicy/" rel="noopener external" target="_blank">Privacy policy ↗</a>
+    </li>
+  </ul>
+  <p>
+    Both services process data in the USA. The data transfer is based on the Standard Contractual
+    Clauses of the European Commission.
+  </p>
+
+  <h2>Retention</h2>
+  <p>
+    Inquiries via the contact form are retained until the communication is concluded and then
+    deleted, unless statutory retention obligations require otherwise.
+  </p>
+
+  <h2>Your rights</h2>
+  <p>
+    You have the rights of access, rectification, erasure, restriction of processing, data
+    portability, withdrawal of consent, and objection. You may also lodge a complaint with the
+    Austrian Data Protection Authority:
+    <a href="https://www.dsb.gv.at" rel="noopener external" target="_blank">dsb.gv.at ↗</a>.
+  </p>
+
+  <p class="text-muted">
+    <small>Last updated: {new Date().toLocaleDateString('en-GB', { year: 'numeric', month: 'long' })}</small>
+  </p>
+</LegalLayout>

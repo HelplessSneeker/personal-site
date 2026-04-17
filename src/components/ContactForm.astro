@@ -1,0 +1,352 @@
+---
+import { getDict, type Locale } from '../i18n/util';
+
+export interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const dict = getDict(locale);
+const form = dict.contact.form;
+const siteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY ?? '';
+// Fallback to Cloudflare's public test key in development if none configured.
+// Test key always passes — do NOT leave empty in production.
+const turnstileSiteKey =
+  siteKey || (import.meta.env.DEV ? '1x00000000000000000000AA' : '');
+
+// Serialize form strings for the client-side handler
+const messages = {
+  submitting: form.submittingLabel,
+  submit: form.submitLabel,
+  successHeading: form.successHeading,
+  successBody: form.successBody,
+  errorHeading: form.errorHeading,
+  errorBody: form.errorBody,
+  validation: form.validation,
+};
+---
+<form
+  class="contact-form"
+  id="contact-form"
+  method="POST"
+  action="/api/contact"
+  novalidate
+  data-locale={locale}
+>
+  <input type="hidden" name="locale" value={locale} />
+
+  <div class="field">
+    <label for="cf-name">
+      {form.nameLabel}
+      <span class="required" aria-hidden="true">*</span>
+    </label>
+    <input
+      id="cf-name"
+      name="name"
+      type="text"
+      autocomplete="name"
+      required
+      maxlength="200"
+      placeholder={form.namePlaceholder}
+    />
+    <p class="field-error" id="cf-name-error" aria-live="polite"></p>
+  </div>
+
+  <div class="field">
+    <label for="cf-email">
+      {form.emailLabel}
+      <span class="required" aria-hidden="true">*</span>
+    </label>
+    <input
+      id="cf-email"
+      name="email"
+      type="email"
+      autocomplete="email"
+      required
+      maxlength="320"
+      placeholder={form.emailPlaceholder}
+    />
+    <p class="field-error" id="cf-email-error" aria-live="polite"></p>
+  </div>
+
+  <div class="field">
+    <label for="cf-projectType">{form.projectTypeLabel}</label>
+    <select id="cf-projectType" name="projectType">
+      <option value="">{form.projectTypeNone}</option>
+      <option value="freelance">{form.projectTypeOptions.freelance}</option>
+      <option value="job">{form.projectTypeOptions.job}</option>
+      <option value="other">{form.projectTypeOptions.other}</option>
+    </select>
+  </div>
+
+  <div class="field">
+    <label for="cf-message">
+      {form.messageLabel}
+      <span class="required" aria-hidden="true">*</span>
+    </label>
+    <textarea
+      id="cf-message"
+      name="message"
+      rows="6"
+      required
+      minlength="20"
+      maxlength="5000"
+      placeholder={form.messagePlaceholder}
+    ></textarea>
+    <p class="field-error" id="cf-message-error" aria-live="polite"></p>
+  </div>
+
+  {turnstileSiteKey && (
+    <div
+      class="cf-turnstile"
+      data-sitekey={turnstileSiteKey}
+      data-theme="auto"
+      data-size="flexible"
+    ></div>
+  )}
+
+  <div class="form-actions">
+    <button type="submit" class="submit-btn">
+      {form.submitLabel}
+    </button>
+  </div>
+
+  <div class="form-status" role="status" aria-live="polite" hidden></div>
+</form>
+
+{turnstileSiteKey && (
+  <script is:inline async defer src="https://challenges.cloudflare.com/turnstile/v0/api.js"></script>
+)}
+
+<script is:inline type="application/json" id="cf-messages" set:html={JSON.stringify(messages)}></script>
+
+<script>
+  type ValidationKeys =
+    | 'nameRequired'
+    | 'emailRequired'
+    | 'emailInvalid'
+    | 'messageRequired'
+    | 'messageTooShort'
+    | 'captchaMissing'
+    | 'captchaFailed';
+
+  interface Messages {
+    submitting: string;
+    submit: string;
+    successHeading: string;
+    successBody: string;
+    errorHeading: string;
+    errorBody: string;
+    validation: Record<ValidationKeys, string>;
+  }
+
+  const messagesNode = document.getElementById('cf-messages');
+  if (!messagesNode) throw new Error('contact form messages not found');
+  const messages: Messages = JSON.parse(messagesNode.textContent ?? '{}');
+
+  const form = document.getElementById('contact-form') as HTMLFormElement | null;
+  if (!form) throw new Error('contact form not found');
+
+  const submitBtn = form.querySelector<HTMLButtonElement>('.submit-btn');
+  const statusNode = form.querySelector<HTMLDivElement>('.form-status');
+
+  function setError(fieldId: string, message: string) {
+    const el = document.getElementById(`${fieldId}-error`);
+    if (el) el.textContent = message;
+    const input = document.getElementById(fieldId);
+    if (input) input.setAttribute('aria-invalid', message ? 'true' : 'false');
+  }
+
+  function clearErrors() {
+    ['cf-name', 'cf-email', 'cf-message'].forEach((id) => setError(id, ''));
+    if (statusNode) {
+      statusNode.hidden = true;
+      statusNode.classList.remove('form-status--success', 'form-status--error');
+      statusNode.innerHTML = '';
+    }
+  }
+
+  function showStatus(kind: 'success' | 'error', heading: string, body: string) {
+    if (!statusNode) return;
+    statusNode.innerHTML = `<strong>${heading}</strong><p>${body}</p>`;
+    statusNode.classList.remove('form-status--success', 'form-status--error');
+    statusNode.classList.add(`form-status--${kind}`);
+    statusNode.hidden = false;
+  }
+
+  function validateEmail(value: string): boolean {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+  }
+
+  form.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    clearErrors();
+
+    const formData = new FormData(form);
+    const name = String(formData.get('name') ?? '').trim();
+    const email = String(formData.get('email') ?? '').trim();
+    const message = String(formData.get('message') ?? '').trim();
+    const projectType = String(formData.get('projectType') ?? '');
+    const locale = String(formData.get('locale') ?? 'de');
+    const turnstileToken = String(formData.get('cf-turnstile-response') ?? '');
+
+    let hasError = false;
+    if (!name) { setError('cf-name', messages.validation.nameRequired); hasError = true; }
+    if (!email) { setError('cf-email', messages.validation.emailRequired); hasError = true; }
+    else if (!validateEmail(email)) { setError('cf-email', messages.validation.emailInvalid); hasError = true; }
+    if (!message) { setError('cf-message', messages.validation.messageRequired); hasError = true; }
+    else if (message.length < 20) { setError('cf-message', messages.validation.messageTooShort); hasError = true; }
+    if (hasError) return;
+
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.textContent = messages.submitting;
+    }
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({ name, email, message, projectType: projectType || undefined, turnstileToken, locale }),
+      });
+
+      const result = await response.json().catch(() => ({ ok: false }));
+
+      if (response.ok && result.ok) {
+        showStatus('success', messages.successHeading, messages.successBody);
+        form.reset();
+        // @ts-expect-error Turnstile global
+        if (window.turnstile) window.turnstile.reset();
+      } else {
+        if (result?.error === 'captcha_missing') {
+          setError('cf-message', messages.validation.captchaMissing);
+        } else if (result?.error === 'captcha_failed') {
+          setError('cf-message', messages.validation.captchaFailed);
+        }
+        showStatus('error', messages.errorHeading, messages.errorBody);
+      }
+    } catch {
+      showStatus('error', messages.errorHeading, messages.errorBody);
+    } finally {
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.textContent = messages.submit;
+      }
+    }
+  });
+</script>
+
+<style>
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    max-width: var(--container-prose);
+  }
+  .field {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+  .field label {
+    font-size: var(--fs-sm);
+    font-weight: 500;
+    color: var(--color-text);
+  }
+  .required {
+    color: var(--color-accent);
+    margin-left: 2px;
+  }
+  .field input,
+  .field textarea,
+  .field select {
+    width: 100%;
+    padding: var(--space-3) var(--space-3);
+    font: inherit;
+    font-size: var(--fs-md);
+    color: var(--color-text);
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    transition: border-color var(--transition), box-shadow var(--transition);
+  }
+  .field input:focus,
+  .field textarea:focus,
+  .field select:focus {
+    border-color: var(--color-accent);
+    box-shadow: 0 0 0 3px var(--color-accent-subtle);
+    outline: none;
+  }
+  .field textarea {
+    resize: vertical;
+    min-height: 8rem;
+    font-family: var(--font-sans);
+  }
+  .field-error {
+    font-size: var(--fs-xs);
+    color: var(--color-danger);
+    min-height: 1em;
+  }
+  .field-error:empty {
+    display: none;
+  }
+
+  .form-actions {
+    margin-top: var(--space-2);
+  }
+  .submit-btn {
+    padding: var(--space-3) var(--space-5);
+    font-family: var(--font-sans);
+    font-size: var(--fs-md);
+    font-weight: 500;
+    color: #ffffff;
+    background: var(--color-accent);
+    border: 1px solid var(--color-accent);
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: background-color var(--transition);
+  }
+  .submit-btn:hover:not(:disabled) {
+    background: var(--color-accent-hover);
+    border-color: var(--color-accent-hover);
+  }
+  .submit-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+
+  .form-status {
+    padding: var(--space-4);
+    border-radius: var(--radius-sm);
+    font-size: var(--fs-sm);
+  }
+  .form-status strong {
+    display: block;
+    margin-bottom: var(--space-1);
+    font-size: var(--fs-md);
+    font-weight: 500;
+  }
+  .form-status p {
+    color: var(--color-text-muted);
+    margin: 0;
+  }
+  .form-status--success {
+    background: var(--color-accent-subtle);
+    border: 1px solid var(--color-accent);
+    color: var(--color-accent);
+  }
+  .form-status--success p {
+    color: var(--color-text);
+  }
+  .form-status--error {
+    background: #fff5f5;
+    border: 1px solid var(--color-danger);
+    color: var(--color-danger);
+  }
+  @media (prefers-color-scheme: dark) {
+    .form-status--error {
+      background: #2a1414;
+      color: #ff8a80;
+    }
+  }
+</style>

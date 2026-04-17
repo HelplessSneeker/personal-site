@@ -1,0 +1,24 @@
+---
+import { t, type Locale } from '../i18n/util';
+
+export interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+---
+<section class="section" id="skills" aria-labelledby="skills-heading">
+  <div class="container">
+    <h2 id="skills-heading" class="section-label">{t(locale, 'skills.label')}</h2>
+    <p class="skills-body">{t(locale, 'skills.body')}</p>
+  </div>
+</section>
+
+<style>
+  .skills-body {
+    font-size: var(--fs-md);
+    line-height: var(--lh-relaxed);
+    max-width: var(--container-prose);
+    color: var(--color-text);
+  }
+</style>

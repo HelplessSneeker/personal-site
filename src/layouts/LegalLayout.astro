@@ -1,0 +1,73 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import type { Locale } from '../i18n/util';
+
+export interface Props {
+  title: string;
+  description: string;
+  locale: Locale;
+  altLocaleUrl: string;
+  canonicalPath: string;
+}
+
+const { title, description, locale, altLocaleUrl, canonicalPath } = Astro.props;
+---
+<BaseLayout
+  title={`${title} — Benjamin Nößler`}
+  description={description}
+  locale={locale}
+  altLocaleUrl={altLocaleUrl}
+  canonicalPath={canonicalPath}
+>
+  <Header locale={locale} />
+  <main id="main" class="legal-main">
+    <article class="container legal-article">
+      <h1>{title}</h1>
+      <slot />
+    </article>
+  </main>
+  <Footer locale={locale} />
+</BaseLayout>
+
+<style is:global>
+  .legal-main {
+    padding-block: var(--space-8);
+  }
+  .legal-article {
+    max-width: var(--container-prose);
+  }
+  .legal-article h1 {
+    font-size: var(--fs-2xl);
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    margin-bottom: var(--space-6);
+  }
+  .legal-article h2 {
+    font-size: var(--fs-lg);
+    font-weight: 500;
+    margin-top: var(--space-6);
+    margin-bottom: var(--space-3);
+  }
+  .legal-article p,
+  .legal-article li {
+    font-size: var(--fs-md);
+    line-height: var(--lh-relaxed);
+    color: var(--color-text);
+  }
+  .legal-article p + p {
+    margin-top: var(--space-3);
+  }
+  .legal-article ul {
+    padding-left: var(--space-5);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    margin-block: var(--space-3);
+  }
+  .legal-article address {
+    font-style: normal;
+    margin-block: var(--space-3);
+  }
+</style>

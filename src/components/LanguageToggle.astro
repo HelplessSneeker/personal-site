@@ -1,0 +1,54 @@
+---
+import { getAltUrl, type Locale } from '../i18n/util';
+
+export interface Props {
+  currentLocale: Locale;
+}
+
+const { currentLocale } = Astro.props;
+const altUrl = getAltUrl(Astro.url.pathname, currentLocale);
+const altLabel = currentLocale === 'de' ? 'EN' : 'DE';
+const altLocale: Locale = currentLocale === 'de' ? 'en' : 'de';
+---
+<a
+  class="lang-toggle"
+  href={altUrl}
+  hreflang={altLocale}
+  lang={altLocale}
+  aria-label={currentLocale === 'de' ? 'Switch to English' : 'Auf Deutsch umschalten'}
+>
+  <span class="lang-current" aria-current="true">{currentLocale.toUpperCase()}</span>
+  <span class="lang-sep" aria-hidden="true">|</span>
+  <span class="lang-alt">{altLabel}</span>
+</a>
+
+<style>
+  .lang-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35em;
+    font-family: var(--font-mono);
+    font-size: var(--fs-sm);
+    color: var(--color-text-muted);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+    padding: 0.25rem 0;
+  }
+  .lang-toggle:hover {
+    color: var(--color-text);
+    text-decoration: none;
+  }
+  .lang-current {
+    color: var(--color-text);
+    font-weight: 500;
+  }
+  .lang-sep {
+    color: var(--color-text-subtle);
+  }
+  .lang-alt {
+    color: var(--color-text-muted);
+  }
+  .lang-toggle:hover .lang-alt {
+    color: var(--color-accent);
+  }
+</style>

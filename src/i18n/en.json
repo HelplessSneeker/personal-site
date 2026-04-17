@@ -1,0 +1,104 @@
+{
+  "site": {
+    "title": "Benjamin Nößler — Fullstack Developer · Vienna",
+    "description": "Fullstack developer based in Vienna. I build web applications with TypeScript and NestJS. Available for freelance projects."
+  },
+  "nav": {
+    "about": "About",
+    "work": "Work",
+    "contact": "Contact",
+    "skipToContent": "Skip to content",
+    "backToTop": "Back to top"
+  },
+  "hero": {
+    "headline": "Fullstack developer based in Vienna.",
+    "body": "I build web applications with TypeScript and NestJS. Currently advising at Wien Digital, available for freelance projects on the side.",
+    "availability": "Currently taking on 1–2 projects · Vienna or remote"
+  },
+  "currently": {
+    "label": "Currently",
+    "items": [
+      "Technical advisor at Wien Digital",
+      "Freelance development for selected clients on the side",
+      "Building stream-stash, a personal project"
+    ]
+  },
+  "work": {
+    "label": "Selected work",
+    "roleLabel": "Role",
+    "stackLabel": "Stack",
+    "visitLink": "Visit website",
+    "githubLink": "GitHub repository"
+  },
+  "experience": {
+    "label": "Experience",
+    "presentLabel": "present",
+    "cvLinkLabel": "Full CV (PDF)"
+  },
+  "skills": {
+    "label": "Stack",
+    "body": "Daily stack: TypeScript, NestJS, React, Next.js, PostgreSQL, Docker. Also comfortable with Angular, Java/Spring, Python, and Ionic. Infrastructure on Hetzner with Coolify."
+  },
+  "contact": {
+    "label": "Contact",
+    "heading": "Let's talk.",
+    "body": "For project inquiries, collaboration, or just saying hi — drop me a message via the form or reach out on LinkedIn.",
+    "form": {
+      "nameLabel": "Name",
+      "namePlaceholder": "Your name",
+      "emailLabel": "Email",
+      "emailPlaceholder": "you@example.com",
+      "projectTypeLabel": "Project type (optional)",
+      "projectTypeOptions": {
+        "freelance": "Freelance project",
+        "job": "Job opportunity",
+        "other": "Something else"
+      },
+      "projectTypeNone": "Select one",
+      "messageLabel": "Message",
+      "messagePlaceholder": "What's this about? A few sentences about the project or inquiry is perfect.",
+      "submitLabel": "Send message",
+      "submittingLabel": "Sending…",
+      "successHeading": "Thanks for your message.",
+      "successBody": "I usually reply within 48 hours.",
+      "errorHeading": "Something went wrong.",
+      "errorBody": "Please try again or email me directly at benjamin@noessler.at.",
+      "validation": {
+        "nameRequired": "Please enter your name.",
+        "emailRequired": "Please enter an email address.",
+        "emailInvalid": "Please enter a valid email address.",
+        "messageRequired": "Please write a message.",
+        "messageTooShort": "Your message should be at least 20 characters.",
+        "captchaMissing": "Please confirm you're not a robot.",
+        "captchaFailed": "Spam check failed. Please reload the page."
+      }
+    },
+    "social": {
+      "heading": "Or find me here",
+      "github": "GitHub",
+      "linkedin": "LinkedIn"
+    }
+  },
+  "footer": {
+    "builtWith": "Built with Astro · Hosted on Hetzner",
+    "viewSource": "View source",
+    "imprint": "Imprint",
+    "privacy": "Privacy",
+    "backToHome": "Back to homepage"
+  },
+  "legal": {
+    "imprint": {
+      "title": "Imprint",
+      "description": "Imprint as required under §5 of the Austrian E-Commerce Act and §25 of the Austrian Media Act."
+    },
+    "privacy": {
+      "title": "Privacy Policy",
+      "description": "Information on the processing of personal data on this website."
+    }
+  },
+  "language": {
+    "toggleLabel": "Switch language",
+    "de": "German",
+    "en": "English"
+  }
+}

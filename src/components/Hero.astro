@@ -1,0 +1,69 @@
+---
+import { t, type Locale } from '../i18n/util';
+
+export interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+---
+<section class="section hero-section" id="top" aria-labelledby="hero-heading">
+  <div class="container hero-inner">
+    <h1 id="hero-heading" class="hero-headline">{t(locale, 'hero.headline')}</h1>
+    <p class="hero-body">{t(locale, 'hero.body')}</p>
+    <p class="hero-availability">
+      <span class="dot" aria-hidden="true"></span>
+      {t(locale, 'hero.availability')}
+    </p>
+  </div>
+</section>
+
+<style>
+  .hero-section {
+    padding-block: var(--space-9) var(--space-8);
+    border-top: none;
+  }
+  @media (min-width: 48rem) {
+    .hero-section {
+      padding-block: var(--space-10) var(--space-9);
+    }
+  }
+  .hero-inner {
+    max-width: var(--container-wide);
+  }
+  .hero-headline {
+    font-size: var(--fs-3xl);
+    font-weight: 500;
+    letter-spacing: -0.025em;
+    line-height: var(--lh-tight);
+    margin-bottom: var(--space-5);
+  }
+  .hero-body {
+    font-size: var(--fs-lg);
+    line-height: var(--lh-snug);
+    color: var(--color-text);
+    max-width: 40ch;
+    margin-bottom: var(--space-5);
+  }
+  .hero-availability {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: var(--fs-sm);
+    color: var(--color-text-muted);
+  }
+  .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--color-accent);
+    animation: pulse 2.4s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .dot { animation: none; }
+  }
+</style>
