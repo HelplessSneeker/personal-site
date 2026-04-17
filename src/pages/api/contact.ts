@@ -8,7 +8,7 @@ const contactSchema = z.object({
   name: z.string().trim().min(1).max(200),
   email: z.email().trim().max(320),
   message: z.string().trim().min(20).max(5000),
-  projectType: z.enum(['freelance', 'job', 'other']).optional(),
+  projectType: z.enum(['landing', 'fullstack', 'other']).optional(),
   turnstileToken: z.string().min(1).optional(),
   locale: z.enum(['de', 'en']).default('de'),
 });

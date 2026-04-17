@@ -1,0 +1,46 @@
+---
+import { t, tArray, type Locale } from '../i18n/util';
+
+export interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const paragraphs = tArray(locale, 'about.bodyParagraphs');
+---
+<section class="section about-section" id="about" aria-labelledby="about-heading">
+  <div class="container about-inner">
+    <h2 id="about-heading" class="section-label">{t(locale, 'about.label')}</h2>
+    <div class="about-body">
+      {paragraphs.map((paragraph) => (
+        <p class="about-text">{paragraph}</p>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .about-inner {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+  }
+  @media (min-width: 48rem) {
+    .about-inner {
+      grid-template-columns: 12rem 1fr;
+      gap: var(--space-8);
+      align-items: start;
+    }
+  }
+  .about-body {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    max-width: var(--container-prose);
+  }
+  .about-text {
+    font-size: var(--fs-md);
+    line-height: var(--lh-relaxed);
+    color: var(--color-text);
+  }
+</style>

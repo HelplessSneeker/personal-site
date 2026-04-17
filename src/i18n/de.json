@@ -1,48 +1,117 @@
 {
   "site": {
-    "title": "Benjamin Nößler — Fullstack-Entwickler · Wien",
-    "description": "Fullstack-Entwickler aus Wien. Ich baue Webanwendungen mit TypeScript und NestJS. Verfügbar für Freelance-Projekte."
+    "title": "Benjamin Nößler — Fullstack-Entwickler aus Wien",
+    "description": "Benjamin Nößler — Fullstack-Entwickler aus Wien. Webapps, APIs und Landingpages in TypeScript. Wien Digital, Freelance und das eigene Nebenprojekt."
   },
   "nav": {
-    "about": "Über",
+    "stack": "Stack",
+    "services": "Leistungen",
     "work": "Arbeiten",
+    "about": "Über",
     "contact": "Kontakt",
     "skipToContent": "Zum Inhalt springen",
     "backToTop": "Zurück nach oben"
   },
   "hero": {
-    "headline": "Fullstack-Entwickler aus Wien.",
-    "body": "Ich baue Webanwendungen mit TypeScript und NestJS. Aktuell als technischer Berater bei Wien Digital, nebenberuflich verfügbar für Freelance-Projekte.",
-    "availability": "Aktuell Kapazität für 1–2 Projekte · Wien oder remote"
+    "headline": "Benjamin Nößler — Fullstack-Entwickler aus Wien.",
+    "body": "Ich baue Webapps, APIs und Landingpages — meistens in TypeScript. Tagsüber im Team von Wien Digital, daneben ausgewählte Freelance-Projekte.",
+    "availability": "Offen für neue Projekte · Wien oder remote",
+    "ctaPrimary": "Arbeiten ansehen",
+    "ctaSecondary": "Kontakt",
+    "portraitPlaceholder": "Porträt · 800 × 1000"
   },
-  "currently": {
-    "label": "Aktuell",
-    "items": [
-      "Technischer Berater bei Wien Digital",
-      "Nebenbei Freelance-Entwicklung für ausgewählte Kunden",
-      "Arbeite an stream-stash, einem persönlichen Projekt"
-    ]
+  "stack": {
+    "label": "Stack",
+    "intro": "Was ich meistens verwende.",
+    "groups": {
+      "languages": {
+        "label": "Sprachen",
+        "items": [
+          "TypeScript",
+          "JavaScript",
+          "Python",
+          "Java",
+          "SQL"
+        ]
+      },
+      "frontend": {
+        "label": "Frontend",
+        "items": [
+          "React",
+          "Next.js",
+          "Astro"
+        ]
+      },
+      "backend": {
+        "label": "Backend",
+        "items": [
+          "NestJS",
+          "Fastify",
+          "Node.js",
+          "PostgreSQL",
+          "Redis"
+        ]
+      },
+      "infra": {
+        "label": "Infrastruktur",
+        "items": [
+          "Hetzner",
+          "Coolify",
+          "Docker"
+        ]
+      },
+      "tools": {
+        "label": "Werkzeuge",
+        "items": [
+          "Git",
+          "Vitest",
+          "Zod"
+        ]
+      }
+    }
+  },
+  "services": {
+    "label": "Leistungen",
+    "intro": "Zwei Arten von Projekten, die ich am liebsten annehme.",
+    "landing": {
+      "title": "Landingpage-Redesign",
+      "description": "Bestehende Marketing- oder Landingpage analysieren und neu umsetzen — klare Struktur, schnelle Ladezeiten, sauber zweisprachig, DSGVO-konform.",
+      "bullets": [
+        "Struktur & Copy",
+        "Performance & SEO-Basics",
+        "DE/EN · DSGVO"
+      ]
+    },
+    "fullstack": {
+      "title": "Fullstack-Entwicklung",
+      "description": "Für Projekte jenseits einer einzelnen Seite — Webapps, APIs, Dashboards, interne Tools. Sauber gebaut, nachvollziehbar deployed.",
+      "bullets": [
+        "TypeScript · NestJS · Next.js · Postgres",
+        "Self-hosting auf Hetzner/Coolify",
+        "Von Konzept bis Deployment"
+      ]
+    }
   },
   "work": {
     "label": "Ausgewählte Arbeiten",
+    "intro": "Ein Auszug — von Landingpages bis zu B2B-Webapps.",
     "roleLabel": "Rolle",
     "stackLabel": "Stack",
     "visitLink": "Website besuchen",
     "githubLink": "GitHub Repository"
   },
-  "experience": {
-    "label": "Berufserfahrung",
-    "presentLabel": "heute",
-    "cvLinkLabel": "Vollständiger Lebenslauf (PDF)"
-  },
-  "skills": {
-    "label": "Stack",
-    "body": "Täglicher Stack: TypeScript, NestJS, React, Next.js, PostgreSQL, Docker. Auch unterwegs mit Angular, Java/Spring, Python und Ionic. Infrastruktur auf Hetzner mit Coolify."
+  "about": {
+    "label": "Über",
+    "bodyParagraphs": [
+      "Ich bin Benjamin Nößler, Fullstack-Entwickler aus Wien. Seit rund zehn Jahren schreibe ich Software — angefangen mit Java und Backend-Systemen in der Industrie, heute vor allem mit TypeScript im Web. Wien ist mein Ausgangspunkt, die meiste Arbeit findet remote statt.",
+      "Hauptberuflich bin ich Teil von Wien Digital und arbeite dort an technischen Fragestellungen rund um Datenprojekte. Nebenbei nehme ich ausgewählte Freelance-Aufträge an — vor allem Landingpage-Redesigns und kleinere Fullstack-Projekte für lokale Unternehmen.",
+      "Ich arbeite am liebsten an Dingen, die länger als ein Quartal leben sollen: sauber gebaut, auf eigener Infrastruktur (Hetzner/Coolify), mit Werkzeugen, denen ich auch in zwei Jahren noch vertraue. Mir ist der Business-Kontext mindestens so wichtig wie der Code — deswegen rede ich gerne mit Menschen, die ihr Problem selbst kennen."
+    ]
   },
   "contact": {
     "label": "Kontakt",
-    "heading": "Lass uns reden.",
-    "body": "Für Projektanfragen, Zusammenarbeit oder einfach Hallo — schreib mir gerne über das Formular oder auf LinkedIn.",
+    "heading": "Erzähl mir von deinem Projekt.",
+    "body": "Ob Landingpage-Redesign, Fullstack-Projekt oder einfach eine kurze Einschätzung — schreib mir ein paar Sätze zur Anfrage. Antwort in der Regel innerhalb von 48 Stunden, auf Deutsch oder Englisch.",
     "form": {
       "nameLabel": "Name",
       "namePlaceholder": "Dein Name",
@@ -50,14 +119,14 @@
       "emailPlaceholder": "du@example.com",
       "projectTypeLabel": "Projekttyp (optional)",
       "projectTypeOptions": {
-        "freelance": "Freelance-Projekt",
-        "job": "Job-Opportunity",
+        "landing": "Landingpage-Redesign",
+        "fullstack": "Fullstack-Projekt",
         "other": "Sonstiges"
       },
       "projectTypeNone": "Bitte wählen",
       "messageLabel": "Nachricht",
-      "messagePlaceholder": "Worum geht es? Gerne 2–3 Sätze zum Projekt oder zur Anfrage.",
-      "submitLabel": "Nachricht senden",
+      "messagePlaceholder": "Worum geht es? Gerne 2–3 Sätze zum Projekt, zur aktuellen Seite oder zur Zielgruppe.",
+      "submitLabel": "Anfrage senden",
       "submittingLabel": "Wird gesendet…",
       "successHeading": "Danke für deine Nachricht.",
       "successBody": "Ich melde mich in der Regel innerhalb von 48 Stunden.",

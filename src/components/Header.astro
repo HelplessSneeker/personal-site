@@ -9,8 +9,10 @@ export interface Props {
 const { locale } = Astro.props;
 const home = getLocalizedPath(locale, '/');
 const navLinks = [
-  { href: `${home}#currently`, label: t(locale, 'nav.about') },
+  { href: `${home}#stack`, label: t(locale, 'nav.stack') },
+  { href: `${home}#services`, label: t(locale, 'nav.services') },
   { href: `${home}#work`, label: t(locale, 'nav.work') },
+  { href: `${home}#about`, label: t(locale, 'nav.about') },
   { href: `${home}#contact`, label: t(locale, 'nav.contact') },
 ];
 ---

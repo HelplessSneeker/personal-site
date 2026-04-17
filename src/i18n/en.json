@@ -1,48 +1,117 @@
 {
   "site": {
-    "title": "Benjamin Nößler — Fullstack Developer · Vienna",
-    "description": "Fullstack developer based in Vienna. I build web applications with TypeScript and NestJS. Available for freelance projects."
+    "title": "Benjamin Nößler — Fullstack developer based in Vienna",
+    "description": "Benjamin Nößler — fullstack developer based in Vienna. Web apps, APIs, and landing pages in TypeScript. Wien Digital, freelance, and my side projects."
   },
   "nav": {
-    "about": "About",
+    "stack": "Stack",
+    "services": "Services",
     "work": "Work",
+    "about": "About",
     "contact": "Contact",
     "skipToContent": "Skip to content",
     "backToTop": "Back to top"
   },
   "hero": {
-    "headline": "Fullstack developer based in Vienna.",
-    "body": "I build web applications with TypeScript and NestJS. Currently advising at Wien Digital, available for freelance projects on the side.",
-    "availability": "Currently taking on 1–2 projects · Vienna or remote"
+    "headline": "Benjamin Nößler — fullstack developer based in Vienna.",
+    "body": "I build web apps, APIs, and landing pages — mostly in TypeScript. By day on the Wien Digital team, alongside selected freelance work on the side.",
+    "availability": "Open to new projects · Vienna or remote",
+    "ctaPrimary": "See work",
+    "ctaSecondary": "Contact",
+    "portraitPlaceholder": "Portrait · 800 × 1000"
   },
-  "currently": {
-    "label": "Currently",
-    "items": [
-      "Technical advisor at Wien Digital",
-      "Freelance development for selected clients on the side",
-      "Building stream-stash, a personal project"
-    ]
+  "stack": {
+    "label": "Stack",
+    "intro": "What I reach for most.",
+    "groups": {
+      "languages": {
+        "label": "Languages",
+        "items": [
+          "TypeScript",
+          "JavaScript",
+          "Python",
+          "Java",
+          "SQL"
+        ]
+      },
+      "frontend": {
+        "label": "Frontend",
+        "items": [
+          "React",
+          "Next.js",
+          "Astro"
+        ]
+      },
+      "backend": {
+        "label": "Backend",
+        "items": [
+          "NestJS",
+          "Fastify",
+          "Node.js",
+          "PostgreSQL",
+          "Redis"
+        ]
+      },
+      "infra": {
+        "label": "Infrastructure",
+        "items": [
+          "Hetzner",
+          "Coolify",
+          "Docker"
+        ]
+      },
+      "tools": {
+        "label": "Tools",
+        "items": [
+          "Git",
+          "Vitest",
+          "Zod"
+        ]
+      }
+    }
+  },
+  "services": {
+    "label": "Services",
+    "intro": "Two kinds of projects I take on most often.",
+    "landing": {
+      "title": "Landing page redesign",
+      "description": "Analyse and rebuild an existing marketing or landing page — clear structure, fast load times, proper bilingual DE/EN, GDPR-compliant.",
+      "bullets": [
+        "Structure & copy",
+        "Performance & SEO basics",
+        "DE/EN · GDPR"
+      ]
+    },
+    "fullstack": {
+      "title": "Fullstack development",
+      "description": "For projects beyond a single page — web apps, APIs, dashboards, internal tools. Cleanly built, transparently deployed.",
+      "bullets": [
+        "TypeScript · NestJS · Next.js · Postgres",
+        "Self-hosting on Hetzner/Coolify",
+        "From concept to deployment"
+      ]
+    }
   },
   "work": {
     "label": "Selected work",
+    "intro": "A selection — from landing pages to B2B web apps.",
     "roleLabel": "Role",
     "stackLabel": "Stack",
     "visitLink": "Visit website",
     "githubLink": "GitHub repository"
   },
-  "experience": {
-    "label": "Experience",
-    "presentLabel": "present",
-    "cvLinkLabel": "Full CV (PDF)"
-  },
-  "skills": {
-    "label": "Stack",
-    "body": "Daily stack: TypeScript, NestJS, React, Next.js, PostgreSQL, Docker. Also comfortable with Angular, Java/Spring, Python, and Ionic. Infrastructure on Hetzner with Coolify."
+  "about": {
+    "label": "About",
+    "bodyParagraphs": [
+      "I'm Benjamin Nößler, a fullstack developer based in Vienna. I've been writing software for about ten years — started with Java and backend systems in industrial settings, these days mostly TypeScript on the web. Vienna is home base; most of the work happens remote.",
+      "My day job is with the Wien Digital team, working on technical questions around data projects. On the side, I take on selected freelance work — mostly landing page redesigns and smaller fullstack builds for local businesses.",
+      "I prefer projects meant to last longer than a quarter: cleanly built, on my own infrastructure (Hetzner/Coolify), with tools I'll still trust in two years. Business context matters to me as much as the code — so I enjoy talking to people who know their problem better than I do."
+    ]
   },
   "contact": {
     "label": "Contact",
-    "heading": "Let's talk.",
-    "body": "For project inquiries, collaboration, or just saying hi — drop me a message via the form or reach out on LinkedIn.",
+    "heading": "Tell me about your project.",
+    "body": "Landing page redesign, fullstack build, or just a quick gut-check — send me a few sentences about what you're planning. I usually reply within 48 hours, in English or German.",
     "form": {
       "nameLabel": "Name",
       "namePlaceholder": "Your name",
@@ -50,14 +119,14 @@
       "emailPlaceholder": "you@example.com",
       "projectTypeLabel": "Project type (optional)",
       "projectTypeOptions": {
-        "freelance": "Freelance project",
-        "job": "Job opportunity",
+        "landing": "Landing page redesign",
+        "fullstack": "Fullstack project",
         "other": "Something else"
       },
       "projectTypeNone": "Select one",
       "messageLabel": "Message",
-      "messagePlaceholder": "What's this about? A few sentences about the project or inquiry is perfect.",
-      "submitLabel": "Send message",
+      "messagePlaceholder": "What's this about? A few sentences about the project, the current page, or your audience is perfect.",
+      "submitLabel": "Send inquiry",
       "submittingLabel": "Sending…",
       "successHeading": "Thanks for your message.",
       "successBody": "I usually reply within 48 hours.",

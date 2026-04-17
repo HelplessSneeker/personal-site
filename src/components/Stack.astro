@@ -1,0 +1,95 @@
+---
+import { t, tArray, type Locale } from '../i18n/util';
+
+export interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+
+const groupKeys = ['languages', 'frontend', 'backend', 'infra', 'tools'] as const;
+const groups = groupKeys.map((key) => ({
+  key,
+  label: t(locale, `stack.groups.${key}.label`),
+  items: tArray(locale, `stack.groups.${key}.items`),
+}));
+---
+<section class="section stack-section" id="stack" aria-labelledby="stack-heading">
+  <div class="container">
+    <h2 id="stack-heading" class="section-label">{t(locale, 'stack.label')}</h2>
+    <p class="stack-intro">{t(locale, 'stack.intro')}</p>
+    <dl class="stack-groups">
+      {groups.map((group) => (
+        <div class="stack-group">
+          <dt class="stack-group-label">{group.label}</dt>
+          <dd class="stack-group-items">
+            <ul>
+              {group.items.map((item) => <li class="stack-item">{item}</li>)}
+            </ul>
+          </dd>
+        </div>
+      ))}
+    </dl>
+  </div>
+</section>
+
+<style>
+  .stack-intro {
+    font-size: var(--fs-md);
+    color: var(--color-text-muted);
+    max-width: var(--container-prose);
+    margin-bottom: var(--space-6);
+  }
+  .stack-groups {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    margin: 0;
+  }
+  .stack-group {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-2);
+    padding-block: var(--space-3);
+    border-top: 1px solid var(--color-border);
+  }
+  .stack-group:first-child {
+    border-top: none;
+    padding-top: 0;
+  }
+  @media (min-width: 40rem) {
+    .stack-group {
+      grid-template-columns: 12rem 1fr;
+      gap: var(--space-5);
+      align-items: baseline;
+    }
+  }
+  .stack-group-label {
+    font-family: var(--font-mono);
+    font-size: var(--fs-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--color-text-subtle);
+    margin: 0;
+  }
+  .stack-group-items {
+    margin: 0;
+  }
+  .stack-group-items ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+  }
+  .stack-item {
+    font-family: var(--font-mono);
+    font-size: var(--fs-xs);
+    padding: 2px 8px;
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
+    color: var(--color-text-muted);
+    background: var(--color-surface);
+  }
+</style>

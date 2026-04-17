@@ -1,20 +1,36 @@
 ---
-import { t, type Locale } from '../i18n/util';
+import { t, type Locale, getLocalizedPath } from '../i18n/util';
 
 export interface Props {
   locale: Locale;
 }
 
 const { locale } = Astro.props;
+const home = getLocalizedPath(locale, '/');
+
+// Swap the <div class="hero-portrait-placeholder"> below for:
+//   <img src="/images/portrait.jpg" alt="…" width="800" height="1000" loading="eager" />
+// once the real portrait is exported to /public/images/portrait.jpg (4:5, ≤200 KB).
 ---
 <section class="section hero-section" id="top" aria-labelledby="hero-heading">
   <div class="container hero-inner">
-    <h1 id="hero-heading" class="hero-headline">{t(locale, 'hero.headline')}</h1>
-    <p class="hero-body">{t(locale, 'hero.body')}</p>
-    <p class="hero-availability">
-      <span class="dot" aria-hidden="true"></span>
-      {t(locale, 'hero.availability')}
-    </p>
+    <div class="hero-text">
+      <h1 id="hero-heading" class="hero-headline">{t(locale, 'hero.headline')}</h1>
+      <p class="hero-body">{t(locale, 'hero.body')}</p>
+      <p class="hero-availability">
+        <span class="dot" aria-hidden="true"></span>
+        {t(locale, 'hero.availability')}
+      </p>
+      <div class="hero-cta">
+        <a href={`${home}#work`} class="btn btn-primary">{t(locale, 'hero.ctaPrimary')}</a>
+        <a href={`${home}#contact`} class="btn btn-secondary">{t(locale, 'hero.ctaSecondary')}</a>
+      </div>
+    </div>
+    <div class="hero-portrait" aria-hidden="true">
+      <div class="hero-portrait-placeholder">
+        <span class="hero-portrait-label">{t(locale, 'hero.portraitPlaceholder')}</span>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -29,7 +45,20 @@ const { locale } = Astro.props;
     }
   }
   .hero-inner {
-    max-width: var(--container-wide);
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+    max-width: var(--container-max);
+    align-items: center;
+  }
+  @media (min-width: 56rem) {
+    .hero-inner {
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+      gap: var(--space-8);
+    }
+  }
+  .hero-text {
+    min-width: 0;
   }
   .hero-headline {
     font-size: var(--fs-3xl);
@@ -42,7 +71,7 @@ const { locale } = Astro.props;
     font-size: var(--fs-lg);
     line-height: var(--lh-snug);
     color: var(--color-text);
-    max-width: 40ch;
+    max-width: 48ch;
     margin-bottom: var(--space-5);
   }
   .hero-availability {
@@ -51,6 +80,7 @@ const { locale } = Astro.props;
     gap: var(--space-2);
     font-size: var(--fs-sm);
     color: var(--color-text-muted);
+    margin-bottom: var(--space-6);
   }
   .dot {
     width: 8px;
@@ -59,6 +89,40 @@ const { locale } = Astro.props;
     background: var(--color-accent);
     animation: pulse 2.4s ease-in-out infinite;
   }
+  .hero-cta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+  }
+
+  .hero-portrait {
+    min-width: 0;
+    max-width: 22rem;
+    width: 100%;
+    justify-self: start;
+  }
+  @media (min-width: 56rem) {
+    .hero-portrait {
+      justify-self: end;
+    }
+  }
+  .hero-portrait-placeholder {
+    aspect-ratio: 4 / 5;
+    width: 100%;
+    border: 1px dashed var(--color-border);
+    border-radius: var(--radius-md);
+    background: var(--color-surface);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-text-subtle);
+  }
+  .hero-portrait-label {
+    font-family: var(--font-mono);
+    font-size: var(--fs-xs);
+    letter-spacing: 0.04em;
+  }
+
   @keyframes pulse {
     0%, 100% { opacity: 1; }
     50% { opacity: 0.5; }

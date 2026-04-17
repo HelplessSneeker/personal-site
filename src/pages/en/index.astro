@@ -3,10 +3,10 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import Hero from '../../components/Hero.astro';
-import Currently from '../../components/Currently.astro';
+import Stack from '../../components/Stack.astro';
+import Services from '../../components/Services.astro';
 import SelectedWork from '../../components/SelectedWork.astro';
-import Experience from '../../components/Experience.astro';
-import Skills from '../../components/Skills.astro';
+import About from '../../components/About.astro';
 import Contact from '../../components/Contact.astro';
 import { t, getAltUrl } from '../../i18n/util';
 
@@ -25,10 +25,10 @@ const altUrl = getAltUrl(Astro.url.pathname, locale);
   <Header locale={locale} />
   <main id="main">
     <Hero locale={locale} />
-    <Currently locale={locale} />
+    <Stack locale={locale} />
+    <Services locale={locale} />
     <SelectedWork locale={locale} />
-    <Experience locale={locale} />
-    <Skills locale={locale} />
+    <About locale={locale} />
     <Contact locale={locale} />
   </main>
   <Footer locale={locale} />

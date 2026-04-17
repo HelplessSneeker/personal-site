@@ -18,10 +18,26 @@ export interface Project {
   status: ProjectStatus;
   links?: ProjectLink[];
   visual?: 'mockup-calendar' | 'mockup-scanner' | 'mockup-healthcare' | 'mockup-industrial';
+  image?: string;
+  imageAlt?: { de: string; en: string };
   isPlaceholder?: boolean;
 }
 
 export const projects: Project[] = [
+  {
+    id: 'scanzy',
+    title: 'scanzy.at',
+    descriptionDe:
+      'Marketing-Landingpage, die ich für einen befreundeten Anbieter von 360°-Rundgängen und Drohnenvideos in Österreich umgesetzt habe. Von Konzept und Design bis zur technischen Umsetzung — ein praxisnahes Beispiel dafür, wie ich eine Landingpage aufziehe.',
+    descriptionEn:
+      'Marketing landing page I built for a friend running a 360° virtual tours and drone videos business in Austria. Concept, design, and build end-to-end — a practical example of how I approach a landing page.',
+    // TODO: Benjamin — confirm exact stack (Astro? Next? CMS?) and replace this placeholder tag
+    stack: ['[TODO: Stack bestätigen]'],
+    role: { de: 'Konzept, Design & Entwicklung', en: 'Concept, design & build' },
+    status: 'live',
+    links: [{ href: 'https://scanzy.at', labelKey: 'work.visitLink' }],
+    visual: 'mockup-scanner',
+  },
   {
     id: 'b-cal',
     title: 'b-cal',
@@ -36,21 +52,6 @@ export const projects: Project[] = [
     // TODO: Benjamin — set actual b-cal repo URL
     links: [{ href: 'https://github.com/benjamin-noessler/b-cal', labelKey: 'work.githubLink' }],
     visual: 'mockup-calendar',
-  },
-  {
-    id: 'scanzy',
-    title: 'scanzy.at',
-    // TODO: Benjamin — replace with actual description once confirmed
-    descriptionDe:
-      '[TODO: ein Satz, was scanzy.at macht und was dein Anteil war — z. B. "Dienstleister-Website für Dokumenten-Scanning, volle Entwicklung und Deployment".]',
-    descriptionEn:
-      '[TODO: one sentence about what scanzy.at does and your role — e.g. "Service website for document scanning, full development and deployment".]',
-    // TODO: Benjamin — confirm actual stack used
-    stack: ['[TODO: Stack — Next.js? Astro? CMS?]'],
-    status: 'live',
-    links: [{ href: 'https://scanzy.at', labelKey: 'work.visitLink' }],
-    visual: 'mockup-scanner',
-    isPlaceholder: true,
   },
   {
     id: 'healthcare',
