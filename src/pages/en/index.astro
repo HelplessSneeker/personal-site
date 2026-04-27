@@ -3,6 +3,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import Hero from '../../components/Hero.astro';
+import Services from '../../components/Services.astro';
 import Stack from '../../components/Stack.astro';
 import SelectedWork from '../../components/SelectedWork.astro';
 import Contact from '../../components/Contact.astro';
@@ -15,6 +16,7 @@ const altUrl = getAltUrl(Astro.url.pathname, locale);
 
 const sections = [
   { id: 'top', label: 'Start' },
+  { id: 'services', label: t(locale, 'nav.services') },
   { id: 'stack', label: t(locale, 'nav.stack') },
   { id: 'work', label: t(locale, 'nav.work') },
   { id: 'contact', label: t(locale, 'nav.contact') },
@@ -31,6 +33,7 @@ const sections = [
   <Header locale={locale} />
   <main id="main">
     <Hero locale={locale} />
+    <Services locale={locale} />
     <Stack locale={locale} />
     <SelectedWork locale={locale} />
     <Contact locale={locale} />
