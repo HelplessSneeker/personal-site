@@ -16,56 +16,112 @@ const sourceUrl = 'https://github.com/benjamin-noessler/personal-site';
 ---
 <footer class="site-footer">
   <div class="container footer-inner">
-    <p class="footer-primary">
-      © {year} Benjamin Nößler · <span>{t(locale, 'footer.builtWith')}</span> ·
-      <a href={sourceUrl} rel="noopener external" target="_blank">
-        {t(locale, 'footer.viewSource')} ↗
-      </a>
-    </p>
+    <div class="footer-col footer-mark">
+      <span class="colophon-label">Colophon</span>
+      <p class="footer-colophon">
+        {t(locale, 'footer.builtWith')} ·
+        <a href={sourceUrl} rel="noopener external" target="_blank">
+          {t(locale, 'footer.viewSource')} <span aria-hidden="true">↗</span>
+        </a>
+      </p>
+    </div>
+
+    <div class="footer-col footer-meta">
+      <span class="colophon-label">© {year}</span>
+      <p class="footer-name">Benjamin Nößler · {locale === 'de' ? 'Wien' : 'Vienna'}</p>
+    </div>
+
     <nav aria-label={locale === 'de' ? 'Rechtliches' : 'Legal'} class="footer-legal">
-      <a href={imprintPath}>{t(locale, 'footer.imprint')}</a>
-      <span aria-hidden="true">·</span>
-      <a href={privacyPath}>{t(locale, 'footer.privacy')}</a>
-      {Astro.url.pathname !== home && (
-        <>
-          <span aria-hidden="true">·</span>
-          <a href={home}>{t(locale, 'footer.backToHome')}</a>
-        </>
-      )}
+      <span class="colophon-label">{locale === 'de' ? 'Rechtliches' : 'Legal'}</span>
+      <ul>
+        <li><a href={imprintPath}>{t(locale, 'footer.imprint')}</a></li>
+        <li><a href={privacyPath}>{t(locale, 'footer.privacy')}</a></li>
+        {Astro.url.pathname !== home && (
+          <li><a href={home}>{t(locale, 'footer.backToHome')}</a></li>
+        )}
+      </ul>
     </nav>
   </div>
 </footer>
 
 <style>
   .site-footer {
-    border-top: 1px solid var(--color-border);
-    padding-block: var(--space-6) var(--space-7);
-    font-size: var(--fs-xs);
+    border-top: 1px solid var(--color-rule);
+    padding-block: var(--space-7) var(--space-7);
     color: var(--color-text-muted);
   }
+
   .footer-inner {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-5);
+  }
+  @media (min-width: 48rem) {
+    .footer-inner {
+      grid-template-columns: 1.2fr 1fr auto;
+      gap: var(--space-7);
+      align-items: start;
+    }
+  }
+
+  .footer-col {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    gap: var(--space-3) var(--space-5);
+    flex-direction: column;
+    gap: var(--space-2);
+    min-width: 0;
   }
-  .footer-primary {
-    line-height: var(--lh-snug);
+
+  .colophon-label {
+    font-family: var(--font-mono);
+    font-size: var(--fs-xs);
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-text-subtle);
   }
-  .footer-primary a {
+
+  .footer-colophon,
+  .footer-name {
+    font-size: var(--fs-sm);
+    line-height: 1.5;
+    color: var(--color-text-muted);
+    margin: 0;
+  }
+
+  .footer-colophon a {
     color: inherit;
     text-decoration: underline;
-    text-decoration-color: var(--color-border);
+    text-decoration-color: color-mix(in oklab, currentColor 25%, transparent);
+    text-underline-offset: 0.2em;
   }
-  .footer-primary a:hover {
+  .footer-colophon a:hover {
     color: var(--color-accent);
     text-decoration-color: currentColor;
   }
+
   .footer-legal {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
     gap: var(--space-2);
-    align-items: center;
+  }
+  .footer-legal ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 0;
+    font-family: var(--font-mono);
+    font-size: var(--fs-sm);
+  }
+  .footer-legal li {
+    display: inline-flex;
+    align-items: baseline;
+  }
+  .footer-legal li:not(:last-child)::after {
+    content: '·';
+    color: var(--color-text-subtle);
+    margin-inline: 0.55em;
   }
   .footer-legal a {
     color: var(--color-text-muted);

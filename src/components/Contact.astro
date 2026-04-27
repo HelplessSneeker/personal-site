@@ -15,83 +15,128 @@ const { locale } = Astro.props;
       <span class="section-label">{t(locale, 'contact.label')}</span>
       <h2 id="contact-heading" class="contact-heading">{t(locale, 'contact.heading')}</h2>
       <p class="contact-body">{t(locale, 'contact.body')}</p>
+
+      <dl class="contact-direct">
+        <div class="direct-row">
+          <dt>E-Mail</dt>
+          <dd><a href="mailto:benjamin@noessler.at">benjamin@noessler.at</a></dd>
+        </div>
+        <div class="direct-row">
+          <dt>{t(locale, 'contact.social.heading')}</dt>
+          <dd>
+            <ul class="social-list">
+              {socialLinks.map((link) => (
+                <li>
+                  <a href={link.url} rel="noopener external me" target="_blank">
+                    {link.label} <span aria-hidden="true">↗</span>
+                  </a>
+                  {link.isPlaceholder && <span class="todo-placeholder">TODO</span>}
+                </li>
+              ))}
+            </ul>
+          </dd>
+        </div>
+      </dl>
     </header>
 
     <ContactForm locale={locale} />
-
-    <aside class="contact-social">
-      <h3 class="social-heading">{t(locale, 'contact.social.heading')}</h3>
-      <ul>
-        {socialLinks.map((link) => (
-          <li>
-            <a href={link.url} rel="noopener external me" target="_blank">
-              {link.label} ↗
-            </a>
-            {link.isPlaceholder && <span class="todo-placeholder">TODO: handle</span>}
-          </li>
-        ))}
-      </ul>
-    </aside>
   </div>
 </section>
 
 <style>
-  .contact-section {
-    background: var(--color-surface);
-  }
   .contact-inner {
     display: grid;
-    gap: var(--space-7);
+    gap: var(--space-8);
     grid-template-columns: minmax(0, 1fr);
   }
-  @media (min-width: 48rem) {
+  @media (min-width: 56rem) {
     .contact-inner {
-      grid-template-columns: 1fr 1.5fr;
-      gap: var(--space-8);
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
+      gap: var(--space-9);
+      align-items: start;
     }
   }
 
   .contact-header {
-    max-width: 32ch;
-  }
-  .contact-heading {
-    font-size: var(--fs-2xl);
-    font-weight: 500;
-    letter-spacing: -0.02em;
-    margin-block: var(--space-4) var(--space-4);
-  }
-  .contact-body {
-    font-size: var(--fs-md);
-    color: var(--color-text-muted);
-    line-height: var(--lh-relaxed);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    max-width: 30rem;
   }
 
-  .contact-social {
-    grid-column: 1 / -1;
-    border-top: 1px solid var(--color-border);
-    padding-top: var(--space-5);
+  .contact-heading {
+    font-family: var(--font-display);
+    font-size: var(--fs-2xl);
+    font-weight: 500;
+    letter-spacing: -0.022em;
+    line-height: 1.05;
+    margin-block: var(--space-2) var(--space-2);
+    text-wrap: balance;
   }
-  .social-heading {
+
+  .contact-body {
+    font-size: var(--fs-md);
+    line-height: var(--lh-relaxed);
+    color: var(--color-text);
+    max-width: 42ch;
+    text-wrap: pretty;
+  }
+
+  .contact-direct {
+    margin: var(--space-5) 0 0 0;
+    padding-top: var(--space-4);
+    border-top: 1px solid var(--color-rule);
+    display: grid;
+    gap: var(--space-3);
+  }
+
+  .direct-row {
+    display: grid;
+    grid-template-columns: 5rem 1fr;
+    gap: var(--space-3);
+    align-items: baseline;
+  }
+
+  .contact-direct dt {
     font-family: var(--font-mono);
     font-size: var(--fs-xs);
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    color: var(--color-text-subtle);
     font-weight: 500;
-    margin-bottom: var(--space-3);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--color-text-subtle);
   }
-  .contact-social ul {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-5);
+
+  .contact-direct dd {
+    margin: 0;
+    font-size: var(--fs-sm);
+  }
+
+  .contact-direct a {
+    color: var(--color-accent);
+    font-family: var(--font-mono);
+  }
+
+  .social-list {
     list-style: none;
     padding: 0;
     margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    column-gap: 0;
+    font-family: var(--font-mono);
+    font-size: var(--fs-sm);
   }
-  .contact-social li {
+
+  .social-list li {
     display: inline-flex;
-    align-items: center;
+    align-items: baseline;
     gap: var(--space-2);
-    font-size: var(--fs-md);
+  }
+
+  .social-list li:not(:last-child)::after {
+    content: '·';
+    color: var(--color-text-subtle);
+    margin-inline: 0.55em;
   }
 </style>

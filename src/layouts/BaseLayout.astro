@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import ScrollSectionIndicator, { type SectionRef } from '../components/ScrollSectionIndicator.astro';
 
 export interface Props {
   title: string;
@@ -8,6 +9,7 @@ export interface Props {
   altLocaleUrl?: string;
   canonicalPath?: string;
   ogImage?: string;
+  sections?: SectionRef[];
 }
 
 const {
@@ -17,7 +19,10 @@ const {
   altLocaleUrl,
   canonicalPath = Astro.url.pathname,
   ogImage = '/og-image.png',
+  sections,
 } = Astro.props;
+
+const navLabel = locale === 'de' ? 'Seitennavigation' : 'Page sections';
 
 const siteUrl = Astro.site?.toString().replace(/\/$/, '') ?? 'https://benjamin.noessler.at';
 const canonicalUrl = `${siteUrl}${canonicalPath}`;
@@ -79,10 +84,47 @@ const personSchema = {
 
     <script is:inline type="application/ld+json" set:html={JSON.stringify(personSchema)} />
 
+    <script is:inline>
+      document.documentElement.classList.add('js');
+    </script>
+
     <slot name="head" />
   </head>
   <body>
     <a href="#main" class="visually-hidden">Skip to content</a>
     <slot />
+    {sections && sections.length > 0 && (
+      <ScrollSectionIndicator sections={sections} navLabel={navLabel} />
+    )}
+
+    <script>
+      const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const targets = document.querySelectorAll<HTMLElement>('.section:not(.hero), .site-footer');
+
+      if (prefersReduced || !('IntersectionObserver' in window)) {
+        targets.forEach((el) => el.classList.add('is-visible'));
+      } else {
+        const observer = new IntersectionObserver(
+          (entries) => {
+            for (const entry of entries) {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                observer.unobserve(entry.target);
+              }
+            }
+          },
+          { rootMargin: '0px 0px -8% 0px', threshold: 0.08 },
+        );
+
+        targets.forEach((el) => {
+          const rect = el.getBoundingClientRect();
+          if (rect.top < window.innerHeight * 0.92) {
+            el.classList.add('is-visible');
+          } else {
+            observer.observe(el);
+          }
+        });
+      }
+    </script>
   </body>
 </html>

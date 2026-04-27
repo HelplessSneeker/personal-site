@@ -1,0 +1,303 @@
+---
+export interface SectionRef {
+  id: string;
+  label: string;
+}
+
+export interface Props {
+  sections: SectionRef[];
+  navLabel?: string;
+}
+
+const { sections, navLabel = 'Page sections' } = Astro.props;
+---
+{sections.length > 0 && (
+  <nav class="scroll-indicator" aria-label={navLabel} data-scroll-indicator>
+    <ol class="ticks">
+      {sections.map((section, i) => {
+        const num = String(i + 1).padStart(2, '0');
+        return (
+          <li class="tick-item">
+            <a
+              href={`#${section.id}`}
+              class="tick"
+              aria-label={section.label}
+              data-target={section.id}
+            >
+              <span class="tick-label" aria-hidden="true">
+                <span class="tick-num">{num}</span>
+                <span class="tick-sep">/</span>
+                <span class="tick-name">{section.label}</span>
+              </span>
+              <span class="tick-line" aria-hidden="true"></span>
+            </a>
+          </li>
+        );
+      })}
+      <span class="marker" aria-hidden="true"></span>
+    </ol>
+  </nav>
+)}
+
+<style>
+  .scroll-indicator {
+    position: fixed;
+    right: clamp(var(--space-3), 2vw, var(--space-5));
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 40;
+    opacity: 0;
+    transition: opacity 300ms var(--ease-out-quart);
+    pointer-events: none;
+  }
+  .scroll-indicator.is-ready {
+    opacity: 1;
+  }
+  .scroll-indicator.is-ready .tick {
+    pointer-events: auto;
+  }
+
+  @media (max-width: 48rem) {
+    .scroll-indicator { display: none; }
+  }
+  html:not(.js) .scroll-indicator { display: none; }
+
+  .ticks {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: var(--space-4);
+    position: relative;
+  }
+
+  .tick-item {
+    display: block;
+    line-height: 1;
+  }
+
+  .tick {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-3);
+    padding: 6px 0;
+    text-decoration: none;
+    color: inherit;
+    outline-offset: 4px;
+    position: relative;
+  }
+
+  .tick-label {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: 0.04em;
+    font-feature-settings: 'ss01', 'tnum';
+    color: var(--color-text-subtle);
+    opacity: 0;
+    transform: translateX(6px);
+    transition:
+      opacity 150ms var(--ease-out-quart),
+      transform 220ms var(--ease-out-quart),
+      color 180ms var(--ease-out-quart);
+    pointer-events: none;
+    white-space: nowrap;
+    display: inline-flex;
+    gap: 0.4em;
+  }
+  .tick-num { color: var(--color-text-subtle); }
+  .tick-sep { color: var(--color-text-subtle); opacity: 0.55; }
+  .tick-name {
+    color: var(--color-text-muted);
+    text-transform: lowercase;
+  }
+
+  .tick[aria-current="true"] .tick-label,
+  .tick:hover .tick-label,
+  .tick:focus-visible .tick-label {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  .tick[aria-current="true"] .tick-name {
+    color: var(--color-text);
+  }
+
+  .tick-line {
+    display: block;
+    width: 16px;
+    height: 1px;
+    background: var(--color-border-strong);
+    transition:
+      width 180ms var(--ease-out-quart),
+      background 180ms var(--ease-out-quart);
+  }
+  .tick:hover .tick-line,
+  .tick:focus-visible .tick-line {
+    width: 20px;
+    background: var(--color-text-muted);
+  }
+
+  .marker {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 24px;
+    height: 1px;
+    background: var(--color-accent);
+    transform: translate3d(0, 0, 0);
+    will-change: transform;
+    pointer-events: none;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .marker {
+      transition: transform 120ms linear;
+    }
+  }
+</style>
+
+<script>
+  (() => {
+    const indicator = document.querySelector<HTMLElement>('[data-scroll-indicator]');
+    if (!indicator) return;
+
+    const ticksEl = indicator.querySelector<HTMLElement>('.ticks');
+    const marker = indicator.querySelector<HTMLElement>('.marker');
+    const tickEls = Array.from(indicator.querySelectorAll<HTMLAnchorElement>('.tick'));
+    if (!ticksEl || !marker || tickEls.length === 0) return;
+
+    const sectionEls = tickEls
+      .map((t) => document.getElementById(t.dataset.target || ''))
+      .filter((el): el is HTMLElement => !!el);
+    if (sectionEls.length !== tickEls.length) return;
+
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const header = document.querySelector<HTMLElement>('.site-header');
+
+    let tickYs: number[] = [];
+    let sectionTops: number[] = [];
+
+    const recompute = () => {
+      const base = ticksEl.getBoundingClientRect().top;
+      tickYs = tickEls.map((t) => {
+        const r = t.getBoundingClientRect();
+        return r.top + r.height / 2 - base;
+      });
+      sectionTops = sectionEls.map((el) => el.getBoundingClientRect().top + window.scrollY);
+    };
+
+    let activeIndex = -1;
+    const setActive = (i: number) => {
+      if (i === activeIndex) return;
+      activeIndex = i;
+      tickEls.forEach((t, j) => {
+        if (j === i) t.setAttribute('aria-current', 'true');
+        else t.removeAttribute('aria-current');
+      });
+    };
+
+    const activeForScroll = () => {
+      const mid = window.scrollY + window.innerHeight / 2;
+      for (let i = sectionTops.length - 1; i >= 0; i--) {
+        if (mid >= sectionTops[i]) return i;
+      }
+      return 0;
+    };
+
+    let currentY = 0;
+    let lastFrame = 0;
+    let running = false;
+
+    const frame = (now: number) => {
+      const dt = Math.min((now - lastFrame) / 1000, 0.05);
+      lastFrame = now;
+
+      const idx = activeForScroll();
+      setActive(idx);
+      const targetY = tickYs[idx] ?? 0;
+
+      const tau = 0.12;
+      const alpha = 1 - Math.exp(-dt / tau);
+      currentY += (targetY - currentY) * alpha;
+
+      if (Math.abs(targetY - currentY) < 0.15) {
+        currentY = targetY;
+        marker.style.transform = `translate3d(0, ${currentY}px, 0)`;
+        running = false;
+        return;
+      }
+      marker.style.transform = `translate3d(0, ${currentY}px, 0)`;
+      requestAnimationFrame(frame);
+    };
+
+    const startLoop = () => {
+      if (running) return;
+      running = true;
+      lastFrame = performance.now();
+      requestAnimationFrame(frame);
+    };
+
+    const snapToActive = () => {
+      const idx = activeForScroll();
+      setActive(idx);
+      currentY = tickYs[idx] ?? 0;
+      marker.style.transform = `translate3d(0, ${currentY}px, 0)`;
+    };
+
+    tickEls.forEach((link, i) => {
+      link.addEventListener('click', (event) => {
+        event.preventDefault();
+        const el = sectionEls[i];
+        const headerH = header?.getBoundingClientRect().height ?? 0;
+        const top = el.getBoundingClientRect().top + window.scrollY - headerH - 8;
+        window.scrollTo({
+          top: Math.max(0, top),
+          behavior: prefersReducedMotion ? 'auto' : 'smooth',
+        });
+        if (!prefersReducedMotion) startLoop();
+      });
+    });
+
+    recompute();
+    snapToActive();
+    window.setTimeout(() => indicator.classList.add('is-ready'), 500);
+
+    if (prefersReducedMotion) {
+      const onScroll = () => {
+        const idx = activeForScroll();
+        if (idx === activeIndex) return;
+        setActive(idx);
+        currentY = tickYs[idx] ?? 0;
+        marker.style.transform = `translate3d(0, ${currentY}px, 0)`;
+      };
+      window.addEventListener('scroll', onScroll, { passive: true });
+    } else {
+      window.addEventListener('scroll', startLoop, { passive: true });
+    }
+
+    let resizeTimer = 0;
+    window.addEventListener('resize', () => {
+      window.clearTimeout(resizeTimer);
+      resizeTimer = window.setTimeout(() => {
+        recompute();
+        if (prefersReducedMotion) snapToActive();
+        else startLoop();
+      }, 80);
+    });
+
+    window.addEventListener('load', () => {
+      recompute();
+      snapToActive();
+    });
+
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(() => {
+        recompute();
+        snapToActive();
+      }).catch(() => {});
+    }
+  })();
+</script>

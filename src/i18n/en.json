@@ -13,16 +13,13 @@
     "backToTop": "Back to top"
   },
   "hero": {
-    "headline": "Benjamin Nößler — fullstack developer based in Vienna.",
-    "body": "I build web apps, APIs, and landing pages — mostly in TypeScript. By day on the Wien Digital team, alongside selected freelance work on the side.",
-    "availability": "Open to new projects · Vienna or remote",
+    "headline": "Benjamin Nößler",
+    "body": "Fullstack developer based in Vienna. TypeScript, Node, Postgres — and a committed Linux user.",
     "ctaPrimary": "See work",
-    "ctaSecondary": "Contact",
-    "portraitPlaceholder": "Portrait · 800 × 1000"
+    "ctaSecondary": "Contact"
   },
   "stack": {
     "label": "Stack",
-    "intro": "What I reach for most.",
     "groups": {
       "languages": {
         "label": "Languages",
@@ -55,6 +52,7 @@
       "infra": {
         "label": "Infrastructure",
         "items": [
+          "Linux",
           "Hetzner",
           "Coolify",
           "Docker"
@@ -94,7 +92,6 @@
   },
   "work": {
     "label": "Selected work",
-    "intro": "A selection — from landing pages to B2B web apps.",
     "roleLabel": "Role",
     "stackLabel": "Stack",
     "visitLink": "Visit website",
@@ -111,7 +108,7 @@
   "contact": {
     "label": "Contact",
     "heading": "Tell me about your project.",
-    "body": "Landing page redesign, fullstack build, or just a quick gut-check — send me a few sentences about what you're planning. I usually reply within 48 hours, in English or German.",
+    "body": "Send me a few sentences about your project. I usually reply within 48 hours.",
     "form": {
       "nameLabel": "Name",
       "namePlaceholder": "Your name",

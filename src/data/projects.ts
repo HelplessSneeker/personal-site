@@ -11,13 +11,14 @@ export interface Project {
   descriptionDe: string;
   descriptionEn: string;
   stack: string[];
+  context?: { de: string; en: string };
   role?: { de: string; en: string };
   years?: string;
   statusDe?: string;
   statusEn?: string;
   status: ProjectStatus;
   links?: ProjectLink[];
-  visual?: 'mockup-calendar' | 'mockup-scanner' | 'mockup-healthcare' | 'mockup-industrial';
+  visual?: 'mockup-calendar' | 'mockup-scanner' | 'mockup-healthcare' | 'mockup-industrial' | 'mockup-network';
   image?: string;
   imageAlt?: { de: string; en: string };
   isPlaceholder?: boolean;
@@ -31,12 +32,26 @@ export const projects: Project[] = [
       'Marketing-Landingpage, die ich für einen befreundeten Anbieter von 360°-Rundgängen und Drohnenvideos in Österreich umgesetzt habe. Von Konzept und Design bis zur technischen Umsetzung — ein praxisnahes Beispiel dafür, wie ich eine Landingpage aufziehe.',
     descriptionEn:
       'Marketing landing page I built for a friend running a 360° virtual tours and drone videos business in Austria. Concept, design, and build end-to-end — a practical example of how I approach a landing page.',
-    // TODO: Benjamin — confirm exact stack (Astro? Next? CMS?) and replace this placeholder tag
-    stack: ['[TODO: Stack bestätigen]'],
+    stack: ['TypeScript', 'React', 'Vite', 'Tailwind CSS', 'shadcn/ui'],
+    context: { de: 'Freelance', en: 'Freelance' },
     role: { de: 'Konzept, Design & Entwicklung', en: 'Concept, design & build' },
     status: 'live',
     links: [{ href: 'https://scanzy.at', labelKey: 'work.visitLink' }],
     visual: 'mockup-scanner',
+  },
+  {
+    id: 'foundersgroup',
+    title: 'foundersgroup.at',
+    descriptionDe:
+      'Marketing-Landingpage, die ich für einen Freund umgesetzt habe — sein Kärntner Verein ist eine kuratierte Member-Community für junge Gründer:innen, Athlet:innen und ambitionierte Macher:innen zwischen 18 und 30. Konzept, Design und Umsetzung von der Idee bis zum Launch.',
+    descriptionEn:
+      'Marketing landing page I built for a friend — his Carinthia-based nonprofit is a curated member community for young founders, athletes, and ambitious 18- to 30-year-olds. Concept, design, and build end-to-end.',
+    stack: ['TypeScript', 'Astro', 'Tailwind CSS'],
+    context: { de: 'Freelance', en: 'Freelance' },
+    role: { de: 'Konzept, Design & Entwicklung', en: 'Concept, design & build' },
+    status: 'live',
+    links: [{ href: 'https://foundersgroup.at', labelKey: 'work.visitLink' }],
+    visual: 'mockup-network',
   },
   {
     id: 'b-cal',
@@ -46,6 +61,8 @@ export const projects: Project[] = [
     descriptionEn:
       'Self-hosted calendar application with event reminders and multi-user support. Built as a proof of concept — designing, developing, and deploying a complete web application end-to-end.',
     stack: ['NestJS', 'Next.js', 'PostgreSQL', 'Redis', 'BullMQ', 'Prisma', 'Coolify', 'Hetzner'],
+    context: { de: 'Nebenprojekt', en: 'Personal' },
+    role: { de: 'Proof of Concept', en: 'Proof of concept' },
     statusDe: 'Archiviert · GitHub Repo verfügbar',
     statusEn: 'Archived · GitHub repo available',
     status: 'archived',
@@ -61,7 +78,8 @@ export const projects: Project[] = [
     descriptionEn:
       'Communication platform between medical practices and laboratories, with end-to-end encryption and GDPR-compliant patient data handling. Native iOS and Android apps via Capacitor from a shared codebase.',
     stack: ['React', 'Capacitor', 'Vite', 'NestJS', 'Objection.js', 'PostgreSQL'],
-    role: { de: 'Fullstack Developer bei Labuniq', en: 'Fullstack Developer at Labuniq' },
+    context: { de: 'Angestellt · Labuniq', en: 'Employed · Labuniq' },
+    role: { de: 'Fullstack Developer', en: 'Fullstack Developer' },
     years: '2024—2025',
     status: 'case-study',
     visual: 'mockup-healthcare',
@@ -74,7 +92,8 @@ export const projects: Project[] = [
     descriptionEn:
       'Backend for automated calibration of pipe production machinery with SAP integration. Precise calculation algorithms for production planning and control.',
     stack: ['Java EE', 'Spring Boot', 'Hibernate', 'SAP'],
-    role: { de: 'Junior Software Developer bei Amiblu', en: 'Junior Software Developer at Amiblu' },
+    context: { de: 'Angestellt · Amiblu', en: 'Employed · Amiblu' },
+    role: { de: 'Junior Software Developer', en: 'Junior Software Developer' },
     years: '2022—2023',
     status: 'case-study',
     visual: 'mockup-industrial',

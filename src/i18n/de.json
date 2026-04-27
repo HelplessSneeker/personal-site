@@ -13,16 +13,13 @@
     "backToTop": "Zurück nach oben"
   },
   "hero": {
-    "headline": "Benjamin Nößler — Fullstack-Entwickler aus Wien.",
-    "body": "Ich baue Webapps, APIs und Landingpages — meistens in TypeScript. Tagsüber im Team von Wien Digital, daneben ausgewählte Freelance-Projekte.",
-    "availability": "Offen für neue Projekte · Wien oder remote",
+    "headline": "Benjamin Nößler",
+    "body": "Fullstack-Entwickler aus Wien. TypeScript, Node, Postgres — und überzeugter Linux-Nutzer.",
     "ctaPrimary": "Arbeiten ansehen",
-    "ctaSecondary": "Kontakt",
-    "portraitPlaceholder": "Porträt · 800 × 1000"
+    "ctaSecondary": "Kontakt"
   },
   "stack": {
     "label": "Stack",
-    "intro": "Was ich meistens verwende.",
     "groups": {
       "languages": {
         "label": "Sprachen",
@@ -55,6 +52,7 @@
       "infra": {
         "label": "Infrastruktur",
         "items": [
+          "Linux",
           "Hetzner",
           "Coolify",
           "Docker"
@@ -94,7 +92,6 @@
   },
   "work": {
     "label": "Ausgewählte Arbeiten",
-    "intro": "Ein Auszug — von Landingpages bis zu B2B-Webapps.",
     "roleLabel": "Rolle",
     "stackLabel": "Stack",
     "visitLink": "Website besuchen",
@@ -111,7 +108,7 @@
   "contact": {
     "label": "Kontakt",
     "heading": "Erzähl mir von deinem Projekt.",
-    "body": "Ob Landingpage-Redesign, Fullstack-Projekt oder einfach eine kurze Einschätzung — schreib mir ein paar Sätze zur Anfrage. Antwort in der Regel innerhalb von 48 Stunden, auf Deutsch oder Englisch.",
+    "body": "Schreib mir ein paar Sätze zur Anfrage. Antwort meist innerhalb von 48 Stunden.",
     "form": {
       "nameLabel": "Name",
       "namePlaceholder": "Dein Name",

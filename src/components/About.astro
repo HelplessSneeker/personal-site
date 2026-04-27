@@ -7,14 +7,19 @@ export interface Props {
 
 const { locale } = Astro.props;
 const paragraphs = tArray(locale, 'about.bodyParagraphs');
+const byline = locale === 'de' ? 'Benjamin Nößler · Wien' : 'Benjamin Nößler · Vienna';
 ---
 <section class="section about-section" id="about" aria-labelledby="about-heading">
   <div class="container about-inner">
     <h2 id="about-heading" class="section-label">{t(locale, 'about.label')}</h2>
     <div class="about-body">
-      {paragraphs.map((paragraph) => (
-        <p class="about-text">{paragraph}</p>
+      {paragraphs.map((paragraph, i) => (
+        <p class="about-text" data-i={i}>{paragraph}</p>
       ))}
+      <p class="about-byline" aria-hidden="true">
+        <span class="byline-rule"></span>
+        <span class="byline-text">{byline}</span>
+      </p>
     </div>
   </div>
 </section>
@@ -23,24 +28,55 @@ const paragraphs = tArray(locale, 'about.bodyParagraphs');
   .about-inner {
     display: grid;
     grid-template-columns: 1fr;
-    gap: var(--space-4);
+    gap: var(--space-5);
   }
   @media (min-width: 48rem) {
     .about-inner {
-      grid-template-columns: 12rem 1fr;
+      grid-template-columns: minmax(9rem, 12rem) 1fr;
       gap: var(--space-8);
       align-items: start;
     }
   }
+
   .about-body {
     display: flex;
     flex-direction: column;
-    gap: var(--space-4);
-    max-width: var(--container-prose);
+    gap: var(--space-5);
+    max-width: 60ch;
   }
+
   .about-text {
     font-size: var(--fs-md);
     line-height: var(--lh-relaxed);
     color: var(--color-text);
+    text-wrap: pretty;
+  }
+
+  .about-text[data-i="0"]::first-letter {
+    font-family: var(--font-display);
+    font-size: 1.4em;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    padding-right: 0.02em;
+  }
+
+  .about-byline {
+    margin-top: var(--space-2);
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    font-family: var(--font-mono);
+    font-size: var(--fs-xs);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-text-subtle);
+  }
+
+  .byline-rule {
+    display: block;
+    width: 2.5rem;
+    height: 1px;
+    background: var(--color-border-strong);
+    flex-shrink: 0;
   }
 </style>

@@ -6,182 +6,289 @@ import ProjectMockup from './ProjectMockup.astro';
 export interface Props {
   project: Project;
   locale: Locale;
+  index: number;
 }
 
-const { project, locale } = Astro.props;
+const { project, locale, index } = Astro.props;
 const description = locale === 'de' ? project.descriptionDe : project.descriptionEn;
 const status = locale === 'de' ? project.statusDe : project.statusEn;
 const role = project.role ? (locale === 'de' ? project.role.de : project.role.en) : undefined;
+const context = project.context ? (locale === 'de' ? project.context.de : project.context.en) : undefined;
 const imageAlt = project.imageAlt ? (locale === 'de' ? project.imageAlt.de : project.imageAlt.en) : project.title;
+
+const contextLabel = locale === 'de' ? 'Kontext' : 'Context';
+const roleLabel = locale === 'de' ? 'Rolle' : 'Role';
+const yearsLabel = locale === 'de' ? 'Jahr' : 'Year';
+const statusLabel = locale === 'de' ? 'Status' : 'Status';
+const statusMap: Record<Project['status'], { de: string; en: string }> = {
+  live: { de: 'Live', en: 'Live' },
+  archived: { de: 'Archiviert', en: 'Archived' },
+  'in-development': { de: 'In Arbeit', en: 'In progress' },
+  'case-study': { de: 'Case Study', en: 'Case study' },
+};
+const statusText = status ?? (locale === 'de' ? statusMap[project.status].de : statusMap[project.status].en);
 ---
-<article class="project">
-  <div class="project-visual">
-    {project.image ? (
-      <img
-        class="project-image"
-        src={project.image}
-        alt={imageAlt}
-        loading="lazy"
-        decoding="async"
-        width="1200"
-        height="900"
-      />
-    ) : project.visual ? (
-      <ProjectMockup variant={project.visual} title={project.title} />
-    ) : null}
-  </div>
-  <div class="project-body">
-    <header class="project-header">
-      <h3 class="project-title">{project.title}</h3>
-      {project.isPlaceholder && (
-        <span class="todo-placeholder">TODO</span>
-      )}
-    </header>
-
-    <p class="project-desc">{description}</p>
-
-    {role && (
-      <p class="project-meta">
-        <span class="meta-label">{t(locale, 'work.roleLabel')}</span>
-        {role}{project.years && <span class="project-years"> · {project.years}</span>}
-      </p>
+<article class="project" role="listitem">
+  <header class="project-head">
+    <span class="project-index" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
+    <h3 class="project-title">{project.title}</h3>
+    {project.isPlaceholder && (
+      <span class="todo-placeholder">TODO</span>
     )}
+  </header>
 
-    <div class="project-stack">
-      <span class="meta-label">{t(locale, 'work.stackLabel')}</span>
-      <ul>
-        {project.stack.map((tech) => (
-          <li class={tech.startsWith('[TODO') ? 'stack-item stack-item--todo' : 'stack-item'}>
-            {tech}
-          </li>
-        ))}
-      </ul>
+  <div class="project-body">
+    <div class="project-text">
+      <p class="project-desc">{description}</p>
+
+      <dl class="project-meta">
+        {context && (
+          <div class="meta-row">
+            <dt>{contextLabel}</dt>
+            <dd>{context}</dd>
+          </div>
+        )}
+
+        {role && (
+          <div class="meta-row">
+            <dt>{roleLabel}</dt>
+            <dd>{role}</dd>
+          </div>
+        )}
+
+        {project.years && (
+          <div class="meta-row">
+            <dt>{yearsLabel}</dt>
+            <dd><span class="tabular">{project.years}</span></dd>
+          </div>
+        )}
+
+        <div class="meta-row">
+          <dt>{statusLabel}</dt>
+          <dd>{statusText}</dd>
+        </div>
+
+        <div class="meta-row">
+          <dt>{t(locale, 'work.stackLabel')}</dt>
+          <dd>
+            <ul class="stack-list">
+              {project.stack.map((tech) => (
+                <li class={tech.startsWith('[TODO') ? 'stack-tech stack-tech--todo' : 'stack-tech'}>
+                  {tech}
+                </li>
+              ))}
+            </ul>
+          </dd>
+        </div>
+
+        {project.links && project.links.length > 0 && (
+          <div class="meta-row">
+            <dt>{locale === 'de' ? 'Links' : 'Links'}</dt>
+            <dd>
+              <ul class="link-list">
+                {project.links.map((link) => (
+                  <li>
+                    <a href={link.href} rel="noopener external" target="_blank">
+                      {t(locale, link.labelKey)} <span aria-hidden="true">↗</span>
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </dd>
+          </div>
+        )}
+      </dl>
     </div>
 
-    {status && <p class="project-status">{status}</p>}
-
-    {project.links && project.links.length > 0 && (
-      <ul class="project-links">
-        {project.links.map((link) => (
-          <li>
-            <a href={link.href} rel="noopener external" target="_blank">
-              {t(locale, link.labelKey)} ↗
-            </a>
-          </li>
-        ))}
-      </ul>
-    )}
+    <figure class="project-figure">
+      {project.image ? (
+        <img
+          class="project-image"
+          src={project.image}
+          alt={imageAlt}
+          loading="lazy"
+          decoding="async"
+          width="1200"
+          height="900"
+        />
+      ) : project.visual ? (
+        <ProjectMockup variant={project.visual} title={project.title} />
+      ) : null}
+    </figure>
   </div>
 </article>
 
 <style>
   .project {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-    gap: var(--space-6);
-    padding-block: var(--space-6);
-    border-top: 1px solid var(--color-border);
+    display: block;
+    padding-block: var(--space-7);
+    border-bottom: 1px solid var(--color-rule);
   }
-  .project:first-child {
-    border-top: none;
-    padding-top: 0;
-  }
-  @media (max-width: 48rem) {
+  @media (min-width: 48rem) {
     .project {
-      grid-template-columns: 1fr;
-      gap: var(--space-4);
+      padding-block: var(--space-8);
     }
   }
 
-  .project-visual {
+  .project-head {
+    display: grid;
+    grid-template-columns: 3rem 1fr auto;
+    gap: var(--space-3);
+    align-items: baseline;
+    margin-bottom: var(--space-5);
+  }
+
+  .project-index {
+    font-family: var(--font-mono);
+    font-size: var(--fs-xs);
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    color: var(--color-text-subtle);
+    font-variant-numeric: tabular-nums;
+    padding-top: 0.4em;
+  }
+
+  .project-title {
+    font-family: var(--font-display);
+    font-size: var(--fs-2xl);
+    font-weight: 500;
+    letter-spacing: -0.022em;
+    line-height: 1.05;
+    color: var(--color-text);
+    text-wrap: balance;
+  }
+
+  .project-body {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+  @media (min-width: 52rem) {
+    .project-body {
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+      gap: var(--space-8);
+      align-items: start;
+      padding-left: 3rem;
+    }
+  }
+  @media (min-width: 52rem) and (max-width: 64rem) {
+    .project-body {
+      padding-left: 0;
+    }
+  }
+
+  .project-text {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-5);
     min-width: 0;
   }
+
+  .project-desc {
+    font-size: var(--fs-md);
+    line-height: var(--lh-relaxed);
+    color: var(--color-text);
+    max-width: 60ch;
+  }
+
+  .project-meta {
+    display: grid;
+    gap: var(--space-3);
+    margin: 0;
+    padding-top: var(--space-4);
+    border-top: 1px solid var(--color-rule);
+  }
+
+  .meta-row {
+    display: grid;
+    grid-template-columns: 5rem 1fr;
+    gap: var(--space-3);
+    align-items: baseline;
+  }
+
+  .project-meta dt {
+    font-family: var(--font-mono);
+    font-size: var(--fs-xs);
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--color-text-subtle);
+  }
+
+  .project-meta dd {
+    margin: 0;
+    font-size: var(--fs-sm);
+    color: var(--color-text);
+    line-height: 1.5;
+    min-width: 0;
+  }
+
+  .sep {
+    color: var(--color-text-subtle);
+  }
+
+  .stack-list,
+  .link-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    font-family: var(--font-mono);
+    font-size: var(--fs-sm);
+    color: var(--color-text-muted);
+  }
+
+  .stack-list li,
+  .link-list li {
+    display: inline-flex;
+    align-items: baseline;
+  }
+
+  .stack-list li:not(:last-child)::after,
+  .link-list li:not(:last-child)::after {
+    content: '·';
+    color: var(--color-text-subtle);
+    margin-inline: 0.55em;
+  }
+
+  .stack-tech {
+    color: var(--color-text);
+  }
+  .stack-tech--todo {
+    color: var(--color-todo-text);
+    background: var(--color-todo-bg);
+    padding: 1px 6px;
+    border-radius: var(--radius-sm);
+    border: 1px dashed var(--color-todo-border);
+  }
+
+  .link-list a {
+    color: var(--color-accent);
+    font-family: var(--font-mono);
+  }
+
+  .project-figure {
+    margin: 0;
+    min-width: 0;
+  }
+
   .project-image {
     width: 100%;
     aspect-ratio: 4 / 3;
     object-fit: cover;
     border: 1px solid var(--color-border);
-    border-radius: var(--radius-md);
     background: var(--color-surface);
   }
-  .project-body {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-3);
-    min-width: 0;
-  }
-  .project-header {
-    display: flex;
-    align-items: center;
-    gap: var(--space-3);
-    flex-wrap: wrap;
-  }
-  .project-title {
-    font-size: var(--fs-xl);
-    font-weight: 500;
-    letter-spacing: -0.015em;
-  }
-  .project-desc {
-    font-size: var(--fs-md);
-    line-height: var(--lh-relaxed);
-    color: var(--color-text);
-  }
-  .project-meta {
-    font-size: var(--fs-sm);
-    color: var(--color-text-muted);
-  }
-  .project-years {
-    color: var(--color-text-subtle);
-    font-variant-numeric: tabular-nums;
-  }
-  .meta-label {
-    display: inline-block;
-    font-family: var(--font-mono);
-    font-size: var(--fs-xs);
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    color: var(--color-text-subtle);
-    margin-right: var(--space-2);
-  }
 
-  .project-stack ul {
-    display: inline-flex;
-    flex-wrap: wrap;
-    gap: var(--space-2);
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    vertical-align: middle;
-  }
-  .stack-item {
-    font-family: var(--font-mono);
-    font-size: var(--fs-xs);
-    padding: 2px 8px;
-    border: 1px solid var(--color-border);
-    border-radius: 4px;
-    color: var(--color-text-muted);
-    background: var(--color-surface);
-  }
-  .stack-item--todo {
-    border-style: dashed;
-    border-color: var(--color-todo-border);
-    color: var(--color-todo-text);
-    background: var(--color-todo-bg);
-  }
-
-  .project-status {
-    font-size: var(--fs-xs);
-    color: var(--color-text-subtle);
-    font-style: italic;
-  }
-
-  .project-links {
-    list-style: none;
-    padding: 0;
-    margin-top: var(--space-2);
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-4);
-    font-size: var(--fs-sm);
+  @media (max-width: 52rem) {
+    .project-head {
+      grid-template-columns: 2.2rem 1fr auto;
+      margin-bottom: var(--space-4);
+    }
+    .meta-row {
+      grid-template-columns: 4.2rem 1fr;
+    }
   }
 </style>

@@ -9,25 +9,24 @@ export interface Props {
 
 const { locale } = Astro.props;
 ---
-<section class="section" id="work" aria-labelledby="work-heading">
+<section class="section work-section" id="work" aria-labelledby="work-heading">
   <div class="container">
     <h2 id="work-heading" class="section-label">{t(locale, 'work.label')}</h2>
-    <p class="work-intro">{t(locale, 'work.intro')}</p>
-    <div class="project-list">
-      {projects.map((project) => <ProjectCard project={project} locale={locale} />)}
+
+    <div class="project-list" role="list">
+      {projects.map((project, i) => (
+        <ProjectCard project={project} locale={locale} index={i} />
+      ))}
     </div>
   </div>
 </section>
 
 <style>
-  .work-intro {
-    font-size: var(--fs-md);
-    color: var(--color-text-muted);
-    max-width: var(--container-prose);
-    margin-bottom: var(--space-6);
-  }
   .project-list {
     display: flex;
     flex-direction: column;
+    gap: 0;
+    border-top: 1px solid var(--color-rule);
+    margin-top: var(--space-6);
   }
 </style>

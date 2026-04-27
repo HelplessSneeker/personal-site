@@ -4,9 +4,7 @@ import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import Hero from '../../components/Hero.astro';
 import Stack from '../../components/Stack.astro';
-import Services from '../../components/Services.astro';
 import SelectedWork from '../../components/SelectedWork.astro';
-import About from '../../components/About.astro';
 import Contact from '../../components/Contact.astro';
 import { t, getAltUrl } from '../../i18n/util';
 
@@ -14,6 +12,13 @@ export const prerender = true;
 
 const locale = 'en' as const;
 const altUrl = getAltUrl(Astro.url.pathname, locale);
+
+const sections = [
+  { id: 'top', label: 'Start' },
+  { id: 'stack', label: t(locale, 'nav.stack') },
+  { id: 'work', label: t(locale, 'nav.work') },
+  { id: 'contact', label: t(locale, 'nav.contact') },
+];
 ---
 <BaseLayout
   title={t(locale, 'site.title')}
@@ -21,14 +26,13 @@ const altUrl = getAltUrl(Astro.url.pathname, locale);
   locale={locale}
   altLocaleUrl={altUrl}
   canonicalPath="/en/"
+  sections={sections}
 >
   <Header locale={locale} />
   <main id="main">
     <Hero locale={locale} />
     <Stack locale={locale} />
-    <Services locale={locale} />
     <SelectedWork locale={locale} />
-    <About locale={locale} />
     <Contact locale={locale} />
   </main>
   <Footer locale={locale} />

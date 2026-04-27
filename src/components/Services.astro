@@ -8,6 +8,7 @@ export interface Props {
 const { locale } = Astro.props;
 const landingBullets = tArray(locale, 'services.landing.bullets');
 const fullstackBullets = tArray(locale, 'services.fullstack.bullets');
+const includesLabel = locale === 'de' ? 'Umfang' : 'Includes';
 ---
 <section class="section services-section" id="services" aria-labelledby="services-heading">
   <div class="container">
@@ -16,29 +17,31 @@ const fullstackBullets = tArray(locale, 'services.fullstack.bullets');
 
     <div class="services-grid">
       <article class="service">
+        <p class="service-index" aria-hidden="true"><span>01</span><span class="rule"></span></p>
         <h3 class="service-title">{t(locale, 'services.landing.title')}</h3>
         <p class="service-desc">{t(locale, 'services.landing.description')}</p>
-        <ul class="service-bullets">
-          {landingBullets.map((bullet) => (
-            <li>
-              <span class="check" aria-hidden="true">→</span>
-              <span>{bullet}</span>
-            </li>
-          ))}
-        </ul>
+        <dl class="service-meta">
+          <dt>{includesLabel}</dt>
+          <dd>
+            <ul>
+              {landingBullets.map((bullet) => <li>{bullet}</li>)}
+            </ul>
+          </dd>
+        </dl>
       </article>
 
       <article class="service">
+        <p class="service-index" aria-hidden="true"><span>02</span><span class="rule"></span></p>
         <h3 class="service-title">{t(locale, 'services.fullstack.title')}</h3>
         <p class="service-desc">{t(locale, 'services.fullstack.description')}</p>
-        <ul class="service-bullets">
-          {fullstackBullets.map((bullet) => (
-            <li>
-              <span class="check" aria-hidden="true">→</span>
-              <span>{bullet}</span>
-            </li>
-          ))}
-        </ul>
+        <dl class="service-meta">
+          <dt>{includesLabel}</dt>
+          <dd>
+            <ul>
+              {fullstackBullets.map((bullet) => <li>{bullet}</li>)}
+            </ul>
+          </dd>
+        </dl>
       </article>
     </div>
   </div>
@@ -46,20 +49,25 @@ const fullstackBullets = tArray(locale, 'services.fullstack.bullets');
 
 <style>
   .services-intro {
-    font-size: var(--fs-md);
-    color: var(--color-text-muted);
-    max-width: var(--container-prose);
-    margin-bottom: var(--space-6);
+    font-size: var(--fs-lg);
+    line-height: 1.4;
+    color: var(--color-text);
+    max-width: 38rem;
+    margin-bottom: var(--space-8);
+    text-wrap: pretty;
   }
+
   .services-grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: var(--space-5);
+    gap: var(--space-8);
   }
-  @media (min-width: 48rem) {
+
+  @media (min-width: 52rem) {
     .services-grid {
       grid-template-columns: 1fr 1fr;
-      gap: var(--space-6);
+      column-gap: var(--space-8);
+      row-gap: var(--space-7);
       align-items: start;
     }
   }
@@ -68,42 +76,86 @@ const fullstackBullets = tArray(locale, 'services.fullstack.bullets');
     display: flex;
     flex-direction: column;
     gap: var(--space-4);
-    padding: var(--space-6);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-md);
-    background: var(--color-bg);
+    min-width: 0;
+  }
+
+  .service-index {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    margin: 0 0 var(--space-2) 0;
+    font-family: var(--font-mono);
+    font-size: var(--fs-xs);
+    letter-spacing: 0.08em;
+    color: var(--color-accent);
+    font-feature-settings: 'ss01';
+  }
+  .service-index .rule {
+    flex: 1;
+    height: 1px;
+    background: var(--color-rule);
+    display: block;
   }
 
   .service-title {
+    font-family: var(--font-display);
     font-size: var(--fs-xl);
     font-weight: 500;
-    letter-spacing: -0.015em;
+    letter-spacing: -0.018em;
+    line-height: 1.1;
     color: var(--color-text);
+    text-wrap: balance;
   }
+
   .service-desc {
     font-size: var(--fs-md);
     line-height: var(--lh-relaxed);
     color: var(--color-text);
+    max-width: 36ch;
   }
-  .service-bullets {
+
+  .service-meta {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-2);
+    margin: var(--space-2) 0 0 0;
+    padding-top: var(--space-4);
+    border-top: 1px solid var(--color-rule);
+  }
+
+  .service-meta dt {
+    font-family: var(--font-mono);
+    font-size: var(--fs-xs);
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--color-text-subtle);
+  }
+
+  .service-meta dd {
+    margin: 0;
+  }
+
+  .service-meta ul {
     list-style: none;
     padding: 0;
     margin: 0;
     display: flex;
     flex-direction: column;
-    gap: var(--space-2);
+    gap: var(--space-1);
+    font-family: var(--font-mono);
     font-size: var(--fs-sm);
-  }
-  .service-bullets li {
-    display: flex;
-    align-items: baseline;
-    gap: var(--space-3);
     color: var(--color-text);
   }
-  .check {
-    color: var(--color-accent);
-    font-family: var(--font-mono);
-    font-weight: 500;
-    flex-shrink: 0;
+
+  .service-meta li {
+    display: grid;
+    grid-template-columns: 1.5rem 1fr;
+    align-items: baseline;
+  }
+
+  .service-meta li::before {
+    content: '—';
+    color: var(--color-text-subtle);
   }
 </style>
