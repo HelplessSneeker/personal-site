@@ -8,7 +8,7 @@ const contactSchema = z.object({
   name: z.string().trim().min(1).max(200),
   email: z.email().trim().max(320),
   message: z.string().trim().min(20).max(5000),
-  projectType: z.enum(['landing', 'fullstack', 'other']).optional(),
+  projectType: z.enum(['landing', 'fullstack', 'other']),
   turnstileToken: z.string().min(1).optional(),
   locale: z.enum(['de', 'en']).default('de'),
 });
@@ -82,7 +82,7 @@ function buildEmailBody(payload: z.infer<typeof contactSchema>): { text: string;
   const text = [
     `${labels.name}: ${payload.name}`,
     `${labels.email}: ${payload.email}`,
-    payload.projectType ? `${labels.projectType}: ${payload.projectType}` : null,
+    `${labels.projectType}: ${payload.projectType}`,
     '',
     payload.message,
   ].filter(Boolean).join('\n');

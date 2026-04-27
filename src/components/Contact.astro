@@ -16,6 +16,11 @@ const { locale } = Astro.props;
       <h2 id="contact-heading" class="contact-heading">{t(locale, 'contact.heading')}</h2>
       <p class="contact-body">{t(locale, 'contact.body')}</p>
 
+      <p class="contact-call">
+        {t(locale, 'contact.callBooking.intro')}{' '}
+        <span class="todo-placeholder">{t(locale, 'contact.callBooking.linkLabel')} →</span>
+      </p>
+
       <dl class="contact-direct">
         <div class="direct-row">
           <dt>E-Mail</dt>
@@ -80,6 +85,16 @@ const { locale } = Astro.props;
     color: var(--color-text);
     max-width: 42ch;
     text-wrap: pretty;
+  }
+
+  .contact-call {
+    font-size: var(--fs-sm);
+    color: var(--color-text-muted);
+    margin: var(--space-3) 0 0 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: var(--space-2);
   }
 
   .contact-direct {

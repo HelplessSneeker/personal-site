@@ -131,7 +131,7 @@
       "namePlaceholder": "Dein Name",
       "emailLabel": "E-Mail",
       "emailPlaceholder": "du@example.com",
-      "projectTypeLabel": "Projekttyp (optional)",
+      "projectTypeLabel": "Projekttyp",
       "projectTypeOptions": {
         "landing": "Landingpage-Redesign",
         "fullstack": "Fullstack-Projekt",
@@ -152,6 +152,7 @@
         "emailInvalid": "Bitte gib eine gültige E-Mail-Adresse an.",
         "messageRequired": "Bitte schreib eine Nachricht.",
         "messageTooShort": "Die Nachricht sollte mindestens 20 Zeichen lang sein.",
+        "projectTypeRequired": "Bitte wähle einen Projekttyp.",
         "captchaMissing": "Bitte bestätige, dass du kein Roboter bist.",
         "captchaFailed": "Die Spam-Prüfung ist fehlgeschlagen. Bitte lade die Seite neu."
       }
@@ -160,6 +161,10 @@
       "heading": "Oder finde mich hier",
       "github": "GitHub",
       "linkedin": "LinkedIn"
+    },
+    "callBooking": {
+      "intro": "Lieber kurz reden?",
+      "linkLabel": "15-Min-Kennenlerngespräch buchen"
     }
   },
   "footer": {
