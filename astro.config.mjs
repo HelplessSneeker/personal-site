@@ -13,6 +13,9 @@ export default defineConfig({
         locales: { de: 'de-AT', en: 'en-US' },
       },
       filter: (page) => !page.includes('/api/'),
+      serialize(item) {
+        return { ...item, lastmod: new Date().toISOString() };
+      },
     }),
   ],
   i18n: {
