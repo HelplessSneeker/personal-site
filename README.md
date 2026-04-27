@@ -12,13 +12,16 @@ npm run dev            # http://localhost:4321
 
 For the contact form to work end-to-end you need:
 
-- `RESEND_API_KEY` — create at https://resend.com/api-keys and verify the sender domain
+- **SMTP relay** for `benjamin@noessler.at`. The server authenticates against your
+  existing mailbox and sends through it (no transactional API like Resend involved).
+  Required vars: `SMTP_HOST`, `SMTP_PORT`, `SMTP_SECURE`, `SMTP_USER`, `SMTP_PASS`.
+  IONOS defaults: `smtp.ionos.de` on port `587` with `SMTP_SECURE=false` (STARTTLS).
 - `TURNSTILE_SECRET_KEY` + `PUBLIC_TURNSTILE_SITE_KEY` — create a widget at
   https://dash.cloudflare.com → Turnstile
 
-**Local-only shortcut:** leave `RESEND_API_KEY` empty and the API route will log
-the submission to the console instead of sending. Use Cloudflare's documented test
-keys for Turnstile in dev:
+**Local-only shortcut:** leave `SMTP_HOST` (or `SMTP_USER`, or `SMTP_PASS`) empty
+and the API route will log the submission to the console instead of sending. Use
+Cloudflare's documented test keys for Turnstile in dev:
 
 ```
 PUBLIC_TURNSTILE_SITE_KEY=1x00000000000000000000AA
@@ -75,8 +78,9 @@ Deploy config was deliberately skipped. When ready:
   `npm run build`, `CMD ["node", "./dist/server/entry.mjs"]`)
 - Push to Coolify on the existing Hetzner host
 - DNS: `benjamin.noessler.at` CNAME → Coolify endpoint at IONOS
-- Set `RESEND_API_KEY`, `TURNSTILE_SECRET_KEY`, `PUBLIC_TURNSTILE_SITE_KEY`,
-  `CONTACT_TO_EMAIL`, `CONTACT_FROM_EMAIL` as environment variables in Coolify
+- Set `SMTP_HOST`, `SMTP_PORT`, `SMTP_SECURE`, `SMTP_USER`, `SMTP_PASS`,
+  `TURNSTILE_SECRET_KEY`, `PUBLIC_TURNSTILE_SITE_KEY`, `CONTACT_TO_EMAIL` as
+  environment variables in Coolify
 
 ## Notes
 

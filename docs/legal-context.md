@@ -50,10 +50,12 @@ Each placeholder is a `<span class="todo-placeholder">TODO: …</span>` in the s
 
 The processor disclosures in Datenschutz are already filled in correctly:
 - **Hetzner Online GmbH** (German hoster, Industriestr. 25, 91710 Gunzenhausen)
-- **Resend, Inc.** (US email delivery — invoked when contact form submits)
+- **1&1 IONOS SE** (German SMTP relay used by the contact form to deliver email)
 - **Cloudflare, Inc.** (US, Turnstile captcha on the contact form)
 
-If anything changes about the stack — e.g. analytics is added, or Resend is swapped out, or a different captcha provider is used — those processor entries must be updated too. They are the "what data goes where" disclosure that GDPR Art. 13 requires.
+The IONOS entry assumes `noessler.at` email is hosted at IONOS. **Verify this matches reality** — if the email is actually with another provider (Migadu, Fastmail, Posteo, Mailbox.org, etc.), update the entry to the correct legal entity, address, and privacy-policy link.
+
+If anything else changes about the stack — analytics added, captcha provider swapped, etc. — those processor entries must be updated too. They are the "what data goes where" disclosure that GDPR Art. 13 requires.
 
 ## Considerations Benjamin needs to confirm
 

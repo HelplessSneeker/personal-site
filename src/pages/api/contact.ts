@@ -1,6 +1,6 @@
 import type { APIRoute } from 'astro';
 import { z } from 'zod';
-import { Resend } from 'resend';
+import nodemailer, { type Transporter } from 'nodemailer';
 
 export const prerender = false;
 
@@ -94,13 +94,52 @@ function buildEmailBody(payload: z.infer<typeof contactSchema>): { text: string;
     <div style="font-family: system-ui, -apple-system, sans-serif; max-width: 640px;">
       <p><strong>${labels.name}:</strong> ${escapeHtml(payload.name)}</p>
       <p><strong>${labels.email}:</strong> <a href="mailto:${escapeHtml(payload.email)}">${escapeHtml(payload.email)}</a></p>
-      ${payload.projectType ? `<p><strong>${labels.projectType}:</strong> ${escapeHtml(payload.projectType)}</p>` : ''}
+      <p><strong>${labels.projectType}:</strong> ${escapeHtml(payload.projectType)}</p>
       <hr style="border: none; border-top: 1px solid #ddd; margin: 16px 0;" />
       <p style="white-space: pre-wrap;">${escapeHtml(payload.message)}</p>
     </div>
   `.trim();
 
   return { text, html };
+}
+
+let cachedTransporter: Transporter | null = null;
+function getTransporter(): Transporter | null {
+  if (cachedTransporter) return cachedTransporter;
+  const host = import.meta.env.SMTP_HOST;
+  const user = import.meta.env.SMTP_USER;
+  const pass = import.meta.env.SMTP_PASS;
+  if (!host || !user || !pass) return null;
+  const port = Number(import.meta.env.SMTP_PORT) || 587;
+  const secure = String(import.meta.env.SMTP_SECURE ?? '').toLowerCase() === 'true';
+  cachedTransporter = nodemailer.createTransport({
+    host,
+    port,
+    secure,
+    auth: { user, pass },
+  });
+  return cachedTransporter;
+}
+
+async function sendWithRetry(
+  transporter: Transporter,
+  mailOpts: Parameters<Transporter['sendMail']>[0],
+  maxAttempts = 3,
+): Promise<void> {
+  let lastErr: unknown;
+  for (let attempt = 1; attempt <= maxAttempts; attempt++) {
+    try {
+      await transporter.sendMail(mailOpts);
+      return;
+    } catch (err) {
+      lastErr = err;
+      if (attempt < maxAttempts) {
+        const delay = attempt === 1 ? 500 : 2000;
+        await new Promise((resolve) => setTimeout(resolve, delay));
+      }
+    }
+  }
+  throw lastErr;
 }
 
 export const POST: APIRoute = async ({ request, clientAddress }) => {
@@ -163,13 +202,13 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
     }
   }
 
-  const resendKey = import.meta.env.RESEND_API_KEY;
+  const transporter = getTransporter();
   const toEmail = import.meta.env.CONTACT_TO_EMAIL || 'benjamin@noessler.at';
-  const fromEmail = import.meta.env.CONTACT_FROM_EMAIL || 'website@noessler.at';
+  const fromAddress = import.meta.env.SMTP_USER || toEmail;
 
-  if (!resendKey) {
+  if (!transporter) {
     if (import.meta.env.DEV) {
-      console.log('[contact] RESEND_API_KEY not set — logging submission instead:');
+      console.log('[contact] SMTP not configured — logging submission instead:');
       console.log({ name: data.name, email: data.email, projectType: data.projectType });
       console.log(data.message);
       return new Response(JSON.stringify({ ok: true, dev: true }), {
@@ -183,33 +222,25 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
     });
   }
 
-  const resend = new Resend(resendKey);
   const subjectPrefix = data.locale === 'de' ? 'Neue Nachricht' : 'New message';
   const subject = `[noessler.at] ${subjectPrefix} von ${data.name}`;
   const { text, html } = buildEmailBody(data);
 
   try {
-    const result = await resend.emails.send({
-      from: `Benjamin Nößler Website <${fromEmail}>`,
-      to: [toEmail],
+    await sendWithRetry(transporter, {
+      from: `Benjamin Nößler Website <${fromAddress}>`,
+      to: toEmail,
       replyTo: data.email,
       subject,
       text,
       html,
     });
-    if (result.error) {
-      console.error('[contact] Resend error', result.error);
-      return new Response(JSON.stringify({ ok: false, error: 'send_failed' }), {
-        status: 502,
-        headers: { 'Content-Type': 'application/json' },
-      });
-    }
-    return new Response(JSON.stringify({ ok: true, id: result.data?.id }), {
+    return new Response(JSON.stringify({ ok: true }), {
       status: 200,
       headers: { 'Content-Type': 'application/json' },
     });
   } catch (err) {
-    console.error('[contact] Resend exception', err);
+    console.error('[contact] SMTP send failed after retries', err);
     return new Response(JSON.stringify({ ok: false, error: 'send_failed' }), {
       status: 502,
       headers: { 'Content-Type': 'application/json' },
