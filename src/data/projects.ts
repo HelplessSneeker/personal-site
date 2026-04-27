@@ -38,6 +38,11 @@ export const projects: Project[] = [
     status: 'live',
     links: [{ href: 'https://scanzy.at', labelKey: 'work.visitLink' }],
     visual: 'mockup-scanner',
+    // TODO: drop a real scanzy.at screenshot at public/projects/scanzy.png and replace
+    // the `visual` field above with the two lines below — ProjectCard prefers `image`
+    // when set and skips the SVG mockup.
+    //   image: '/projects/scanzy.png',
+    //   imageAlt: { de: 'scanzy.at — 360°-Rundgang Hero', en: 'scanzy.at — 360° tour hero' },
   },
   {
     id: 'foundersgroup',
@@ -52,6 +57,10 @@ export const projects: Project[] = [
     status: 'live',
     links: [{ href: 'https://foundersgroup.at', labelKey: 'work.visitLink' }],
     visual: 'mockup-network',
+    // TODO: drop a real foundersgroup.at screenshot at public/projects/foundersgroup.png
+    // and replace the `visual` field above with:
+    //   image: '/projects/foundersgroup.png',
+    //   imageAlt: { de: 'foundersgroup.at — Member-Community Hero', en: 'foundersgroup.at — member community hero' },
   },
   {
     id: 'healthcare',
