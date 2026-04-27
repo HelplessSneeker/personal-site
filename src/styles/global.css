@@ -16,10 +16,10 @@
   --color-border-strong: oklch(78% 0.010 248);
   --color-rule: oklch(92% 0.006 248);
 
-  --color-accent: oklch(34% 0.085 248);
-  --color-accent-hover: oklch(27% 0.085 248);
-  --color-accent-subtle: oklch(93% 0.022 248);
-  --color-accent-ink: oklch(34% 0.085 248);
+  --color-accent: oklch(34% 0.12 248);
+  --color-accent-hover: oklch(27% 0.12 248);
+  --color-accent-subtle: oklch(93% 0.03 248);
+  --color-accent-ink: oklch(34% 0.12 248);
 
   --color-danger: oklch(50% 0.180 28);
   --color-danger-bg: oklch(96% 0.025 28);
@@ -43,7 +43,7 @@
   --fs-xl: clamp(1.5rem, 1.25rem + 1.1vw, 2rem);
   --fs-2xl: clamp(2rem, 1.55rem + 2.2vw, 2.875rem);
   --fs-3xl: clamp(2.5rem, 1.75rem + 3.75vw, 4rem);
-  --fs-display: clamp(2.5rem, 1.75rem + 3.5vw, 3.75rem);
+  --fs-display: clamp(3rem, 2rem + 5vw, 5.5rem);
 
   --lh-tight: 1.08;
   --lh-snug: 1.25;
@@ -55,7 +55,7 @@
   --tracking-body: 0;
   --tracking-label: 0.08em;
 
-  --weight-display: 450;
+  --weight-display: 500;
   --weight-heading: 520;
   --weight-body: 400;
   --weight-medium: 500;
@@ -98,10 +98,10 @@
     --color-border-strong: oklch(38% 0.010 248);
     --color-rule: oklch(22% 0.010 248);
 
-    --color-accent: oklch(78% 0.090 248);
-    --color-accent-hover: oklch(86% 0.075 248);
-    --color-accent-subtle: oklch(25% 0.040 248);
-    --color-accent-ink: oklch(78% 0.090 248);
+    --color-accent: oklch(78% 0.12 248);
+    --color-accent-hover: oklch(86% 0.10 248);
+    --color-accent-subtle: oklch(25% 0.05 248);
+    --color-accent-ink: oklch(78% 0.12 248);
 
     --color-danger: oklch(74% 0.140 28);
     --color-danger-bg: oklch(25% 0.060 28);
