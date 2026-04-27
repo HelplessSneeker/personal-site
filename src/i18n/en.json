@@ -101,7 +101,7 @@
   "about": {
     "label": "About",
     "bodyParagraphs": [
-      "I'm Benjamin Nößler, a fullstack developer based in Vienna. I've been writing software for about ten years — started with Java and backend systems in industrial settings, these days mostly TypeScript on the web. Vienna is home base; most of the work happens remote.",
+      "I help local businesses modernise their web presence — usually a landing-page redesign, sometimes a full web app. Vienna is home base; most of the work happens remote.",
       "My day job is with the Wien Digital team, working on technical questions around data projects. On the side, I take on selected freelance work — mostly landing page redesigns and smaller fullstack builds for local businesses.",
       "I prefer projects meant to last longer than a quarter: cleanly built, on my own infrastructure (Hetzner/Coolify), with tools I'll still trust in two years. Business context matters to me as much as the code — so I enjoy talking to people who know their problem better than I do."
     ]
