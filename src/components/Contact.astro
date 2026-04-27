@@ -18,7 +18,9 @@ const { locale } = Astro.props;
 
       <p class="contact-call">
         {t(locale, 'contact.callBooking.intro')}{' '}
-        <span class="todo-placeholder">{t(locale, 'contact.callBooking.linkLabel')} →</span>
+        <a class="contact-call-link" href="https://cal.noessler.at/benjamin/15min" rel="noopener external" target="_blank">
+          {t(locale, 'contact.callBooking.linkLabel')} <span aria-hidden="true">→</span>
+        </a>
       </p>
 
       <dl class="contact-direct">
@@ -104,6 +106,10 @@ const { locale } = Astro.props;
     flex-wrap: wrap;
     align-items: baseline;
     gap: var(--space-2);
+  }
+  .contact-call-link {
+    font-family: var(--font-mono);
+    color: var(--color-accent);
   }
 
   .contact-direct {
