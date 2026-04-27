@@ -98,6 +98,22 @@
     "visitLink": "Visit website",
     "githubLink": "GitHub repository"
   },
+  "trust": {
+    "label": "How we'll work together",
+    "credibility": "10 years TypeScript · Wien Digital · GDPR · DE/EN",
+    "process": {
+      "label": "Process",
+      "steps": [
+        { "title": "Talk", "body": "15 minutes, free. I listen, ask questions, tell you honestly whether I'm a fit." },
+        { "title": "Fixed-price quote", "body": "Clear scope, clear price. No hidden hours." },
+        { "title": "Build in 2–4 weeks", "body": "Transparent status, a single point of contact, clean launch." }
+      ]
+    },
+    "availability": {
+      "label": "Availability",
+      "value": "Available from [TODO: month]"
+    }
+  },
   "about": {
     "label": "About",
     "bodyParagraphs": [

@@ -1,0 +1,120 @@
+---
+import { t, getDict, type Locale } from '../i18n/util';
+
+export interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const dict = getDict(locale);
+const steps = dict.trust.process.steps;
+---
+<section class="section trust-section" id="trust" aria-labelledby="trust-heading">
+  <div class="container">
+    <h2 id="trust-heading" class="section-label">{t(locale, 'trust.label')}</h2>
+
+    <p class="trust-credibility">{t(locale, 'trust.credibility')}</p>
+
+    <ol class="trust-steps" aria-label={t(locale, 'trust.process.label')}>
+      {steps.map((step, i) => (
+        <li class="trust-step">
+          <span class="step-num" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
+          <h3 class="step-title">{step.title}</h3>
+          <p class="step-body">{step.body}</p>
+        </li>
+      ))}
+    </ol>
+
+    <dl class="trust-availability">
+      <dt>{t(locale, 'trust.availability.label')}</dt>
+      <dd>
+        <span class="todo-placeholder">{t(locale, 'trust.availability.value')}</span>
+      </dd>
+    </dl>
+  </div>
+</section>
+
+<style>
+  .trust-credibility {
+    font-family: var(--font-mono);
+    font-size: var(--fs-sm);
+    color: var(--color-text-muted);
+    letter-spacing: 0.02em;
+    margin: 0 0 var(--space-7) 0;
+    padding-block: var(--space-3);
+    border-block: 1px solid var(--color-rule);
+  }
+
+  .trust-steps {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+  @media (min-width: 52rem) {
+    .trust-steps {
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-7);
+    }
+  }
+
+  .trust-step {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    min-width: 0;
+  }
+
+  .step-num {
+    font-family: var(--font-mono);
+    font-size: var(--fs-xs);
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    color: var(--color-accent);
+    font-variant-numeric: tabular-nums;
+    margin-bottom: var(--space-1);
+  }
+
+  .step-title {
+    font-family: var(--font-display);
+    font-size: var(--fs-lg);
+    font-weight: 500;
+    letter-spacing: -0.015em;
+    line-height: 1.15;
+    color: var(--color-text);
+    margin: 0;
+  }
+
+  .step-body {
+    font-size: var(--fs-md);
+    line-height: var(--lh-relaxed);
+    color: var(--color-text-muted);
+    max-width: 32ch;
+  }
+
+  .trust-availability {
+    margin: var(--space-8) 0 0 0;
+    padding-top: var(--space-5);
+    border-top: 1px solid var(--color-rule);
+    display: grid;
+    grid-template-columns: minmax(7rem, 9rem) 1fr;
+    gap: var(--space-4);
+    align-items: baseline;
+  }
+
+  .trust-availability dt {
+    font-family: var(--font-mono);
+    font-size: var(--fs-xs);
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--color-text-subtle);
+  }
+
+  .trust-availability dd {
+    margin: 0;
+    font-size: var(--fs-sm);
+  }
+</style>

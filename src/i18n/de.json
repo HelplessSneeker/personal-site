@@ -98,6 +98,22 @@
     "visitLink": "Website besuchen",
     "githubLink": "GitHub Repository"
   },
+  "trust": {
+    "label": "So arbeiten wir",
+    "credibility": "10 Jahre TypeScript · Wien Digital · DSGVO · DE/EN",
+    "process": {
+      "label": "Ablauf",
+      "steps": [
+        { "title": "Gespräch", "body": "15 Minuten, kostenlos. Ich höre zu, frage nach, sage ehrlich, ob ich passe." },
+        { "title": "Festpreis-Angebot", "body": "Klare Leistung, klarer Preis. Keine versteckten Stunden." },
+        { "title": "Umsetzung in 2–4 Wochen", "body": "Transparenter Status, ein Ansprechpartner, sauberer Launch." }
+      ]
+    },
+    "availability": {
+      "label": "Verfügbarkeit",
+      "value": "Verfügbar ab [TODO: Monat]"
+    }
+  },
   "about": {
     "label": "Über",
     "bodyParagraphs": [
