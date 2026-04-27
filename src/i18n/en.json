@@ -13,10 +13,11 @@
     "backToTop": "Back to top"
   },
   "hero": {
-    "headline": "Benjamin Nößler",
-    "body": "Fullstack developer based in Vienna. TypeScript, Node, Postgres — and a committed Linux user.",
-    "ctaPrimary": "See work",
-    "ctaSecondary": "Contact"
+    "kicker": "Benjamin Nößler · Vienna",
+    "headline": "Fast, well-built landing pages and web apps for Vienna-based businesses.",
+    "body": "Freelance fullstack developer with ten years of TypeScript experience. At Wien Digital by day, taking selected landing-page redesigns and small fullstack builds for local businesses.",
+    "ctaPrimary": "Discuss your project",
+    "ctaSecondary": "See examples"
   },
   "stack": {
     "label": "Stack",

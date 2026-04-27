@@ -11,12 +11,13 @@ const home = getLocalizedPath(locale, '/');
 <section class="section hero" id="top" aria-labelledby="hero-heading">
   <div class="container">
     <div class="hero-text">
+      <p class="hero-kicker">{t(locale, 'hero.kicker')}</p>
       <h1 id="hero-heading" class="hero-headline">{t(locale, 'hero.headline')}</h1>
       <p class="hero-body">{t(locale, 'hero.body')}</p>
 
       <div class="hero-cta">
-        <a href={`${home}#work`} class="btn btn-primary">{t(locale, 'hero.ctaPrimary')}</a>
-        <a href={`${home}#contact`} class="btn btn-secondary">{t(locale, 'hero.ctaSecondary')}</a>
+        <a href={`${home}#contact`} class="btn btn-primary">{t(locale, 'hero.ctaPrimary')}</a>
+        <a href={`${home}#work`} class="btn btn-secondary">{t(locale, 'hero.ctaSecondary')}</a>
       </div>
     </div>
   </div>
@@ -41,6 +42,17 @@ const home = getLocalizedPath(locale, '/');
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+  }
+
+  .hero-kicker {
+    font-family: var(--font-mono);
+    font-size: var(--fs-xs);
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-text-subtle);
+    margin-bottom: var(--space-4);
+    font-feature-settings: 'ss01';
   }
 
   .hero-headline {

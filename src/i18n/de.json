@@ -13,10 +13,11 @@
     "backToTop": "Zurück nach oben"
   },
   "hero": {
-    "headline": "Benjamin Nößler",
-    "body": "Fullstack-Entwickler aus Wien. TypeScript, Node, Postgres — und überzeugter Linux-Nutzer.",
-    "ctaPrimary": "Arbeiten ansehen",
-    "ctaSecondary": "Kontakt"
+    "kicker": "Benjamin Nößler · Wien",
+    "headline": "Schnelle, saubere Landingpages und Webapps für Unternehmen in Wien.",
+    "body": "Freelance-Entwickler mit zehn Jahren TypeScript-Erfahrung. Hauptberuflich bei Wien Digital, nebenbei Landingpage-Redesigns und Fullstack-Builds für lokale Unternehmen.",
+    "ctaPrimary": "Projekt besprechen",
+    "ctaSecondary": "Beispiele ansehen"
   },
   "stack": {
     "label": "Stack",
