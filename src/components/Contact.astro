@@ -8,6 +8,7 @@ export interface Props {
 }
 
 const { locale } = Astro.props;
+const callBookingUrl = import.meta.env.PUBLIC_CAL_URL;
 ---
 <section class="section contact-section" id="contact" aria-labelledby="contact-heading">
   <div class="container contact-inner">
@@ -16,12 +17,14 @@ const { locale } = Astro.props;
       <h2 id="contact-heading" class="contact-heading">{t(locale, 'contact.heading')}</h2>
       <p class="contact-body">{t(locale, 'contact.body')}</p>
 
-      <p class="contact-call">
-        {t(locale, 'contact.callBooking.intro')}{' '}
-        <a class="contact-call-link" href="https://cal.noessler.at/benjamin/15min" rel="noopener external" target="_blank">
-          {t(locale, 'contact.callBooking.linkLabel')} <span aria-hidden="true">→</span>
-        </a>
-      </p>
+      {callBookingUrl && (
+        <p class="contact-call">
+          {t(locale, 'contact.callBooking.intro')}{' '}
+          <a class="contact-call-link" href={callBookingUrl} rel="noopener external" target="_blank">
+            {t(locale, 'contact.callBooking.linkLabel')} <span aria-hidden="true">→</span>
+          </a>
+        </p>
+      )}
 
       <dl class="contact-direct">
         <div class="direct-row">
