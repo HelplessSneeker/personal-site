@@ -37,12 +37,11 @@ export const projects: Project[] = [
     role: { de: 'Konzept, Design & Entwicklung', en: 'Concept, design & build' },
     status: 'live',
     links: [{ href: 'https://scanzy.at', labelKey: 'work.visitLink' }],
-    visual: 'mockup-scanner',
-    // TODO: drop a real scanzy.at screenshot at public/projects/scanzy.png and replace
-    // the `visual` field above with the two lines below — ProjectCard prefers `image`
-    // when set and skips the SVG mockup.
-    //   image: '/projects/scanzy.png',
-    //   imageAlt: { de: 'scanzy.at — 360°-Rundgang Hero', en: 'scanzy.at — 360° tour hero' },
+    image: '/projects/scanzy.png',
+    imageAlt: {
+      de: 'scanzy.at Startseite — Wortmarke SCANZY über einer dunklen Berglandschaft mit der Headline „Ihr Objekt hat mehr verdient als nur Fotos."',
+      en: 'scanzy.at homepage — SCANZY wordmark above a dark mountain landscape with the headline "Ihr Objekt hat mehr verdient als nur Fotos."',
+    },
   },
   {
     id: 'foundersgroup',
@@ -56,11 +55,11 @@ export const projects: Project[] = [
     role: { de: 'Konzept, Design & Entwicklung', en: 'Concept, design & build' },
     status: 'live',
     links: [{ href: 'https://foundersgroup.at', labelKey: 'work.visitLink' }],
-    visual: 'mockup-network',
-    // TODO: drop a real foundersgroup.at screenshot at public/projects/foundersgroup.png
-    // and replace the `visual` field above with:
-    //   image: '/projects/foundersgroup.png',
-    //   imageAlt: { de: 'foundersgroup.at — Member-Community Hero', en: 'foundersgroup.at — member community hero' },
+    image: '/projects/foundersgroup.png',
+    imageAlt: {
+      de: 'foundersgroup.at Startseite — zwei Samtsessel auf einem Wiener Balkon bei Nacht mit der Headline „Bist du bereit dein Umfeld zu ändern?"',
+      en: 'foundersgroup.at homepage — two velvet chairs on a Viennese balcony at night with the headline "Bist du bereit dein Umfeld zu ändern?"',
+    },
   },
   {
     id: 'healthcare',
