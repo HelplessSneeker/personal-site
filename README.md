@@ -70,17 +70,21 @@ in the browser so they can't be missed. Key ones:
 - [ ] **Call-booking URL** — `src/components/Contact.astro:21` is a placeholder;
       wire to a real Cal.com / SavvyCal slot picker
 
-## Deployment (not wired)
+## Deployment
 
-Deploy config was deliberately skipped. When ready:
+Deployed via Coolify on Hetzner. The repo ships a multi-stage `Dockerfile`
+(node:22-alpine, ~150 MB final image) that Coolify auto-detects.
 
-- Build the image with a simple Dockerfile (`FROM node:22-alpine`, `npm ci`,
-  `npm run build`, `CMD ["node", "./dist/server/entry.mjs"]`)
-- Push to Coolify on the existing Hetzner host
-- DNS: `benjamin.noessler.at` CNAME → Coolify endpoint at IONOS
-- Set `SMTP_HOST`, `SMTP_PORT`, `SMTP_SECURE`, `SMTP_USER`, `SMTP_PASS`,
-  `TURNSTILE_SECRET_KEY`, `PUBLIC_TURNSTILE_SITE_KEY`, `CONTACT_TO_EMAIL` as
-  environment variables in Coolify
+Required env vars in Coolify (`PUBLIC_*` must be marked as **Build Variable**
+so Vite inlines them into the client bundle):
+
+- `SMTP_HOST`, `SMTP_PORT`, `SMTP_SECURE`, `SMTP_USER`, `SMTP_PASS`
+- `TURNSTILE_SECRET_KEY`, `PUBLIC_TURNSTILE_SITE_KEY` *(build variable)*
+- `CONTACT_TO_EMAIL`
+- `PUBLIC_CAL_URL` *(optional, build variable)*
+
+`HOST=0.0.0.0` and `PORT=3000` are baked into the Dockerfile — do not override
+them in Coolify. DNS: `benjamin.noessler.at` CNAME → `coolify.noessi-storage.at`.
 
 ## Notes
 
