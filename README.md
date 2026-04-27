@@ -10,23 +10,17 @@ cp .env.example .env   # fill in keys (see below)
 npm run dev            # http://localhost:4321
 ```
 
-For the contact form to work end-to-end you need:
+For the contact form to work end-to-end you need an **SMTP relay** for
+`benjamin@noessler.at`. The server authenticates against your existing mailbox
+and sends through it (no transactional API like Resend involved).
+Required vars: `SMTP_HOST`, `SMTP_PORT`, `SMTP_SECURE`, `SMTP_USER`, `SMTP_PASS`.
+IONOS defaults: `smtp.ionos.de` on port `587` with `SMTP_SECURE=false` (STARTTLS).
 
-- **SMTP relay** for `benjamin@noessler.at`. The server authenticates against your
-  existing mailbox and sends through it (no transactional API like Resend involved).
-  Required vars: `SMTP_HOST`, `SMTP_PORT`, `SMTP_SECURE`, `SMTP_USER`, `SMTP_PASS`.
-  IONOS defaults: `smtp.ionos.de` on port `587` with `SMTP_SECURE=false` (STARTTLS).
-- `TURNSTILE_SECRET_KEY` + `PUBLIC_TURNSTILE_SITE_KEY` — create a widget at
-  https://dash.cloudflare.com → Turnstile
+Spam protection is a hidden honeypot field plus a per-IP rate limit (5/hour) —
+no third-party CAPTCHA. If that gets abused, add Turnstile or similar later.
 
 **Local-only shortcut:** leave `SMTP_HOST` (or `SMTP_USER`, or `SMTP_PASS`) empty
-and the API route will log the submission to the console instead of sending. Use
-Cloudflare's documented test keys for Turnstile in dev:
-
-```
-PUBLIC_TURNSTILE_SITE_KEY=1x00000000000000000000AA
-TURNSTILE_SECRET_KEY=1x0000000000000000000000000000000AA
-```
+and the API route will log the submission to the console instead of sending.
 
 ## Build
 
@@ -79,7 +73,6 @@ Required env vars in Coolify (`PUBLIC_*` must be marked as **Build Variable**
 so Vite inlines them into the client bundle):
 
 - `SMTP_HOST`, `SMTP_PORT`, `SMTP_SECURE`, `SMTP_USER`, `SMTP_PASS`
-- `TURNSTILE_SECRET_KEY`, `PUBLIC_TURNSTILE_SITE_KEY` *(build variable)*
 - `CONTACT_TO_EMAIL`
 - `PUBLIC_CAL_URL` *(optional, build variable)*
 

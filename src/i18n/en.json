@@ -151,9 +151,7 @@
         "emailInvalid": "Please enter a valid email address.",
         "messageRequired": "Please write a message.",
         "messageTooShort": "Your message should be at least 20 characters.",
-        "projectTypeRequired": "Please select a project type.",
-        "captchaMissing": "Please confirm you're not a robot.",
-        "captchaFailed": "Spam check failed. Please reload the page."
+        "projectTypeRequired": "Please select a project type."
       }
     },
     "social": {

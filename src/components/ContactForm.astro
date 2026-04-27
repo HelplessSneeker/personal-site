@@ -8,11 +8,6 @@ export interface Props {
 const { locale } = Astro.props;
 const dict = getDict(locale);
 const form = dict.contact.form;
-const siteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY ?? '';
-// Fallback to Cloudflare's public test key in development if none configured.
-// Test key always passes — do NOT leave empty in production.
-const turnstileSiteKey =
-  siteKey || (import.meta.env.DEV ? '1x00000000000000000000AA' : '');
 
 // Serialize form strings for the client-side handler
 const messages = {
@@ -115,15 +110,6 @@ const messages = {
     </label>
   </div>
 
-  {turnstileSiteKey && (
-    <div
-      class="cf-turnstile"
-      data-sitekey={turnstileSiteKey}
-      data-theme="auto"
-      data-size="flexible"
-    ></div>
-  )}
-
   <div class="form-actions">
     <button type="submit" class="submit-btn">
       {form.submitLabel}
@@ -132,10 +118,6 @@ const messages = {
 
   <div class="form-status" role="status" aria-live="polite" hidden></div>
 </form>
-
-{turnstileSiteKey && (
-  <script is:inline async defer src="https://challenges.cloudflare.com/turnstile/v0/api.js"></script>
-)}
 
 <script is:inline type="application/json" id="cf-messages" set:html={JSON.stringify(messages)}></script>
 
@@ -146,9 +128,7 @@ const messages = {
     | 'emailInvalid'
     | 'messageRequired'
     | 'messageTooShort'
-    | 'projectTypeRequired'
-    | 'captchaMissing'
-    | 'captchaFailed';
+    | 'projectTypeRequired';
 
   interface Messages {
     submitting: string;
@@ -208,7 +188,6 @@ const messages = {
     const message = String(formData.get('message') ?? '').trim();
     const projectType = String(formData.get('projectType') ?? '');
     const locale = String(formData.get('locale') ?? 'de');
-    const turnstileToken = String(formData.get('cf-turnstile-response') ?? '');
     const honeypot = String(formData.get('company') ?? '').trim();
 
     // Bot trap: if the hidden 'company' field is filled, pretend success
@@ -237,7 +216,7 @@ const messages = {
       const response = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-        body: JSON.stringify({ name, email, message, projectType, turnstileToken, locale }),
+        body: JSON.stringify({ name, email, message, projectType, locale }),
       });
 
       const result = await response.json().catch(() => ({ ok: false }));
@@ -245,14 +224,7 @@ const messages = {
       if (response.ok && result.ok) {
         showStatus('success', messages.successHeading, messages.successBody);
         form.reset();
-        // @ts-expect-error Turnstile global
-        if (window.turnstile) window.turnstile.reset();
       } else {
-        if (result?.error === 'captcha_missing') {
-          setError('cf-message', messages.validation.captchaMissing);
-        } else if (result?.error === 'captcha_failed') {
-          setError('cf-message', messages.validation.captchaFailed);
-        }
         showStatus('error', messages.errorHeading, messages.errorBody);
       }
     } catch {

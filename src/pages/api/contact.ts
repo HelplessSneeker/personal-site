@@ -9,7 +9,6 @@ const contactSchema = z.object({
   email: z.email().trim().max(320),
   message: z.string().trim().min(20).max(5000),
   projectType: z.enum(['landing', 'fullstack', 'other']),
-  turnstileToken: z.string().min(1).optional(),
   locale: z.enum(['de', 'en']).default('de'),
   // Honeypot: real users won't see or fill this field. Bots that
   // blindly populate every input get caught here.
@@ -41,31 +40,6 @@ function rateLimit(ip: string): { ok: boolean; retryAfterSec: number } {
   }
   bucket.count += 1;
   return { ok: true, retryAfterSec: 0 };
-}
-
-async function verifyTurnstile(token: string, remoteIp: string): Promise<boolean> {
-  const secret = import.meta.env.TURNSTILE_SECRET_KEY;
-  if (!secret) {
-    if (import.meta.env.DEV) {
-      console.warn('[contact] TURNSTILE_SECRET_KEY not set — skipping verification in dev');
-      return true;
-    }
-    return false;
-  }
-
-  try {
-    const body = new URLSearchParams({ secret, response: token, remoteip: remoteIp });
-    const res = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
-      method: 'POST',
-      body,
-    });
-    if (!res.ok) return false;
-    const data = (await res.json()) as { success: boolean };
-    return Boolean(data.success);
-  } catch (err) {
-    console.error('[contact] Turnstile verify error', err);
-    return false;
-  }
 }
 
 function escapeHtml(input: string): string {
@@ -183,23 +157,6 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
       status: 200,
       headers: { 'Content-Type': 'application/json' },
     });
-  }
-
-  const hasTurnstileConfigured = Boolean(import.meta.env.TURNSTILE_SECRET_KEY);
-  if (hasTurnstileConfigured) {
-    if (!data.turnstileToken) {
-      return new Response(JSON.stringify({ ok: false, error: 'captcha_missing' }), {
-        status: 400,
-        headers: { 'Content-Type': 'application/json' },
-      });
-    }
-    const valid = await verifyTurnstile(data.turnstileToken, ip);
-    if (!valid) {
-      return new Response(JSON.stringify({ ok: false, error: 'captcha_failed' }), {
-        status: 400,
-        headers: { 'Content-Type': 'application/json' },
-      });
-    }
   }
 
   const transporter = getTransporter();
