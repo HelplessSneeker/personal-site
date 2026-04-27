@@ -15,7 +15,7 @@
   "hero": {
     "kicker": "Benjamin Nößler · Vienna",
     "headline": "Fast, well-built landing pages and web apps for Vienna-based businesses.",
-    "body": "Freelance fullstack developer with ten years of TypeScript experience. At Wien Digital by day, taking selected landing-page redesigns and small fullstack builds for local businesses.",
+    "body": "Freelance fullstack developer with ten years of TypeScript experience. Embedded with the Wien Digital team by day, taking selected landing-page redesigns and small fullstack builds on the side.",
     "ctaPrimary": "Discuss your project",
     "ctaSecondary": "See examples"
   },
@@ -117,7 +117,7 @@
     "label": "About",
     "bodyParagraphs": [
       "I help local businesses modernise their web presence — usually a landing-page redesign, sometimes a full web app. Vienna is home base; most of the work happens remote.",
-      "My day job is with the Wien Digital team, working on technical questions around data projects. On the side, I take on selected freelance work — mostly landing page redesigns and smaller fullstack builds for local businesses.",
+      "I work for APC Business Services GmbH and am embedded through them with the Wien Digital team, working on technical questions around data projects. On the side I take on selected freelance work — mostly landing-page redesigns and smaller fullstack builds for local businesses.",
       "I prefer projects meant to last longer than a quarter: cleanly built, on my own infrastructure (Hetzner/Coolify), with tools I'll still trust in two years. Business context matters to me as much as the code — so I enjoy talking to people who know their problem better than I do."
     ]
   },
