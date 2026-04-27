@@ -16,28 +16,61 @@ const groups = groupKeys.map((key) => ({
 ---
 <section class="section stack-section" id="stack" aria-labelledby="stack-heading">
   <div class="container">
-    <h2 id="stack-heading" class="section-label">{t(locale, 'stack.label')}</h2>
+    <details class="stack-details">
+      <summary id="stack-heading" class="section-label stack-summary">
+        {t(locale, 'stack.label')}
+      </summary>
 
-    <dl class="stack-groups">
-      {groups.map((group, i) => (
-        <div class="stack-group" style={`--i:${i}`}>
-          <dt class="stack-group-label">{group.label}</dt>
-          <dd class="stack-group-items">
-            <ul>
-              {group.items.map((item) => <li>{item}</li>)}
-            </ul>
-          </dd>
-        </div>
-      ))}
-    </dl>
+      <dl class="stack-groups">
+        {groups.map((group, i) => (
+          <div class="stack-group" style={`--i:${i}`}>
+            <dt class="stack-group-label">{group.label}</dt>
+            <dd class="stack-group-items">
+              <ul>
+                {group.items.map((item) => <li>{item}</li>)}
+              </ul>
+            </dd>
+          </div>
+        ))}
+      </dl>
+    </details>
   </div>
 </section>
 
 <style>
-  .stack-groups {
-    margin-top: var(--space-6);
-    display: grid;
+  .stack-details {
     margin: 0;
+  }
+
+  .stack-summary {
+    cursor: pointer;
+    list-style: none;
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    margin-bottom: 0;
+    user-select: none;
+  }
+  .stack-summary::-webkit-details-marker {
+    display: none;
+  }
+  .stack-summary::after {
+    content: '+';
+    display: inline-block;
+    font-family: var(--font-mono);
+    color: var(--color-text-subtle);
+    transition: transform var(--transition);
+  }
+  .stack-details[open] .stack-summary::after {
+    content: '−';
+  }
+  .stack-summary:hover {
+    color: var(--color-text-muted);
+  }
+
+  .stack-groups {
+    display: grid;
+    margin: var(--space-5) 0 0 0;
     border-top: 1px solid var(--color-rule);
   }
 
