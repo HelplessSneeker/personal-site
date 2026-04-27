@@ -54,22 +54,6 @@ export const projects: Project[] = [
     visual: 'mockup-network',
   },
   {
-    id: 'b-cal',
-    title: 'b-cal',
-    descriptionDe:
-      'Self-hosted Kalender-Anwendung mit Event-Erinnerungen und Multi-User-Support. Entstanden als Proof of Concept, um eine komplette Webapp end-to-end zu bauen und zu deployen.',
-    descriptionEn:
-      'Self-hosted calendar application with event reminders and multi-user support. Built as a proof of concept — designing, developing, and deploying a complete web application end-to-end.',
-    stack: ['NestJS', 'Next.js', 'PostgreSQL', 'Redis', 'BullMQ', 'Prisma', 'Coolify', 'Hetzner'],
-    context: { de: 'Nebenprojekt', en: 'Personal' },
-    role: { de: 'Proof of Concept', en: 'Proof of concept' },
-    statusDe: 'Archiviert · GitHub Repo verfügbar',
-    statusEn: 'Archived · GitHub repo available',
-    status: 'archived',
-    links: [{ href: 'https://github.com/HelplessSneeker/b-cal', labelKey: 'work.githubLink' }],
-    visual: 'mockup-calendar',
-  },
-  {
     id: 'healthcare',
     title: 'Healthcare-Kommunikationsplattform',
     descriptionDe:
@@ -96,5 +80,21 @@ export const projects: Project[] = [
     years: '2022—2023',
     status: 'case-study',
     visual: 'mockup-industrial',
+  },
+  {
+    id: 'b-cal',
+    title: 'b-cal',
+    descriptionDe:
+      'Self-hosted Kalender-Anwendung mit Event-Erinnerungen und Multi-User-Support. Entstanden als Proof of Concept, um eine komplette Webapp end-to-end zu bauen und zu deployen.',
+    descriptionEn:
+      'Self-hosted calendar application with event reminders and multi-user support. Built as a proof of concept — designing, developing, and deploying a complete web application end-to-end.',
+    stack: ['NestJS', 'Next.js', 'PostgreSQL', 'Redis', 'BullMQ', 'Prisma', 'Coolify', 'Hetzner'],
+    context: { de: 'Nebenprojekt', en: 'Personal' },
+    role: { de: 'Proof of Concept', en: 'Proof of concept' },
+    statusDe: 'Open-Source-Nebenprojekt · GitHub Repo',
+    statusEn: 'Open-source side project · GitHub repo',
+    status: 'archived',
+    links: [{ href: 'https://github.com/HelplessSneeker/b-cal', labelKey: 'work.githubLink' }],
+    visual: 'mockup-calendar',
   },
 ];
