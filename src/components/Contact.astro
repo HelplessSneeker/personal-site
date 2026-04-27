@@ -45,6 +45,15 @@ const { locale } = Astro.props;
     </header>
 
     <ContactForm locale={locale} />
+
+    <noscript>
+      <p class="contact-noscript">
+        {locale === 'de'
+          ? 'Für dieses Formular wird JavaScript benötigt. Schreib mir gerne direkt an '
+          : 'JavaScript is required for this form. You can email me directly at '}
+        <a href="mailto:benjamin@noessler.at">benjamin@noessler.at</a>.
+      </p>
+    </noscript>
   </div>
 </section>
 
@@ -153,5 +162,14 @@ const { locale } = Astro.props;
     content: '·';
     color: var(--color-text-subtle);
     margin-inline: 0.55em;
+  }
+
+  .contact-noscript {
+    margin-top: var(--space-5);
+    padding: var(--space-4);
+    border: 1px dashed var(--color-border-strong);
+    border-radius: var(--radius-sm);
+    font-size: var(--fs-sm);
+    color: var(--color-text-muted);
   }
 </style>

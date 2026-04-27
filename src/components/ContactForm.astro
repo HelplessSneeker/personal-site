@@ -48,8 +48,9 @@ const messages = {
       required
       maxlength="200"
       placeholder={form.namePlaceholder}
+      aria-describedby="cf-name-error"
     />
-    <p class="field-error" id="cf-name-error" aria-live="polite"></p>
+    <p class="field-error" id="cf-name-error"></p>
   </div>
 
   <div class="field">
@@ -65,8 +66,9 @@ const messages = {
       required
       maxlength="320"
       placeholder={form.emailPlaceholder}
+      aria-describedby="cf-email-error"
     />
-    <p class="field-error" id="cf-email-error" aria-live="polite"></p>
+    <p class="field-error" id="cf-email-error"></p>
   </div>
 
   <div class="field">
@@ -74,13 +76,18 @@ const messages = {
       {form.projectTypeLabel}
       <span class="required" aria-hidden="true">*</span>
     </label>
-    <select id="cf-projectType" name="projectType" required>
+    <select
+      id="cf-projectType"
+      name="projectType"
+      required
+      aria-describedby="cf-projectType-error"
+    >
       <option value="">{form.projectTypeNone}</option>
       <option value="landing">{form.projectTypeOptions.landing}</option>
       <option value="fullstack">{form.projectTypeOptions.fullstack}</option>
       <option value="other">{form.projectTypeOptions.other}</option>
     </select>
-    <p class="field-error" id="cf-projectType-error" aria-live="polite"></p>
+    <p class="field-error" id="cf-projectType-error"></p>
   </div>
 
   <div class="field">
@@ -96,8 +103,16 @@ const messages = {
       minlength="20"
       maxlength="5000"
       placeholder={form.messagePlaceholder}
+      aria-describedby="cf-message-error"
     ></textarea>
-    <p class="field-error" id="cf-message-error" aria-live="polite"></p>
+    <p class="field-error" id="cf-message-error"></p>
+  </div>
+
+  <div class="hp-field" aria-hidden="true">
+    <label>
+      Company
+      <input type="text" name="company" tabindex="-1" autocomplete="off" />
+    </label>
   </div>
 
   {turnstileSiteKey && (
@@ -194,6 +209,15 @@ const messages = {
     const projectType = String(formData.get('projectType') ?? '');
     const locale = String(formData.get('locale') ?? 'de');
     const turnstileToken = String(formData.get('cf-turnstile-response') ?? '');
+    const honeypot = String(formData.get('company') ?? '').trim();
+
+    // Bot trap: if the hidden 'company' field is filled, pretend success
+    // and bail without contacting the API. Real users can't see the field.
+    if (honeypot) {
+      showStatus('success', messages.successHeading, messages.successBody);
+      form.reset();
+      return;
+    }
 
     let hasError = false;
     if (!name) { setError('cf-name', messages.validation.nameRequired); hasError = true; }
@@ -213,7 +237,7 @@ const messages = {
       const response = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-        body: JSON.stringify({ name, email, message, projectType: projectType || undefined, turnstileToken, locale }),
+        body: JSON.stringify({ name, email, message, projectType, turnstileToken, locale }),
       });
 
       const result = await response.json().catch(() => ({ ok: false }));
@@ -323,6 +347,15 @@ const messages = {
   }
   .field-error:empty {
     display: none;
+  }
+
+  .hp-field {
+    position: absolute;
+    left: -10000px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
   }
 
   .form-actions {

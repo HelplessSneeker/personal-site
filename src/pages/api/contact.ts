@@ -11,6 +11,9 @@ const contactSchema = z.object({
   projectType: z.enum(['landing', 'fullstack', 'other']),
   turnstileToken: z.string().min(1).optional(),
   locale: z.enum(['de', 'en']).default('de'),
+  // Honeypot: real users won't see or fill this field. Bots that
+  // blindly populate every input get caught here.
+  company: z.string().max(0).optional(),
 });
 
 type Bucket = { count: number; resetAt: number };
@@ -133,6 +136,15 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
   }
 
   const data = parsed.data;
+
+  // Honeypot tripwire: if the hidden field has content, return a 200
+  // so the bot believes it succeeded but skip sending the email.
+  if (typeof (body as Record<string, unknown>)?.company === 'string' && (body as Record<string, string>).company.length > 0) {
+    return new Response(JSON.stringify({ ok: true, honeypot: true }), {
+      status: 200,
+      headers: { 'Content-Type': 'application/json' },
+    });
+  }
 
   const hasTurnstileConfigured = Boolean(import.meta.env.TURNSTILE_SECRET_KEY);
   if (hasTurnstileConfigured) {
