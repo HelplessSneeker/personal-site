@@ -132,20 +132,21 @@ const statusText = status ?? (locale === 'de' ? statusMap[project.status].de : s
 
   .project-head {
     display: grid;
-    grid-template-columns: 3rem 1fr auto;
-    gap: var(--space-3);
+    grid-template-columns: 4.5rem 1fr auto;
+    gap: var(--space-4);
     align-items: baseline;
     margin-bottom: var(--space-5);
   }
 
   .project-index {
     font-family: var(--font-mono);
-    font-size: var(--fs-xs);
+    font-size: var(--fs-2xl);
     font-weight: 500;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.02em;
+    line-height: 1;
     color: var(--color-text-subtle);
     font-variant-numeric: tabular-nums;
-    padding-top: 0.4em;
+    font-feature-settings: 'tnum', 'ss01';
   }
 
   .project-title {
@@ -168,7 +169,7 @@ const statusText = status ?? (locale === 'de' ? statusMap[project.status].de : s
       grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
       gap: var(--space-8);
       align-items: start;
-      padding-left: 3rem;
+      padding-left: 4.5rem;
     }
   }
   @media (min-width: 52rem) and (max-width: 64rem) {
@@ -284,8 +285,11 @@ const statusText = status ?? (locale === 'de' ? statusMap[project.status].de : s
 
   @media (max-width: 52rem) {
     .project-head {
-      grid-template-columns: 2.2rem 1fr auto;
+      grid-template-columns: 3rem 1fr auto;
       margin-bottom: var(--space-4);
+    }
+    .project-index {
+      font-size: var(--fs-xl);
     }
     .meta-row {
       grid-template-columns: 4.2rem 1fr;
