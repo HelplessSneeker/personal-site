@@ -26,7 +26,10 @@ const steps = dict.trust.process.steps;
     <dl class="trust-availability">
       <dt>{t(locale, 'trust.availability.label')}</dt>
       <dd>
-        <span class="todo-placeholder">{t(locale, 'trust.availability.value')}</span>
+        <span class="availability-pill">
+          <span class="availability-dot" aria-hidden="true"></span>
+          {t(locale, 'trust.availability.value')}
+        </span>
       </dd>
     </dl>
   </div>
@@ -104,5 +107,36 @@ const steps = dict.trust.process.steps;
   .trust-availability dd {
     margin: 0;
     font-size: var(--fs-sm);
+  }
+
+  .availability-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: 0.25rem 0.6rem;
+    border: 1px solid var(--color-accent);
+    border-radius: 999px;
+    color: var(--color-accent);
+    font-family: var(--font-mono);
+    font-size: var(--fs-xs);
+    letter-spacing: 0.04em;
+  }
+
+  .availability-dot {
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+    background: var(--color-accent);
+    box-shadow: 0 0 0 0 color-mix(in oklab, var(--color-accent) 60%, transparent);
+    animation: availability-pulse 2.4s var(--ease-out-quart) infinite;
+  }
+
+  @keyframes availability-pulse {
+    0%, 100% { box-shadow: 0 0 0 0 color-mix(in oklab, var(--color-accent) 60%, transparent); }
+    50% { box-shadow: 0 0 0 6px color-mix(in oklab, var(--color-accent) 0%, transparent); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .availability-dot { animation: none; }
   }
 </style>

@@ -59,19 +59,13 @@ Content is separated from markup. To change copy, edit `src/i18n/de.json` and
 Search for `TODO` in the codebase — placeholders render as visible orange chips
 in the browser so they can't be missed. Key ones:
 
-- [ ] **scanzy.at** — in `src/data/projects.ts`: replace description + stack + role
-- [ ] **Social links** — in `src/data/social.ts`: GitHub + LinkedIn URLs
-- [ ] **GitHub repo URL** — in `src/data/projects.ts` (b-cal link) and
-      `src/components/Footer.astro` (`viewSource`)
 - [ ] **Impressum** — `src/pages/impressum.astro`: Adresse, UID, Gewerbe
 - [ ] **Datenschutz** — `src/pages/datenschutz.astro`: Adresse aus Impressum
 - [ ] **EN imprint + privacy** — `src/pages/en/imprint.astro` + `privacy.astro`
-- [ ] **CV PDF** — drop the real file at `public/cv.pdf` (currently missing, link 404s)
 - [ ] **OG image** — `public/og-image.png` is an auto-generated placeholder; replace
       with a real one before launch
-- [ ] **Project screenshots** — `ProjectMockup.astro` renders CSS placeholders.
-      Replace with real screenshots when available
-- [ ] **stream-stash** — add a project card once ready to show publicly
+- [ ] **Call-booking URL** — `src/components/Contact.astro:21` is a placeholder;
+      wire to a real Cal.com / SavvyCal slot picker
 
 ## Deployment (not wired)
 
