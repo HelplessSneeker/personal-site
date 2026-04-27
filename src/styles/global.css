@@ -357,6 +357,40 @@ code, pre, kbd, samp {
   border: 0;
 }
 
+.skip-link {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+.skip-link:focus,
+.skip-link:focus-visible {
+  position: fixed;
+  top: var(--space-3);
+  left: var(--space-3);
+  width: auto;
+  height: auto;
+  margin: 0;
+  padding: var(--space-3) var(--space-5);
+  clip: auto;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  font-size: var(--fs-md);
+  font-weight: 500;
+  text-decoration: none;
+  border: 2px solid var(--color-accent);
+  border-radius: var(--radius-sm);
+  z-index: 100;
+}
+
 /* ——— Scroll reveal ————————————————————————
    One-shot fade + rise as each section enters the viewport.
    Hero stays static (it's already above the fold).

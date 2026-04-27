@@ -91,7 +91,7 @@ const personSchema = {
     <slot name="head" />
   </head>
   <body>
-    <a href="#main" class="visually-hidden">Skip to content</a>
+    <a href="#main" class="skip-link">{locale === 'de' ? 'Zum Inhalt springen' : 'Skip to content'}</a>
     <slot />
     {sections && sections.length > 0 && (
       <ScrollSectionIndicator sections={sections} navLabel={navLabel} />

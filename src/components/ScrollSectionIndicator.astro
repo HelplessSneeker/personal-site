@@ -115,13 +115,13 @@ const { sections, navLabel = 'Page sections' } = Astro.props;
     text-transform: lowercase;
   }
 
-  .tick[aria-current="true"] .tick-label,
+  .tick[aria-current="location"] .tick-label,
   .tick:hover .tick-label,
   .tick:focus-visible .tick-label {
     opacity: 1;
     transform: translateX(0);
   }
-  .tick[aria-current="true"] .tick-name {
+  .tick[aria-current="location"] .tick-name {
     color: var(--color-text);
   }
 
@@ -194,7 +194,7 @@ const { sections, navLabel = 'Page sections' } = Astro.props;
       if (i === activeIndex) return;
       activeIndex = i;
       tickEls.forEach((t, j) => {
-        if (j === i) t.setAttribute('aria-current', 'true');
+        if (j === i) t.setAttribute('aria-current', 'location');
         else t.removeAttribute('aria-current');
       });
     };

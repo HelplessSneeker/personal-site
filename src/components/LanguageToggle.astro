@@ -17,7 +17,7 @@ const altLocale: Locale = currentLocale === 'de' ? 'en' : 'de';
   lang={altLocale}
   aria-label={currentLocale === 'de' ? 'Switch to English' : 'Auf Deutsch umschalten'}
 >
-  <span class="lang-current" aria-current="true">{currentLocale.toUpperCase()}</span>
+  <span class="lang-current">{currentLocale.toUpperCase()}</span>
   <span class="lang-sep" aria-hidden="true">|</span>
   <span class="lang-alt">{altLabel}</span>
 </a>
