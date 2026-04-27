@@ -1,87 +1,97 @@
 # Legal pages — handoff context
 
-Read this first when picking up the legal-pages task in a fresh session. It documents the goal, the legal context, the exact placeholders to fill, and the constraints that aren't obvious from the code alone.
+Read this first when picking up the legal-pages task. It captures the current state of the four legal pages, what's still pending, and the constraints behind each remaining decision.
 
-## Goal
+Last updated after the 2026-04-27 session.
 
-Make `benjamin.noessler.at` legally publishable in Austria by filling out the four legal pages:
+## Current state
+
+The four legal pages live at:
 
 - `src/pages/impressum.astro` (DE, primary)
 - `src/pages/datenschutz.astro` (DE, primary)
 - `src/pages/en/imprint.astro` (EN mirror)
 - `src/pages/en/privacy.astro` (EN mirror)
 
-All four currently render with visible orange `todo-placeholder` chips. Placeholders MUST be replaced before the site goes public — not because something will break technically, but because the imprint and privacy policy carry real legal weight under Austrian law.
+What's filled in:
 
-## Legal context
+- **Business address (all four pages):** `Fasangasse 26/4, 1030 Wien` / `Vienna`. This satisfies §5 ECG (geographic address that accepts service of process — not a PO box, not a virtual mailbox).
+- **Contact-form SMTP processor:** confirmed as 1&1 IONOS SE. The Datenschutz processor entry already lists IONOS with the correct legal address and privacy-policy link — no change needed unless the email provider changes.
+- **Datenschutz pages:** no remaining placeholder chips, no intro warning. Both DE and EN are publish-ready as far as content goes.
 
-Austrian websites operated commercially or with ad-revenue intent are subject to three overlapping disclosure regimes. Benjamin's freelance positioning makes this a commercial site, even if revenue is modest.
+What's still flagged in the Impressum pages (orange `todo-placeholder` chips, three per language, all labeled `(post-WKO 2026-05)`):
 
-### §5 E-Commerce-Gesetz (ECG)
-Requires anyone offering services electronically to disclose: full name, geographic address (no PO box), email, business activity, UID (VAT) ID or note that none applies, regulatory authority, and chamber membership (WKO for most trades). The Impressum page is where this lives.
+1. Unternehmensgegenstand / business activity
+2. UID-Status / VAT status
+3. Aufsichtsbehörde + Gewerberechtsstatus
 
-### §25 Mediengesetz (MedienG)
-Adds: imprint must include the publisher and editorial responsibility for the content. For a personal/business site this is just Benjamin himself; the Impressum already names him as `<address>`.
+These three are deferred because they all depend on decisions Benjamin will only have after his WKO appointment.
 
-### DSGVO (GDPR) + österreichisches DSG
-Requires a privacy policy disclosing: who the controller is, what data is collected, on what legal basis, who the processors are, where data is transferred, retention period, and the data subject's rights. The Datenschutz page covers this.
+## WKO appointment — weekend of 2026-05-02 / 2026-05-03
 
-If Benjamin invokes the Kleinunternehmer-Regelung (annual revenue under €35,000 net) he is **not** VAT-liable and the UID line should say "Nicht UID-pflichtig (Kleinunternehmer gem. §6 Abs. 1 Z 27 UStG)" or similar, rather than leaving it blank.
+Benjamin scheduled a Wirtschaftskammer (WKO) meeting to clarify his commercial setup. The three pending items are coupled — the answer to one constrains the others — so they're best filled in a single pass after the meeting. The questions to come back with concrete answers to:
 
-## What needs to be filled
+### 1. Gewerbe vs. Neue Selbständige
 
-Each placeholder is a `<span class="todo-placeholder">TODO: …</span>` in the source. Search by the labels below.
+This is the upstream decision that drives the other two. The two paths look like this on the Impressum:
 
-### Both Impressum files (`impressum.astro` + `en/imprint.astro`)
+**If Gewerbe** (Gewerbeschein, free or regulated trade, WKO chamber membership applies):
 
-| Placeholder | What to put |
-|---|---|
-| `Straße und Hausnummer` / `Street and number` | Geographic address (no PO box). Must match the address registered for the Gewerbe / business if applicable. Vienna address. |
-| `PLZ und Wien` / `Postcode and Vienna` | e.g. `1010 Wien` / `1010 Vienna` |
-| `z. B. „Dienstleistungen in der Informationstechnologie"` / `e.g. "Information technology services"` | The business activity as registered. For freelance dev work this is typically `Dienstleistungen in der automatischen Datenverarbeitung und Informationstechnik` (the standard ÖNACE 62.0 wording) — confirm whatever wording was used on the WKO/Gewerbe registration. |
-| `UID oder Hinweis "nicht UID-pflichtig"` / `VAT ID or "not VAT-liable"` | Either the actual UID (`ATU…`) if VAT-registered, or `Nicht UID-pflichtig (Kleinunternehmer gem. §6 Abs. 1 Z 27 UStG)`. |
-| `Bezirkshauptmannschaft / Magistrat gemäß Gewerbestandort` / `District authority / municipal authority based on business location` | For Vienna: `Magistratisches Bezirksamt für den [N.] Bezirk` corresponding to the Gewerbestandort. Or: `Magistrat der Stadt Wien` if not yet bezirklich differentiated. |
+- Unternehmensgegenstand line: copy the activity wording from the Gewerbeschein verbatim. The standard ÖNACE 62 wording for freelance dev work is `Dienstleistungen in der automatischen Datenverarbeitung und Informationstechnik` (a *freies Gewerbe*, no Befähigungsnachweis). If multiple Gewerbe are registered, list each.
+- Aufsichtsbehörde line: the Bezirksamt for the Gewerbestandort. For 1030 Wien this is `Magistratisches Bezirksamt für den 3. Bezirk` (or the more generic `Magistrat der Stadt Wien` if the meeting confirms that's how it should be worded). Keep the WKO chamber-membership link in place.
 
-### Both Datenschutz files (`datenschutz.astro` + `en/privacy.astro`)
+**If Neue Selbständige** (no Gewerbeschein, just SVA registration, no WKO chamber):
 
-| Placeholder | What to put |
-|---|---|
-| `Adresse aus Impressum` / `Address from imprint` | Same address as in the Impressum — keep both pages in sync. |
+- Unternehmensgegenstand line: a self-described activity, e.g. `Software- und Webentwicklung als Neue Selbständige Tätigkeit`. There's no authority-mandated wording.
+- Aufsichtsbehörde line: drop the WKO chamber-membership link entirely. The relevant authority for Neue Selbständige is the Sozialversicherungsanstalt der Selbständigen (SVS), and there's no Gewerbebehörde involvement. Adjust the section heading and link accordingly.
 
-The processor disclosures in Datenschutz are already filled in correctly:
-- **Hetzner Online GmbH** (German hoster, Industriestr. 25, 91710 Gunzenhausen)
-- **1&1 IONOS SE** (German SMTP relay used by the contact form to deliver email)
-- **Cloudflare, Inc.** (US, Turnstile captcha on the contact form)
+### 2. UID-Status
 
-The IONOS entry assumes `noessler.at` email is hosted at IONOS. **Verify this matches reality** — if the email is actually with another provider (Migadu, Fastmail, Posteo, Mailbox.org, etc.), update the entry to the correct legal entity, address, and privacy-policy link.
+Two outcomes:
 
-If anything else changes about the stack — analytics added, captcha provider swapped, etc. — those processor entries must be updated too. They are the "what data goes where" disclosure that GDPR Art. 13 requires.
+- **Kleinunternehmer-Regelung** (annual revenue under €35k net, no VAT charged): write `Nicht UID-pflichtig (Kleinunternehmer gem. §6 Abs. 1 Z 27 UStG)` in the UID line.
+- **VAT-registered:** insert the actual `ATU########` number.
 
-## Considerations Benjamin needs to confirm
+This is independent of Gewerbe vs. Neue Selbständige — both paths can be either VAT-registered or Kleinunternehmer.
 
-These are decisions the legal pages encode but only Benjamin knows the answers to:
+### 3. Unternehmensgegenstand wording
 
-1. **Which address to use.** A residential address is required by §5 ECG (no PO box, no virtual office that doesn't accept service). If Benjamin doesn't want his home address public, options are:
-   - Rent a coworking space and register the Gewerbe there (legitimate)
-   - Use a "Geschäftsadresse" service (e.g. Regus, Yelda) that accepts legal service of process
-   - Accept that the home address goes public — many freelancers do this
-2. **Gewerbe vs. neue Selbständige.** If Benjamin operates as a "Neue Selbständige" (no Gewerbeschein, just SVA registration), the Aufsichtsbehörde and WKO chamber sections look different — neue Selbständige don't have a WKO chamber membership. The current scaffold assumes Gewerbe; adjust if not.
-3. **Server-Logs retention.** The privacy page currently says "maximum 14 days". Confirm what Coolify/Hetzner actually retains by default — this needs to match reality.
-4. **Cookie banner.** Currently NOT needed because the site sets no cookies (no analytics, no tracking). If Benjamin adds Plausible/Umami later, the privacy page needs an analytics section, and a cookie banner may or may not be required depending on the analytics tool's cookie policy. Plausible is cookieless = no banner; Umami self-hosted = no banner; Google Analytics = banner required.
+Driven by #1. See the wordings above under each path.
 
-## Verification after filling in
+## Coolify reverification — server-log retention
 
-1. `npm run dev`, navigate to `/impressum`, `/datenschutz`, `/en/imprint`, `/en/privacy`. Confirm zero orange `todo-placeholder` chips visible.
-2. `grep -rn "todo-placeholder" src/pages/` should return no `<span>` matches in the legal pages (only the `.todo-placeholder` class definition in `global.css`).
-3. Cross-check the address appears identically in both Impressum and Datenschutz (and EN mirrors).
-4. Have a non-lawyer friend read the pages aloud — if any sentence sounds wrong or contradicts another page, fix it before launch.
+The Datenschutz pages currently state server access logs are deleted "nach maximal 14 Tagen" / "after a maximum of 14 days". As of 2026-04-27 the Coolify instance for this site is **not yet provisioned**, so the actual retention is unknown.
 
-## Out of scope here
+Once Coolify is set up:
 
-Do NOT attempt to write a privacy policy from scratch in a fresh session — the existing scaffold is already structured per Austrian/EU norms. Only fill the placeholders. If Benjamin wants a more polished version after launch, retain a lawyer or use a generator like `e-recht24.de` for an Austrian template.
+- Check the Docker logging driver and host logrotate config for the container.
+- If 14 days is accurate, leave the line as-is.
+- If it's something else (commonly closer to "until the container is recycled" with `json-file` defaults, or a host-managed window), update the line in both `datenschutz.astro` and `en/privacy.astro`.
 
-The Impressum and Datenschutz copy are translated by hand between DE and EN — keep them in sync if either is edited.
+## How to finish post-WKO
 
-## Suggested fresh-session prompt
+1. Search the Impressum files for `(post-WKO 2026-05)` chips:
 
-> Read `docs/legal-context.md` first. Then walk me through filling in the placeholders in the four legal pages. Ask me for the address, UID status, and Gewerbe details one at a time so we don't have to revisit.
+   ```sh
+   grep -n "post-WKO" src/pages/impressum.astro src/pages/en/imprint.astro
+   ```
+
+2. Replace each chip with the final wording. Keep DE and EN in sync — translate by hand, don't run them through a machine translator without review.
+
+3. Remove the line-17 intro warning (`<p class="todo-placeholder">TODO Benjamin: Nach dem WKO-Termin …`) from both Impressum files once the last chip is filled.
+
+4. Run dev and visit `/impressum`, `/datenschutz`, `/en/imprint`, `/en/privacy`. Confirm zero orange `todo-placeholder` chips render anywhere.
+
+5. Final grep — should return only the `.todo-placeholder` class definition in `global.css`, no `<span>` or `<p>` matches in `src/pages/`:
+
+   ```sh
+   grep -rn "todo-placeholder" src/pages/
+   ```
+
+6. Cross-check the address still appears identically in both Impressum and Datenschutz (and EN mirrors). Have a non-lawyer friend read the pages aloud — if any sentence sounds wrong or contradicts another, fix before launch.
+
+## Out of scope
+
+- Don't rewrite the privacy scaffold from scratch. The structure follows Austrian/EU norms and the processor disclosures (Hetzner, IONOS, Cloudflare Turnstile) are already correct for the current stack.
+- If the stack changes later — analytics added (Plausible/Umami), captcha provider swapped, email host changed — those processor entries must be updated, but that's a separate task.
+- Cookie banner is not currently needed (no cookies set, no tracking, no analytics). If Plausible/Umami is added later, both are cookieless under their default configs and still don't require a banner. Google Analytics would.
