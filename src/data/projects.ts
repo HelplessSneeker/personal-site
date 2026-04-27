@@ -66,8 +66,7 @@ export const projects: Project[] = [
     statusDe: 'Archiviert · GitHub Repo verfügbar',
     statusEn: 'Archived · GitHub repo available',
     status: 'archived',
-    // TODO: Benjamin — set actual b-cal repo URL
-    links: [{ href: 'https://github.com/benjamin-noessler/b-cal', labelKey: 'work.githubLink' }],
+    links: [{ href: 'https://github.com/HelplessSneeker/b-cal', labelKey: 'work.githubLink' }],
     visual: 'mockup-calendar',
   },
   {

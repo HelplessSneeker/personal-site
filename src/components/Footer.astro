@@ -10,19 +10,13 @@ const year = new Date().getFullYear();
 const imprintPath = locale === 'de' ? '/impressum' : '/en/imprint';
 const privacyPath = locale === 'de' ? '/datenschutz' : '/en/privacy';
 const home = getLocalizedPath(locale, '/');
-
-// TODO: Benjamin — set actual repo URL once pushed to GitHub
-const sourceUrl = 'https://github.com/benjamin-noessler/personal-site';
 ---
 <footer class="site-footer">
   <div class="container footer-inner">
     <div class="footer-col footer-mark">
       <span class="colophon-label">Colophon</span>
       <p class="footer-colophon">
-        {t(locale, 'footer.builtWith')} ·
-        <a href={sourceUrl} rel="noopener external" target="_blank">
-          {t(locale, 'footer.viewSource')} <span aria-hidden="true">↗</span>
-        </a>
+        {t(locale, 'footer.builtWith')}
       </p>
     </div>
 
