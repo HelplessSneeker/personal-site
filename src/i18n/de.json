@@ -100,7 +100,6 @@
   },
   "trust": {
     "label": "So arbeiten wir",
-    "credibility": "10 Jahre TypeScript · Wien Digital · DSGVO · DE/EN",
     "process": {
       "label": "Ablauf",
       "steps": [

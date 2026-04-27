@@ -13,8 +13,6 @@ const steps = dict.trust.process.steps;
   <div class="container">
     <h2 id="trust-heading" class="section-label">{t(locale, 'trust.label')}</h2>
 
-    <p class="trust-credibility">{t(locale, 'trust.credibility')}</p>
-
     <ol class="trust-steps" aria-label={t(locale, 'trust.process.label')}>
       {steps.map((step, i) => (
         <li class="trust-step">
@@ -35,20 +33,10 @@ const steps = dict.trust.process.steps;
 </section>
 
 <style>
-  .trust-credibility {
-    font-family: var(--font-mono);
-    font-size: var(--fs-sm);
-    color: var(--color-text-muted);
-    letter-spacing: 0.02em;
-    margin: 0 0 var(--space-7) 0;
-    padding-block: var(--space-3);
-    border-block: 1px solid var(--color-rule);
-  }
-
   .trust-steps {
     list-style: none;
     padding: 0;
-    margin: 0;
+    margin: var(--space-6) 0 0 0;
     display: grid;
     grid-template-columns: 1fr;
     gap: var(--space-6);

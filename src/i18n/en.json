@@ -100,7 +100,6 @@
   },
   "trust": {
     "label": "How we'll work together",
-    "credibility": "10 years TypeScript · Wien Digital · GDPR · DE/EN",
     "process": {
       "label": "Process",
       "steps": [
