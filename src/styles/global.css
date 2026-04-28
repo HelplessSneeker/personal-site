@@ -1,4 +1,4 @@
-@import '@fontsource-variable/funnel-display/index.css';
+@import '@fontsource-variable/bricolage-grotesque/index.css';
 @import '@fontsource/commit-mono/latin-400.css';
 @import '@fontsource/commit-mono/latin-500.css';
 
@@ -43,7 +43,7 @@
   --color-selection-bg: var(--color-accent);
   --color-selection-text: oklch(98% 0.004 248);
 
-  --font-display: 'Funnel Display Variable', 'General Sans Variable', ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-display: 'Bricolage Grotesque Variable', 'General Sans Variable', ui-sans-serif, system-ui, -apple-system, sans-serif;
   --font-sans: 'General Sans Variable', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
   --font-mono: 'Commit Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', monospace;
 

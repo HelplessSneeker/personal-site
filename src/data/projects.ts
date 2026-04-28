@@ -5,6 +5,12 @@ export interface ProjectLink {
   labelKey: 'work.visitLink' | 'work.githubLink';
 }
 
+export interface Testimonial {
+  quote: { de: string; en: string };
+  author?: { de: string; en: string };
+  placeholder?: boolean;
+}
+
 export interface Project {
   id: string;
   title: string;
@@ -21,6 +27,8 @@ export interface Project {
   visual?: 'mockup-calendar' | 'mockup-healthcare' | 'mockup-industrial';
   image?: string;
   imageAlt?: { de: string; en: string };
+  outcome?: { de: string; en: string };
+  testimonial?: Testimonial;
 }
 
 export const projects: Project[] = [
@@ -41,6 +49,17 @@ export const projects: Project[] = [
       de: 'scanzy.at Startseite — Wortmarke SCANZY über einer dunklen Berglandschaft mit der Headline „Ihr Objekt hat mehr verdient als nur Fotos."',
       en: 'scanzy.at homepage — SCANZY wordmark above a dark mountain landscape with the headline "Ihr Objekt hat mehr verdient als nur Fotos."',
     },
+    outcome: {
+      de: 'Live · zentraler Anlaufpunkt für Anfragen und Standort-Präsentation.',
+      en: 'Live · central inquiry channel and online presence for the business.',
+    },
+    testimonial: {
+      placeholder: true,
+      quote: {
+        de: 'Kundenstimme folgt — wird in Kürze ergänzt.',
+        en: 'Client testimonial — to be added shortly.',
+      },
+    },
   },
   {
     id: 'foundersgroup',
@@ -58,6 +77,17 @@ export const projects: Project[] = [
     imageAlt: {
       de: 'foundersgroup.at Startseite — zwei Samtsessel auf einem Wiener Balkon bei Nacht mit der Headline „Bist du bereit dein Umfeld zu ändern?"',
       en: 'foundersgroup.at homepage — two velvet chairs on a Viennese balcony at night with the headline "Bist du bereit dein Umfeld zu ändern?"',
+    },
+    outcome: {
+      de: 'Live · Zugang für Member-Anfragen und Vereinskommunikation.',
+      en: 'Live · entry point for member inquiries and community communications.',
+    },
+    testimonial: {
+      placeholder: true,
+      quote: {
+        de: 'Kundenstimme folgt — wird in Kürze ergänzt.',
+        en: 'Client testimonial — to be added shortly.',
+      },
     },
   },
   {

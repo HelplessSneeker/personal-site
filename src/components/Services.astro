@@ -7,43 +7,38 @@ export interface Props {
 
 const { locale } = Astro.props;
 const landingBullets = tArray(locale, 'services.landing.bullets');
-const fullstackBullets = tArray(locale, 'services.fullstack.bullets');
-const includesLabel = locale === 'de' ? 'Umfang' : 'Includes';
 ---
 <section class="section services-section" id="services" aria-labelledby="services-heading">
   <div class="container">
     <h2 id="services-heading" class="section-label">{t(locale, 'services.label')}</h2>
     <p class="services-intro">{t(locale, 'services.intro')}</p>
 
-    <div class="services-grid">
-      <article class="service">
-        <p class="service-index" aria-hidden="true"><span>01</span><span class="rule"></span></p>
-        <h3 class="service-title">{t(locale, 'services.landing.title')}</h3>
-        <p class="service-desc">{t(locale, 'services.landing.description')}</p>
-        <dl class="service-meta">
-          <dt>{includesLabel}</dt>
+    <article class="service service-primary">
+      <p class="service-index" aria-hidden="true"><span>01</span><span class="rule"></span></p>
+      <h3 class="service-title">{t(locale, 'services.landing.title')}</h3>
+      <p class="service-desc">{t(locale, 'services.landing.description')}</p>
+
+      <dl class="service-meta">
+        <div class="meta-row">
+          <dt>{t(locale, 'services.scopeLabel')}</dt>
           <dd>
-            <ul>
+            <ul class="meta-list">
               {landingBullets.map((bullet) => <li>{bullet}</li>)}
             </ul>
           </dd>
-        </dl>
-      </article>
+        </div>
+        <div class="meta-row meta-row-anchor">
+          <dt>{t(locale, 'services.priceAnchorLabel')}</dt>
+          <dd class="price-anchor">{t(locale, 'services.landing.priceAnchor')}</dd>
+        </div>
+      </dl>
+    </article>
 
-      <article class="service">
-        <p class="service-index" aria-hidden="true"><span>02</span><span class="rule"></span></p>
-        <h3 class="service-title">{t(locale, 'services.fullstack.title')}</h3>
-        <p class="service-desc">{t(locale, 'services.fullstack.description')}</p>
-        <dl class="service-meta">
-          <dt>{includesLabel}</dt>
-          <dd>
-            <ul>
-              {fullstackBullets.map((bullet) => <li>{bullet}</li>)}
-            </ul>
-          </dd>
-        </dl>
-      </article>
-    </div>
+    <aside class="service-extension" aria-label={t(locale, 'services.extensionLabel')}>
+      <p class="extension-label">{t(locale, 'services.extensionLabel')}</p>
+      <h3 class="extension-title">{t(locale, 'services.fullstack.title')}</h3>
+      <p class="extension-desc">{t(locale, 'services.fullstack.description')}</p>
+    </aside>
   </div>
 </section>
 
@@ -52,24 +47,9 @@ const includesLabel = locale === 'de' ? 'Umfang' : 'Includes';
     font-size: var(--fs-lg);
     line-height: 1.4;
     color: var(--color-text);
-    max-width: 38rem;
+    max-width: 44rem;
     margin-bottom: var(--space-8);
     text-wrap: pretty;
-  }
-
-  .services-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: var(--space-8);
-  }
-
-  @media (min-width: 52rem) {
-    .services-grid {
-      grid-template-columns: 1fr 1fr;
-      column-gap: var(--space-8);
-      row-gap: var(--space-7);
-      align-items: start;
-    }
   }
 
   .service {
@@ -77,6 +57,10 @@ const includesLabel = locale === 'de' ? 'Umfang' : 'Includes';
     flex-direction: column;
     gap: var(--space-4);
     min-width: 0;
+  }
+
+  .service-primary {
+    max-width: 52rem;
   }
 
   .service-index {
@@ -99,9 +83,9 @@ const includesLabel = locale === 'de' ? 'Umfang' : 'Includes';
 
   .service-title {
     font-family: var(--font-display);
-    font-size: var(--fs-xl);
+    font-size: var(--fs-2xl);
     font-weight: 500;
-    letter-spacing: -0.018em;
+    letter-spacing: -0.02em;
     line-height: 1.1;
     color: var(--color-text);
     text-wrap: balance;
@@ -111,16 +95,29 @@ const includesLabel = locale === 'de' ? 'Umfang' : 'Includes';
     font-size: var(--fs-md);
     line-height: var(--lh-relaxed);
     color: var(--color-text);
-    max-width: 36ch;
+    max-width: 56ch;
   }
 
   .service-meta {
     display: grid;
     grid-template-columns: 1fr;
-    gap: var(--space-2);
-    margin: var(--space-2) 0 0 0;
+    gap: var(--space-4);
+    margin: var(--space-3) 0 0 0;
     padding-top: var(--space-4);
     border-top: 1px solid var(--color-rule);
+  }
+
+  .meta-row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-2);
+  }
+  @media (min-width: 40rem) {
+    .meta-row {
+      grid-template-columns: 7rem 1fr;
+      gap: var(--space-4);
+      align-items: baseline;
+    }
   }
 
   .service-meta dt {
@@ -136,7 +133,7 @@ const includesLabel = locale === 'de' ? 'Umfang' : 'Includes';
     margin: 0;
   }
 
-  .service-meta ul {
+  .meta-list {
     list-style: none;
     padding: 0;
     margin: 0;
@@ -148,14 +145,63 @@ const includesLabel = locale === 'de' ? 'Umfang' : 'Includes';
     color: var(--color-text);
   }
 
-  .service-meta li {
+  .meta-list li {
     display: grid;
     grid-template-columns: 1.5rem 1fr;
     align-items: baseline;
   }
 
-  .service-meta li::before {
+  .meta-list li::before {
     content: '—';
     color: var(--color-text-subtle);
+  }
+
+  .price-anchor {
+    font-family: var(--font-mono);
+    font-size: var(--fs-md);
+    color: var(--color-text);
+    line-height: 1.4;
+  }
+
+  /* Extension card — clearly subordinate to the primary service.
+     Smaller heading, narrower column, set apart with extra space and a
+     subtle treatment. The asymmetry communicates "this is an addendum,
+     not a co-equal offering." */
+  .service-extension {
+    margin-top: var(--space-9);
+    padding-top: var(--space-6);
+    border-top: 1px solid var(--color-rule);
+    max-width: 44rem;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+
+  .extension-label {
+    font-family: var(--font-sans);
+    font-size: var(--fs-sm);
+    font-weight: 500;
+    font-variant-caps: all-small-caps;
+    letter-spacing: 0.05em;
+    color: var(--color-text-subtle);
+    margin: 0;
+  }
+
+  .extension-title {
+    font-family: var(--font-display);
+    font-size: var(--fs-lg);
+    font-weight: 500;
+    letter-spacing: -0.015em;
+    line-height: 1.15;
+    color: var(--color-text);
+    margin: 0;
+  }
+
+  .extension-desc {
+    font-size: var(--fs-md);
+    line-height: var(--lh-relaxed);
+    color: var(--color-text-muted);
+    max-width: 56ch;
+    margin: 0;
   }
 </style>

@@ -16,9 +16,9 @@
     "availabilityTag": "Nimmt Anfragen an"
   },
   "hero": {
-    "kicker": "Freelance · Landingpages & Fullstack",
-    "headline": "Schnelle, saubere Landingpages und Webapps für Unternehmen in Wien.",
-    "body": "Freelance-Entwickler mit zehn Jahren TypeScript-Erfahrung. Tagsüber im Digitalisierungsteam der Stadt Wien, nebenbei Landingpage-Redesigns und Fullstack-Builds für lokale Unternehmen.",
+    "kicker": "Freelance · Landingpage-Redesigns",
+    "headline": "Zweisprachige Landingpages für österreichische Unternehmen.",
+    "body": "Ich helfe österreichischen Unternehmen, ihre Landingpage zu modernisieren: klare Struktur, schnelle Ladezeiten, saubere DE/EN-Umsetzung, DSGVO-konform. Für komplexere Vorhaben auch Fullstack-Webapps.",
     "ctaPrimary": "Projekt besprechen",
     "ctaSecondary": "Beispiele ansehen"
   },
@@ -82,25 +82,24 @@
   },
   "services": {
     "label": "Leistungen",
-    "intro": "Zwei Arten von Projekten, die ich am liebsten annehme.",
+    "intro": "Mein Schwerpunkt: Landingpage-Redesigns für österreichische Unternehmen. Für Vorhaben, die über eine einzelne Seite hinausgehen, baue ich auch komplette Webapps.",
+    "scopeLabel": "Umfang",
+    "priceAnchorLabel": "Investition",
+    "extensionLabel": "Auch möglich",
     "landing": {
       "title": "Landingpage-Redesign",
       "description": "Bestehende Marketing- oder Landingpage analysieren und neu umsetzen — klare Struktur, schnelle Ladezeiten, sauber zweisprachig, DSGVO-konform.",
       "bullets": [
-        "Struktur & Copy",
+        "Konzept & Copy",
+        "Design & Umsetzung",
         "Performance & SEO-Basics",
-        "DE/EN · DSGVO",
-        "Ab €500 + Hosting"
-      ]
+        "Hosting & DSGVO-Setup"
+      ],
+      "priceAnchor": "ab €500 + Hosting — Konzept, Design, Umsetzung als Festpreis. Konkreter Preis nach Gespräch."
     },
     "fullstack": {
-      "title": "Fullstack-Entwicklung",
-      "description": "Für Projekte jenseits einer einzelnen Seite — Webapps, APIs, Dashboards, interne Tools. Sauber gebaut, nachvollziehbar deployed.",
-      "bullets": [
-        "TypeScript · NestJS · Next.js · Postgres",
-        "Self-hosting auf Hetzner/Coolify",
-        "Von Konzept bis Deployment"
-      ]
+      "title": "Fullstack-Webapps",
+      "description": "Für Vorhaben jenseits einer einzelnen Seite — Webapps, Dashboards, APIs, interne Tools. Sauber gebaut, transparent deployed auf eigener Infrastruktur. Umfang und Preis nach Gespräch."
     }
   },
   "work": {
@@ -115,21 +114,21 @@
     "process": {
       "label": "Ablauf",
       "steps": [
-        { "title": "Gespräch", "body": "15 Minuten, kostenlos. Ich höre zu, frage nach, sage ehrlich, ob ich passe." },
+        { "title": "Gespräch", "body": "30 Minuten, kostenlos. Ich höre zu, frage nach, sage ehrlich, ob ich passe." },
         { "title": "Festpreis-Angebot", "body": "Klare Leistung, klarer Preis. Keine versteckten Stunden." },
         { "title": "Umsetzung in 2–4 Wochen", "body": "Transparenter Status, ein Ansprechpartner, sauberer Launch." }
       ]
     },
     "availability": {
       "label": "Verfügbarkeit",
-      "value": "Aktuell verfügbar"
+      "value": "Aufnahme neuer Projekte ab Juli"
     }
   },
   "about": {
     "label": "Über",
     "bodyParagraphs": [
       "Ich helfe lokalen Unternehmen, ihre Webpräsenz zu modernisieren — meist mit einem Landingpage-Redesign, manchmal mit einer kompletten Webapp. Wien ist mein Ausgangspunkt, die meiste Arbeit findet remote statt.",
-      "Hauptberuflich arbeite ich an Datenprojekten im Digitalisierungsteam der Stadt Wien (über APC Business Services GmbH). Daneben nehme ich ausgewählte Freelance-Aufträge an — vor allem Landingpage-Redesigns und kleinere Fullstack-Projekte für lokale Unternehmen.",
+      "Ich teile meine Zeit zwischen einer Festanstellung im Digitalisierungsteam der Stadt Wien (Datenprojekte, über APC Business Services GmbH) und ausgewählten Freelance-Projekten — vor allem Landingpage-Redesigns und kleineren Fullstack-Builds für lokale Unternehmen.",
       "Ich arbeite am liebsten an Dingen, die länger als ein Quartal leben sollen: sauber gebaut, auf eigener Infrastruktur (Hetzner/Coolify), mit Werkzeugen, denen ich auch in zwei Jahren noch vertraue. Mir ist der Business-Kontext mindestens so wichtig wie der Code — deswegen rede ich gerne mit Menschen, die ihr Problem selbst kennen."
     ]
   },
@@ -174,7 +173,7 @@
     },
     "callBooking": {
       "intro": "Lieber kurz reden?",
-      "linkLabel": "15-Min-Kennenlerngespräch buchen"
+      "linkLabel": "30-Min-Kennenlerngespräch buchen"
     }
   },
   "footer": {

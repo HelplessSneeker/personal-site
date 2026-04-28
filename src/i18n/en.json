@@ -16,9 +16,9 @@
     "availabilityTag": "Taking inquiries"
   },
   "hero": {
-    "kicker": "Freelance · Landing pages & fullstack",
-    "headline": "Fast, well-built landing pages and web apps for Vienna-based businesses.",
-    "body": "Freelance fullstack developer with ten years of TypeScript experience. Day job with the City of Vienna's digital team; on the side, selected landing-page redesigns and small fullstack builds for local businesses.",
+    "kicker": "Freelance · Landing-page redesigns",
+    "headline": "Bilingual landing pages for Austrian businesses.",
+    "body": "I help Austrian businesses modernise their landing page: clear structure, fast load times, proper DE/EN, GDPR-compliant. For larger projects, fullstack web apps as well.",
     "ctaPrimary": "Discuss your project",
     "ctaSecondary": "See examples"
   },
@@ -82,25 +82,24 @@
   },
   "services": {
     "label": "Services",
-    "intro": "Two kinds of projects I take on most often.",
+    "intro": "My focus: landing-page redesigns for Austrian businesses. For projects that go beyond a single page, I also build full web apps.",
+    "scopeLabel": "Scope",
+    "priceAnchorLabel": "Investment",
+    "extensionLabel": "Also available",
     "landing": {
       "title": "Landing page redesign",
       "description": "Analyse and rebuild an existing marketing or landing page — clear structure, fast load times, proper bilingual DE/EN, GDPR-compliant.",
       "bullets": [
-        "Structure & copy",
+        "Concept & copy",
+        "Design & build",
         "Performance & SEO basics",
-        "DE/EN · GDPR",
-        "From €500 + Hosting"
-      ]
+        "Hosting & GDPR setup"
+      ],
+      "priceAnchor": "from €500 + hosting — concept, design, build as a fixed price. Final price defined after a call."
     },
     "fullstack": {
-      "title": "Fullstack development",
-      "description": "For projects beyond a single page — web apps, APIs, dashboards, internal tools. Cleanly built, transparently deployed.",
-      "bullets": [
-        "TypeScript · NestJS · Next.js · Postgres",
-        "Self-hosting on Hetzner/Coolify",
-        "From concept to deployment"
-      ]
+      "title": "Fullstack web apps",
+      "description": "For projects beyond a single page — web apps, dashboards, APIs, internal tools. Cleanly built, transparently deployed on owned infrastructure. Scope and price defined after a call."
     }
   },
   "work": {
@@ -115,21 +114,21 @@
     "process": {
       "label": "Process",
       "steps": [
-        { "title": "Talk", "body": "15 minutes, free. I listen, ask questions, tell you honestly whether I'm a fit." },
+        { "title": "Talk", "body": "30 minutes, free. I listen, ask questions, tell you honestly whether I'm a fit." },
         { "title": "Fixed-price quote", "body": "Clear scope, clear price. No hidden hours." },
         { "title": "Build in 2–4 weeks", "body": "Transparent status, a single point of contact, clean launch." }
       ]
     },
     "availability": {
       "label": "Availability",
-      "value": "Currently available"
+      "value": "Booking new projects from July"
     }
   },
   "about": {
     "label": "About",
     "bodyParagraphs": [
       "I help local businesses modernise their web presence — usually a landing-page redesign, sometimes a full web app. Vienna is home base; most of the work happens remote.",
-      "My day job is data projects with the City of Vienna's digital team (placed there through APC Business Services GmbH). On the side I take on selected freelance work — mostly landing-page redesigns and smaller fullstack builds for local businesses.",
+      "I split my time between a permanent role in the City of Vienna's digital team (data projects, through APC Business Services GmbH) and selected freelance projects — mostly landing-page redesigns and smaller fullstack builds for local businesses.",
       "I prefer projects meant to last longer than a quarter: cleanly built, on my own infrastructure (Hetzner/Coolify), with tools I'll still trust in two years. Business context matters to me as much as the code — so I enjoy talking to people who know their problem better than I do."
     ]
   },
@@ -174,7 +173,7 @@
     },
     "callBooking": {
       "intro": "Prefer to talk?",
-      "linkLabel": "Book a 15-min intro call"
+      "linkLabel": "Book a 30-min intro call"
     }
   },
   "footer": {

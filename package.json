@@ -14,7 +14,7 @@
   "dependencies": {
     "@astrojs/node": "^10.0.5",
     "@astrojs/sitemap": "^3.7.2",
-    "@fontsource-variable/funnel-display": "^5.2.8",
+    "@fontsource-variable/bricolage-grotesque": "^5.2.10",
     "@fontsource/commit-mono": "^5.2.5",
     "astro": "^6.1.7",
     "nodemailer": "^8.0.7",

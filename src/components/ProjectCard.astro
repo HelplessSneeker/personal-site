@@ -20,6 +20,8 @@ const contextLabel = locale === 'de' ? 'Kontext' : 'Context';
 const roleLabel = locale === 'de' ? 'Rolle' : 'Role';
 const yearsLabel = locale === 'de' ? 'Jahr' : 'Year';
 const statusLabel = locale === 'de' ? 'Status' : 'Status';
+const outcomeLabel = locale === 'de' ? 'Ergebnis' : 'Outcome';
+const placeholderLabel = locale === 'de' ? 'Platzhalter' : 'Placeholder';
 const statusMap: Record<Project['status'], { de: string; en: string }> = {
   live: { de: 'Live', en: 'Live' },
   archived: { de: 'Archiviert', en: 'Archived' },
@@ -27,6 +29,17 @@ const statusMap: Record<Project['status'], { de: string; en: string }> = {
   'case-study': { de: 'Case Study', en: 'Case study' },
 };
 const statusText = status ?? (locale === 'de' ? statusMap[project.status].de : statusMap[project.status].en);
+const outcome = project.outcome ? (locale === 'de' ? project.outcome.de : project.outcome.en) : undefined;
+const testimonialQuote = project.testimonial
+  ? locale === 'de'
+    ? project.testimonial.quote.de
+    : project.testimonial.quote.en
+  : undefined;
+const testimonialAuthor = project.testimonial?.author
+  ? locale === 'de'
+    ? project.testimonial.author.de
+    : project.testimonial.author.en
+  : undefined;
 ---
 <article class="project" role="listitem">
   <header class="project-head">
@@ -37,6 +50,23 @@ const statusText = status ?? (locale === 'de' ? statusMap[project.status].de : s
   <div class="project-body">
     <div class="project-text">
       <p class="project-desc">{description}</p>
+
+      {outcome && (
+        <p class="project-outcome">
+          <span class="outcome-label" aria-hidden="true">{outcomeLabel}</span>
+          <span class="outcome-text">{outcome}</span>
+        </p>
+      )}
+
+      {testimonialQuote && (
+        <figure class:list={['project-testimonial', { 'is-placeholder': project.testimonial?.placeholder }]}>
+          <blockquote class="testimonial-quote">{testimonialQuote}</blockquote>
+          {testimonialAuthor && <figcaption class="testimonial-author">— {testimonialAuthor}</figcaption>}
+          {project.testimonial?.placeholder && (
+            <span class="testimonial-placeholder-tag" aria-label={placeholderLabel}>{placeholderLabel}</span>
+          )}
+        </figure>
+      )}
 
       <dl class="project-meta">
         {context && (
@@ -185,6 +215,90 @@ const statusText = status ?? (locale === 'de' ? statusMap[project.status].de : s
     line-height: var(--lh-relaxed);
     color: var(--color-text);
     max-width: 60ch;
+  }
+
+  /* Outcome — single soft-result line, visually elevated above the meta dl
+     so readers register impact before specs. The accent rule echoes the
+     hero's "start of article" mark to tie the case study back to the
+     editorial system. */
+  .project-outcome {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: var(--space-3);
+    align-items: baseline;
+    padding-block: var(--space-3);
+    border-top: 1px solid var(--color-rule);
+    border-bottom: 1px solid var(--color-rule);
+    margin: 0;
+    max-width: 60ch;
+  }
+
+  .outcome-label {
+    font-family: var(--font-sans);
+    font-size: var(--fs-xs);
+    font-weight: 500;
+    font-variant-caps: all-small-caps;
+    letter-spacing: 0.06em;
+    color: var(--color-accent);
+  }
+
+  .outcome-text {
+    font-size: var(--fs-md);
+    line-height: 1.4;
+    color: var(--color-text);
+  }
+
+  /* Testimonial pull-quote. When placeholder, kept clearly subordinate
+     and tagged so it cannot be confused with a real client quote. */
+  .project-testimonial {
+    margin: 0;
+    padding-left: var(--space-5);
+    border-left: 2px solid var(--color-accent);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    max-width: 60ch;
+    position: relative;
+  }
+
+  .testimonial-quote {
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: var(--fs-lg);
+    font-weight: 400;
+    font-style: italic;
+    letter-spacing: -0.005em;
+    line-height: var(--lh-relaxed);
+    color: var(--color-text);
+    text-wrap: pretty;
+  }
+
+  .testimonial-author {
+    font-family: var(--font-sans);
+    font-size: var(--fs-sm);
+    color: var(--color-text-muted);
+  }
+
+  .project-testimonial.is-placeholder {
+    border-left-color: var(--color-border-strong);
+  }
+
+  .project-testimonial.is-placeholder .testimonial-quote {
+    color: var(--color-text-subtle);
+    font-style: italic;
+  }
+
+  .testimonial-placeholder-tag {
+    align-self: flex-start;
+    font-family: var(--font-mono);
+    font-size: var(--fs-xs);
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-text-subtle);
+    padding: 0.15rem 0.5rem;
+    border: 1px dashed var(--color-border-strong);
+    border-radius: var(--radius-sm);
   }
 
   .project-meta {
