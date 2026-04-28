@@ -18,7 +18,7 @@
   "hero": {
     "kicker": "Freelance · Landing-page redesigns",
     "headline": "Bilingual landing pages for Austrian businesses.",
-    "body": "I help Austrian businesses modernise their landing page: clear structure, fast load times, proper DE/EN, GDPR-compliant. For larger projects, fullstack web apps as well.",
+    "body": "I help Austrian businesses modernise their landing page: clear structure, fast load times, proper DE/EN, GDPR-compliant. For larger projects, let's talk about the right scope.",
     "ctaPrimary": "Discuss your project",
     "ctaSecondary": "See examples"
   },
@@ -82,7 +82,7 @@
   },
   "services": {
     "label": "Services",
-    "intro": "My focus: landing-page redesigns for Austrian businesses. For projects that go beyond a single page, I also build full web apps.",
+    "intro": "My focus: landing-page redesigns for Austrian businesses. For projects that go beyond a single page, let's talk about the right scope.",
     "scopeLabel": "Scope",
     "priceAnchorLabel": "Investment",
     "extensionLabel": "Also available",
@@ -127,8 +127,8 @@
   "about": {
     "label": "About",
     "bodyParagraphs": [
-      "I help local businesses modernise their web presence — usually a landing-page redesign, sometimes a full web app. Vienna is home base; most of the work happens remote.",
-      "I split my time between a permanent role in the City of Vienna's digital team (data projects, through APC Business Services GmbH) and selected freelance projects — mostly landing-page redesigns and smaller fullstack builds for local businesses.",
+      "I help local businesses modernise their web presence — focus is landing-page redesigns. Vienna is home base; most of the work happens remote.",
+      "I split my time between a permanent role in the City of Vienna's digital team (through APC Business Services GmbH, currently on a web-app project) and selected freelance work — mostly landing-page redesigns for local businesses. I've been building web apps for years in employment and in my own projects (e.g. b-cal); on the freelance side I'm deliberately starting with a smaller scope.",
       "I prefer projects meant to last longer than a quarter: cleanly built, on my own infrastructure (Hetzner/Coolify), with tools I'll still trust in two years. Business context matters to me as much as the code — so I enjoy talking to people who know their problem better than I do."
     ]
   },

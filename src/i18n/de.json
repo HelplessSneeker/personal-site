@@ -18,7 +18,7 @@
   "hero": {
     "kicker": "Freelance · Landingpage-Redesigns",
     "headline": "Zweisprachige Landingpages für österreichische Unternehmen.",
-    "body": "Ich helfe österreichischen Unternehmen, ihre Landingpage zu modernisieren: klare Struktur, schnelle Ladezeiten, saubere DE/EN-Umsetzung, DSGVO-konform. Für komplexere Vorhaben auch Fullstack-Webapps.",
+    "body": "Ich helfe österreichischen Unternehmen, ihre Landingpage zu modernisieren: klare Struktur, schnelle Ladezeiten, saubere DE/EN-Umsetzung, DSGVO-konform. Für umfangreichere Vorhaben sprechen wir über den passenden Scope.",
     "ctaPrimary": "Projekt besprechen",
     "ctaSecondary": "Beispiele ansehen"
   },
@@ -82,7 +82,7 @@
   },
   "services": {
     "label": "Leistungen",
-    "intro": "Mein Schwerpunkt: Landingpage-Redesigns für österreichische Unternehmen. Für Vorhaben, die über eine einzelne Seite hinausgehen, baue ich auch komplette Webapps.",
+    "intro": "Mein Schwerpunkt: Landingpage-Redesigns für österreichische Unternehmen. Für Vorhaben, die über eine einzelne Seite hinausgehen, sprechen wir über den passenden Scope.",
     "scopeLabel": "Umfang",
     "priceAnchorLabel": "Investition",
     "extensionLabel": "Auch möglich",
@@ -127,8 +127,8 @@
   "about": {
     "label": "Über",
     "bodyParagraphs": [
-      "Ich helfe lokalen Unternehmen, ihre Webpräsenz zu modernisieren — meist mit einem Landingpage-Redesign, manchmal mit einer kompletten Webapp. Wien ist mein Ausgangspunkt, die meiste Arbeit findet remote statt.",
-      "Ich teile meine Zeit zwischen einer Festanstellung im Digitalisierungsteam der Stadt Wien (Datenprojekte, über APC Business Services GmbH) und ausgewählten Freelance-Projekten — vor allem Landingpage-Redesigns und kleineren Fullstack-Builds für lokale Unternehmen.",
+      "Ich helfe lokalen Unternehmen, ihre Webpräsenz zu modernisieren — Schwerpunkt sind Landingpage-Redesigns. Wien ist mein Ausgangspunkt, die meiste Arbeit findet remote statt.",
+      "Meine Zeit teile ich zwischen einer Festanstellung im Digitalisierungsteam der Stadt Wien (über APC Business Services GmbH, derzeit an einem Webapp-Projekt) und ausgewählten Freelance-Aufträgen — vor allem Landingpage-Redesigns für lokale Unternehmen. Webapps baue ich seit Jahren in Anstellung und in eigenen Projekten (z. B. b-cal); im Freelance-Bereich starte ich bewusst mit kleinerem Scope.",
       "Ich arbeite am liebsten an Dingen, die länger als ein Quartal leben sollen: sauber gebaut, auf eigener Infrastruktur (Hetzner/Coolify), mit Werkzeugen, denen ich auch in zwei Jahren noch vertraue. Mir ist der Business-Kontext mindestens so wichtig wie der Code — deswegen rede ich gerne mit Menschen, die ihr Problem selbst kennen."
     ]
   },
