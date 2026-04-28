@@ -1,5 +1,6 @@
 ---
 import { t, tArray, type Locale } from '../i18n/util';
+import Stack from './Stack.astro';
 
 export interface Props {
   locale: Locale;
@@ -13,13 +14,16 @@ const byline = locale === 'de' ? 'Benjamin Nößler · Wien' : 'Benjamin Nößle
   <div class="container about-inner">
     <h2 id="about-heading" class="section-label">{t(locale, 'about.label')}</h2>
     <div class="about-body">
-      {paragraphs.map((paragraph, i) => (
-        <p class="about-text" data-i={i}>{paragraph}</p>
+      {paragraphs.map((paragraph) => (
+        <p class="about-text">{paragraph}</p>
       ))}
       <p class="about-byline" aria-hidden="true">
         <span class="byline-rule"></span>
         <span class="byline-text">{byline}</span>
       </p>
+    </div>
+    <div class="about-stack">
+      <Stack locale={locale} />
     </div>
   </div>
 </section>
@@ -52,12 +56,12 @@ const byline = locale === 'de' ? 'Benjamin Nößler · Wien' : 'Benjamin Nößle
     text-wrap: pretty;
   }
 
-  .about-text[data-i="0"]::first-letter {
+  .about-text:first-of-type::first-letter {
     font-family: var(--font-display);
     font-size: 1.4em;
     font-weight: 500;
     letter-spacing: -0.01em;
-    padding-right: 0.02em;
+    padding-right: 0.06em;
   }
 
   .about-byline {
@@ -65,10 +69,11 @@ const byline = locale === 'de' ? 'Benjamin Nößler · Wien' : 'Benjamin Nößle
     display: flex;
     align-items: center;
     gap: var(--space-4);
-    font-family: var(--font-mono);
-    font-size: var(--fs-xs);
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
+    font-family: var(--font-sans);
+    font-size: var(--fs-sm);
+    font-weight: 500;
+    font-variant-caps: all-small-caps;
+    letter-spacing: 0.05em;
     color: var(--color-text-subtle);
   }
 
@@ -78,5 +83,12 @@ const byline = locale === 'de' ? 'Benjamin Nößler · Wien' : 'Benjamin Nößle
     height: 1px;
     background: var(--color-border-strong);
     flex-shrink: 0;
+  }
+
+  /* Stack disclosure spans both columns of the About grid so the expanded
+     content has full container width, not just the body column. */
+  .about-stack {
+    grid-column: 1 / -1;
+    margin-top: var(--space-7);
   }
 </style>

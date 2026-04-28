@@ -13,65 +13,127 @@ const groups = groupKeys.map((key) => ({
   label: t(locale, `stack.groups.${key}.label`),
   items: tArray(locale, `stack.groups.${key}.items`),
 }));
----
-<section class="section stack-section" id="stack" aria-labelledby="stack-heading">
-  <div class="container">
-    <details class="stack-details">
-      <summary id="stack-heading" class="section-label stack-summary">
-        {t(locale, 'stack.label')}
-      </summary>
 
-      <dl class="stack-groups">
-        {groups.map((group, i) => (
-          <div class="stack-group" style={`--i:${i}`}>
-            <dt class="stack-group-label">{group.label}</dt>
-            <dd class="stack-group-items">
-              <ul>
-                {group.items.map((item) => <li>{item}</li>)}
-              </ul>
-            </dd>
-          </div>
-        ))}
-      </dl>
-    </details>
-  </div>
-</section>
+const triggerLabel = locale === 'de' ? 'Stack im Detail' : 'Stack in detail';
+const triggerHint =
+  locale === 'de'
+    ? 'Sprachen, Frameworks, Infrastruktur'
+    : 'Languages, frameworks, infrastructure';
+---
+<details class="stack-disclosure" id="stack">
+  <summary class="stack-trigger">
+    <span class="stack-trigger-text">
+      <span class="stack-trigger-label">{triggerLabel}</span>
+      <span class="stack-trigger-hint">{triggerHint}</span>
+    </span>
+    <span class="stack-trigger-icon" aria-hidden="true"></span>
+  </summary>
+
+  <dl class="stack-groups">
+    {groups.map((group, i) => (
+      <div class="stack-group" style={`--i:${i}`}>
+        <dt class="stack-group-label">{group.label}</dt>
+        <dd class="stack-group-items">
+          <ul>
+            {group.items.map((item) => <li>{item}</li>)}
+          </ul>
+        </dd>
+      </div>
+    ))}
+  </dl>
+</details>
 
 <style>
-  .stack-details {
+  .stack-disclosure {
     margin: 0;
   }
 
-  .stack-summary {
+  .stack-trigger {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-5);
+    padding-block: var(--space-4);
+    border-top: 1px solid var(--color-rule);
+    border-bottom: 1px solid var(--color-rule);
     cursor: pointer;
     list-style: none;
-    display: inline-flex;
-    align-items: center;
-    gap: var(--space-2);
-    margin-bottom: 0;
     user-select: none;
+    transition: border-color var(--transition);
   }
-  .stack-summary::-webkit-details-marker {
+  .stack-trigger::-webkit-details-marker {
     display: none;
   }
-  .stack-summary::after {
-    content: '+';
-    display: inline-block;
-    font-family: var(--font-mono);
-    color: var(--color-text-subtle);
-    transition: transform var(--transition);
+  .stack-trigger:hover,
+  .stack-trigger:focus-visible {
+    border-top-color: var(--color-border-strong);
+    border-bottom-color: var(--color-border-strong);
   }
-  .stack-details[open] .stack-summary::after {
+  .stack-trigger:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 4px;
+    border-radius: var(--radius-sm);
+  }
+
+  .stack-trigger-text {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    min-width: 0;
+  }
+
+  .stack-trigger-label {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: var(--fs-lg);
+    line-height: 1.15;
+    letter-spacing: -0.015em;
+    color: var(--color-text);
+  }
+
+  .stack-trigger-hint {
+    font-family: var(--font-sans);
+    font-size: var(--fs-sm);
+    font-weight: 500;
+    font-variant-caps: all-small-caps;
+    letter-spacing: 0.05em;
+    color: var(--color-text-subtle);
+  }
+
+  .stack-trigger-icon {
+    flex-shrink: 0;
+    width: 1.75rem;
+    height: 1.75rem;
+    border-radius: 50%;
+    border: 1px solid var(--color-border-strong);
+    color: var(--color-text-muted);
+    font-family: var(--font-mono);
+    font-size: var(--fs-md);
+    line-height: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition:
+      color var(--transition),
+      border-color var(--transition),
+      background-color var(--transition);
+  }
+  .stack-trigger-icon::before {
+    content: '+';
+  }
+  .stack-disclosure[open] .stack-trigger-icon::before {
     content: '−';
   }
-  .stack-summary:hover {
-    color: var(--color-text-muted);
+  .stack-trigger:hover .stack-trigger-icon,
+  .stack-trigger:focus-visible .stack-trigger-icon {
+    color: var(--color-accent);
+    border-color: var(--color-accent);
+    background: var(--color-accent-subtle);
   }
 
   .stack-groups {
     display: grid;
-    margin: var(--space-5) 0 0 0;
-    border-top: 1px solid var(--color-rule);
+    margin: 0;
   }
 
   .stack-group {
@@ -81,6 +143,10 @@ const groups = groupKeys.map((key) => ({
     padding-block: var(--space-4);
     border-bottom: 1px solid var(--color-rule);
     align-items: baseline;
+  }
+  /* Last tier merges into the disclosure's bottom border. */
+  .stack-group:last-child {
+    border-bottom: 0;
   }
 
   @media (min-width: 40rem) {
@@ -92,11 +158,11 @@ const groups = groupKeys.map((key) => ({
   }
 
   .stack-group-label {
-    font-family: var(--font-mono);
-    font-size: var(--fs-xs);
+    font-family: var(--font-sans);
+    font-size: var(--fs-sm);
     font-weight: 500;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
+    font-variant-caps: all-small-caps;
+    letter-spacing: 0.05em;
     color: var(--color-text-muted);
     margin: 0;
   }

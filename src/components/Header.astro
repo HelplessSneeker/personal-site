@@ -9,18 +9,23 @@ export interface Props {
 const { locale } = Astro.props;
 const home = getLocalizedPath(locale, '/');
 const navLinks = [
+  { href: `${home}#services`, label: t(locale, 'nav.services') },
   { href: `${home}#work`, label: t(locale, 'nav.work') },
-  { href: `${home}#stack`, label: t(locale, 'nav.stack') },
+  { href: `${home}#about`, label: t(locale, 'nav.about') },
   { href: `${home}#contact`, label: t(locale, 'nav.contact') },
 ];
 ---
 <header class="site-header">
   <div class="container header-inner">
-    <a href={home} class="site-mark" rel="home">
-      <span class="mark-name">Benjamin Nößler</span>
+    <div class="site-mark">
+      <a href={home} class="mark-name" rel="home">Benjamin Nößler</a>
       <span class="mark-sep" aria-hidden="true">/</span>
-      <span class="mark-tag">{locale === 'de' ? 'Fullstack, Wien' : 'Fullstack, Vienna'}</span>
-    </a>
+      <a
+        href={`${home}#contact`}
+        class="mark-tag"
+        aria-label={locale === 'de' ? 'Anfrage stellen' : 'Send an inquiry'}
+      >{t(locale, 'header.availabilityTag')}</a>
+    </div>
 
     <nav aria-label="Primary" class="site-nav">
       <ul>
@@ -51,23 +56,12 @@ const navLinks = [
     padding-block: var(--space-3);
   }
 
-  a.site-mark,
-  a.site-mark:hover {
-    text-decoration: none;
-  }
   .site-mark {
     display: inline-flex;
     align-items: baseline;
     gap: var(--space-2);
-    color: var(--color-text);
     white-space: nowrap;
     min-width: 0;
-  }
-  .site-mark:hover {
-    color: var(--color-text);
-  }
-  .site-mark:hover .mark-tag {
-    color: var(--color-accent);
   }
 
   .mark-name {
@@ -76,6 +70,11 @@ const navLinks = [
     font-size: var(--fs-sm);
     letter-spacing: -0.01em;
     color: var(--color-text);
+    text-decoration: none;
+  }
+  .mark-name:hover {
+    color: var(--color-text);
+    text-decoration: none;
   }
   .mark-sep {
     font-family: var(--font-mono);
@@ -83,11 +82,18 @@ const navLinks = [
     color: var(--color-text-subtle);
   }
   .mark-tag {
-    font-family: var(--font-mono);
-    font-size: var(--fs-xs);
-    letter-spacing: 0.03em;
+    font-family: var(--font-sans);
+    font-size: var(--fs-sm);
+    font-weight: 500;
+    font-variant-caps: all-small-caps;
+    letter-spacing: 0.05em;
     color: var(--color-text-muted);
+    text-decoration: none;
     transition: color var(--transition);
+  }
+  .mark-tag:hover {
+    color: var(--color-accent);
+    text-decoration: none;
   }
 
   @media (max-width: 40rem) {
@@ -113,7 +119,8 @@ const navLinks = [
     border-bottom: 1px solid transparent;
     transition: color var(--transition), border-color var(--transition);
   }
-  .site-nav a:hover {
+  .site-nav a:hover,
+  .site-nav a[aria-current="location"] {
     color: var(--color-text);
     border-bottom-color: var(--color-accent);
     text-decoration: none;

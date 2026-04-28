@@ -75,13 +75,14 @@ const messages = {
       id="cf-projectType"
       name="projectType"
       required
-      aria-describedby="cf-projectType-error"
+      aria-describedby="cf-projectType-hint cf-projectType-error"
     >
       <option value="">{form.projectTypeNone}</option>
       <option value="landing">{form.projectTypeOptions.landing}</option>
       <option value="fullstack">{form.projectTypeOptions.fullstack}</option>
       <option value="other">{form.projectTypeOptions.other}</option>
     </select>
+    <p class="field-hint" id="cf-projectType-hint">{form.projectTypeHint}</p>
     <p class="field-error" id="cf-projectType-error"></p>
   </div>
 
@@ -250,11 +251,11 @@ const messages = {
     gap: var(--space-2);
   }
   .field label {
-    font-family: var(--font-mono);
-    font-size: var(--fs-xs);
+    font-family: var(--font-sans);
+    font-size: var(--fs-sm);
     font-weight: 500;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
+    font-variant-caps: all-small-caps;
+    letter-spacing: 0.05em;
     color: var(--color-text-subtle);
   }
   .required {
@@ -271,9 +272,9 @@ const messages = {
     color: var(--color-text);
     background: transparent;
     border: 0;
-    border-bottom: 1px solid var(--color-border);
+    border-bottom: 1.5px solid var(--color-border-strong);
     border-radius: 0;
-    transition: border-color var(--transition);
+    transition: border-color var(--transition), box-shadow var(--transition);
   }
   .field input::placeholder,
   .field textarea::placeholder {
@@ -282,14 +283,14 @@ const messages = {
   .field input:hover,
   .field textarea:hover,
   .field select:hover {
-    border-bottom-color: var(--color-border-strong);
+    border-bottom-color: var(--color-text-muted);
   }
   .field input:focus,
   .field textarea:focus,
   .field select:focus {
     outline: none;
     border-bottom-color: var(--color-accent);
-    box-shadow: 0 1px 0 0 var(--color-accent);
+    box-shadow: 0 1.5px 0 0 var(--color-accent);
   }
   .field input[aria-invalid="true"],
   .field textarea[aria-invalid="true"] {
@@ -303,22 +304,29 @@ const messages = {
   }
   .field select {
     appearance: none;
-    background-image: linear-gradient(45deg, transparent 50%, var(--color-text-muted) 50%),
-                      linear-gradient(-45deg, transparent 50%, var(--color-text-muted) 50%);
-    background-position: calc(100% - 14px) center, calc(100% - 8px) center;
-    background-size: 6px 6px, 6px 6px;
+    /* Crisp 1.5px chevron — single inline SVG. The hardcoded #8a8e97 sits
+       between the light/dark muted-text colors so it reads in both themes. */
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 6'><path d='M1 1l4 4 4-4' fill='none' stroke='%238a8e97' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/></svg>");
+    background-position: calc(100% - 8px) center;
+    background-size: 10px 6px;
     background-repeat: no-repeat;
     padding-right: var(--space-6);
   }
   .field-error {
-    font-family: var(--font-mono);
-    font-size: var(--fs-xs);
+    font-size: var(--fs-sm);
     color: var(--color-danger);
     min-height: 1em;
     margin: 0;
   }
   .field-error:empty {
     display: none;
+  }
+
+  .field-hint {
+    font-size: var(--fs-sm);
+    line-height: 1.45;
+    color: var(--color-text-subtle);
+    margin: 0;
   }
 
   .hp-field {

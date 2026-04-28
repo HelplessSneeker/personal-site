@@ -36,6 +36,17 @@ const steps = dict.trust.process.steps;
 </section>
 
 <style>
+  /* Tighten the gap above Trust so it reads as a continuation of Services
+     (offer → how-we-work) rather than a fresh, unrelated section. */
+  .trust-section {
+    padding-block-start: var(--space-8);
+  }
+  @media (min-width: 48rem) {
+    .trust-section {
+      padding-block-start: var(--space-9);
+    }
+  }
+
   .trust-steps {
     list-style: none;
     padding: 0;
@@ -96,11 +107,11 @@ const steps = dict.trust.process.steps;
   }
 
   .trust-availability dt {
-    font-family: var(--font-mono);
-    font-size: var(--fs-xs);
+    font-family: var(--font-sans);
+    font-size: var(--fs-sm);
     font-weight: 500;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
+    font-variant-caps: all-small-caps;
+    letter-spacing: 0.05em;
     color: var(--color-text-subtle);
   }
 
@@ -127,16 +138,5 @@ const steps = dict.trust.process.steps;
     height: 0.5rem;
     border-radius: 50%;
     background: var(--color-accent);
-    box-shadow: 0 0 0 0 color-mix(in oklab, var(--color-accent) 60%, transparent);
-    animation: availability-pulse 2.4s var(--ease-out-quart) infinite;
-  }
-
-  @keyframes availability-pulse {
-    0%, 100% { box-shadow: 0 0 0 0 color-mix(in oklab, var(--color-accent) 60%, transparent); }
-    50% { box-shadow: 0 0 0 6px color-mix(in oklab, var(--color-accent) 0%, transparent); }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .availability-dot { animation: none; }
   }
 </style>

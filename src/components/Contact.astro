@@ -40,7 +40,6 @@ const callBookingUrl = import.meta.env.PUBLIC_CAL_URL;
                   <a href={link.url} rel="noopener external me" target="_blank">
                     {link.label} <span aria-hidden="true">↗</span>
                   </a>
-                  {link.isPlaceholder && <span class="todo-placeholder">TODO</span>}
                 </li>
               ))}
             </ul>
@@ -63,6 +62,17 @@ const callBookingUrl = import.meta.env.PUBLIC_CAL_URL;
 </section>
 
 <style>
+  /* Widen the approach to Contact — this is the conversion moment, give it
+     room to land. Subtle on mobile, generous on large screens. */
+  .contact-section {
+    padding-block-start: var(--space-10);
+  }
+  @media (min-width: 48rem) {
+    .contact-section {
+      padding-block-start: clamp(var(--space-10), 12vh, 11rem);
+    }
+  }
+
   .contact-inner {
     display: grid;
     gap: var(--space-8);
@@ -131,11 +141,11 @@ const callBookingUrl = import.meta.env.PUBLIC_CAL_URL;
   }
 
   .contact-direct dt {
-    font-family: var(--font-mono);
-    font-size: var(--fs-xs);
+    font-family: var(--font-sans);
+    font-size: var(--fs-sm);
     font-weight: 500;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
+    font-variant-caps: all-small-caps;
+    letter-spacing: 0.05em;
     color: var(--color-text-subtle);
   }
 

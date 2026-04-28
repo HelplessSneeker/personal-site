@@ -12,12 +12,23 @@
     "skipToContent": "Zum Inhalt springen",
     "backToTop": "Zurück nach oben"
   },
+  "header": {
+    "availabilityTag": "Nimmt Anfragen an"
+  },
   "hero": {
-    "kicker": "Benjamin Nößler · Wien",
+    "kicker": "Freelance · Landingpages & Fullstack",
     "headline": "Schnelle, saubere Landingpages und Webapps für Unternehmen in Wien.",
-    "body": "Freelance-Entwickler mit zehn Jahren TypeScript-Erfahrung. Tagsüber im Wien-Digital-Team, nebenbei Landingpage-Redesigns und Fullstack-Builds für lokale Unternehmen.",
+    "body": "Freelance-Entwickler mit zehn Jahren TypeScript-Erfahrung. Tagsüber im Digitalisierungsteam der Stadt Wien, nebenbei Landingpage-Redesigns und Fullstack-Builds für lokale Unternehmen.",
     "ctaPrimary": "Projekt besprechen",
     "ctaSecondary": "Beispiele ansehen"
+  },
+  "proof": {
+    "items": [
+      "Festpreis",
+      "Launch in 2–4 Wochen",
+      "DE/EN",
+      "DSGVO"
+    ]
   },
   "stack": {
     "label": "Stack",
@@ -78,7 +89,8 @@
       "bullets": [
         "Struktur & Copy",
         "Performance & SEO-Basics",
-        "DE/EN · DSGVO"
+        "DE/EN · DSGVO",
+        "Ab €500 + Hosting"
       ]
     },
     "fullstack": {
@@ -117,7 +129,7 @@
     "label": "Über",
     "bodyParagraphs": [
       "Ich helfe lokalen Unternehmen, ihre Webpräsenz zu modernisieren — meist mit einem Landingpage-Redesign, manchmal mit einer kompletten Webapp. Wien ist mein Ausgangspunkt, die meiste Arbeit findet remote statt.",
-      "Hauptberuflich arbeite ich für APC Business Services GmbH und bin von dort im Wien-Digital-Team an technischen Fragestellungen rund um Datenprojekte eingesetzt. Nebenbei nehme ich ausgewählte Freelance-Aufträge an — vor allem Landingpage-Redesigns und kleinere Fullstack-Projekte für lokale Unternehmen.",
+      "Hauptberuflich arbeite ich an Datenprojekten im Digitalisierungsteam der Stadt Wien (über APC Business Services GmbH). Daneben nehme ich ausgewählte Freelance-Aufträge an — vor allem Landingpage-Redesigns und kleinere Fullstack-Projekte für lokale Unternehmen.",
       "Ich arbeite am liebsten an Dingen, die länger als ein Quartal leben sollen: sauber gebaut, auf eigener Infrastruktur (Hetzner/Coolify), mit Werkzeugen, denen ich auch in zwei Jahren noch vertraue. Mir ist der Business-Kontext mindestens so wichtig wie der Code — deswegen rede ich gerne mit Menschen, die ihr Problem selbst kennen."
     ]
   },
@@ -137,6 +149,7 @@
         "other": "Sonstiges"
       },
       "projectTypeNone": "Bitte wählen",
+      "projectTypeHint": "Nicht sicher? 'Sonstiges' wählen — wir klären das im Gespräch.",
       "messageLabel": "Nachricht",
       "messagePlaceholder": "Worum geht es? Gerne 2–3 Sätze zum Projekt, zur aktuellen Seite oder zur Zielgruppe.",
       "submitLabel": "Anfrage senden",

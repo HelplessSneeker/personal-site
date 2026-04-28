@@ -14,26 +14,18 @@ const { sections, navLabel = 'Page sections' } = Astro.props;
 {sections.length > 0 && (
   <nav class="scroll-indicator" aria-label={navLabel} data-scroll-indicator>
     <ol class="ticks">
-      {sections.map((section, i) => {
-        const num = String(i + 1).padStart(2, '0');
-        return (
-          <li class="tick-item">
-            <a
-              href={`#${section.id}`}
-              class="tick"
-              aria-label={section.label}
-              data-target={section.id}
-            >
-              <span class="tick-label" aria-hidden="true">
-                <span class="tick-num">{num}</span>
-                <span class="tick-sep">/</span>
-                <span class="tick-name">{section.label}</span>
-              </span>
-              <span class="tick-line" aria-hidden="true"></span>
-            </a>
-          </li>
-        );
-      })}
+      {sections.map((section) => (
+        <li class="tick-item">
+          <a
+            href={`#${section.id}`}
+            class="tick"
+            aria-label={section.label}
+            data-target={section.id}
+          >
+            <span class="tick-line" aria-hidden="true"></span>
+          </a>
+        </li>
+      ))}
       <span class="marker" aria-hidden="true"></span>
     </ol>
   </nav>
@@ -81,7 +73,6 @@ const { sections, navLabel = 'Page sections' } = Astro.props;
   .tick {
     display: inline-flex;
     align-items: center;
-    gap: var(--space-3);
     padding: 6px 0;
     text-decoration: none;
     color: inherit;
@@ -89,45 +80,9 @@ const { sections, navLabel = 'Page sections' } = Astro.props;
     position: relative;
   }
 
-  .tick-label {
-    font-family: var(--font-mono);
-    font-size: 11px;
-    font-weight: 500;
-    line-height: 1;
-    letter-spacing: 0.04em;
-    font-feature-settings: 'ss01', 'tnum';
-    color: var(--color-text-subtle);
-    opacity: 0;
-    transform: translateX(6px);
-    transition:
-      opacity 150ms var(--ease-out-quart),
-      transform 220ms var(--ease-out-quart),
-      color 180ms var(--ease-out-quart);
-    pointer-events: none;
-    white-space: nowrap;
-    display: inline-flex;
-    gap: 0.4em;
-  }
-  .tick-num { color: var(--color-text-subtle); }
-  .tick-sep { color: var(--color-text-subtle); opacity: 0.55; }
-  .tick-name {
-    color: var(--color-text-muted);
-    text-transform: lowercase;
-  }
-
-  .tick[aria-current="location"] .tick-label,
-  .tick:hover .tick-label,
-  .tick:focus-visible .tick-label {
-    opacity: 1;
-    transform: translateX(0);
-  }
-  .tick[aria-current="location"] .tick-name {
-    color: var(--color-text);
-  }
-
   .tick-line {
     display: block;
-    width: 16px;
+    width: 20px;
     height: 1px;
     background: var(--color-border-strong);
     transition:
@@ -136,16 +91,20 @@ const { sections, navLabel = 'Page sections' } = Astro.props;
   }
   .tick:hover .tick-line,
   .tick:focus-visible .tick-line {
-    width: 20px;
+    width: 28px;
     background: var(--color-text-muted);
+  }
+  .tick[aria-current="location"] .tick-line {
+    width: 28px;
+    background: var(--color-accent);
   }
 
   .marker {
     position: absolute;
     top: 0;
     right: 0;
-    width: 24px;
-    height: 1px;
+    width: 32px;
+    height: 2px;
     background: var(--color-accent);
     transform: translate3d(0, 0, 0);
     will-change: transform;
@@ -174,6 +133,16 @@ const { sections, navLabel = 'Page sections' } = Astro.props;
       .filter((el): el is HTMLElement => !!el);
     if (sectionEls.length !== tickEls.length) return;
 
+    // Mirror the active-section state to the primary header nav, so users
+    // see the same "you are here" highlight in both the sidebar ticks and
+    // the top bar. Header has fewer items than the sidebar (no "Start"
+    // entry); IDs not present in the header simply clear all header links.
+    const headerLinkBySection = new Map<string, HTMLAnchorElement>();
+    document.querySelectorAll<HTMLAnchorElement>('.site-nav a[href*="#"]').forEach((a) => {
+      const id = a.getAttribute('href')?.split('#')[1];
+      if (id) headerLinkBySection.set(id, a);
+    });
+
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const header = document.querySelector<HTMLElement>('.site-header');
 
@@ -196,6 +165,11 @@ const { sections, navLabel = 'Page sections' } = Astro.props;
       tickEls.forEach((t, j) => {
         if (j === i) t.setAttribute('aria-current', 'location');
         else t.removeAttribute('aria-current');
+      });
+      const activeId = sectionEls[i]?.id ?? '';
+      headerLinkBySection.forEach((link, id) => {
+        if (id === activeId) link.setAttribute('aria-current', 'location');
+        else link.removeAttribute('aria-current');
       });
     };
 

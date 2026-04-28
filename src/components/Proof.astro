@@ -1,0 +1,81 @@
+---
+import { tArray, type Locale } from '../i18n/util';
+
+export interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const items = tArray(locale, 'proof.items');
+const navLabel = locale === 'de' ? 'Eckdaten' : 'At a glance';
+---
+<aside class="proof" aria-label={navLabel}>
+  <div class="container">
+    <ul class="proof-list">
+      {items.map((item) => <li>{item}</li>)}
+    </ul>
+  </div>
+</aside>
+
+<style>
+  /* Trust-band between Hero and Services. Not a `.section` — sits in the
+     gap between two real sections and provides the divider line above
+     Services via its own border-bottom. Promoted from quiet small-caps to
+     readable claim-chips so the four commitments actually land above the
+     fold. */
+  .proof {
+    padding-block: var(--space-5);
+    border-bottom: 1px solid var(--color-rule);
+  }
+  @media (min-width: 48rem) {
+    .proof {
+      padding-block: var(--space-6);
+    }
+  }
+
+  .proof-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    column-gap: var(--space-3);
+    row-gap: var(--space-3);
+  }
+
+  .proof-list li {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-2) var(--space-4);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    background: var(--color-surface);
+    font-family: var(--font-sans);
+    font-size: var(--fs-md);
+    font-weight: 500;
+    color: var(--color-text);
+    line-height: 1.2;
+  }
+
+  .proof-list li::before {
+    content: '';
+    flex-shrink: 0;
+    width: 0.45em;
+    height: 0.45em;
+    border-radius: 50%;
+    background: var(--color-accent);
+  }
+
+  @media (max-width: 34rem) {
+    .proof-list {
+      column-gap: var(--space-2);
+      row-gap: var(--space-2);
+    }
+    .proof-list li {
+      padding: var(--space-1) var(--space-3);
+      font-size: var(--fs-sm);
+    }
+  }
+</style>

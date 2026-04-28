@@ -2,7 +2,7 @@
 import '../styles/global.css';
 import ScrollSectionIndicator, { type SectionRef } from '../components/ScrollSectionIndicator.astro';
 import funnelLatin from '@fontsource-variable/funnel-display/files/funnel-display-latin-wght-normal.woff2?url';
-import hankenLatin from '@fontsource-variable/hanken-grotesk/files/hanken-grotesk-latin-wght-normal.woff2?url';
+import generalSansVariable from '../assets/fonts/general-sans-variable.woff2?url';
 
 export interface Props {
   title: string;
@@ -63,7 +63,7 @@ const personSchema = {
     <link rel="canonical" href={canonicalUrl} />
 
     <link rel="preload" href={funnelLatin} as="font" type="font/woff2" crossorigin />
-    <link rel="preload" href={hankenLatin} as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href={generalSansVariable} as="font" type="font/woff2" crossorigin />
 
     <link rel="alternate" hreflang={locale} href={canonicalUrl} />
     {altLocaleUrl && (

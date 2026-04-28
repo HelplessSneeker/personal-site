@@ -12,12 +12,23 @@
     "skipToContent": "Skip to content",
     "backToTop": "Back to top"
   },
+  "header": {
+    "availabilityTag": "Taking inquiries"
+  },
   "hero": {
-    "kicker": "Benjamin Nößler · Vienna",
+    "kicker": "Freelance · Landing pages & fullstack",
     "headline": "Fast, well-built landing pages and web apps for Vienna-based businesses.",
-    "body": "Freelance fullstack developer with ten years of TypeScript experience. Embedded with the Wien Digital team by day, taking selected landing-page redesigns and small fullstack builds on the side.",
+    "body": "Freelance fullstack developer with ten years of TypeScript experience. Day job with the City of Vienna's digital team; on the side, selected landing-page redesigns and small fullstack builds for local businesses.",
     "ctaPrimary": "Discuss your project",
     "ctaSecondary": "See examples"
+  },
+  "proof": {
+    "items": [
+      "Fixed price",
+      "Launch in 2–4 weeks",
+      "DE/EN",
+      "GDPR"
+    ]
   },
   "stack": {
     "label": "Stack",
@@ -78,7 +89,8 @@
       "bullets": [
         "Structure & copy",
         "Performance & SEO basics",
-        "DE/EN · GDPR"
+        "DE/EN · GDPR",
+        "From €500 + Hosting"
       ]
     },
     "fullstack": {
@@ -117,7 +129,7 @@
     "label": "About",
     "bodyParagraphs": [
       "I help local businesses modernise their web presence — usually a landing-page redesign, sometimes a full web app. Vienna is home base; most of the work happens remote.",
-      "I work for APC Business Services GmbH and am embedded through them with the Wien Digital team, working on technical questions around data projects. On the side I take on selected freelance work — mostly landing-page redesigns and smaller fullstack builds for local businesses.",
+      "My day job is data projects with the City of Vienna's digital team (placed there through APC Business Services GmbH). On the side I take on selected freelance work — mostly landing-page redesigns and smaller fullstack builds for local businesses.",
       "I prefer projects meant to last longer than a quarter: cleanly built, on my own infrastructure (Hetzner/Coolify), with tools I'll still trust in two years. Business context matters to me as much as the code — so I enjoy talking to people who know their problem better than I do."
     ]
   },
@@ -137,6 +149,7 @@
         "other": "Something else"
       },
       "projectTypeNone": "Select one",
+      "projectTypeHint": "Not sure? Pick 'Something else' — we'll sort it out in the call.",
       "messageLabel": "Message",
       "messagePlaceholder": "What's this about? A few sentences about the project, the current page, or your audience is perfect.",
       "submitLabel": "Send inquiry",

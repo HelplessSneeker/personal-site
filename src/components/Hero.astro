@@ -11,13 +11,19 @@ const home = getLocalizedPath(locale, '/');
 <section class="section hero" id="top" aria-labelledby="hero-heading">
   <div class="container">
     <div class="hero-text">
+      <span class="hero-rule" aria-hidden="true"></span>
       <p class="hero-kicker">{t(locale, 'hero.kicker')}</p>
       <h1 id="hero-heading" class="hero-headline">{t(locale, 'hero.headline')}</h1>
       <p class="hero-body">{t(locale, 'hero.body')}</p>
 
       <div class="hero-cta">
-        <a href={`${home}#contact`} class="btn btn-primary">{t(locale, 'hero.ctaPrimary')}</a>
-        <a href={`${home}#work`} class="btn btn-secondary">{t(locale, 'hero.ctaSecondary')}</a>
+        <a href={`${home}#contact`} class="btn btn-primary hero-cta-primary">
+          {t(locale, 'hero.ctaPrimary')}
+          <span class="hero-cta-arrow" aria-hidden="true">→</span>
+        </a>
+        <a href={`${home}#work`} class="hero-cta-link">
+          {t(locale, 'hero.ctaSecondary')}
+        </a>
       </div>
     </div>
   </div>
@@ -33,7 +39,7 @@ const home = getLocalizedPath(locale, '/');
   }
   @media (min-width: 48rem) {
     .hero {
-      padding-block: clamp(var(--space-9), 10vh, var(--space-10)) var(--space-9);
+      padding-block: clamp(var(--space-10), 14vh, 11rem) var(--space-9);
     }
   }
 
@@ -44,28 +50,42 @@ const home = getLocalizedPath(locale, '/');
     align-items: flex-start;
   }
 
-  .hero-kicker {
-    font-family: var(--font-mono);
-    font-size: var(--fs-xs);
-    font-weight: 500;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--color-text-subtle);
+  /* Leading editorial rule — "start of article" mark, common in print and
+     long-form web. Keeps the kicker from sitting visually orphaned at the
+     top of an otherwise generous whitespace block. */
+  .hero-rule {
+    display: block;
+    width: 2.5rem;
+    height: 1px;
+    background: var(--color-accent);
     margin-bottom: var(--space-4);
-    font-feature-settings: 'ss01';
+  }
+
+  .hero-kicker {
+    font-family: var(--font-sans);
+    font-size: var(--fs-sm);
+    font-weight: 500;
+    font-variant-caps: all-small-caps;
+    letter-spacing: 0.05em;
+    color: var(--color-text-subtle);
+    margin-bottom: var(--space-5);
   }
 
   .hero-headline {
     font-family: var(--font-display);
     font-weight: var(--weight-display);
-    font-size: var(--fs-display);
-    line-height: 1.02;
-    letter-spacing: -0.025em;
+    font-size: clamp(2.75rem, 1.6rem + 5.5vw, 6.25rem);
+    line-height: 1.0;
+    letter-spacing: -0.028em;
     color: var(--color-text);
-    max-width: 24ch;
+    max-width: 18ch;
     text-wrap: balance;
-    margin-bottom: var(--space-5);
-    font-feature-settings: 'ss01', 'ss02';
+    margin-bottom: var(--space-6);
+  }
+  @media (min-width: 64rem) {
+    .hero-headline {
+      max-width: 14ch;
+    }
   }
 
   .hero-body {
@@ -73,13 +93,55 @@ const home = getLocalizedPath(locale, '/');
     line-height: 1.5;
     color: var(--color-text);
     max-width: 46ch;
-    margin-bottom: var(--space-7);
+    margin-bottom: var(--space-8);
     text-wrap: pretty;
   }
 
   .hero-cta {
     display: flex;
     flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-6);
+  }
+
+  /* Hero-scoped override: the primary CTA is the conversion path of the
+     whole site, so it earns more padding, more weight, and a subtle lift
+     on hover. The secondary link stays a quiet text-link — that contrast
+     is the point. */
+  .hero-cta-primary {
+    padding: var(--space-4) var(--space-6);
+    font-size: var(--fs-lg);
+    font-weight: 500;
+    min-height: 52px;
     gap: var(--space-3);
+  }
+  .hero-cta-primary:hover {
+    transform: translateY(-1px);
+  }
+  .hero-cta-primary .hero-cta-arrow {
+    font-family: var(--font-mono);
+    font-size: 0.95em;
+    display: inline-block;
+    transition: transform var(--transition);
+  }
+  .hero-cta-primary:hover .hero-cta-arrow {
+    transform: translateX(3px);
+  }
+
+  .hero-cta-link {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0.4em;
+    font-size: var(--fs-md);
+    color: var(--color-text-muted);
+    text-decoration: underline;
+    text-decoration-color: color-mix(in oklab, currentColor 25%, transparent);
+    text-underline-offset: 0.2em;
+    text-decoration-thickness: 1px;
+    transition: color var(--transition), text-decoration-color var(--transition);
+  }
+  .hero-cta-link:hover {
+    color: var(--color-accent);
+    text-decoration-color: currentColor;
   }
 </style>

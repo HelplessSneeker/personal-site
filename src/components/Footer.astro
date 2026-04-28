@@ -27,6 +27,12 @@ const sourceUrl = 'https://github.com/HelplessSneeker/personal-site';
     <div class="footer-col footer-meta">
       <span class="colophon-label">© {year}</span>
       <p class="footer-name">Benjamin Nößler · {locale === 'de' ? 'Wien' : 'Vienna'}</p>
+      <p class="footer-direct">
+        <a href="mailto:benjamin@noessler.at">
+          {locale === 'de' ? 'Direkt schreiben' : 'Email me directly'}
+          <span aria-hidden="true"> →</span>
+        </a>
+      </p>
     </div>
 
     <nav aria-label={locale === 'de' ? 'Rechtliches' : 'Legal'} class="footer-legal">
@@ -70,16 +76,17 @@ const sourceUrl = 'https://github.com/HelplessSneeker/personal-site';
   }
 
   .colophon-label {
-    font-family: var(--font-mono);
-    font-size: var(--fs-xs);
+    font-family: var(--font-sans);
+    font-size: var(--fs-sm);
     font-weight: 500;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
+    font-variant-caps: all-small-caps;
+    letter-spacing: 0.05em;
     color: var(--color-text-subtle);
   }
 
   .footer-colophon,
-  .footer-name {
+  .footer-name,
+  .footer-direct {
     font-size: var(--fs-sm);
     line-height: 1.5;
     color: var(--color-text-muted);
@@ -97,6 +104,17 @@ const sourceUrl = 'https://github.com/HelplessSneeker/personal-site';
     text-decoration-color: currentColor;
   }
 
+  .footer-direct a {
+    font-family: var(--font-mono);
+    color: var(--color-accent);
+    text-decoration: underline;
+    text-decoration-color: color-mix(in oklab, var(--color-accent) 25%, transparent);
+    text-underline-offset: 0.2em;
+  }
+  .footer-direct a:hover {
+    text-decoration-color: currentColor;
+  }
+
   .footer-legal {
     display: flex;
     flex-direction: column;
@@ -109,7 +127,6 @@ const sourceUrl = 'https://github.com/HelplessSneeker/personal-site';
     display: flex;
     flex-wrap: wrap;
     column-gap: 0;
-    font-family: var(--font-mono);
     font-size: var(--fs-sm);
   }
   .footer-legal li {

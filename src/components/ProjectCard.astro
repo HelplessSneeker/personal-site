@@ -32,9 +32,6 @@ const statusText = status ?? (locale === 'de' ? statusMap[project.status].de : s
   <header class="project-head">
     <span class="project-index" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
     <h3 class="project-title">{project.title}</h3>
-    {project.isPlaceholder && (
-      <span class="todo-placeholder">TODO</span>
-    )}
   </header>
 
   <div class="project-body">
@@ -73,9 +70,7 @@ const statusText = status ?? (locale === 'de' ? statusMap[project.status].de : s
           <dd>
             <ul class="stack-list">
               {project.stack.map((tech) => (
-                <li class={tech.startsWith('[TODO') ? 'stack-tech stack-tech--todo' : 'stack-tech'}>
-                  {tech}
-                </li>
+                <li class="stack-tech">{tech}</li>
               ))}
             </ul>
           </dd>
@@ -169,12 +164,12 @@ const statusText = status ?? (locale === 'de' ? statusMap[project.status].de : s
       grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
       gap: var(--space-8);
       align-items: start;
-      padding-left: 4.5rem;
     }
   }
-  @media (min-width: 52rem) and (max-width: 64rem) {
+  /* Indent under the project title only when there's enough horizontal room. */
+  @media (min-width: 64rem) {
     .project-body {
-      padding-left: 0;
+      padding-left: 4.5rem;
     }
   }
 
@@ -208,11 +203,11 @@ const statusText = status ?? (locale === 'de' ? statusMap[project.status].de : s
   }
 
   .project-meta dt {
-    font-family: var(--font-mono);
-    font-size: var(--fs-xs);
+    font-family: var(--font-sans);
+    font-size: var(--fs-sm);
     font-weight: 500;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
+    font-variant-caps: all-small-caps;
+    letter-spacing: 0.05em;
     color: var(--color-text-subtle);
   }
 
@@ -256,13 +251,6 @@ const statusText = status ?? (locale === 'de' ? statusMap[project.status].de : s
 
   .stack-tech {
     color: var(--color-text);
-  }
-  .stack-tech--todo {
-    color: var(--color-todo-text);
-    background: var(--color-todo-bg);
-    padding: 1px 6px;
-    border-radius: var(--radius-sm);
-    border: 1px dashed var(--color-todo-border);
   }
 
   .link-list a {

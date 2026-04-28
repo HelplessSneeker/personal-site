@@ -18,10 +18,9 @@ export interface Project {
   statusEn?: string;
   status: ProjectStatus;
   links?: ProjectLink[];
-  visual?: 'mockup-calendar' | 'mockup-scanner' | 'mockup-healthcare' | 'mockup-industrial' | 'mockup-network';
+  visual?: 'mockup-calendar' | 'mockup-healthcare' | 'mockup-industrial';
   image?: string;
   imageAlt?: { de: string; en: string };
-  isPlaceholder?: boolean;
 }
 
 export const projects: Project[] = [

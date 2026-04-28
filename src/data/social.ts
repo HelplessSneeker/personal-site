@@ -2,7 +2,6 @@ export interface SocialLink {
   id: string;
   label: string;
   url: string;
-  isPlaceholder?: boolean;
 }
 
 export const socialLinks: SocialLink[] = [
