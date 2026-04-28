@@ -165,20 +165,19 @@ const testimonialAuthor = project.testimonial?.author
 
   .project-index {
     font-family: var(--font-mono);
+    font-feature-settings: var(--font-features-mono);
     font-size: var(--fs-2xl);
-    font-weight: 500;
+    font-weight: var(--weight-medium);
     letter-spacing: 0.02em;
     line-height: 1;
     color: var(--color-text-subtle);
-    font-variant-numeric: tabular-nums;
-    font-feature-settings: 'tnum', 'ss01';
   }
 
   .project-title {
     font-family: var(--font-display);
     font-size: var(--fs-2xl);
-    font-weight: 500;
-    letter-spacing: -0.022em;
+    font-weight: var(--weight-medium);
+    letter-spacing: var(--tracking-heading-xl);
     line-height: 1.05;
     color: var(--color-text);
     text-wrap: balance;
@@ -236,9 +235,9 @@ const testimonialAuthor = project.testimonial?.author
   .outcome-label {
     font-family: var(--font-sans);
     font-size: var(--fs-xs);
-    font-weight: 500;
+    font-weight: var(--weight-medium);
     font-variant-caps: all-small-caps;
-    letter-spacing: 0.06em;
+    letter-spacing: var(--tracking-smallcaps);
     color: var(--color-accent);
   }
 
@@ -265,9 +264,9 @@ const testimonialAuthor = project.testimonial?.author
     margin: 0;
     font-family: var(--font-display);
     font-size: var(--fs-lg);
-    font-weight: 400;
+    font-weight: var(--weight-body);
     font-style: italic;
-    letter-spacing: -0.005em;
+    letter-spacing: var(--tracking-heading-sm);
     line-height: var(--lh-relaxed);
     color: var(--color-text);
     text-wrap: pretty;
@@ -291,9 +290,10 @@ const testimonialAuthor = project.testimonial?.author
   .testimonial-placeholder-tag {
     align-self: flex-start;
     font-family: var(--font-mono);
+    font-feature-settings: var(--font-features-mono);
     font-size: var(--fs-xs);
-    font-weight: 500;
-    letter-spacing: 0.08em;
+    font-weight: var(--weight-medium);
+    letter-spacing: var(--tracking-label);
     text-transform: uppercase;
     color: var(--color-text-subtle);
     padding: 0.15rem 0.5rem;
@@ -319,9 +319,9 @@ const testimonialAuthor = project.testimonial?.author
   .project-meta dt {
     font-family: var(--font-sans);
     font-size: var(--fs-sm);
-    font-weight: 500;
+    font-weight: var(--weight-medium);
     font-variant-caps: all-small-caps;
-    letter-spacing: 0.05em;
+    letter-spacing: var(--tracking-smallcaps);
     color: var(--color-text-subtle);
   }
 
@@ -346,6 +346,7 @@ const testimonialAuthor = project.testimonial?.author
     flex-wrap: wrap;
     align-items: baseline;
     font-family: var(--font-mono);
+    font-feature-settings: var(--font-features-mono);
     font-size: var(--fs-sm);
     color: var(--color-text-muted);
   }

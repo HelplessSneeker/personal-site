@@ -40,13 +40,14 @@ const { title, description, locale, altLocaleUrl, canonicalPath } = Astro.props;
   }
   .legal-article h1 {
     font-size: var(--fs-2xl);
-    font-weight: 500;
-    letter-spacing: -0.02em;
+    font-weight: var(--weight-medium);
+    letter-spacing: var(--tracking-heading-xl);
     margin-bottom: var(--space-6);
   }
   .legal-article h2 {
     font-size: var(--fs-lg);
-    font-weight: 500;
+    font-weight: var(--weight-medium);
+    letter-spacing: var(--tracking-heading-lg);
     margin-top: var(--space-6);
     margin-bottom: var(--space-3);
   }

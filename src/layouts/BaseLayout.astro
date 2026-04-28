@@ -1,7 +1,6 @@
 ---
 import '../styles/global.css';
 import ScrollSectionIndicator, { type SectionRef } from '../components/ScrollSectionIndicator.astro';
-import bricolageLatin from '@fontsource-variable/bricolage-grotesque/files/bricolage-grotesque-latin-wght-normal.woff2?url';
 import generalSansVariable from '../assets/fonts/general-sans-variable.woff2?url';
 
 export interface Props {
@@ -62,7 +61,6 @@ const personSchema = {
     <meta name="description" content={description} />
     <link rel="canonical" href={canonicalUrl} />
 
-    <link rel="preload" href={bricolageLatin} as="font" type="font/woff2" crossorigin />
     <link rel="preload" href={generalSansVariable} as="font" type="font/woff2" crossorigin />
 
     <link rel="alternate" hreflang={locale} href={canonicalUrl} />

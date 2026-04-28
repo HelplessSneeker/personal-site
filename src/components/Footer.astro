@@ -78,9 +78,9 @@ const sourceUrl = 'https://github.com/HelplessSneeker/personal-site';
   .colophon-label {
     font-family: var(--font-sans);
     font-size: var(--fs-sm);
-    font-weight: 500;
+    font-weight: var(--weight-medium);
     font-variant-caps: all-small-caps;
-    letter-spacing: 0.05em;
+    letter-spacing: var(--tracking-smallcaps);
     color: var(--color-text-subtle);
   }
 
@@ -106,6 +106,7 @@ const sourceUrl = 'https://github.com/HelplessSneeker/personal-site';
 
   .footer-direct a {
     font-family: var(--font-mono);
+    font-feature-settings: var(--font-features-mono);
     color: var(--color-accent);
     text-decoration: underline;
     text-decoration-color: color-mix(in oklab, var(--color-accent) 25%, transparent);

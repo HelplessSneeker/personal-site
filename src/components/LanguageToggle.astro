@@ -28,6 +28,7 @@ const altLocale: Locale = currentLocale === 'de' ? 'en' : 'de';
     align-items: center;
     gap: 0.35em;
     font-family: var(--font-mono);
+    font-feature-settings: var(--font-features-mono);
     font-size: var(--fs-sm);
     color: var(--color-text-muted);
     text-decoration: none;
@@ -40,7 +41,7 @@ const altLocale: Locale = currentLocale === 'de' ? 'en' : 'de';
   }
   .lang-current {
     color: var(--color-text);
-    font-weight: 500;
+    font-weight: var(--weight-medium);
   }
   .lang-sep {
     color: var(--color-text-subtle);

@@ -1,4 +1,3 @@
-@import '@fontsource-variable/bricolage-grotesque/index.css';
 @import '@fontsource/commit-mono/latin-400.css';
 @import '@fontsource/commit-mono/latin-500.css';
 
@@ -43,32 +42,42 @@
   --color-selection-bg: var(--color-accent);
   --color-selection-text: oklch(98% 0.004 248);
 
-  --font-display: 'Bricolage Grotesque Variable', 'General Sans Variable', ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-display: 'General Sans Variable', ui-sans-serif, system-ui, -apple-system, sans-serif;
   --font-sans: 'General Sans Variable', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
   --font-mono: 'Commit Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', monospace;
 
+  /* OpenType features per family. Sans gets kerning + ligatures; mono adds
+     the warm-humanist alternate set (ss01) and tabular figures so numerics
+     align across all mono usage. */
+  --font-features-sans: 'kern', 'liga', 'calt';
+  --font-features-mono: 'kern', 'liga', 'calt', 'tnum', 'ss01';
+
+  /* Type scale. Body is FIXED (no clamp) — fluid sizing belongs on display
+     headlines, not on reading text. Headings clamp between mobile and
+     desktop sizes for editorial scale. */
   --fs-xs: 0.75rem;
   --fs-sm: 0.875rem;
-  --fs-base: 1rem;
-  --fs-md: clamp(1rem, 0.97rem + 0.15vw, 1.0625rem);
-  --fs-lg: clamp(1.125rem, 1.02rem + 0.5vw, 1.375rem);
+  --fs-md: 1.0625rem;
+  --fs-lg: clamp(1.1875rem, 1.05rem + 0.55vw, 1.375rem);
   --fs-xl: clamp(1.5rem, 1.25rem + 1.1vw, 2rem);
   --fs-2xl: clamp(2rem, 1.55rem + 2.2vw, 2.875rem);
-  --fs-3xl: clamp(2.5rem, 1.75rem + 3.75vw, 4rem);
-  --fs-display: clamp(3rem, 2rem + 5vw, 5.5rem);
 
   --lh-tight: 1.08;
   --lh-snug: 1.25;
   --lh-normal: 1.55;
   --lh-relaxed: 1.7;
 
-  --tracking-display: -0.02em;
-  --tracking-heading: -0.012em;
-  --tracking-body: 0;
+  /* Heading tracking forms a graded scale: tighter as size grows. The
+     display value is reserved for the hero. The remaining steps map to
+     the section/subsection/quote sizes used across the site. */
+  --tracking-display: -0.028em;
+  --tracking-heading-xl: -0.022em;
+  --tracking-heading-lg: -0.015em;
+  --tracking-heading-sm: -0.005em;
+  --tracking-smallcaps: 0.06em;
   --tracking-label: 0.08em;
 
   --weight-display: 500;
-  --weight-heading: 520;
   --weight-body: 400;
   --weight-medium: 500;
 
@@ -157,16 +166,16 @@ body {
   background-color: var(--color-bg);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-feature-settings: 'kern', 'liga', 'calt';
+  font-feature-settings: var(--font-features-sans);
   text-rendering: optimizeLegibility;
 }
 
 h1, h2, h3, h4, h5, h6 {
   margin: 0;
   font-family: var(--font-display);
-  font-weight: var(--weight-heading);
+  font-weight: var(--weight-medium);
   line-height: var(--lh-tight);
-  letter-spacing: var(--tracking-heading);
+  letter-spacing: var(--tracking-heading-lg);
   text-wrap: balance;
 }
 
@@ -217,7 +226,7 @@ img, svg {
 code, pre, kbd, samp {
   font-family: var(--font-mono);
   font-size: 0.92em;
-  font-feature-settings: 'ss01';
+  font-feature-settings: var(--font-features-mono);
 }
 
 ::selection {
@@ -257,26 +266,18 @@ code, pre, kbd, samp {
 
 /* ——— Type utilities ——————————————————— */
 
-/* Small-caps label voice. Used for conversational metadata labels — replaces
-   the previous mono+uppercase treatment so mono can mean "code/numerics"
-   exclusively. Apply via .label-cap or in-place per scoped component. Size
-   is --fs-sm (not --fs-xs) — small-caps render at ~75% cap height, so they
-   need to start a step larger than mono uppercase to read at the same scale. */
-.label-cap {
-  font-family: var(--font-sans);
-  font-size: var(--fs-sm);
-  font-weight: 500;
-  font-variant-caps: all-small-caps;
-  letter-spacing: 0.05em;
-}
+/* Small-caps label voice — the design's recurring "metadata" voice.
+   Components apply this pattern inline using --tracking-smallcaps and
+   --weight-medium so each call site can pick its own color and size.
+   .section-label below is the section-heading variant with a § marker. */
 
 .section-label {
   display: inline-block;
   font-family: var(--font-sans);
   font-size: var(--fs-sm);
-  font-weight: 500;
+  font-weight: var(--weight-medium);
   font-variant-caps: all-small-caps;
-  letter-spacing: 0.05em;
+  letter-spacing: var(--tracking-smallcaps);
   color: var(--color-text-subtle);
   margin-bottom: var(--space-5);
 }
@@ -284,7 +285,7 @@ code, pre, kbd, samp {
 .section-label::before {
   content: '§\00a0 ';
   color: var(--color-accent);
-  font-weight: 500;
+  font-weight: var(--weight-medium);
 }
 
 .text-muted {
@@ -311,7 +312,7 @@ code, pre, kbd, samp {
   font-size: var(--fs-md);
   font-weight: var(--weight-medium);
   line-height: 1.2;
-  letter-spacing: -0.005em;
+  letter-spacing: var(--tracking-heading-sm);
   border-radius: var(--radius-sm);
   cursor: pointer;
   transition: background-color var(--transition), border-color var(--transition), color var(--transition), transform var(--transition);
@@ -359,8 +360,9 @@ code, pre, kbd, samp {
   border-radius: var(--radius-sm);
   color: var(--color-todo-text);
   font-family: var(--font-mono);
+  font-feature-settings: var(--font-features-mono);
   font-size: var(--fs-xs);
-  font-weight: 500;
+  font-weight: var(--weight-medium);
   letter-spacing: 0.04em;
 }
 
@@ -403,7 +405,7 @@ code, pre, kbd, samp {
   color: var(--color-text);
   font-family: var(--font-sans);
   font-size: var(--fs-md);
-  font-weight: 500;
+  font-weight: var(--weight-medium);
   text-decoration: none;
   border: 2px solid var(--color-accent);
   border-radius: var(--radius-sm);

@@ -253,9 +253,9 @@ const messages = {
   .field label {
     font-family: var(--font-sans);
     font-size: var(--fs-sm);
-    font-weight: 500;
+    font-weight: var(--weight-medium);
     font-variant-caps: all-small-caps;
-    letter-spacing: 0.05em;
+    letter-spacing: var(--tracking-smallcaps);
     color: var(--color-text-subtle);
   }
   .required {
@@ -299,7 +299,6 @@ const messages = {
   .field textarea {
     resize: vertical;
     min-height: 8rem;
-    font-family: var(--font-sans);
     padding-top: var(--space-2);
   }
   .field select {
@@ -351,7 +350,7 @@ const messages = {
     padding: var(--space-3) var(--space-5);
     font-family: var(--font-sans);
     font-size: var(--fs-md);
-    font-weight: 500;
+    font-weight: var(--weight-medium);
     color: var(--color-bg);
     background: var(--color-accent);
     border: 1px solid var(--color-accent);
@@ -363,6 +362,7 @@ const messages = {
   .submit-btn::after {
     content: '→';
     font-family: var(--font-mono);
+    font-feature-settings: var(--font-features-mono);
     transition: transform var(--transition);
   }
   .submit-btn:hover:not(:disabled) {
@@ -388,7 +388,7 @@ const messages = {
     margin-bottom: var(--space-1);
     font-family: var(--font-display);
     font-size: var(--fs-md);
-    font-weight: 500;
+    font-weight: var(--weight-medium);
   }
   .form-status p {
     color: var(--color-text-muted);

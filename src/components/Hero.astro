@@ -64,9 +64,9 @@ const home = getLocalizedPath(locale, '/');
   .hero-kicker {
     font-family: var(--font-sans);
     font-size: var(--fs-sm);
-    font-weight: 500;
+    font-weight: var(--weight-medium);
     font-variant-caps: all-small-caps;
-    letter-spacing: 0.05em;
+    letter-spacing: var(--tracking-smallcaps);
     color: var(--color-text-subtle);
     margin-bottom: var(--space-5);
   }
@@ -76,7 +76,7 @@ const home = getLocalizedPath(locale, '/');
     font-weight: var(--weight-display);
     font-size: clamp(2.75rem, 1.6rem + 5.5vw, 6.25rem);
     line-height: 1.0;
-    letter-spacing: -0.028em;
+    letter-spacing: var(--tracking-display);
     color: var(--color-text);
     max-width: 18ch;
     text-wrap: balance;
@@ -111,7 +111,7 @@ const home = getLocalizedPath(locale, '/');
   .hero-cta-primary {
     padding: var(--space-4) var(--space-6);
     font-size: var(--fs-lg);
-    font-weight: 500;
+    font-weight: var(--weight-medium);
     min-height: 52px;
     gap: var(--space-3);
   }
@@ -120,6 +120,7 @@ const home = getLocalizedPath(locale, '/');
   }
   .hero-cta-primary .hero-cta-arrow {
     font-family: var(--font-mono);
+    font-feature-settings: var(--font-features-mono);
     font-size: 0.95em;
     display: inline-block;
     transition: transform var(--transition);
