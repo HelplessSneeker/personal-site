@@ -106,6 +106,19 @@
       ],
       "priceAnchor": "ab €500 + Hosting — Konzept, Design, Umsetzung als Festpreis. Konkreter Preis nach Gespräch."
     },
+    "hosting": {
+      "title": "Hosting & Betrieb",
+      "description": "Damit deine Seite live, sicher und aktuell bleibt — ohne dass du dich darum kümmern musst.",
+      "bullets": [
+        "Hosting auf eigener Infrastruktur (Hetzner, Wien)",
+        "Automatische Sicherheits- und Software-Updates",
+        "Uptime-Monitoring",
+        "SSL-Zertifikat",
+        "Tägliche Backups",
+        "Reaktion bei Problemen innerhalb von 48 Stunden"
+      ],
+      "priceAnchor": "€19/Monat. Inhaltliche Änderungen nach Aufwand: €60/h (in 15-Minuten-Schritten abgerechnet). Jederzeit kündbar."
+    },
     "fullstack": {
       "title": "Fullstack-Webapps",
       "description": "Für Vorhaben jenseits einer einzelnen Seite — Webapps, Dashboards, APIs, interne Tools. Sauber gebaut, transparent deployed auf eigener Infrastruktur. Umfang und Preis nach Gespräch."

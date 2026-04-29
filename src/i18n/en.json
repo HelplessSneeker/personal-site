@@ -106,6 +106,19 @@
       ],
       "priceAnchor": "from €500 + hosting — concept, design, build as a fixed price. Final price defined after a call."
     },
+    "hosting": {
+      "title": "Hosting & operations",
+      "description": "Keeps your site live, secure, and up to date — so you don't have to think about it.",
+      "bullets": [
+        "Hosting on owned infrastructure (Hetzner, Vienna)",
+        "Automatic security and software updates",
+        "Uptime monitoring",
+        "SSL certificate",
+        "Daily backups",
+        "Response to issues within 48 hours"
+      ],
+      "priceAnchor": "€19/month. Content changes billed by the hour: €60/h (in 15-minute increments). Cancel anytime."
+    },
     "fullstack": {
       "title": "Fullstack web apps",
       "description": "For projects beyond a single page — web apps, dashboards, APIs, internal tools. Cleanly built, transparently deployed on owned infrastructure. Scope and price defined after a call."

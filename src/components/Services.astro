@@ -7,6 +7,7 @@ export interface Props {
 
 const { locale } = Astro.props;
 const landingBullets = tArray(locale, 'services.landing.bullets');
+const hostingBullets = tArray(locale, 'services.hosting.bullets');
 ---
 <section class="section services-section" id="services" aria-labelledby="services-heading">
   <div class="container">
@@ -30,6 +31,27 @@ const landingBullets = tArray(locale, 'services.landing.bullets');
         <div class="meta-row meta-row-anchor">
           <dt class="label-meta">{t(locale, 'services.priceAnchorLabel')}</dt>
           <dd class="price-anchor">{t(locale, 'services.landing.priceAnchor')}</dd>
+        </div>
+      </dl>
+    </article>
+
+    <article class="service service-primary">
+      <p class="service-index" aria-hidden="true"><span>02</span><span class="rule"></span></p>
+      <h3 class="service-title">{t(locale, 'services.hosting.title')}</h3>
+      <p class="service-desc">{t(locale, 'services.hosting.description')}</p>
+
+      <dl class="service-meta">
+        <div class="meta-row">
+          <dt class="label-meta">{t(locale, 'services.scopeLabel')}</dt>
+          <dd>
+            <ul class="meta-list">
+              {hostingBullets.map((bullet) => <li>{bullet}</li>)}
+            </ul>
+          </dd>
+        </div>
+        <div class="meta-row meta-row-anchor">
+          <dt class="label-meta">{t(locale, 'services.priceAnchorLabel')}</dt>
+          <dd class="price-anchor">{t(locale, 'services.hosting.priceAnchor')}</dd>
         </div>
       </dl>
     </article>
@@ -61,6 +83,12 @@ const landingBullets = tArray(locale, 'services.landing.bullets');
 
   .service-primary {
     max-width: 52rem;
+  }
+
+  .service-primary + .service-primary {
+    margin-top: var(--space-9);
+    padding-top: var(--space-7);
+    border-top: 1px solid var(--color-rule);
   }
 
   .service-index {
