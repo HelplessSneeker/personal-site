@@ -8,13 +8,14 @@ export interface Props {
 }
 
 const { project, locale } = Astro.props;
+const title = locale === 'en' && project.titleEn ? project.titleEn : project.title;
 const description = locale === 'de' ? project.descriptionDe : project.descriptionEn;
 const role = project.role ? (locale === 'de' ? project.role.de : project.role.en) : undefined;
 const context = project.context ? (locale === 'de' ? project.context.de : project.context.en) : undefined;
 const contextLine = [context, project.years].filter(Boolean).join(' · ');
 ---
 <article class="employment-card" role="listitem">
-  <h3 class="employment-title">{project.title}</h3>
+  <h3 class="employment-title">{title}</h3>
   <p class="employment-desc">{description}</p>
 
   <dl class="employment-meta">

@@ -13,6 +13,7 @@ export interface Testimonial {
 export interface Project {
   id: string;
   title: string;
+  titleEn?: string;
   descriptionDe: string;
   descriptionEn: string;
   stack: string[];
@@ -77,6 +78,7 @@ export const projects: Project[] = [
   {
     id: 'healthcare',
     title: 'Healthcare-Kommunikationsplattform',
+    titleEn: 'Healthcare communication platform',
     descriptionDe:
       'Kommunikationsplattform zwischen Arztpraxen und Laboren mit Ende-zu-Ende-Verschlüsselung und DSGVO-konformer Patientendaten-Verarbeitung. Native Apps auf iOS und Android via Capacitor aus geteilter Codebase.',
     descriptionEn:
@@ -90,6 +92,7 @@ export const projects: Project[] = [
   {
     id: 'industrial',
     title: 'Industrielles Kalibrierungssystem',
+    titleEn: 'Industrial calibration system',
     descriptionDe:
       'Backend für die automatische Kalibrierung von Rohrproduktionsanlagen mit SAP-Integration. Präzise Berechnungsalgorithmen für Produktionsplanung und -steuerung.',
     descriptionEn:
