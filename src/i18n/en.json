@@ -17,7 +17,7 @@
     "contact": "Contact"
   },
   "header": {
-    "availabilityTag": "Taking inquiries",
+    "availabilityTag": "Currently available",
     "inquiryAria": "Send an inquiry"
   },
   "hero": {
@@ -141,7 +141,7 @@
     },
     "availability": {
       "label": "Availability",
-      "value": "Booking new projects from July"
+      "value": "Currently available"
     }
   },
   "about": {

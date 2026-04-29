@@ -17,7 +17,7 @@
     "contact": "Kontakt"
   },
   "header": {
-    "availabilityTag": "Nimmt Anfragen an",
+    "availabilityTag": "Aktuell verfügbar",
     "inquiryAria": "Anfrage stellen"
   },
   "hero": {
@@ -141,7 +141,7 @@
     },
     "availability": {
       "label": "Verfügbarkeit",
-      "value": "Aufnahme neuer Projekte ab Juli"
+      "value": "Aktuell verfügbar"
     }
   },
   "about": {
