@@ -23,11 +23,11 @@ const navLinks = [
       <a
         href={`${home}#contact`}
         class="mark-tag"
-        aria-label={locale === 'de' ? 'Anfrage stellen' : 'Send an inquiry'}
+        aria-label={t(locale, 'header.inquiryAria')}
       >{t(locale, 'header.availabilityTag')}</a>
     </div>
 
-    <nav aria-label="Primary" class="site-nav">
+    <nav aria-label={t(locale, 'nav.primary')} class="site-nav">
       <ul>
         {navLinks.map((link) => (
           <li><a href={link.href}>{link.label}</a></li>

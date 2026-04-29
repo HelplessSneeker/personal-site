@@ -1,5 +1,5 @@
 ---
-import { getAltUrl, type Locale } from '../i18n/util';
+import { getAltUrl, t, type Locale } from '../i18n/util';
 
 export interface Props {
   currentLocale: Locale;
@@ -7,15 +7,16 @@ export interface Props {
 
 const { currentLocale } = Astro.props;
 const altUrl = getAltUrl(Astro.url.pathname, currentLocale);
-const altLabel = currentLocale === 'de' ? 'EN' : 'DE';
 const altLocale: Locale = currentLocale === 'de' ? 'en' : 'de';
+const altLabel = altLocale.toUpperCase();
+const ariaLabel = t(altLocale, 'language.switchAria');
 ---
 <a
   class="lang-toggle"
   href={altUrl}
   hreflang={altLocale}
   lang={altLocale}
-  aria-label={currentLocale === 'de' ? 'Switch to English' : 'Auf Deutsch umschalten'}
+  aria-label={ariaLabel}
 >
   <span class="lang-current">{currentLocale.toUpperCase()}</span>
   <span class="lang-sep" aria-hidden="true">|</span>

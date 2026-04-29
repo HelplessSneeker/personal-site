@@ -1,5 +1,5 @@
 ---
-import { tArray, type Locale } from '../i18n/util';
+import { t, tArray, type Locale } from '../i18n/util';
 
 export interface Props {
   locale: Locale;
@@ -7,7 +7,7 @@ export interface Props {
 
 const { locale } = Astro.props;
 const items = tArray(locale, 'proof.items');
-const navLabel = locale === 'de' ? 'Eckdaten' : 'At a glance';
+const navLabel = t(locale, 'proof.ariaLabel');
 ---
 <aside class="proof" aria-label={navLabel}>
   <div class="container">

@@ -16,18 +16,19 @@ const role = project.role ? (locale === 'de' ? project.role.de : project.role.en
 const context = project.context ? (locale === 'de' ? project.context.de : project.context.en) : undefined;
 const imageAlt = project.imageAlt ? (locale === 'de' ? project.imageAlt.de : project.imageAlt.en) : project.title;
 
-const contextLabel = locale === 'de' ? 'Kontext' : 'Context';
-const roleLabel = locale === 'de' ? 'Rolle' : 'Role';
-const yearsLabel = locale === 'de' ? 'Jahr' : 'Year';
-const statusLabel = locale === 'de' ? 'Status' : 'Status';
-const outcomeLabel = locale === 'de' ? 'Ergebnis' : 'Outcome';
-const statusMap: Record<Project['status'], { de: string; en: string }> = {
-  live: { de: 'Live', en: 'Live' },
-  archived: { de: 'Archiviert', en: 'Archived' },
-  'in-development': { de: 'In Arbeit', en: 'In progress' },
-  'case-study': { de: 'Case Study', en: 'Case study' },
+const contextLabel = t(locale, 'work.contextLabel');
+const roleLabel = t(locale, 'work.roleLabel');
+const yearsLabel = t(locale, 'work.yearsLabel');
+const statusLabel = t(locale, 'work.statusLabel');
+const outcomeLabel = t(locale, 'work.outcomeLabel');
+const linksLabel = t(locale, 'work.linksLabel');
+const statusKeyMap: Record<Project['status'], 'live' | 'archived' | 'inDevelopment' | 'caseStudy'> = {
+  live: 'live',
+  archived: 'archived',
+  'in-development': 'inDevelopment',
+  'case-study': 'caseStudy',
 };
-const statusText = status ?? (locale === 'de' ? statusMap[project.status].de : statusMap[project.status].en);
+const statusText = status ?? t(locale, `work.status.${statusKeyMap[project.status]}`);
 const outcome = project.outcome ? (locale === 'de' ? project.outcome.de : project.outcome.en) : undefined;
 const testimonialQuote = project.testimonial
   ? locale === 'de'
@@ -104,7 +105,7 @@ const testimonialAuthor = project.testimonial?.author
 
         {project.links && project.links.length > 0 && (
           <div class="meta-row">
-            <dt class="label-meta">{locale === 'de' ? 'Links' : 'Links'}</dt>
+            <dt class="label-meta">{linksLabel}</dt>
             <dd>
               <ul class="link-list">
                 {project.links.map((link) => (

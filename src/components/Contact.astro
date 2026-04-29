@@ -28,7 +28,7 @@ const callBookingUrl = import.meta.env.PUBLIC_CAL_URL;
 
       <dl class="contact-direct">
         <div class="direct-row">
-          <dt class="label-meta">E-Mail</dt>
+          <dt class="label-meta">{t(locale, 'contact.directEmailLabel')}</dt>
           <dd><a href="mailto:benjamin@noessler.at">benjamin@noessler.at</a></dd>
         </div>
         <div class="direct-row">
@@ -52,10 +52,8 @@ const callBookingUrl = import.meta.env.PUBLIC_CAL_URL;
 
     <noscript>
       <p class="contact-noscript">
-        {locale === 'de'
-          ? 'Für dieses Formular wird JavaScript benötigt. Schreib mir gerne direkt an '
-          : 'JavaScript is required for this form. You can email me directly at '}
-        <a href="mailto:benjamin@noessler.at">benjamin@noessler.at</a>.
+        {t(locale, 'contact.noscript.before')}
+        <a href="mailto:benjamin@noessler.at">benjamin@noessler.at</a>{t(locale, 'contact.noscript.after')}
       </p>
     </noscript>
   </div>

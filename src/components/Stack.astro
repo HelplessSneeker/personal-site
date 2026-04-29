@@ -14,11 +14,8 @@ const groups = groupKeys.map((key) => ({
   items: tArray(locale, `stack.groups.${key}.items`),
 }));
 
-const triggerLabel = locale === 'de' ? 'Stack im Detail' : 'Stack in detail';
-const triggerHint =
-  locale === 'de'
-    ? 'Sprachen, Frameworks, Infrastruktur'
-    : 'Languages, frameworks, infrastructure';
+const triggerLabel = t(locale, 'stack.trigger.label');
+const triggerHint = t(locale, 'stack.trigger.hint');
 ---
 <details class="stack-disclosure" id="stack">
   <summary class="stack-trigger">

@@ -3,17 +3,22 @@
     "title": "Benjamin Nößler — Fullstack-Entwickler aus Wien",
     "description": "Freelance-Entwickler aus Wien. Landingpage-Redesigns und Fullstack-Builds für Unternehmen, die länger als ein Quartal denken."
   },
+  "meta": {
+    "jobTitle": "Fullstack-Entwickler"
+  },
   "nav": {
-    "stack": "Stack",
+    "top": "Start",
+    "primary": "Primärnavigation",
+    "pageNavigation": "Seitennavigation",
+    "skipToContent": "Zum Inhalt springen",
     "services": "Leistungen",
     "work": "Arbeiten",
     "about": "Über",
-    "contact": "Kontakt",
-    "skipToContent": "Zum Inhalt springen",
-    "backToTop": "Zurück nach oben"
+    "contact": "Kontakt"
   },
   "header": {
-    "availabilityTag": "Nimmt Anfragen an"
+    "availabilityTag": "Nimmt Anfragen an",
+    "inquiryAria": "Anfrage stellen"
   },
   "hero": {
     "kicker": "Freelance · Landingpage-Redesigns",
@@ -23,6 +28,7 @@
     "ctaSecondary": "Beispiele ansehen"
   },
   "proof": {
+    "ariaLabel": "Eckdaten",
     "items": [
       "Festpreis",
       "Launch in 2–4 Wochen",
@@ -31,7 +37,10 @@
     ]
   },
   "stack": {
-    "label": "Stack",
+    "trigger": {
+      "label": "Stack im Detail",
+      "hint": "Sprachen, Frameworks, Infrastruktur"
+    },
     "groups": {
       "languages": {
         "label": "Sprachen",
@@ -104,10 +113,21 @@
   },
   "work": {
     "label": "Ausgewählte Arbeiten",
+    "contextLabel": "Kontext",
     "roleLabel": "Rolle",
+    "yearsLabel": "Jahr",
+    "statusLabel": "Status",
+    "outcomeLabel": "Ergebnis",
+    "linksLabel": "Links",
     "stackLabel": "Stack",
     "visitLink": "Website besuchen",
-    "githubLink": "GitHub Repository"
+    "githubLink": "GitHub Repository",
+    "status": {
+      "live": "Live",
+      "archived": "Archiviert",
+      "inDevelopment": "In Arbeit",
+      "caseStudy": "Case Study"
+    }
   },
   "trust": {
     "label": "So arbeiten wir",
@@ -126,6 +146,7 @@
   },
   "about": {
     "label": "Über",
+    "byline": "Benjamin Nößler · Wien",
     "bodyParagraphs": [
       "Ich helfe lokalen Unternehmen, ihre Webpräsenz zu modernisieren — Schwerpunkt sind Landingpage-Redesigns. Wien ist mein Ausgangspunkt, die meiste Arbeit findet remote statt.",
       "Meine Zeit teile ich zwischen einer Festanstellung im Digitalisierungsteam der Stadt Wien (über APC Business Services GmbH, derzeit an einem Webapp-Projekt) und ausgewählten Freelance-Aufträgen — vor allem Landingpage-Redesigns für lokale Unternehmen. Webapps baue ich seit Jahren in Anstellung und in eigenen Projekten (z. B. b-cal); im Freelance-Bereich starte ich bewusst mit kleinerem Scope.",
@@ -136,6 +157,11 @@
     "label": "Kontakt",
     "heading": "Erzähl mir von deinem Projekt.",
     "body": "Schreib mir ein paar Sätze zur Anfrage. Antwort meist innerhalb von 48 Stunden.",
+    "directEmailLabel": "E-Mail",
+    "noscript": {
+      "before": "Für dieses Formular wird JavaScript benötigt. Schreib mir gerne direkt an ",
+      "after": "."
+    },
     "form": {
       "nameLabel": "Name",
       "namePlaceholder": "Dein Name",
@@ -181,7 +207,10 @@
     "viewSource": "Quellcode ansehen",
     "imprint": "Impressum",
     "privacy": "Datenschutz",
-    "backToHome": "Zur Startseite"
+    "backToHome": "Zur Startseite",
+    "location": "Wien",
+    "directLabel": "Direkt schreiben",
+    "legalLabel": "Rechtliches"
   },
   "legal": {
     "imprint": {
@@ -195,7 +224,16 @@
   },
   "language": {
     "toggleLabel": "Sprache wechseln",
-    "de": "Deutsch",
-    "en": "Englisch"
+    "switchAria": "Auf Deutsch umschalten"
+  },
+  "email": {
+    "subjectPrefix": "Neue Nachricht",
+    "subjectFrom": "von",
+    "labels": {
+      "name": "Name",
+      "email": "E-Mail",
+      "projectType": "Projekttyp",
+      "message": "Nachricht"
+    }
   }
 }

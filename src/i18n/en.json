@@ -3,17 +3,22 @@
     "title": "Benjamin Nößler — Fullstack developer based in Vienna",
     "description": "Vienna-based freelance developer. Landing-page redesigns and fullstack builds for businesses that think beyond the next quarter."
   },
+  "meta": {
+    "jobTitle": "Fullstack Developer"
+  },
   "nav": {
-    "stack": "Stack",
+    "top": "Top",
+    "primary": "Primary navigation",
+    "pageNavigation": "Page sections",
+    "skipToContent": "Skip to content",
     "services": "Services",
     "work": "Work",
     "about": "About",
-    "contact": "Contact",
-    "skipToContent": "Skip to content",
-    "backToTop": "Back to top"
+    "contact": "Contact"
   },
   "header": {
-    "availabilityTag": "Taking inquiries"
+    "availabilityTag": "Taking inquiries",
+    "inquiryAria": "Send an inquiry"
   },
   "hero": {
     "kicker": "Freelance · Landing-page redesigns",
@@ -23,6 +28,7 @@
     "ctaSecondary": "See examples"
   },
   "proof": {
+    "ariaLabel": "At a glance",
     "items": [
       "Fixed price",
       "Launch in 2–4 weeks",
@@ -31,7 +37,10 @@
     ]
   },
   "stack": {
-    "label": "Stack",
+    "trigger": {
+      "label": "Stack in detail",
+      "hint": "Languages, frameworks, infrastructure"
+    },
     "groups": {
       "languages": {
         "label": "Languages",
@@ -104,10 +113,21 @@
   },
   "work": {
     "label": "Selected work",
+    "contextLabel": "Context",
     "roleLabel": "Role",
+    "yearsLabel": "Year",
+    "statusLabel": "Status",
+    "outcomeLabel": "Outcome",
+    "linksLabel": "Links",
     "stackLabel": "Stack",
     "visitLink": "Visit website",
-    "githubLink": "GitHub repository"
+    "githubLink": "GitHub repository",
+    "status": {
+      "live": "Live",
+      "archived": "Archived",
+      "inDevelopment": "In progress",
+      "caseStudy": "Case study"
+    }
   },
   "trust": {
     "label": "How we'll work together",
@@ -126,6 +146,7 @@
   },
   "about": {
     "label": "About",
+    "byline": "Benjamin Nößler · Vienna",
     "bodyParagraphs": [
       "I help local businesses modernise their web presence — focus is landing-page redesigns. Vienna is home base; most of the work happens remote.",
       "I split my time between a permanent role in the City of Vienna's digital team (through APC Business Services GmbH, currently on a web-app project) and selected freelance work — mostly landing-page redesigns for local businesses. I've been building web apps for years in employment and in my own projects (e.g. b-cal); on the freelance side I'm deliberately starting with a smaller scope.",
@@ -136,6 +157,11 @@
     "label": "Contact",
     "heading": "Tell me about your project.",
     "body": "Send me a few sentences about your project. I usually reply within 48 hours.",
+    "directEmailLabel": "Email",
+    "noscript": {
+      "before": "JavaScript is required for this form. You can email me directly at ",
+      "after": "."
+    },
     "form": {
       "nameLabel": "Name",
       "namePlaceholder": "Your name",
@@ -181,7 +207,10 @@
     "viewSource": "View source",
     "imprint": "Imprint",
     "privacy": "Privacy",
-    "backToHome": "Back to homepage"
+    "backToHome": "Back to homepage",
+    "location": "Vienna",
+    "directLabel": "Email me directly",
+    "legalLabel": "Legal"
   },
   "legal": {
     "imprint": {
@@ -195,7 +224,16 @@
   },
   "language": {
     "toggleLabel": "Switch language",
-    "de": "German",
-    "en": "English"
+    "switchAria": "Switch to English"
+  },
+  "email": {
+    "subjectPrefix": "New message",
+    "subjectFrom": "from",
+    "labels": {
+      "name": "Name",
+      "email": "Email",
+      "projectType": "Project type",
+      "message": "Message"
+    }
   }
 }

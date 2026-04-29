@@ -17,7 +17,7 @@ const locale = 'en' as const;
 const altUrl = getAltUrl(Astro.url.pathname, locale);
 
 const sections = [
-  { id: 'top', label: 'Start' },
+  { id: 'top', label: t(locale, 'nav.top') },
   { id: 'services', label: t(locale, 'nav.services') },
   { id: 'trust', label: t(locale, 'trust.label') },
   { id: 'work', label: t(locale, 'nav.work') },

@@ -8,7 +8,7 @@ export interface Props {
 
 const { locale } = Astro.props;
 const paragraphs = tArray(locale, 'about.bodyParagraphs');
-const byline = locale === 'de' ? 'Benjamin Nößler · Wien' : 'Benjamin Nößler · Vienna';
+const byline = t(locale, 'about.byline');
 ---
 <section class="section about-section" id="about" aria-labelledby="about-heading">
   <div class="container about-inner">

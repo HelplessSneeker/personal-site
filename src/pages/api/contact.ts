@@ -1,6 +1,7 @@
 import type { APIRoute } from 'astro';
 import { z } from 'zod';
 import nodemailer, { type Transporter } from 'nodemailer';
+import { getDict } from '../../i18n/util';
 
 export const prerender = false;
 
@@ -52,9 +53,7 @@ function escapeHtml(input: string): string {
 }
 
 function buildEmailBody(payload: z.infer<typeof contactSchema>): { text: string; html: string } {
-  const labels = payload.locale === 'de'
-    ? { name: 'Name', email: 'E-Mail', projectType: 'Projekttyp', message: 'Nachricht' }
-    : { name: 'Name', email: 'Email', projectType: 'Project type', message: 'Message' };
+  const labels = getDict(payload.locale).email.labels;
 
   const text = [
     `${labels.name}: ${payload.name}`,
@@ -179,8 +178,8 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
     });
   }
 
-  const subjectPrefix = data.locale === 'de' ? 'Neue Nachricht' : 'New message';
-  const subject = `[noessler.at] ${subjectPrefix} von ${data.name}`;
+  const emailDict = getDict(data.locale).email;
+  const subject = `[noessler.at] ${emailDict.subjectPrefix} ${emailDict.subjectFrom} ${data.name}`;
   const { text, html } = buildEmailBody(data);
 
   try {

@@ -26,17 +26,17 @@ const sourceUrl = 'https://github.com/HelplessSneeker/personal-site';
 
     <div class="footer-col footer-meta">
       <span class="colophon-label label-meta">© {year}</span>
-      <p class="footer-name">Benjamin Nößler · {locale === 'de' ? 'Wien' : 'Vienna'}</p>
+      <p class="footer-name">Benjamin Nößler · {t(locale, 'footer.location')}</p>
       <p class="footer-direct">
         <a href="mailto:benjamin@noessler.at">
-          {locale === 'de' ? 'Direkt schreiben' : 'Email me directly'}
+          {t(locale, 'footer.directLabel')}
           <span aria-hidden="true"> →</span>
         </a>
       </p>
     </div>
 
-    <nav aria-label={locale === 'de' ? 'Rechtliches' : 'Legal'} class="footer-legal">
-      <span class="colophon-label label-meta">{locale === 'de' ? 'Rechtliches' : 'Legal'}</span>
+    <nav aria-label={t(locale, 'footer.legalLabel')} class="footer-legal">
+      <span class="colophon-label label-meta">{t(locale, 'footer.legalLabel')}</span>
       <ul>
         <li><a href={imprintPath}>{t(locale, 'footer.imprint')}</a></li>
         <li><a href={privacyPath}>{t(locale, 'footer.privacy')}</a></li>
