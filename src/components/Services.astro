@@ -6,7 +6,7 @@ export interface Props {
 }
 
 const { locale } = Astro.props;
-const landingBullets = tArray(locale, 'services.landing.bullets');
+const landingIncluded = tArray(locale, 'services.landing.includedItems');
 const hostingBullets = tArray(locale, 'services.hosting.bullets');
 ---
 <section class="section services-section" id="services" aria-labelledby="services-heading">
@@ -20,17 +20,21 @@ const hostingBullets = tArray(locale, 'services.hosting.bullets');
       <p class="service-desc">{t(locale, 'services.landing.description')}</p>
 
       <dl class="service-meta">
-        <div class="meta-row">
-          <dt class="label-meta">{t(locale, 'services.scopeLabel')}</dt>
-          <dd>
-            <ul class="meta-list">
-              {landingBullets.map((bullet) => <li>{bullet}</li>)}
-            </ul>
-          </dd>
-        </div>
         <div class="meta-row meta-row-anchor">
           <dt class="label-meta">{t(locale, 'services.priceAnchorLabel')}</dt>
           <dd class="price-anchor">{t(locale, 'services.landing.priceAnchor')}</dd>
+        </div>
+        <div class="meta-row">
+          <dt class="label-meta">{t(locale, 'services.landing.includedLabel')}</dt>
+          <dd>
+            <ul class="meta-list">
+              {landingIncluded.map((item) => <li>{item}</li>)}
+            </ul>
+          </dd>
+        </div>
+        <div class="meta-row">
+          <dt class="label-meta">{t(locale, 'services.landing.excludedLabel')}</dt>
+          <dd class="excluded-text">{t(locale, 'services.landing.excludedText')}</dd>
         </div>
       </dl>
     </article>
@@ -186,6 +190,13 @@ const hostingBullets = tArray(locale, 'services.hosting.bullets');
     font-size: var(--fs-md);
     color: var(--color-text);
     line-height: 1.4;
+  }
+
+  .excluded-text {
+    font-size: var(--fs-sm);
+    color: var(--color-text-muted);
+    line-height: 1.5;
+    text-wrap: pretty;
   }
 
   /* Extension card — clearly subordinate to the primary service.

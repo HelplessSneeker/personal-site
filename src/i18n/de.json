@@ -98,13 +98,18 @@
     "landing": {
       "title": "Landingpage-Redesign",
       "description": "Bestehende Marketing- oder Landingpage analysieren und neu umsetzen — klare Struktur, schnelle Ladezeiten, sauber zweisprachig, DSGVO-konform.",
-      "bullets": [
-        "Konzept & Copy",
-        "Design & Umsetzung",
-        "Performance & SEO-Basics",
-        "Hosting & DSGVO-Setup"
+      "priceAnchor": "ab €500 + Hosting als Festpreis. Konkreter Preis nach Gespräch.",
+      "includedLabel": "Im Festpreis enthalten",
+      "includedItems": [
+        "Eine Landingpage (One-Pager), responsive, DE/EN",
+        "Konzept- und Briefing-Gespräch (30 Min)",
+        "Design und technische Umsetzung",
+        "Eine Revisionsrunde",
+        "DSGVO-Basics (Impressum, Datenschutz, Cookie-Banner falls nötig)",
+        "Live-Schaltung auf deiner Domain"
       ],
-      "priceAnchor": "ab €500 + Hosting — Konzept, Design, Umsetzung als Festpreis. Konkreter Preis nach Gespräch."
+      "excludedLabel": "Nicht enthalten",
+      "excludedText": "Texterstellung, Übersetzungen, Foto-/Videomaterial, weitere Revisionsrunden, laufende Pflege."
     },
     "hosting": {
       "title": "Hosting & Betrieb",

@@ -98,13 +98,18 @@
     "landing": {
       "title": "Landing page redesign",
       "description": "Analyse and rebuild an existing marketing or landing page — clear structure, fast load times, proper bilingual DE/EN, GDPR-compliant.",
-      "bullets": [
-        "Concept & copy",
-        "Design & build",
-        "Performance & SEO basics",
-        "Hosting & GDPR setup"
+      "priceAnchor": "from €500 + hosting as a fixed price. Final price defined after a call.",
+      "includedLabel": "Included in the fixed price",
+      "includedItems": [
+        "One landing page (one-pager), responsive, DE/EN",
+        "Concept and briefing call (30 min)",
+        "Design and technical implementation",
+        "One round of revisions",
+        "GDPR basics (imprint, privacy policy, cookie banner if needed)",
+        "Launch on your domain"
       ],
-      "priceAnchor": "from €500 + hosting — concept, design, build as a fixed price. Final price defined after a call."
+      "excludedLabel": "Not included",
+      "excludedText": "Copywriting, translations, photo/video material, additional revision rounds, ongoing maintenance."
     },
     "hosting": {
       "title": "Hosting & operations",
