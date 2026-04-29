@@ -57,7 +57,7 @@ const testimonialAuthor = project.testimonial?.author
         </p>
       )}
 
-      {testimonialQuote && !project.testimonial?.placeholder && (
+      {testimonialQuote && (
         <figure class="project-testimonial">
           <blockquote class="testimonial-quote">{testimonialQuote}</blockquote>
           {testimonialAuthor && <figcaption class="testimonial-author">— {testimonialAuthor}</figcaption>}

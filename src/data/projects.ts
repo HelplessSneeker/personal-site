@@ -8,7 +8,6 @@ export interface ProjectLink {
 export interface Testimonial {
   quote: { de: string; en: string };
   author?: { de: string; en: string };
-  placeholder?: boolean;
 }
 
 export interface Project {
