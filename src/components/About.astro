@@ -15,7 +15,7 @@ const byline = t(locale, 'about.byline');
     <h2 id="about-heading" class="section-label">{t(locale, 'about.label')}</h2>
     <div class="about-body">
       {paragraphs.map((paragraph) => (
-        <p class="about-text">{paragraph}</p>
+        <p class="about-text" set:html={paragraph}></p>
       ))}
       <p class="about-byline label-meta" aria-hidden="true">
         <span class="byline-rule"></span>
@@ -62,6 +62,16 @@ const byline = t(locale, 'about.byline');
     font-weight: var(--weight-medium);
     letter-spacing: -0.01em;
     padding-right: 0.06em;
+  }
+
+  .about-text :global(.inline-link) {
+    color: var(--color-accent);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.18em;
+  }
+  .about-text :global(.inline-link:hover) {
+    text-decoration-thickness: 2px;
   }
 
   .about-byline {

@@ -1,0 +1,58 @@
+---
+import { t, type Locale } from '../i18n/util';
+import { projects } from '../data/projects';
+import EmploymentCard from './EmploymentCard.astro';
+
+export interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const employmentProjects = projects.filter((p) => p.status === 'case-study');
+---
+<section class="section from-employment-section" id="from-employment" aria-labelledby="from-employment-heading">
+  <div class="container">
+    <h2 id="from-employment-heading" class="section-label">{t(locale, 'fromEmployment.label')}</h2>
+    <p class="from-employment-intro">{t(locale, 'fromEmployment.intro')}</p>
+
+    <div class="employment-grid" role="list">
+      {employmentProjects.map((project) => (
+        <EmploymentCard project={project} locale={locale} />
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Sit closer to the Selected Work section above so the reader registers
+     this as a smaller "for context" subsection rather than a fresh peer. */
+  .from-employment-section {
+    padding-block-start: var(--space-7);
+  }
+  @media (min-width: 48rem) {
+    .from-employment-section {
+      padding-block-start: var(--space-8);
+    }
+  }
+
+  .from-employment-intro {
+    font-size: var(--fs-md);
+    line-height: var(--lh-relaxed);
+    color: var(--color-text-muted);
+    max-width: 56ch;
+    margin-bottom: var(--space-7);
+    text-wrap: pretty;
+  }
+
+  .employment-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-7);
+  }
+  @media (min-width: 52rem) {
+    .employment-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--space-8);
+    }
+  }
+</style>

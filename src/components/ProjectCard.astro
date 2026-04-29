@@ -1,7 +1,6 @@
 ---
 import type { Project } from '../data/projects';
 import { t, type Locale } from '../i18n/util';
-import ProjectMockup from './ProjectMockup.astro';
 
 export interface Props {
   project: Project;
@@ -122,8 +121,8 @@ const testimonialAuthor = project.testimonial?.author
       </dl>
     </div>
 
-    <figure class="project-figure">
-      {project.image ? (
+    {project.image && (
+      <figure class="project-figure">
         <img
           class="project-image"
           src={project.image}
@@ -133,10 +132,8 @@ const testimonialAuthor = project.testimonial?.author
           width="1200"
           height="900"
         />
-      ) : project.visual ? (
-        <ProjectMockup variant={project.visual} title={project.title} />
-      ) : null}
-    </figure>
+      </figure>
+    )}
   </div>
 </article>
 

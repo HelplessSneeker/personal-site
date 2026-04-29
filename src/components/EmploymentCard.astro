@@ -1,0 +1,136 @@
+---
+import type { Project } from '../data/projects';
+import { t, type Locale } from '../i18n/util';
+
+export interface Props {
+  project: Project;
+  locale: Locale;
+}
+
+const { project, locale } = Astro.props;
+const description = locale === 'de' ? project.descriptionDe : project.descriptionEn;
+const role = project.role ? (locale === 'de' ? project.role.de : project.role.en) : undefined;
+const context = project.context ? (locale === 'de' ? project.context.de : project.context.en) : undefined;
+const contextLine = [context, project.years].filter(Boolean).join(' · ');
+---
+<article class="employment-card" role="listitem">
+  <h3 class="employment-title">{project.title}</h3>
+  <p class="employment-desc">{description}</p>
+
+  <dl class="employment-meta">
+    {contextLine && (
+      <div class="meta-row">
+        <dt class="label-meta">{t(locale, 'work.contextLabel')}</dt>
+        <dd>{contextLine}</dd>
+      </div>
+    )}
+
+    {role && (
+      <div class="meta-row">
+        <dt class="label-meta">{t(locale, 'work.roleLabel')}</dt>
+        <dd>{role}</dd>
+      </div>
+    )}
+
+    <div class="meta-row">
+      <dt class="label-meta">{t(locale, 'work.stackLabel')}</dt>
+      <dd>
+        <ul class="stack-list">
+          {project.stack.map((tech) => (
+            <li class="stack-tech">{tech}</li>
+          ))}
+        </ul>
+      </dd>
+    </div>
+  </dl>
+</article>
+
+<style>
+  .employment-card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    min-width: 0;
+  }
+
+  .employment-title {
+    font-family: var(--font-display);
+    font-size: var(--fs-lg);
+    font-weight: var(--weight-medium);
+    letter-spacing: var(--tracking-heading-lg);
+    line-height: 1.15;
+    color: var(--color-text);
+    margin: 0;
+    text-wrap: balance;
+  }
+
+  .employment-desc {
+    font-size: var(--fs-sm);
+    line-height: var(--lh-relaxed);
+    color: var(--color-text-muted);
+    max-width: 56ch;
+    margin: 0;
+    text-wrap: pretty;
+  }
+
+  .employment-meta {
+    display: grid;
+    gap: var(--space-2);
+    margin: var(--space-2) 0 0 0;
+    padding-top: var(--space-3);
+    border-top: 1px solid var(--color-rule);
+  }
+
+  .meta-row {
+    display: grid;
+    grid-template-columns: 5rem 1fr;
+    gap: var(--space-3);
+    align-items: baseline;
+  }
+
+  .employment-meta dt {
+    color: var(--color-text-subtle);
+  }
+
+  .employment-meta dd {
+    margin: 0;
+    font-size: var(--fs-sm);
+    color: var(--color-text);
+    line-height: 1.4;
+    min-width: 0;
+  }
+
+  .stack-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    font-family: var(--font-mono);
+    font-feature-settings: var(--font-features-mono);
+    font-size: var(--fs-sm);
+    color: var(--color-text-muted);
+  }
+
+  .stack-list li {
+    display: inline-flex;
+    align-items: baseline;
+  }
+
+  .stack-list li:not(:last-child)::after {
+    content: '·';
+    color: var(--color-text-subtle);
+    margin-inline: 0.55em;
+  }
+
+  .stack-tech {
+    color: var(--color-text);
+  }
+
+  @media (max-width: 52rem) {
+    .meta-row {
+      grid-template-columns: 4.2rem 1fr;
+    }
+  }
+</style>

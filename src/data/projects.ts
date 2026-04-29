@@ -24,7 +24,6 @@ export interface Project {
   statusEn?: string;
   status: ProjectStatus;
   links?: ProjectLink[];
-  visual?: 'mockup-calendar' | 'mockup-healthcare' | 'mockup-industrial';
   image?: string;
   imageAlt?: { de: string; en: string };
   outcome?: { de: string; en: string };
@@ -53,13 +52,6 @@ export const projects: Project[] = [
       de: 'Live · zentraler Anlaufpunkt für Anfragen und Standort-Präsentation.',
       en: 'Live · central inquiry channel and online presence for the business.',
     },
-    testimonial: {
-      placeholder: true,
-      quote: {
-        de: 'Kundenstimme folgt — wird in Kürze ergänzt.',
-        en: 'Client testimonial — to be added shortly.',
-      },
-    },
   },
   {
     id: 'foundersgroup',
@@ -82,13 +74,6 @@ export const projects: Project[] = [
       de: 'Live · Zugang für Member-Anfragen und Vereinskommunikation.',
       en: 'Live · entry point for member inquiries and community communications.',
     },
-    testimonial: {
-      placeholder: true,
-      quote: {
-        de: 'Kundenstimme folgt — wird in Kürze ergänzt.',
-        en: 'Client testimonial — to be added shortly.',
-      },
-    },
   },
   {
     id: 'healthcare',
@@ -102,7 +87,6 @@ export const projects: Project[] = [
     role: { de: 'Fullstack Developer', en: 'Fullstack Developer' },
     years: '2024—2025',
     status: 'case-study',
-    visual: 'mockup-healthcare',
   },
   {
     id: 'industrial',
@@ -116,22 +100,5 @@ export const projects: Project[] = [
     role: { de: 'Junior Software Developer', en: 'Junior Software Developer' },
     years: '2022—2023',
     status: 'case-study',
-    visual: 'mockup-industrial',
-  },
-  {
-    id: 'b-cal',
-    title: 'b-cal',
-    descriptionDe:
-      'Self-hosted Kalender-Anwendung mit Event-Erinnerungen und Multi-User-Support. Entstanden als Proof of Concept, um eine komplette Webapp end-to-end zu bauen und zu deployen.',
-    descriptionEn:
-      'Self-hosted calendar application with event reminders and multi-user support. Built as a proof of concept — designing, developing, and deploying a complete web application end-to-end.',
-    stack: ['NestJS', 'Next.js', 'PostgreSQL', 'Redis', 'BullMQ', 'Prisma', 'Coolify', 'Hetzner'],
-    context: { de: 'Nebenprojekt', en: 'Personal' },
-    role: { de: 'Proof of Concept', en: 'Proof of concept' },
-    statusDe: 'Open-Source-Nebenprojekt · GitHub Repo',
-    statusEn: 'Open-source side project · GitHub repo',
-    status: 'archived',
-    links: [{ href: 'https://github.com/HelplessSneeker/b-cal', labelKey: 'work.githubLink' }],
-    visual: 'mockup-calendar',
   },
 ];
