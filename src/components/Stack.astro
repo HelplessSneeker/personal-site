@@ -24,7 +24,7 @@ const triggerHint =
   <summary class="stack-trigger">
     <span class="stack-trigger-text">
       <span class="stack-trigger-label">{triggerLabel}</span>
-      <span class="stack-trigger-hint">{triggerHint}</span>
+      <span class="stack-trigger-hint label-meta">{triggerHint}</span>
     </span>
     <span class="stack-trigger-icon" aria-hidden="true"></span>
   </summary>
@@ -32,7 +32,7 @@ const triggerHint =
   <dl class="stack-groups">
     {groups.map((group, i) => (
       <div class="stack-group" style={`--i:${i}`}>
-        <dt class="stack-group-label">{group.label}</dt>
+        <dt class="stack-group-label label-meta">{group.label}</dt>
         <dd class="stack-group-items">
           <ul>
             {group.items.map((item) => <li>{item}</li>)}
@@ -92,11 +92,6 @@ const triggerHint =
   }
 
   .stack-trigger-hint {
-    font-family: var(--font-sans);
-    font-size: var(--fs-sm);
-    font-weight: var(--weight-medium);
-    font-variant-caps: all-small-caps;
-    letter-spacing: var(--tracking-smallcaps);
     color: var(--color-text-subtle);
   }
 
@@ -159,11 +154,6 @@ const triggerHint =
   }
 
   .stack-group-label {
-    font-family: var(--font-sans);
-    font-size: var(--fs-sm);
-    font-weight: var(--weight-medium);
-    font-variant-caps: all-small-caps;
-    letter-spacing: var(--tracking-smallcaps);
     color: var(--color-text-muted);
     margin: 0;
   }

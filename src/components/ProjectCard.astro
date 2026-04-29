@@ -21,7 +21,6 @@ const roleLabel = locale === 'de' ? 'Rolle' : 'Role';
 const yearsLabel = locale === 'de' ? 'Jahr' : 'Year';
 const statusLabel = locale === 'de' ? 'Status' : 'Status';
 const outcomeLabel = locale === 'de' ? 'Ergebnis' : 'Outcome';
-const placeholderLabel = locale === 'de' ? 'Platzhalter' : 'Placeholder';
 const statusMap: Record<Project['status'], { de: string; en: string }> = {
   live: { de: 'Live', en: 'Live' },
   archived: { de: 'Archiviert', en: 'Archived' },
@@ -58,45 +57,42 @@ const testimonialAuthor = project.testimonial?.author
         </p>
       )}
 
-      {testimonialQuote && (
-        <figure class:list={['project-testimonial', { 'is-placeholder': project.testimonial?.placeholder }]}>
+      {testimonialQuote && !project.testimonial?.placeholder && (
+        <figure class="project-testimonial">
           <blockquote class="testimonial-quote">{testimonialQuote}</blockquote>
           {testimonialAuthor && <figcaption class="testimonial-author">— {testimonialAuthor}</figcaption>}
-          {project.testimonial?.placeholder && (
-            <span class="testimonial-placeholder-tag" aria-label={placeholderLabel}>{placeholderLabel}</span>
-          )}
         </figure>
       )}
 
       <dl class="project-meta">
         {context && (
           <div class="meta-row">
-            <dt>{contextLabel}</dt>
+            <dt class="label-meta">{contextLabel}</dt>
             <dd>{context}</dd>
           </div>
         )}
 
         {role && (
           <div class="meta-row">
-            <dt>{roleLabel}</dt>
+            <dt class="label-meta">{roleLabel}</dt>
             <dd>{role}</dd>
           </div>
         )}
 
         {project.years && (
           <div class="meta-row">
-            <dt>{yearsLabel}</dt>
+            <dt class="label-meta">{yearsLabel}</dt>
             <dd><span class="tabular">{project.years}</span></dd>
           </div>
         )}
 
         <div class="meta-row">
-          <dt>{statusLabel}</dt>
+          <dt class="label-meta">{statusLabel}</dt>
           <dd>{statusText}</dd>
         </div>
 
         <div class="meta-row">
-          <dt>{t(locale, 'work.stackLabel')}</dt>
+          <dt class="label-meta">{t(locale, 'work.stackLabel')}</dt>
           <dd>
             <ul class="stack-list">
               {project.stack.map((tech) => (
@@ -108,7 +104,7 @@ const testimonialAuthor = project.testimonial?.author
 
         {project.links && project.links.length > 0 && (
           <div class="meta-row">
-            <dt>{locale === 'de' ? 'Links' : 'Links'}</dt>
+            <dt class="label-meta">{locale === 'de' ? 'Links' : 'Links'}</dt>
             <dd>
               <ul class="link-list">
                 {project.links.map((link) => (
@@ -247,17 +243,15 @@ const testimonialAuthor = project.testimonial?.author
     color: var(--color-text);
   }
 
-  /* Testimonial pull-quote. When placeholder, kept clearly subordinate
-     and tagged so it cannot be confused with a real client quote. */
+  /* Testimonial pull-quote. The italic display face plus the em-dash
+     attribution carries the "this is a quote" signal without an accent
+     stripe — `.impeccable.md` rules out border-left indicators. */
   .project-testimonial {
     margin: 0;
-    padding-left: var(--space-5);
-    border-left: 2px solid var(--color-accent);
     display: flex;
     flex-direction: column;
     gap: var(--space-2);
     max-width: 60ch;
-    position: relative;
   }
 
   .testimonial-quote {
@@ -272,33 +266,22 @@ const testimonialAuthor = project.testimonial?.author
     text-wrap: pretty;
   }
 
+  .testimonial-quote::before {
+    content: '“';
+    color: var(--color-accent);
+    margin-right: 0.05em;
+  }
+
+  .testimonial-quote::after {
+    content: '”';
+    color: var(--color-accent);
+    margin-left: 0.02em;
+  }
+
   .testimonial-author {
     font-family: var(--font-sans);
     font-size: var(--fs-sm);
     color: var(--color-text-muted);
-  }
-
-  .project-testimonial.is-placeholder {
-    border-left-color: var(--color-border-strong);
-  }
-
-  .project-testimonial.is-placeholder .testimonial-quote {
-    color: var(--color-text-subtle);
-    font-style: italic;
-  }
-
-  .testimonial-placeholder-tag {
-    align-self: flex-start;
-    font-family: var(--font-mono);
-    font-feature-settings: var(--font-features-mono);
-    font-size: var(--fs-xs);
-    font-weight: var(--weight-medium);
-    letter-spacing: var(--tracking-label);
-    text-transform: uppercase;
-    color: var(--color-text-subtle);
-    padding: 0.15rem 0.5rem;
-    border: 1px dashed var(--color-border-strong);
-    border-radius: var(--radius-sm);
   }
 
   .project-meta {
@@ -317,11 +300,6 @@ const testimonialAuthor = project.testimonial?.author
   }
 
   .project-meta dt {
-    font-family: var(--font-sans);
-    font-size: var(--fs-sm);
-    font-weight: var(--weight-medium);
-    font-variant-caps: all-small-caps;
-    letter-spacing: var(--tracking-smallcaps);
     color: var(--color-text-subtle);
   }
 

@@ -24,7 +24,7 @@ const steps = dict.trust.process.steps;
     </ol>
 
     <dl class="trust-availability">
-      <dt>{t(locale, 'trust.availability.label')}</dt>
+      <dt class="label-meta">{t(locale, 'trust.availability.label')}</dt>
       <dd>
         <span class="availability-pill">
           <span class="availability-dot" aria-hidden="true"></span>
@@ -107,11 +107,6 @@ const steps = dict.trust.process.steps;
   }
 
   .trust-availability dt {
-    font-family: var(--font-sans);
-    font-size: var(--fs-sm);
-    font-weight: var(--weight-medium);
-    font-variant-caps: all-small-caps;
-    letter-spacing: var(--tracking-smallcaps);
     color: var(--color-text-subtle);
   }
 

@@ -15,7 +15,7 @@ const sourceUrl = 'https://github.com/HelplessSneeker/personal-site';
 <footer class="site-footer">
   <div class="container footer-inner">
     <div class="footer-col footer-mark">
-      <span class="colophon-label">Colophon</span>
+      <span class="colophon-label label-meta">Colophon</span>
       <p class="footer-colophon">
         {t(locale, 'footer.builtWith')} ·
         <a href={sourceUrl} rel="noopener external" target="_blank">
@@ -25,7 +25,7 @@ const sourceUrl = 'https://github.com/HelplessSneeker/personal-site';
     </div>
 
     <div class="footer-col footer-meta">
-      <span class="colophon-label">© {year}</span>
+      <span class="colophon-label label-meta">© {year}</span>
       <p class="footer-name">Benjamin Nößler · {locale === 'de' ? 'Wien' : 'Vienna'}</p>
       <p class="footer-direct">
         <a href="mailto:benjamin@noessler.at">
@@ -36,7 +36,7 @@ const sourceUrl = 'https://github.com/HelplessSneeker/personal-site';
     </div>
 
     <nav aria-label={locale === 'de' ? 'Rechtliches' : 'Legal'} class="footer-legal">
-      <span class="colophon-label">{locale === 'de' ? 'Rechtliches' : 'Legal'}</span>
+      <span class="colophon-label label-meta">{locale === 'de' ? 'Rechtliches' : 'Legal'}</span>
       <ul>
         <li><a href={imprintPath}>{t(locale, 'footer.imprint')}</a></li>
         <li><a href={privacyPath}>{t(locale, 'footer.privacy')}</a></li>
@@ -76,11 +76,6 @@ const sourceUrl = 'https://github.com/HelplessSneeker/personal-site';
   }
 
   .colophon-label {
-    font-family: var(--font-sans);
-    font-size: var(--fs-sm);
-    font-weight: var(--weight-medium);
-    font-variant-caps: all-small-caps;
-    letter-spacing: var(--tracking-smallcaps);
     color: var(--color-text-subtle);
   }
 

@@ -18,8 +18,8 @@
   --color-surface: oklch(96.2% 0.005 248);
   --color-surface-sunk: oklch(94.5% 0.006 248);
   --color-text: oklch(22% 0.015 248);
-  --color-text-muted: oklch(46% 0.012 248);
-  --color-text-subtle: oklch(58% 0.010 248);
+  --color-text-muted: oklch(44% 0.012 248);
+  --color-text-subtle: oklch(50% 0.012 248);
   --color-border: oklch(88.5% 0.008 248);
   --color-border-strong: oklch(78% 0.010 248);
   --color-rule: oklch(92% 0.006 248);
@@ -112,8 +112,8 @@
     --color-surface: oklch(19% 0.012 248);
     --color-surface-sunk: oklch(13% 0.010 248);
     --color-text: oklch(92% 0.010 248);
-    --color-text-muted: oklch(70% 0.009 248);
-    --color-text-subtle: oklch(54% 0.008 248);
+    --color-text-muted: oklch(72% 0.010 248);
+    --color-text-subtle: oklch(64% 0.010 248);
     --color-border: oklch(28% 0.010 248);
     --color-border-strong: oklch(38% 0.010 248);
     --color-rule: oklch(22% 0.010 248);
@@ -266,10 +266,17 @@ code, pre, kbd, samp {
 
 /* ——— Type utilities ——————————————————— */
 
-/* Small-caps label voice — the design's recurring "metadata" voice.
-   Components apply this pattern inline using --tracking-smallcaps and
-   --weight-medium so each call site can pick its own color and size.
-   .section-label below is the section-heading variant with a § marker. */
+/* Small-caps metadata voice — the design's recurring "label" pattern.
+   Used for kickers, section labels, dt elements, dl labels, byline text.
+   Color and margin stay per-call-site. .section-label is the
+   section-heading variant with a § marker on top of this. */
+.label-meta {
+  font-family: var(--font-sans);
+  font-size: var(--fs-sm);
+  font-weight: var(--weight-medium);
+  font-variant-caps: all-small-caps;
+  letter-spacing: var(--tracking-smallcaps);
+}
 
 .section-label {
   display: inline-block;
@@ -346,6 +353,22 @@ code, pre, kbd, samp {
 .btn-secondary:hover {
   border-color: var(--color-accent);
   color: var(--color-accent);
+}
+
+/* ——— Touch targets ——————————————————————
+   On touch pointers, ensure inline navigation links meet 44×44px.
+   Visual layout on desktop (fine pointers) stays compact. */
+
+@media (pointer: coarse) {
+  .site-nav a,
+  .footer-legal a,
+  .lang-toggle,
+  .contact-direct a,
+  .social-list a {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
 }
 
 /* ——— Utility ——————————————————————————— */

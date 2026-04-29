@@ -2,6 +2,7 @@
 import '../styles/global.css';
 import ScrollSectionIndicator, { type SectionRef } from '../components/ScrollSectionIndicator.astro';
 import generalSansVariable from '../assets/fonts/general-sans-variable.woff2?url';
+import commitMono400 from '@fontsource/commit-mono/files/commit-mono-latin-400-normal.woff2?url';
 
 export interface Props {
   title: string;
@@ -62,6 +63,7 @@ const personSchema = {
     <link rel="canonical" href={canonicalUrl} />
 
     <link rel="preload" href={generalSansVariable} as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href={commitMono400} as="font" type="font/woff2" crossorigin />
 
     <link rel="alternate" hreflang={locale} href={canonicalUrl} />
     {altLocaleUrl && (

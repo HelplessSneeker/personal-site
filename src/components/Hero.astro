@@ -12,7 +12,7 @@ const home = getLocalizedPath(locale, '/');
   <div class="container">
     <div class="hero-text">
       <span class="hero-rule" aria-hidden="true"></span>
-      <p class="hero-kicker">{t(locale, 'hero.kicker')}</p>
+      <p class="hero-kicker label-meta">{t(locale, 'hero.kicker')}</p>
       <h1 id="hero-heading" class="hero-headline">{t(locale, 'hero.headline')}</h1>
       <p class="hero-body">{t(locale, 'hero.body')}</p>
 
@@ -62,11 +62,6 @@ const home = getLocalizedPath(locale, '/');
   }
 
   .hero-kicker {
-    font-family: var(--font-sans);
-    font-size: var(--fs-sm);
-    font-weight: var(--weight-medium);
-    font-variant-caps: all-small-caps;
-    letter-spacing: var(--tracking-smallcaps);
     color: var(--color-text-subtle);
     margin-bottom: var(--space-5);
   }

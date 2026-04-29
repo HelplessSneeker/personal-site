@@ -20,9 +20,9 @@ const navLabel = locale === 'de' ? 'Eckdaten' : 'At a glance';
 <style>
   /* Trust-band between Hero and Services. Not a `.section` — sits in the
      gap between two real sections and provides the divider line above
-     Services via its own border-bottom. Promoted from quiet small-caps to
-     readable claim-chips so the four commitments actually land above the
-     fold. */
+     Services via its own border-bottom. Set as an inline colophon line:
+     four commitments separated by middle-dots, mono-tagged metadata voice,
+     consistent with footer-legal and social-list patterns. */
   .proof {
     padding-block: var(--space-5);
     border-bottom: 1px solid var(--color-rule);
@@ -39,42 +39,26 @@ const navLabel = locale === 'de' ? 'Eckdaten' : 'At a glance';
     margin: 0;
     display: flex;
     flex-wrap: wrap;
-    align-items: stretch;
-    column-gap: var(--space-3);
-    row-gap: var(--space-3);
+    align-items: baseline;
+    font-family: var(--font-sans);
+    font-size: var(--fs-md);
+    color: var(--color-text);
+    line-height: 1.5;
   }
 
   .proof-list li {
     display: inline-flex;
-    align-items: center;
-    gap: var(--space-2);
-    padding: var(--space-2) var(--space-4);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-sm);
-    background: var(--color-surface);
-    font-family: var(--font-sans);
-    font-size: var(--fs-md);
-    font-weight: var(--weight-medium);
-    color: var(--color-text);
-    line-height: 1.2;
+    align-items: baseline;
   }
 
-  .proof-list li::before {
-    content: '';
-    flex-shrink: 0;
-    width: 0.45em;
-    height: 0.45em;
-    border-radius: 50%;
-    background: var(--color-accent);
+  .proof-list li:not(:last-child)::after {
+    content: '·';
+    color: var(--color-accent);
+    margin-inline: 0.6em;
   }
 
   @media (max-width: 34rem) {
     .proof-list {
-      column-gap: var(--space-2);
-      row-gap: var(--space-2);
-    }
-    .proof-list li {
-      padding: var(--space-1) var(--space-3);
       font-size: var(--fs-sm);
     }
   }

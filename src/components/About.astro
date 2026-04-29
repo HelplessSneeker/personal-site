@@ -17,7 +17,7 @@ const byline = locale === 'de' ? 'Benjamin Nößler · Wien' : 'Benjamin Nößle
       {paragraphs.map((paragraph) => (
         <p class="about-text">{paragraph}</p>
       ))}
-      <p class="about-byline" aria-hidden="true">
+      <p class="about-byline label-meta" aria-hidden="true">
         <span class="byline-rule"></span>
         <span class="byline-text">{byline}</span>
       </p>
@@ -69,11 +69,6 @@ const byline = locale === 'de' ? 'Benjamin Nößler · Wien' : 'Benjamin Nößle
     display: flex;
     align-items: center;
     gap: var(--space-4);
-    font-family: var(--font-sans);
-    font-size: var(--fs-sm);
-    font-weight: var(--weight-medium);
-    font-variant-caps: all-small-caps;
-    letter-spacing: var(--tracking-smallcaps);
     color: var(--color-text-subtle);
   }
 

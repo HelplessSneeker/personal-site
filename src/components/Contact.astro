@@ -28,11 +28,11 @@ const callBookingUrl = import.meta.env.PUBLIC_CAL_URL;
 
       <dl class="contact-direct">
         <div class="direct-row">
-          <dt>E-Mail</dt>
+          <dt class="label-meta">E-Mail</dt>
           <dd><a href="mailto:benjamin@noessler.at">benjamin@noessler.at</a></dd>
         </div>
         <div class="direct-row">
-          <dt>{t(locale, 'contact.social.heading')}</dt>
+          <dt class="label-meta">{t(locale, 'contact.social.heading')}</dt>
           <dd>
             <ul class="social-list">
               {socialLinks.map((link) => (
@@ -142,11 +142,6 @@ const callBookingUrl = import.meta.env.PUBLIC_CAL_URL;
   }
 
   .contact-direct dt {
-    font-family: var(--font-sans);
-    font-size: var(--fs-sm);
-    font-weight: var(--weight-medium);
-    font-variant-caps: all-small-caps;
-    letter-spacing: var(--tracking-smallcaps);
     color: var(--color-text-subtle);
   }
 
