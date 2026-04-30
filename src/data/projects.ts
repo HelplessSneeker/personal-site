@@ -52,6 +52,16 @@ export const projects: Project[] = [
       de: 'Live · zentraler Anlaufpunkt für Anfragen und Standort-Präsentation.',
       en: 'Live · central inquiry channel and online presence for the business.',
     },
+    testimonial: {
+      quote: {
+        de: 'Richtig starke Arbeit! Die Website von SCANZY ist modern, klar und macht sofort Lust auf mehr. Design und Struktur passen perfekt zum Angebot — man sieht sofort was SCANZY kann. Sehr zufrieden, klare Empfehlung!',
+        en: 'Genuinely strong work! The SCANZY website is modern, clear, and immediately makes you want to see more. Design and structure fit the offering perfectly — you instantly understand what SCANZY does. Very happy, a clear recommendation!',
+      },
+      author: {
+        de: 'Lukas Muchitsch · Gründer SCANZY',
+        en: 'Lukas Muchitsch · Founder, SCANZY',
+      },
+    },
   },
   {
     id: 'foundersgroup',
