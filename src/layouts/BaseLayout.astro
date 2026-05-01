@@ -3,6 +3,7 @@ import '../styles/global.css';
 import ScrollSectionIndicator, { type SectionRef } from '../components/ScrollSectionIndicator.astro';
 import generalSansVariable from '../assets/fonts/general-sans-variable.woff2?url';
 import commitMono400 from '@fontsource/commit-mono/files/commit-mono-latin-400-normal.woff2?url';
+import commitMono500 from '@fontsource/commit-mono/files/commit-mono-latin-500-normal.woff2?url';
 import { t } from '../i18n/util';
 
 export interface Props {
@@ -56,8 +57,10 @@ const personSchema = {
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
     <meta name="color-scheme" content="light dark" />
-    <meta name="theme-color" content="#fafafa" media="(prefers-color-scheme: light)" />
-    <meta name="theme-color" content="#101316" media="(prefers-color-scheme: dark)" />
+    {/* theme-color hex must approximate --color-bg per theme. Keep in sync
+        with src/styles/global.css when those tokens shift. */}
+    <meta name="theme-color" content="#fafafb" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#1d2024" media="(prefers-color-scheme: dark)" />
 
     <title>{title}</title>
     <meta name="description" content={description} />
@@ -65,6 +68,7 @@ const personSchema = {
 
     <link rel="preload" href={generalSansVariable} as="font" type="font/woff2" crossorigin />
     <link rel="preload" href={commitMono400} as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href={commitMono500} as="font" type="font/woff2" crossorigin />
 
     <link rel="alternate" hreflang={locale} href={canonicalUrl} />
     {altLocaleUrl && (
@@ -107,7 +111,16 @@ const personSchema = {
 
     <script>
       const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      const targets = document.querySelectorAll<HTMLElement>('.section:not(.hero), .site-footer');
+      const sections = document.querySelectorAll<HTMLElement>('.section:not(.hero)');
+      const footer = document.querySelector<HTMLElement>('.site-footer');
+      // On pages without animated sections (legal pages), don't fade the
+      // footer in alone — it'd be a single isolated reveal in an otherwise
+      // static page.
+      const targets: HTMLElement[] = [
+        ...Array.from(sections),
+        ...(sections.length > 0 && footer ? [footer] : []),
+      ];
+      if (footer && sections.length === 0) footer.classList.add('is-visible');
 
       if (prefersReduced || !('IntersectionObserver' in window)) {
         targets.forEach((el) => el.classList.add('is-visible'));

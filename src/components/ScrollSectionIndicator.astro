@@ -79,6 +79,14 @@ const { sections, navLabel = 'Page sections' } = Astro.props;
     outline-offset: 4px;
     position: relative;
   }
+  /* Invisible hit area extends the clickable region to ≥24×24
+     (WCAG 2.5.8 Target Size minimum) without changing visible layout
+     or sibling spacing. */
+  .tick::before {
+    content: '';
+    position: absolute;
+    inset: -6px;
+  }
 
   .tick-line {
     display: block;

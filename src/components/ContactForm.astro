@@ -45,7 +45,7 @@ const messages = {
       placeholder={form.namePlaceholder}
       aria-describedby="cf-name-error"
     />
-    <p class="field-error" id="cf-name-error"></p>
+    <p class="field-error" id="cf-name-error" aria-live="polite"></p>
   </div>
 
   <div class="field">
@@ -63,7 +63,7 @@ const messages = {
       placeholder={form.emailPlaceholder}
       aria-describedby="cf-email-error"
     />
-    <p class="field-error" id="cf-email-error"></p>
+    <p class="field-error" id="cf-email-error" aria-live="polite"></p>
   </div>
 
   <div class="field">
@@ -71,19 +71,21 @@ const messages = {
       {form.projectTypeLabel}
       <span class="required" aria-hidden="true">*</span>
     </label>
-    <select
-      id="cf-projectType"
-      name="projectType"
-      required
-      aria-describedby="cf-projectType-hint cf-projectType-error"
-    >
-      <option value="">{form.projectTypeNone}</option>
-      <option value="landing">{form.projectTypeOptions.landing}</option>
-      <option value="fullstack">{form.projectTypeOptions.fullstack}</option>
-      <option value="other">{form.projectTypeOptions.other}</option>
-    </select>
+    <span class="select-wrap">
+      <select
+        id="cf-projectType"
+        name="projectType"
+        required
+        aria-describedby="cf-projectType-hint cf-projectType-error"
+      >
+        <option value="">{form.projectTypeNone}</option>
+        <option value="landing">{form.projectTypeOptions.landing}</option>
+        <option value="fullstack">{form.projectTypeOptions.fullstack}</option>
+        <option value="other">{form.projectTypeOptions.other}</option>
+      </select>
+    </span>
     <p class="field-hint" id="cf-projectType-hint">{form.projectTypeHint}</p>
-    <p class="field-error" id="cf-projectType-error"></p>
+    <p class="field-error" id="cf-projectType-error" aria-live="polite"></p>
   </div>
 
   <div class="field">
@@ -101,7 +103,7 @@ const messages = {
       placeholder={form.messagePlaceholder}
       aria-describedby="cf-message-error"
     ></textarea>
-    <p class="field-error" id="cf-message-error"></p>
+    <p class="field-error" id="cf-message-error" aria-live="polite"></p>
   </div>
 
   <div class="hp-field" aria-hidden="true">
@@ -296,21 +298,28 @@ const messages = {
     min-height: 8rem;
     padding-top: var(--space-2);
   }
+  .select-wrap {
+    position: relative;
+    display: block;
+  }
   .field select {
     appearance: none;
-    /* Crisp 1.5px chevron, theme-aware. Hex values approximate
-       --color-text-subtle for each theme (light: oklch(50% 0.012 248),
-       dark: oklch(64% 0.010 248)) — kept in sync if the token shifts. */
-    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 6'><path d='M1 1l4 4 4-4' fill='none' stroke='%23696c70' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/></svg>");
-    background-position: calc(100% - 8px) center;
-    background-size: 10px 6px;
-    background-repeat: no-repeat;
     padding-right: var(--space-6);
   }
-  @media (prefers-color-scheme: dark) {
-    .field select {
-      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 6'><path d='M1 1l4 4 4-4' fill='none' stroke='%239a9da1' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/></svg>");
-    }
+  /* Chevron via a masked pseudo so the color tracks --color-text-subtle
+     in both themes — no hex duplication, no theme-fork. */
+  .select-wrap::after {
+    content: '';
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    width: 10px;
+    height: 6px;
+    margin-top: -3px;
+    background-color: var(--color-text-subtle);
+    -webkit-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 6'><path d='M1 1l4 4 4-4' fill='none' stroke='black' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/></svg>") no-repeat center / 10px 6px;
+            mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 6'><path d='M1 1l4 4 4-4' fill='none' stroke='black' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/></svg>") no-repeat center / 10px 6px;
+    pointer-events: none;
   }
   .field-error {
     font-size: var(--fs-sm);
