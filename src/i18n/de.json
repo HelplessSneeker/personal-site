@@ -25,9 +25,9 @@
     "inquiryAria": "Anfrage stellen"
   },
   "hero": {
-    "kicker": "Freelance · Landingpage-Redesigns",
-    "headline": "Zweisprachige Landingpages für österreichische Unternehmen.",
-    "body": "Festpreis ab dem Erstgespräch, Launch in 2–4 Wochen. Danach bleibt's in einer Hand: Hosting, Updates und kleinere Anpassungen zum festen Monatsbetrag. Für größere Vorhaben besprechen wir den passenden Scope.",
+    "kicker": "Freelance · Landingpages & Hosting · Wien",
+    "headline": "Landingpages, die in einer Hand bleiben.",
+    "body": "Redesign zum Festpreis, Launch in 2–4 Wochen — danach Hosting, Updates und kleinere Anpassungen zum festen Monatsbetrag. Eine Ansprechperson für die ganze Strecke. Für größere Vorhaben besprechen wir den passenden Scope.",
     "ctaPrimary": "Projekt besprechen",
     "ctaSecondary": "Beispiele ansehen",
     "meta": [
@@ -39,8 +39,8 @@
   "proof": {
     "ariaLabel": "Eckdaten",
     "items": [
+      "Eigene Infrastruktur in Wien",
       "Festpreis",
-      "Launch in 2–4 Wochen",
       "DE/EN",
       "DSGVO"
     ]
@@ -125,6 +125,7 @@
       "description": "Drei Tiefen — von voller Begleitung als Standardlösung bis „nur online halten“. Wähle, wieviel du selbst übernehmen willst.",
       "primary": {
         "label": "Strategie & Betrieb",
+        "recommendedTag": "Empfohlen",
         "priceAnchor": "€120/Monat",
         "scopeLabel": "Im Preis enthalten",
         "scope": [
@@ -158,7 +159,8 @@
           ]
         }
       ],
-      "hourlyNote": "Inhaltliche Änderungen nach Aufwand: €60/h (in 15-Minuten-Schritten abgerechnet). Jederzeit kündbar."
+      "cancelAnytime": "Jederzeit zum Monatsende kündbar — ohne Mindestlaufzeit.",
+      "hourlyNote": "Inhaltliche Änderungen nach Aufwand: €60/h (in 15-Minuten-Schritten abgerechnet)."
     },
     "fullstack": {
       "title": "Fullstack-Webapps",

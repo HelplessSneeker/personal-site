@@ -21,7 +21,12 @@ const alternates = hosting.alternates;
       <h3 class="service-title">{t(locale, 'services.hosting.title')}</h3>
       <p class="service-desc">{t(locale, 'services.hosting.description')}</p>
 
-      <p class="tier-label label-meta">{hosting.primary.label}</p>
+      <p class="tier-label label-meta">
+        <span>{hosting.primary.label}</span>
+        {hosting.primary.recommendedTag && (
+          <span class="tier-recommended">{hosting.primary.recommendedTag}</span>
+        )}
+      </p>
       <dl class="service-meta">
         <div class="meta-row meta-row-anchor">
           <dt class="label-meta">{t(locale, 'services.priceAnchorLabel')}</dt>
@@ -52,6 +57,7 @@ const alternates = hosting.alternates;
         ))}
       </div>
 
+      <p class="hosting-cancel">{hosting.cancelAnytime}</p>
       <p class="hourly-note">{hosting.hourlyNote}</p>
     </article>
 
@@ -210,9 +216,33 @@ const alternates = hosting.alternates;
     text-wrap: pretty;
   }
 
+  /* Tier label carries two beats: the tier name (left) and the optional
+     recommendation flag (right). Both share the label-meta voice; the
+     recommendation sits in the same accent color but separated by a
+     hairline rule so the eye reads "tier name — recommended" rather than
+     "two competing labels". The flex layout keeps it on one line at any
+     width that fits both, and wraps the recommendation below cleanly. */
   .tier-label {
     color: var(--color-accent);
     margin: var(--space-4) 0 0 0;
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    flex-wrap: wrap;
+  }
+
+  .tier-recommended {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-3);
+    color: var(--color-accent);
+  }
+  .tier-recommended::before {
+    content: '';
+    display: inline-block;
+    width: 1.5rem;
+    height: 1px;
+    background: var(--color-accent);
   }
 
   .alternates {
@@ -267,10 +297,22 @@ const alternates = hosting.alternates;
     max-width: 56ch;
   }
 
-  .hourly-note {
+  /* The cancel-anytime line is the anti-lock-in trust beat — it lives in
+     body voice (not the mono fine-print voice) so a skimmer reads it as
+     reassurance, not as billing disclaimer. The hourly note below is fine
+     print and stays mono fs-xs. */
+  .hosting-cancel {
     margin: var(--space-5) 0 0 0;
     padding-top: var(--space-4);
     border-top: 1px solid var(--color-rule);
+    font-size: var(--fs-sm);
+    color: var(--color-text);
+    line-height: 1.5;
+    max-width: 56ch;
+  }
+
+  .hourly-note {
+    margin: var(--space-3) 0 0 0;
     font-family: var(--font-mono);
     font-feature-settings: var(--font-features-mono);
     font-size: var(--fs-xs);

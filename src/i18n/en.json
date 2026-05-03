@@ -25,9 +25,9 @@
     "inquiryAria": "Send an inquiry"
   },
   "hero": {
-    "kicker": "Freelance · Landing-page redesigns",
-    "headline": "Bilingual landing pages for Austrian businesses.",
-    "body": "Fixed price from the first call, launch in 2–4 weeks. After that we keep going — hosting, updates and small changes at a predictable monthly rate. For larger projects, we'll talk through the right scope.",
+    "kicker": "Freelance · Landing pages & hosting · Vienna",
+    "headline": "Landing pages that stay in one pair of hands.",
+    "body": "Redesign at a fixed price, launched in 2–4 weeks — then hosting, updates and small changes at a steady monthly rate. One person for the whole stretch. For larger projects, we'll scope it together.",
     "ctaPrimary": "Discuss your project",
     "ctaSecondary": "See examples",
     "meta": [
@@ -39,8 +39,8 @@
   "proof": {
     "ariaLabel": "At a glance",
     "items": [
+      "Own infrastructure in Vienna",
       "Fixed price",
-      "Launch in 2–4 weeks",
       "DE/EN",
       "GDPR"
     ]
@@ -125,6 +125,7 @@
       "description": "Three levels — from full ongoing care as the standard down to “just keep it online.” Pick how much you want to handle yourself.",
       "primary": {
         "label": "Strategy & operations",
+        "recommendedTag": "Recommended",
         "priceAnchor": "€120/month",
         "scopeLabel": "Included",
         "scope": [
@@ -158,7 +159,8 @@
           ]
         }
       ],
-      "hourlyNote": "Content changes billed by the hour: €60/h (in 15-minute increments). Cancel anytime."
+      "cancelAnytime": "Cancel any time at the end of a month — no minimum term.",
+      "hourlyNote": "Content changes billed by the hour: €60/h (in 15-minute increments)."
     },
     "fullstack": {
       "title": "Fullstack web apps",

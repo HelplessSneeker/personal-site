@@ -88,22 +88,28 @@ const { sections, navLabel = 'Page sections' } = Astro.props;
     inset: -6px;
   }
 
+  /* Line uses its full hover width (28px) at all times; the resting state
+     scales it down via transform-origin: right so the right edge stays
+     pinned to the indicator column. Animating transform instead of width
+     keeps the hover off the layout thread. */
   .tick-line {
     display: block;
-    width: 20px;
+    width: 28px;
     height: 1px;
     background: var(--color-border-strong);
+    transform: scaleX(0.7143);
+    transform-origin: right center;
     transition:
-      width 180ms var(--ease-out-quart),
+      transform 180ms var(--ease-out-quart),
       background 180ms var(--ease-out-quart);
   }
   .tick:hover .tick-line,
   .tick:focus-visible .tick-line {
-    width: 28px;
+    transform: scaleX(1);
     background: var(--color-text-muted);
   }
   .tick[aria-current="location"] .tick-line {
-    width: 28px;
+    transform: scaleX(1);
     background: var(--color-accent);
   }
 
