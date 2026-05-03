@@ -16,22 +16,15 @@ const steps = dict.trust.process.steps;
     <ol class="trust-steps" aria-label={t(locale, 'trust.process.label')}>
       {steps.map((step, i) => (
         <li class="trust-step">
-          <span class="step-num" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
+          <p class="step-index" aria-hidden="true">
+            <span>{String(i + 1).padStart(2, '0')}</span>
+            <span class="rule"></span>
+          </p>
           <h3 class="step-title">{step.title}</h3>
           <p class="step-body">{step.body}</p>
         </li>
       ))}
     </ol>
-
-    <dl class="trust-availability">
-      <dt class="label-meta">{t(locale, 'trust.availability.label')}</dt>
-      <dd>
-        <span class="availability-pill">
-          <span class="availability-dot" aria-hidden="true"></span>
-          {t(locale, 'trust.availability.value')}
-        </span>
-      </dd>
-    </dl>
   </div>
 </section>
 
@@ -42,19 +35,18 @@ const steps = dict.trust.process.steps;
     padding-block-start: var(--section-continued);
   }
 
+  /* Vertical editorial list — same composition vocabulary as the Services
+     section's `.service-index` (mono numeral + flex-grow rule line above
+     the title). Was a 3-column grid; the grid shape pattern-matched against
+     "consultancy how-it-works trio" before readers got to the copy. */
   .trust-steps {
     list-style: none;
     padding: 0;
     margin: var(--space-6) 0 0 0;
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: var(--space-6);
-  }
-  @media (min-width: 52rem) {
-    .trust-steps {
-      grid-template-columns: repeat(3, 1fr);
-      gap: var(--space-7);
-    }
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-7);
+    max-width: 52rem;
   }
 
   .trust-step {
@@ -64,14 +56,22 @@ const steps = dict.trust.process.steps;
     min-width: 0;
   }
 
-  .step-num {
+  .step-index {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    margin: 0 0 var(--space-2) 0;
     font-family: var(--font-mono);
     font-feature-settings: var(--font-features-mono);
     font-size: var(--fs-xs);
-    font-weight: var(--weight-medium);
     letter-spacing: var(--tracking-label);
     color: var(--color-accent);
-    margin-bottom: var(--space-1);
+  }
+  .step-index .rule {
+    flex: 1;
+    height: 1px;
+    background: var(--color-rule);
+    display: block;
   }
 
   .step-title {
@@ -88,46 +88,7 @@ const steps = dict.trust.process.steps;
     font-size: var(--fs-md);
     line-height: var(--lh-relaxed);
     color: var(--color-text-muted);
-    max-width: 32ch;
-  }
-
-  .trust-availability {
-    margin: var(--space-8) 0 0 0;
-    padding-top: var(--space-5);
-    border-top: 1px solid var(--color-rule);
-    display: grid;
-    grid-template-columns: minmax(7rem, 9rem) 1fr;
-    gap: var(--space-4);
-    align-items: baseline;
-  }
-
-  .trust-availability dt {
-    color: var(--color-text-subtle);
-  }
-
-  .trust-availability dd {
-    margin: 0;
-    font-size: var(--fs-sm);
-  }
-
-  .availability-pill {
-    display: inline-flex;
-    align-items: center;
-    gap: var(--space-2);
-    padding: 0.25rem 0.6rem;
-    border: 1px solid var(--color-accent);
-    border-radius: 999px;
-    color: var(--color-accent);
-    font-family: var(--font-mono);
-    font-feature-settings: var(--font-features-mono);
-    font-size: var(--fs-xs);
-    letter-spacing: 0.04em;
-  }
-
-  .availability-dot {
-    width: 0.5rem;
-    height: 0.5rem;
-    border-radius: 50%;
-    background: var(--color-accent);
+    max-width: 50ch;
+    text-wrap: pretty;
   }
 </style>

@@ -19,7 +19,7 @@ const ariaLabel = t(altLocale, 'language.switchAria');
   aria-label={ariaLabel}
 >
   <span class="lang-current">{currentLocale.toUpperCase()}</span>
-  <span class="lang-sep" aria-hidden="true">|</span>
+  <span class="lang-sep" aria-hidden="true">·</span>
   <span class="lang-alt">{altLabel}</span>
 </a>
 
@@ -45,7 +45,7 @@ const ariaLabel = t(altLocale, 'language.switchAria');
     font-weight: var(--weight-medium);
   }
   .lang-sep {
-    color: var(--color-text-subtle);
+    color: var(--color-accent);
   }
   .lang-alt {
     color: var(--color-text-muted);

@@ -45,8 +45,8 @@ export const projects: Project[] = [
     links: [{ href: 'https://scanzy.at', labelKey: 'work.visitLink' }],
     image: '/projects/scanzy.png',
     imageAlt: {
-      de: 'scanzy.at Startseite — Wortmarke SCANZY über einer dunklen Berglandschaft mit der Headline „Ihr Objekt hat mehr verdient als nur Fotos."',
-      en: 'scanzy.at homepage — SCANZY wordmark above a dark mountain landscape with the headline "Ihr Objekt hat mehr verdient als nur Fotos."',
+      de: 'scanzy.at Startseite — Wortmarke SCANZY über einer dunklen Berglandschaft mit der Headline „Ihr Objekt hat mehr verdient als nur Fotos.“',
+      en: 'scanzy.at homepage — SCANZY wordmark above a dark mountain landscape with the headline “Ihr Objekt hat mehr verdient als nur Fotos.”',
     },
     outcome: {
       de: 'Live · zentraler Anlaufpunkt für Anfragen und Standort-Präsentation.',
@@ -77,8 +77,8 @@ export const projects: Project[] = [
     links: [{ href: 'https://foundersgroup.at', labelKey: 'work.visitLink' }],
     image: '/projects/foundersgroup.png',
     imageAlt: {
-      de: 'foundersgroup.at Startseite — zwei Samtsessel auf einem Wiener Balkon bei Nacht mit der Headline „Bist du bereit dein Umfeld zu ändern?"',
-      en: 'foundersgroup.at homepage — two velvet chairs on a Viennese balcony at night with the headline "Bist du bereit dein Umfeld zu ändern?"',
+      de: 'foundersgroup.at Startseite — zwei Samtsessel auf einem Wiener Balkon bei Nacht mit der Headline „Bist du bereit dein Umfeld zu ändern?“',
+      en: 'foundersgroup.at homepage — two velvet chairs on a Viennese balcony at night with the headline “Bist du bereit dein Umfeld zu ändern?”',
     },
     outcome: {
       de: 'Live · Zugang für Member-Anfragen und Vereinskommunikation.',

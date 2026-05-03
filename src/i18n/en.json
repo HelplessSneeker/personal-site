@@ -6,6 +6,10 @@
   "meta": {
     "jobTitle": "Fullstack Developer"
   },
+  "availability": {
+    "label": "Availability",
+    "value": "Currently available"
+  },
   "nav": {
     "top": "Top",
     "primary": "Primary navigation",
@@ -23,9 +27,14 @@
   "hero": {
     "kicker": "Freelance · Landing-page redesigns",
     "headline": "Bilingual landing pages for Austrian businesses.",
-    "body": "I help Austrian businesses modernise their landing page: clear structure, fast load times, proper DE/EN, GDPR-compliant. For larger projects, let's talk about the right scope.",
+    "body": "Fixed price from the first call, launch in 2–4 weeks. After that we keep going — hosting, updates and small changes at a predictable monthly rate. For larger projects, we'll talk through the right scope.",
     "ctaPrimary": "Discuss your project",
-    "ctaSecondary": "See examples"
+    "ctaSecondary": "See examples",
+    "meta": [
+      "Vienna",
+      "Hetzner",
+      "DE/EN"
+    ]
   },
   "proof": {
     "ariaLabel": "At a glance",
@@ -91,14 +100,14 @@
   },
   "services": {
     "label": "Services",
-    "intro": "My focus: landing-page redesigns for Austrian businesses. For projects that go beyond a single page, let's talk about the right scope.",
+    "intro": "I build landing pages for Austrian businesses — and take care of what comes after: hosting, maintenance and small changes over time. For larger projects, we'll talk through the right scope.",
     "scopeLabel": "Scope",
     "priceAnchorLabel": "Investment",
     "extensionLabel": "Also available",
     "landing": {
       "title": "Landing page redesign",
       "description": "Analyse and rebuild an existing marketing or landing page — clear structure, fast load times, proper bilingual DE/EN, GDPR-compliant.",
-      "priceAnchor": "from €500 + hosting as a fixed price. Final price defined after a call.",
+      "priceAnchor": "from €500 as a fixed price, plus one of the three hosting packages above. Final price defined after a call.",
       "includedLabel": "Included in the fixed price",
       "includedItems": [
         "One landing page (one-pager), responsive, DE/EN",
@@ -113,7 +122,7 @@
     },
     "hosting": {
       "title": "Hosting & operations",
-      "description": "Three levels — from \"just keep it online\" to \"the site grows with the business.\" Pick the depth that fits.",
+      "description": "Three levels — from full ongoing care as the standard down to “just keep it online.” Pick how much you want to handle yourself.",
       "primary": {
         "label": "Strategy & operations",
         "priceAnchor": "€120/month",
@@ -185,12 +194,8 @@
       "steps": [
         { "title": "Talk", "body": "30 minutes, free. I listen, ask questions, tell you honestly whether I'm a fit." },
         { "title": "Fixed-price quote", "body": "Clear scope, clear price. No hidden hours." },
-        { "title": "Build in 2–4 weeks", "body": "Transparent status, a single point of contact, clean launch." }
+        { "title": "Build & ongoing care", "body": "Transparent status, a single point of contact, clean launch in 2–4 weeks. After that, hosting, updates and small changes — all from the same hand." }
       ]
-    },
-    "availability": {
-      "label": "Availability",
-      "value": "Currently available"
     }
   },
   "about": {
@@ -199,7 +204,7 @@
     "bodyParagraphs": [
       "I help Austrian businesses modernise their web presence — focus is landing-page redesigns. Vienna is home base; most of the work happens remote.",
       "I split my time between a permanent role in the City of Vienna's digital team (through APC Business Services GmbH, currently on a web-app project) and selected freelance work — mostly landing-page redesigns for local businesses. I've been building web apps for years in employment and in my own projects (e.g. <a class=\"inline-link\" href=\"https://github.com/HelplessSneeker/b-cal\" rel=\"noopener external\" target=\"_blank\">b-cal</a>); on the freelance side I'm deliberately starting with a smaller scope.",
-      "I prefer projects meant to last longer than a quarter: cleanly built, on my own infrastructure (Hetzner/Coolify), with tools I'll still trust in two years. Business context matters to me as much as the code — so I enjoy talking to people who know their problem better than I do."
+      "I prefer projects meant to last longer than a quarter: cleanly built, on my own infrastructure (Hetzner/Coolify), with tools I'll still trust in two years. Business context matters to me as much as the code — so I enjoy talking to people who know their problem better than I do, and on most projects I stay on as the point of contact after launch."
     ]
   },
   "contact": {

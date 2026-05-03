@@ -6,6 +6,10 @@
   "meta": {
     "jobTitle": "Fullstack-Entwickler"
   },
+  "availability": {
+    "label": "Verfügbarkeit",
+    "value": "Aktuell verfügbar"
+  },
   "nav": {
     "top": "Start",
     "primary": "Primärnavigation",
@@ -23,9 +27,14 @@
   "hero": {
     "kicker": "Freelance · Landingpage-Redesigns",
     "headline": "Zweisprachige Landingpages für österreichische Unternehmen.",
-    "body": "Ich helfe österreichischen Unternehmen, ihre Landingpage zu modernisieren: klare Struktur, schnelle Ladezeiten, saubere DE/EN-Umsetzung, DSGVO-konform. Für umfangreichere Vorhaben sprechen wir über den passenden Scope.",
+    "body": "Festpreis ab dem Erstgespräch, Launch in 2–4 Wochen. Danach bleibt's in einer Hand: Hosting, Updates und kleinere Anpassungen zum festen Monatsbetrag. Für größere Vorhaben besprechen wir den passenden Scope.",
     "ctaPrimary": "Projekt besprechen",
-    "ctaSecondary": "Beispiele ansehen"
+    "ctaSecondary": "Beispiele ansehen",
+    "meta": [
+      "Wien",
+      "Hetzner",
+      "DE/EN"
+    ]
   },
   "proof": {
     "ariaLabel": "Eckdaten",
@@ -91,14 +100,14 @@
   },
   "services": {
     "label": "Leistungen",
-    "intro": "Mein Schwerpunkt: Landingpage-Redesigns für österreichische Unternehmen. Für Vorhaben, die über eine einzelne Seite hinausgehen, sprechen wir über den passenden Scope.",
+    "intro": "Ich baue Landingpages für österreichische Unternehmen — und übernehme das, was danach kommt: Hosting, Pflege und kleinere Anpassungen über die Zeit. Größere Vorhaben besprechen wir im Scope.",
     "scopeLabel": "Umfang",
     "priceAnchorLabel": "Investition",
     "extensionLabel": "Auch möglich",
     "landing": {
       "title": "Landingpage-Redesign",
       "description": "Bestehende Marketing- oder Landingpage analysieren und neu umsetzen — klare Struktur, schnelle Ladezeiten, sauber zweisprachig, DSGVO-konform.",
-      "priceAnchor": "ab €500 + Hosting als Festpreis. Konkreter Preis nach Gespräch.",
+      "priceAnchor": "ab €500 als Festpreis, plus eines der drei Hosting-Pakete oben. Konkreter Preis nach Gespräch.",
       "includedLabel": "Im Festpreis enthalten",
       "includedItems": [
         "Eine Landingpage (One-Pager), responsive, DE/EN",
@@ -113,7 +122,7 @@
     },
     "hosting": {
       "title": "Hosting & Betrieb",
-      "description": "Drei Stufen — von „einfach online halten“ bis „die Seite wächst mit dem Geschäft mit“. Wähle die Tiefe, die zu dir passt.",
+      "description": "Drei Tiefen — von voller Begleitung als Standardlösung bis „nur online halten“. Wähle, wieviel du selbst übernehmen willst.",
       "primary": {
         "label": "Strategie & Betrieb",
         "priceAnchor": "€120/Monat",
@@ -185,12 +194,8 @@
       "steps": [
         { "title": "Gespräch", "body": "30 Minuten, kostenlos. Ich höre zu, frage nach, sage ehrlich, ob ich passe." },
         { "title": "Festpreis-Angebot", "body": "Klare Leistung, klarer Preis. Keine versteckten Stunden." },
-        { "title": "Umsetzung in 2–4 Wochen", "body": "Transparenter Status, ein Ansprechpartner, sauberer Launch." }
+        { "title": "Umsetzung & Pflege", "body": "Klarer Status, eine Ansprechperson, sauberer Launch in 2–4 Wochen. Danach Hosting, Updates und kleinere Anpassungen aus einer Hand." }
       ]
-    },
-    "availability": {
-      "label": "Verfügbarkeit",
-      "value": "Aktuell verfügbar"
     }
   },
   "about": {
@@ -199,7 +204,7 @@
     "bodyParagraphs": [
       "Ich helfe österreichischen Unternehmen, ihre Webpräsenz zu modernisieren — Schwerpunkt sind Landingpage-Redesigns. Wien ist mein Ausgangspunkt, die meiste Arbeit findet remote statt.",
       "Meine Zeit teile ich zwischen einer Festanstellung im Digitalisierungsteam der Stadt Wien (über APC Business Services GmbH, derzeit an einem Webapp-Projekt) und ausgewählten Freelance-Aufträgen — vor allem Landingpage-Redesigns für lokale Unternehmen. Webapps baue ich seit Jahren in Anstellung und in eigenen Projekten (z. B. <a class=\"inline-link\" href=\"https://github.com/HelplessSneeker/b-cal\" rel=\"noopener external\" target=\"_blank\">b-cal</a>); im Freelance-Bereich starte ich bewusst mit kleinerem Scope.",
-      "Ich arbeite am liebsten an Dingen, die länger als ein Quartal leben sollen: sauber gebaut, auf eigener Infrastruktur (Hetzner/Coolify), mit Werkzeugen, denen ich auch in zwei Jahren noch vertraue. Mir ist der Business-Kontext mindestens so wichtig wie der Code — deswegen rede ich gerne mit Menschen, die ihr Problem selbst kennen."
+      "Ich arbeite am liebsten an Dingen, die länger als ein Quartal leben sollen: sauber gebaut, auf eigener Infrastruktur (Hetzner/Coolify), mit Werkzeugen, denen ich auch in zwei Jahren noch vertraue. Mir ist der Business-Kontext mindestens so wichtig wie der Code — deswegen rede ich gerne mit Menschen, die ihr Problem selbst kennen, und bleibe bei den meisten Projekten auch nach dem Launch als Ansprechperson dabei."
     ]
   },
   "contact": {

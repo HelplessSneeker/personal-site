@@ -1,5 +1,5 @@
 ---
-import { t, type Locale, getLocalizedPath } from '../i18n/util';
+import { t, tArray, type Locale, getLocalizedPath } from '../i18n/util';
 
 export interface Props {
   locale: Locale;
@@ -7,9 +7,10 @@ export interface Props {
 
 const { locale } = Astro.props;
 const home = getLocalizedPath(locale, '/');
+const metaItems = tArray(locale, 'hero.meta');
 ---
 <section class="section hero" id="top" aria-labelledby="hero-heading">
-  <div class="container">
+  <div class="container hero-grid">
     <div class="hero-text">
       <span class="hero-rule" aria-hidden="true"></span>
       <p class="hero-kicker label-meta">{t(locale, 'hero.kicker')}</p>
@@ -26,6 +27,18 @@ const home = getLocalizedPath(locale, '/');
         </a>
       </div>
     </div>
+
+    <aside class="hero-meta" aria-label={t(locale, 'availability.label')}>
+      <span class="availability-pill">
+        <span class="availability-dot" aria-hidden="true"></span>
+        {t(locale, 'availability.value')}
+      </span>
+      {metaItems.length > 0 && (
+        <ul class="hero-meta-list" aria-hidden="true">
+          {metaItems.map((item) => <li>{item}</li>)}
+        </ul>
+      )}
+    </aside>
   </div>
 </section>
 
@@ -49,11 +62,100 @@ const home = getLocalizedPath(locale, '/');
     }
   }
 
+  /* Hero composition.
+     Mobile: single column, metadata stacks below the body text.
+     Desktop (≥48rem): asymmetric 1.3fr / 1fr split — left column is the
+     editorial overture (kicker, headline, body, CTAs); right column is a
+     metadata panel (availability pill + dot-separated mono colophon).
+     The asymmetry comes from the right column being narrower than the left,
+     not from centering — left-aligned text throughout. */
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-7);
+    align-items: start;
+  }
+  @media (min-width: 48rem) {
+    .hero-grid {
+      grid-template-columns: minmax(0, 1.3fr) minmax(12rem, 1fr);
+      gap: var(--space-8);
+    }
+  }
+
   .hero-text {
     min-width: 0;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+  }
+
+  /* Right column: metadata panel.
+     Holds the availability pill (the brief's named "break-the-grid" moment;
+     it appears here once and not again in Trust) plus a mono colophon line
+     that mirrors the proof-bar's middle-dot pattern.
+     On desktop the panel sits flush with the top of the headline, not
+     baseline-aligned with the body — so the pill reads as a counterweight
+     to the kicker, both at the page's top edge. */
+  .hero-meta {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-5);
+    margin-top: var(--space-2);
+  }
+  @media (min-width: 48rem) {
+    .hero-meta {
+      align-self: start;
+      padding-top: var(--space-3);
+    }
+  }
+
+  .availability-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: 0.25rem 0.6rem;
+    border: 1px solid var(--color-accent);
+    border-radius: 999px;
+    color: var(--color-accent);
+    font-family: var(--font-mono);
+    font-feature-settings: var(--font-features-mono);
+    font-size: var(--fs-xs);
+    letter-spacing: 0.04em;
+  }
+
+  .availability-dot {
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+    background: var(--color-accent);
+  }
+
+  /* Colophon-style mono caption — same vocabulary as Proof / footer-legal /
+     social-list. Middle-dots in accent color; quiet line height. */
+  .hero-meta-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    font-family: var(--font-mono);
+    font-feature-settings: var(--font-features-mono);
+    font-size: var(--fs-xs);
+    color: var(--color-text-subtle);
+    line-height: 1.5;
+    letter-spacing: 0.02em;
+  }
+  .hero-meta-list li {
+    display: inline-flex;
+    align-items: baseline;
+  }
+  .hero-meta-list li:not(:last-child)::after {
+    content: '·';
+    color: var(--color-accent);
+    margin-inline: 0.55em;
   }
 
   /* Leading editorial rule — "start of article" mark, common in print and
@@ -137,7 +239,7 @@ const home = getLocalizedPath(locale, '/');
     font-size: var(--fs-md);
     color: var(--color-text-muted);
     text-decoration: underline;
-    text-decoration-color: color-mix(in oklab, currentColor 25%, transparent);
+    text-decoration-color: color-mix(in oklab, currentColor 45%, transparent);
     text-underline-offset: 0.2em;
     text-decoration-thickness: 1px;
     transition: color var(--transition), text-decoration-color var(--transition);
