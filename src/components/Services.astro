@@ -1,5 +1,5 @@
 ---
-import { t, tArray, type Locale } from '../i18n/util';
+import { t, tArray, getDict, type Locale } from '../i18n/util';
 
 export interface Props {
   locale: Locale;
@@ -7,7 +7,9 @@ export interface Props {
 
 const { locale } = Astro.props;
 const landingIncluded = tArray(locale, 'services.landing.includedItems');
-const hostingBullets = tArray(locale, 'services.hosting.bullets');
+const hosting = getDict(locale).services.hosting;
+const primaryScope = hosting.primary.scope;
+const alternates = hosting.alternates;
 ---
 <section class="section services-section" id="services" aria-labelledby="services-heading">
   <div class="container">
@@ -16,6 +18,45 @@ const hostingBullets = tArray(locale, 'services.hosting.bullets');
 
     <article class="service service-primary">
       <p class="service-index" aria-hidden="true"><span>01</span><span class="rule"></span></p>
+      <h3 class="service-title">{t(locale, 'services.hosting.title')}</h3>
+      <p class="service-desc">{t(locale, 'services.hosting.description')}</p>
+
+      <p class="tier-label label-meta">{hosting.primary.label}</p>
+      <dl class="service-meta">
+        <div class="meta-row meta-row-anchor">
+          <dt class="label-meta">{t(locale, 'services.priceAnchorLabel')}</dt>
+          <dd class="price-anchor">{hosting.primary.priceAnchor}</dd>
+        </div>
+        <div class="meta-row">
+          <dt class="label-meta">{hosting.primary.scopeLabel}</dt>
+          <dd>
+            <ul class="meta-list">
+              {primaryScope.map((item) => <li>{item}</li>)}
+            </ul>
+          </dd>
+        </div>
+      </dl>
+
+      <div class="alternates">
+        <p class="alternates-label label-meta">{hosting.alternatesLabel}</p>
+        {alternates.map((alt) => (
+          <div class="alternate">
+            <div class="alternate-head">
+              <span class="alternate-label">{alt.label}</span>
+              <span class="alternate-price">{alt.priceAnchor}</span>
+            </div>
+            <ul class="meta-list alternate-scope">
+              {alt.scope.map((item) => <li>{item}</li>)}
+            </ul>
+          </div>
+        ))}
+      </div>
+
+      <p class="hourly-note">{hosting.hourlyNote}</p>
+    </article>
+
+    <article class="service service-primary">
+      <p class="service-index" aria-hidden="true"><span>02</span><span class="rule"></span></p>
       <h3 class="service-title">{t(locale, 'services.landing.title')}</h3>
       <p class="service-desc">{t(locale, 'services.landing.description')}</p>
 
@@ -35,27 +76,6 @@ const hostingBullets = tArray(locale, 'services.hosting.bullets');
         <div class="meta-row">
           <dt class="label-meta">{t(locale, 'services.landing.excludedLabel')}</dt>
           <dd class="excluded-text">{t(locale, 'services.landing.excludedText')}</dd>
-        </div>
-      </dl>
-    </article>
-
-    <article class="service service-primary">
-      <p class="service-index" aria-hidden="true"><span>02</span><span class="rule"></span></p>
-      <h3 class="service-title">{t(locale, 'services.hosting.title')}</h3>
-      <p class="service-desc">{t(locale, 'services.hosting.description')}</p>
-
-      <dl class="service-meta">
-        <div class="meta-row">
-          <dt class="label-meta">{t(locale, 'services.scopeLabel')}</dt>
-          <dd>
-            <ul class="meta-list">
-              {hostingBullets.map((bullet) => <li>{bullet}</li>)}
-            </ul>
-          </dd>
-        </div>
-        <div class="meta-row meta-row-anchor">
-          <dt class="label-meta">{t(locale, 'services.priceAnchorLabel')}</dt>
-          <dd class="price-anchor">{t(locale, 'services.hosting.priceAnchor')}</dd>
         </div>
       </dl>
     </article>
@@ -188,6 +208,75 @@ const hostingBullets = tArray(locale, 'services.hosting.bullets');
     color: var(--color-text-muted);
     line-height: 1.5;
     text-wrap: pretty;
+  }
+
+  .tier-label {
+    color: var(--color-accent);
+    margin: var(--space-4) 0 0 0;
+  }
+
+  .alternates {
+    margin-top: var(--space-7);
+    padding-top: var(--space-5);
+    border-top: 1px solid var(--color-rule);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-5);
+  }
+
+  .alternates-label {
+    color: var(--color-text-subtle);
+    margin: 0;
+  }
+
+  .alternate {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+
+  .alternate + .alternate {
+    padding-top: var(--space-5);
+    border-top: 1px solid var(--color-rule);
+  }
+
+  .alternate-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: var(--space-3);
+    flex-wrap: wrap;
+  }
+
+  .alternate-label {
+    font-family: var(--font-display);
+    font-size: var(--fs-md);
+    font-weight: var(--weight-medium);
+    color: var(--color-text);
+  }
+
+  .alternate-price {
+    font-family: var(--font-mono);
+    font-feature-settings: var(--font-features-mono);
+    font-size: var(--fs-sm);
+    color: var(--color-text);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .alternate-scope {
+    max-width: 56ch;
+  }
+
+  .hourly-note {
+    margin: var(--space-5) 0 0 0;
+    padding-top: var(--space-4);
+    border-top: 1px solid var(--color-rule);
+    font-family: var(--font-mono);
+    font-feature-settings: var(--font-features-mono);
+    font-size: var(--fs-xs);
+    color: var(--color-text-muted);
+    line-height: 1.5;
+    max-width: 56ch;
   }
 
   /* Extension card — clearly subordinate to the primary service.

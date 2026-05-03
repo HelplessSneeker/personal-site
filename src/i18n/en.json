@@ -113,16 +113,43 @@
     },
     "hosting": {
       "title": "Hosting & operations",
-      "description": "Keeps your site live, secure, and up to date — so you don't have to think about it.",
-      "bullets": [
-        "Hosting on owned infrastructure (Hetzner, Vienna)",
-        "Automatic security and software updates",
-        "Uptime monitoring",
-        "SSL certificate",
-        "Daily backups",
-        "Response to issues within 48 hours"
+      "description": "Three levels — from \"just keep it online\" to \"the site grows with the business.\" Pick the depth that fits.",
+      "primary": {
+        "label": "Strategy & operations",
+        "priceAnchor": "€120/month",
+        "scopeLabel": "Included",
+        "scope": [
+          "Hosting on owned infrastructure (Hetzner, Vienna)",
+          "Uptime monitoring, SSL, and daily backups",
+          "Response to incidents within 10 business hours",
+          "Monthly usage and SEO report (concise, written)",
+          "SEO actions implemented in the same month",
+          "Annual strategy call (1h)",
+          "Full landing-page redesign every 2 years included"
+        ]
+      },
+      "alternatesLabel": "Lighter scope",
+      "alternates": [
+        {
+          "label": "Hosting only",
+          "priceAnchor": "€20/month",
+          "scope": [
+            "Hosting on owned infrastructure (Hetzner, Vienna)",
+            "SSL certificate and daily backups",
+            "No monitoring, no SLA"
+          ]
+        },
+        {
+          "label": "Hosting + monitoring",
+          "priceAnchor": "€50/month",
+          "scope": [
+            "Everything in \"Hosting only\"",
+            "Uptime monitoring, around the clock",
+            "Response to incidents within 10 business hours"
+          ]
+        }
       ],
-      "priceAnchor": "€49.99/month. Content changes billed by the hour: €60/h (in 15-minute increments). Cancel anytime."
+      "hourlyNote": "Content changes billed by the hour: €60/h (in 15-minute increments). Cancel anytime."
     },
     "fullstack": {
       "title": "Fullstack web apps",

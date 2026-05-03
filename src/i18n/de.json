@@ -113,16 +113,43 @@
     },
     "hosting": {
       "title": "Hosting & Betrieb",
-      "description": "Damit deine Seite live, sicher und aktuell bleibt — ohne dass du dich darum kümmern musst.",
-      "bullets": [
-        "Hosting auf eigener Infrastruktur (Hetzner, Wien)",
-        "Automatische Sicherheits- und Software-Updates",
-        "Uptime-Monitoring",
-        "SSL-Zertifikat",
-        "Tägliche Backups",
-        "Reaktion bei Problemen innerhalb von 48 Stunden"
+      "description": "Drei Stufen — von „einfach online halten“ bis „die Seite wächst mit dem Geschäft mit“. Wähle die Tiefe, die zu dir passt.",
+      "primary": {
+        "label": "Strategie & Betrieb",
+        "priceAnchor": "€120/Monat",
+        "scopeLabel": "Im Preis enthalten",
+        "scope": [
+          "Hosting auf eigener Infrastruktur (Hetzner, Wien)",
+          "Uptime-Monitoring, SSL und tägliche Backups",
+          "Reaktion auf Vorfälle binnen 10 Geschäftsstunden",
+          "Monatliche Nutzungs- und SEO-Auswertung als kurzer Bericht",
+          "SEO-Maßnahmen im laufenden Monat umgesetzt",
+          "Jährliches Strategiegespräch (1h)",
+          "Komplettes Landingpage-Redesign alle 2 Jahre inklusive"
+        ]
+      },
+      "alternatesLabel": "Kleinere Pakete",
+      "alternates": [
+        {
+          "label": "Nur Hosting",
+          "priceAnchor": "€20/Monat",
+          "scope": [
+            "Hosting auf eigener Infrastruktur (Hetzner, Wien)",
+            "SSL-Zertifikat und tägliche Backups",
+            "Kein Monitoring, keine SLA"
+          ]
+        },
+        {
+          "label": "Hosting + Monitoring",
+          "priceAnchor": "€50/Monat",
+          "scope": [
+            "Alles aus „Nur Hosting“",
+            "Uptime-Monitoring rund um die Uhr",
+            "Reaktion auf Vorfälle binnen 10 Geschäftsstunden"
+          ]
+        }
       ],
-      "priceAnchor": "€49,99/Monat. Inhaltliche Änderungen nach Aufwand: €60/h (in 15-Minuten-Schritten abgerechnet). Jederzeit kündbar."
+      "hourlyNote": "Inhaltliche Änderungen nach Aufwand: €60/h (in 15-Minuten-Schritten abgerechnet). Jederzeit kündbar."
     },
     "fullstack": {
       "title": "Fullstack-Webapps",
