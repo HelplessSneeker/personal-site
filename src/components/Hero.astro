@@ -30,6 +30,12 @@ const home = getLocalizedPath(locale, '/');
 </section>
 
 <style>
+  /* Documented exception to the section grammar.
+     Hero is the page overture, not a section in the section sequence:
+     - uses <h1> (not the .section-label h2)
+     - draws the editorial start-rule above the kicker
+     - intentionally has no top border (overrides .section + .section)
+     - keeps a bespoke padding clamp because it owns the whole top of the page. */
   .hero {
     padding-block: var(--space-9) var(--space-8);
   }

@@ -15,7 +15,7 @@ const employmentProjects = projects.filter((p) => p.status === 'case-study');
     <h2 id="from-employment-heading" class="section-label">{t(locale, 'fromEmployment.label')}</h2>
     <p class="from-employment-intro">{t(locale, 'fromEmployment.intro')}</p>
 
-    <div class="employment-grid" role="list">
+    <div class="employment-list" role="list">
       {employmentProjects.map((project) => (
         <EmploymentCard project={project} locale={locale} />
       ))}
@@ -27,14 +27,11 @@ const employmentProjects = projects.filter((p) => p.status === 'case-study');
   /* Sit closer to the Selected Work section above so the reader registers
      this as a smaller "for context" subsection rather than a fresh peer. */
   .from-employment-section {
-    padding-block-start: var(--space-7);
-  }
-  @media (min-width: 48rem) {
-    .from-employment-section {
-      padding-block-start: var(--space-8);
-    }
+    padding-block-start: var(--section-continued);
   }
 
+  /* Continuation-style intro: muted body voice, not the strong .section-lede.
+     Signals "context for what came before," not a fresh argument. */
   .from-employment-intro {
     font-size: var(--fs-md);
     line-height: var(--lh-relaxed);
@@ -44,15 +41,23 @@ const employmentProjects = projects.filter((p) => p.status === 'case-study');
     text-wrap: pretty;
   }
 
-  .employment-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: var(--space-7);
+  /* Editorial stack of employment entries — one per row, separated by a
+     thin rule. Echoes the SelectedWork pattern; replaces the previous
+     2-col card grid which read as "card catalog" rather than editorial. */
+  .employment-list {
+    display: flex;
+    flex-direction: column;
   }
-  @media (min-width: 52rem) {
-    .employment-grid {
-      grid-template-columns: repeat(2, 1fr);
-      gap: var(--space-8);
+
+  .employment-list > * + * {
+    margin-top: var(--space-7);
+    padding-top: var(--space-7);
+    border-top: 1px solid var(--color-rule);
+  }
+  @media (min-width: 48rem) {
+    .employment-list > * + * {
+      margin-top: var(--space-8);
+      padding-top: var(--space-8);
     }
   }
 </style>

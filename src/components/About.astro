@@ -11,7 +11,7 @@ const paragraphs = tArray(locale, 'about.bodyParagraphs');
 const byline = t(locale, 'about.byline');
 ---
 <section class="section about-section" id="about" aria-labelledby="about-heading">
-  <div class="container about-inner">
+  <div class="container">
     <h2 id="about-heading" class="section-label">{t(locale, 'about.label')}</h2>
     <div class="about-body">
       {paragraphs.map((paragraph) => (
@@ -29,19 +29,9 @@ const byline = t(locale, 'about.byline');
 </section>
 
 <style>
-  .about-inner {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: var(--space-5);
-  }
-  @media (min-width: 48rem) {
-    .about-inner {
-      grid-template-columns: minmax(9rem, 12rem) 1fr;
-      gap: var(--space-8);
-      align-items: start;
-    }
-  }
-
+  /* Label sits above content, like every other section. The previous
+     side-label grid (minmax(9rem,12rem):1fr at ≥48rem) broke that pattern
+     and made About feel like a different system. */
   .about-body {
     display: flex;
     flex-direction: column;
@@ -90,10 +80,9 @@ const byline = t(locale, 'about.byline');
     flex-shrink: 0;
   }
 
-  /* Stack disclosure spans both columns of the About grid so the expanded
-     content has full container width, not just the body column. */
+  /* Stack disclosure sits below the body at full container width — its
+     expanded content benefits from running wider than the 60ch prose. */
   .about-stack {
-    grid-column: 1 / -1;
     margin-top: var(--space-7);
   }
 </style>

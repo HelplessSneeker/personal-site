@@ -12,7 +12,7 @@ const hostingBullets = tArray(locale, 'services.hosting.bullets');
 <section class="section services-section" id="services" aria-labelledby="services-heading">
   <div class="container">
     <h2 id="services-heading" class="section-label">{t(locale, 'services.label')}</h2>
-    <p class="services-intro">{t(locale, 'services.intro')}</p>
+    <p class="section-lede">{t(locale, 'services.intro')}</p>
 
     <article class="service service-primary">
       <p class="service-index" aria-hidden="true"><span>01</span><span class="rule"></span></p>
@@ -69,15 +69,6 @@ const hostingBullets = tArray(locale, 'services.hosting.bullets');
 </section>
 
 <style>
-  .services-intro {
-    font-size: var(--fs-lg);
-    line-height: 1.4;
-    color: var(--color-text);
-    max-width: 44rem;
-    margin-bottom: var(--space-8);
-    text-wrap: pretty;
-  }
-
   .service {
     display: flex;
     flex-direction: column;
@@ -146,7 +137,7 @@ const hostingBullets = tArray(locale, 'services.hosting.bullets');
   }
   @media (min-width: 40rem) {
     .meta-row {
-      grid-template-columns: 7rem 1fr;
+      grid-template-columns: 5rem 1fr;
       gap: var(--space-4);
       align-items: baseline;
     }

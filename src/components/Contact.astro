@@ -13,7 +13,7 @@ const callBookingUrl = import.meta.env.PUBLIC_CAL_URL;
 <section class="section contact-section" id="contact" aria-labelledby="contact-heading">
   <div class="container contact-inner">
     <header class="contact-header">
-      <span class="section-label">{t(locale, 'contact.label')}</span>
+      <p class="section-label">{t(locale, 'contact.label')}</p>
       <h2 id="contact-heading" class="contact-heading">{t(locale, 'contact.heading')}</h2>
       <p class="contact-body">{t(locale, 'contact.body')}</p>
 
@@ -60,15 +60,15 @@ const callBookingUrl = import.meta.env.PUBLIC_CAL_URL;
 </section>
 
 <style>
-  /* Widen the approach to Contact — this is the conversion moment, give it
-     room to land. Subtle on mobile, generous on large screens. */
+  /* Documented exception to the section grammar.
+     Contact is the page's closing chord — conversion moment, give it room
+     to land. Two deliberate deviations from the standard section pattern:
+       1. Uses the --section-pause padding token (generous, not default)
+       2. Kicker (Kontakt) + h2 (conversion line) pair, mirroring Hero's
+          overture composition — the kicker carries the section-label
+          voice, the h2 carries the call. */
   .contact-section {
-    padding-block-start: var(--space-10);
-  }
-  @media (min-width: 48rem) {
-    .contact-section {
-      padding-block-start: clamp(var(--space-10), 12vh, 11rem);
-    }
+    padding-block-start: var(--section-pause);
   }
 
   .contact-inner {
@@ -91,13 +91,20 @@ const callBookingUrl = import.meta.env.PUBLIC_CAL_URL;
     max-width: 30rem;
   }
 
+  /* Reset spacing on the kicker — the flex gap above governs distance to
+     the h2 below, so the .section-label's default margin-bottom would
+     stack with it and feel slack. */
+  .contact-header .section-label {
+    margin-bottom: 0;
+  }
+
   .contact-heading {
     font-family: var(--font-display);
     font-size: var(--fs-2xl);
     font-weight: var(--weight-medium);
     letter-spacing: var(--tracking-heading-xl);
     line-height: 1.05;
-    margin-block: var(--space-2) var(--space-2);
+    margin: 0;
     text-wrap: balance;
   }
 

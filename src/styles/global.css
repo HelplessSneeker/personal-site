@@ -92,6 +92,18 @@
   --space-9: 6rem;
   --space-10: 8rem;
 
+  /* Section rhythm vocabulary. Three named modes — every section picks one,
+     and exceptions get a header comment naming the reason.
+       default    — independent section
+       continued  — reads as continuation of the previous section (e.g. Trust
+                    after Services, FromEmployment after SelectedWork)
+       pause      — closing chord / conversion moment (Contact)
+     The values below are the mobile baseline; the 48rem media query lower
+     in this file widens them for desktop. */
+  --section-default: var(--space-9);
+  --section-continued: var(--space-7);
+  --section-pause: var(--space-10);
+
   --container-prose: 38rem;
   --container-wide: 56rem;
   --container-max: 72rem;
@@ -250,7 +262,7 @@ code, pre, kbd, samp {
 }
 
 .section {
-  padding-block: var(--space-9);
+  padding-block: var(--section-default);
   position: relative;
 }
 
@@ -259,8 +271,10 @@ code, pre, kbd, samp {
 }
 
 @media (min-width: 48rem) {
-  .section {
-    padding-block: var(--space-10);
+  :root {
+    --section-default: var(--space-10);
+    --section-continued: var(--space-8);
+    --section-pause: clamp(var(--space-10), 12vh, 11rem);
   }
 }
 
@@ -293,6 +307,20 @@ code, pre, kbd, samp {
   content: '§\00a0 ';
   color: var(--color-accent);
   font-weight: var(--weight-medium);
+}
+
+/* Optional lede paragraph that follows a .section-label. The strong /
+   editorial voice — the Services pattern. Sized larger than body so it
+   reads as introduction, not as paragraph one. For quieter continuation
+   intros (e.g. FromEmployment after SelectedWork) use a per-component
+   muted variant rather than this. */
+.section-lede {
+  font-size: var(--fs-lg);
+  line-height: 1.4;
+  color: var(--color-text);
+  max-width: 44rem;
+  margin-block: 0 var(--space-8);
+  text-wrap: pretty;
 }
 
 .text-muted {

@@ -18,18 +18,18 @@ const navLabel = t(locale, 'proof.ariaLabel');
 </aside>
 
 <style>
-  /* Trust-band between Hero and Services. Not a `.section` — sits in the
-     gap between two real sections and provides the divider line above
-     Services via its own border-bottom. Set as an inline colophon line:
-     four commitments separated by middle-dots, mono-tagged metadata voice,
-     consistent with footer-legal and social-list patterns. */
+  /* Running mark, not a section. Sits as a slim footnote-line between Hero
+     and Services: small mono metadata voice, accent middle-dots, no padding
+     band of its own. Border-bottom is the rule that would otherwise come
+     from `.section + .section` — it belongs to Services' top edge, not to
+     Proof's bottom. Pattern matches footer-legal / social-list. */
   .proof {
-    padding-block: var(--space-5);
+    padding-block: var(--space-3);
     border-bottom: 1px solid var(--color-rule);
   }
   @media (min-width: 48rem) {
     .proof {
-      padding-block: var(--space-6);
+      padding-block: var(--space-4);
     }
   }
 
@@ -40,9 +40,10 @@ const navLabel = t(locale, 'proof.ariaLabel');
     display: flex;
     flex-wrap: wrap;
     align-items: baseline;
-    font-family: var(--font-sans);
-    font-size: var(--fs-md);
-    color: var(--color-text);
+    font-family: var(--font-mono);
+    font-feature-settings: var(--font-features-mono);
+    font-size: var(--fs-sm);
+    color: var(--color-text-muted);
     line-height: 1.5;
   }
 
@@ -54,12 +55,12 @@ const navLabel = t(locale, 'proof.ariaLabel');
   .proof-list li:not(:last-child)::after {
     content: '·';
     color: var(--color-accent);
-    margin-inline: 0.6em;
+    margin-inline: 0.55em;
   }
 
   @media (max-width: 34rem) {
     .proof-list {
-      font-size: var(--fs-sm);
+      font-size: var(--fs-xs);
     }
   }
 </style>
