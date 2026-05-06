@@ -13,15 +13,15 @@ const steps = dict.trust.process.steps;
   <div class="container">
     <h2 id="trust-heading" class="section-label">{t(locale, 'trust.label')}</h2>
 
-    <ol class="trust-steps" aria-label={t(locale, 'trust.process.label')}>
+    <ol class="timeline" aria-label={t(locale, 'trust.process.label')}>
       {steps.map((step, i) => (
-        <li class="trust-step">
-          <p class="step-index" aria-hidden="true">
-            <span>{String(i + 1).padStart(2, '0')}</span>
-            <span class="rule"></span>
-          </p>
-          <h3 class="step-title">{step.title}</h3>
-          <p class="step-body">{step.body}</p>
+        <li class="timeline-step">
+          <span class="timeline-marker" aria-hidden="true">
+            <span class="timeline-dot"></span>
+          </span>
+          <p class="timeline-index" aria-hidden="true">{String(i + 1).padStart(2, '0')}</p>
+          <h3 class="timeline-title">{step.title}</h3>
+          <p class="timeline-body">{step.body}</p>
         </li>
       ))}
     </ol>
@@ -29,52 +29,87 @@ const steps = dict.trust.process.steps;
 </section>
 
 <style>
-  /* Tighten the gap above Trust so it reads as a continuation of Services
-     (offer → how-we-work) rather than a fresh, unrelated section. */
+  /* Tighten the gap above Trust so it reads as a continuation of Services. */
   .trust-section {
     padding-block-start: var(--section-continued);
   }
 
-  /* Vertical editorial list — same composition vocabulary as the Services
-     section's `.service-index` (mono numeral + flex-grow rule line above
-     the title). Was a 3-column grid; the grid shape pattern-matched against
-     "consultancy how-it-works trio" before readers got to the copy. */
-  .trust-steps {
+  /* Timeline — three steps on a connecting hairline rule with accent dots
+     at each step. Editorial graphic vocabulary, not consultancy "process
+     trio" cards. Mobile = vertical (dots stack down a left-side rule),
+     desktop = horizontal (dots span a top rule, content drops below). */
+  .timeline {
     list-style: none;
     padding: 0;
-    margin: var(--space-6) 0 0 0;
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-7);
-    max-width: 52rem;
+    margin: var(--space-7) 0 0 0;
   }
 
-  .trust-step {
+  /* MOBILE: vertical timeline.
+     The connecting rule is drawn with a single ::before on the <ol> so it
+     spans all steps continuously without per-li seams. Each li offsets
+     content past the rule via padding. The dot sits centered on the rule. */
+  .timeline {
+    position: relative;
     display: flex;
     flex-direction: column;
-    gap: var(--space-2);
+    gap: var(--space-6);
+  }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 0.4375rem;
+    top: 0.4rem;
+    bottom: 0.4rem;
+    width: 1px;
+    background: var(--color-rule);
+  }
+
+  .timeline-step {
+    position: relative;
+    padding-left: var(--space-5);
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-areas:
+      'idx title'
+      'idx body';
+    column-gap: var(--space-3);
+    row-gap: var(--space-1);
     min-width: 0;
   }
 
-  .step-index {
+  .timeline-marker {
+    position: absolute;
+    left: 0;
+    top: 0.35rem;
+    width: 0.875rem;
+    height: 0.875rem;
     display: flex;
     align-items: center;
-    gap: var(--space-3);
-    margin: 0 0 var(--space-2) 0;
+    justify-content: center;
+  }
+
+  .timeline-dot {
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+    background: var(--color-accent);
+    box-shadow: 0 0 0 4px var(--color-bg);
+  }
+
+  .timeline-index {
+    grid-area: idx;
     font-family: var(--font-mono);
     font-feature-settings: var(--font-features-mono);
+    font-variant-numeric: tabular-nums;
     font-size: var(--fs-xs);
     letter-spacing: var(--tracking-label);
     color: var(--color-accent);
-  }
-  .step-index .rule {
-    flex: 1;
-    height: 1px;
-    background: var(--color-rule);
-    display: block;
+    margin: 0.25rem 0 0 0;
+    align-self: start;
   }
 
-  .step-title {
+  .timeline-title {
+    grid-area: title;
     font-family: var(--font-display);
     font-size: var(--fs-lg);
     font-weight: var(--weight-medium);
@@ -84,11 +119,52 @@ const steps = dict.trust.process.steps;
     margin: 0;
   }
 
-  .step-body {
+  .timeline-body {
+    grid-area: body;
     font-size: var(--fs-md);
     line-height: var(--lh-relaxed);
     color: var(--color-text-muted);
     max-width: 50ch;
     text-wrap: pretty;
+    margin: 0;
+  }
+
+  /* DESKTOP: horizontal timeline.
+     Three equal columns, dots sit on a horizontal rule that spans the row
+     edge-to-edge. Content drops below each dot. The rule is drawn behind
+     the dots; dots have a background-colored ring so they cleanly punch
+     through the rule. */
+  @media (min-width: 48rem) {
+    .timeline {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-6);
+      max-width: 64rem;
+    }
+    .timeline::before {
+      left: 0;
+      right: 0;
+      top: 0.625rem;
+      bottom: auto;
+      width: auto;
+      height: 1px;
+    }
+    .timeline-step {
+      padding-left: 0;
+      padding-top: var(--space-6);
+      grid-template-columns: 1fr;
+      grid-template-areas:
+        'idx'
+        'title'
+        'body';
+      row-gap: var(--space-2);
+    }
+    .timeline-marker {
+      left: 0;
+      top: 0.25rem;
+    }
+    .timeline-index {
+      margin: 0;
+    }
   }
 </style>

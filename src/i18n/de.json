@@ -27,7 +27,7 @@
   "hero": {
     "kicker": "Freelance · Landingpages & Hosting · Wien",
     "headline": "Landingpages, die in einer Hand bleiben.",
-    "body": "Redesign zum Festpreis, Launch in 2–4 Wochen — danach Hosting, Updates und kleinere Anpassungen zum festen Monatsbetrag. Eine Ansprechperson für die ganze Strecke. Für größere Vorhaben besprechen wir den passenden Scope.",
+    "body": "Redesign zum Festpreis, Launch in 2–4 Wochen — danach Hosting und Pflege zum festen Monatsbetrag.",
     "ctaPrimary": "Projekt besprechen",
     "ctaSecondary": "Beispiele ansehen",
     "meta": [
@@ -100,67 +100,58 @@
   },
   "services": {
     "label": "Leistungen",
-    "intro": "Ich baue Landingpages für österreichische Unternehmen — und übernehme das, was danach kommt: Hosting, Pflege und kleinere Anpassungen über die Zeit. Größere Vorhaben besprechen wir im Scope.",
-    "scopeLabel": "Umfang",
-    "priceAnchorLabel": "Investition",
+    "intro": "Ich baue Landingpages für österreichische Unternehmen — und übernehme, was danach kommt: Hosting, Pflege und kleinere Anpassungen.",
     "extensionLabel": "Auch möglich",
-    "landing": {
-      "title": "Landingpage-Redesign",
-      "description": "Bestehende Marketing- oder Landingpage analysieren und neu umsetzen — klare Struktur, schnelle Ladezeiten, sauber zweisprachig, DSGVO-konform.",
-      "priceAnchor": "ab €500 als Festpreis, plus eines der drei Hosting-Pakete oben. Konkreter Preis nach Gespräch.",
-      "includedLabel": "Im Festpreis enthalten",
-      "includedItems": [
-        "Eine Landingpage (One-Pager), responsive, DE/EN",
-        "Konzept- und Briefing-Gespräch (30 Min)",
-        "Design und technische Umsetzung",
-        "Eine Revisionsrunde",
-        "DSGVO-Basics (Impressum, Datenschutz, Cookie-Banner falls nötig)",
-        "Live-Schaltung auf deiner Domain"
-      ],
-      "excludedLabel": "Nicht enthalten",
-      "excludedText": "Texterstellung, Übersetzungen, Foto-/Videomaterial, weitere Revisionsrunden, laufende Pflege."
-    },
     "hosting": {
       "title": "Hosting & Betrieb",
-      "description": "Drei Tiefen — von voller Begleitung als Standardlösung bis „nur online halten“. Wähle, wieviel du selbst übernehmen willst.",
-      "primary": {
-        "label": "Strategie & Betrieb",
-        "recommendedTag": "Empfohlen",
-        "priceAnchor": "€120/Monat",
-        "scopeLabel": "Im Preis enthalten",
-        "scope": [
-          "Hosting auf eigener Infrastruktur (Hetzner, Wien)",
-          "Uptime-Monitoring, SSL und tägliche Backups",
-          "Reaktion auf Vorfälle binnen 10 Geschäftsstunden",
-          "Monatliche Nutzungs- und SEO-Auswertung als kurzer Bericht",
-          "SEO-Maßnahmen im laufenden Monat umgesetzt",
-          "Jährliches Strategiegespräch (1h)",
-          "Komplettes Landingpage-Redesign alle 2 Jahre inklusive"
-        ]
-      },
-      "alternatesLabel": "Kleinere Pakete",
-      "alternates": [
-        {
-          "label": "Nur Hosting",
-          "priceAnchor": "€20/Monat",
-          "scope": [
-            "Hosting auf eigener Infrastruktur (Hetzner, Wien)",
-            "SSL-Zertifikat und tägliche Backups",
-            "Kein Monitoring, keine SLA"
-          ]
-        },
-        {
-          "label": "Hosting + Monitoring",
-          "priceAnchor": "€50/Monat",
-          "scope": [
-            "Alles aus „Nur Hosting“",
-            "Uptime-Monitoring rund um die Uhr",
-            "Reaktion auf Vorfälle binnen 10 Geschäftsstunden"
-          ]
-        }
+      "description": "Drei Pakete pro Monat — von voller Begleitung bis „nur online halten“. Du wählst, wieviel du selbst übernimmst.",
+      "tiers": [
+        { "label": "Strategie & Betrieb", "price": "€120", "cadence": "/Monat", "recommended": true, "tag": "Empfohlen" },
+        { "label": "Hosting + Monitoring", "price": "€50", "cadence": "/Monat" },
+        { "label": "Nur Hosting", "price": "€20", "cadence": "/Monat" }
       ],
+      "featuresLabel": "Im Paket enthalten",
+      "features": [
+        { "label": "Hosting auf eigener Infrastruktur (Wien)", "in": [true, true, true] },
+        { "label": "SSL-Verschlüsselung & tägliche Backups", "in": [true, true, true] },
+        { "label": "Uptime-Monitoring rund um die Uhr", "in": [true, true, false] },
+        { "label": "Reaktion auf Vorfälle ≤ 10 Geschäftsstd.", "in": [true, true, false] },
+        { "label": "Monatlicher Bericht (Nutzung + SEO)", "in": [true, false, false] },
+        { "label": "SEO-Maßnahmen umgesetzt", "in": [true, false, false] },
+        { "label": "Jährliches Strategiegespräch (1h)", "in": [true, false, false] },
+        { "label": "Redesign alle 2 Jahre inklusive", "in": [true, false, false] }
+      ],
+      "yes": "ja",
+      "no": "—",
       "cancelAnytime": "Jederzeit zum Monatsende kündbar — ohne Mindestlaufzeit.",
       "hourlyNote": "Inhaltliche Änderungen nach Aufwand: €60/h (in 15-Minuten-Schritten abgerechnet)."
+    },
+    "landing": {
+      "title": "Landingpage",
+      "kicker": "Neu oder Redesign",
+      "description": "Neue Landingpage von Grund auf — oder bestehende Marketing-/Landingpage neu umsetzen. Klare Struktur, schnelle Ladezeiten, sauber zweisprachig.",
+      "priceAnchor": "ab €1.800",
+      "priceCadence": "Festpreis · Hosting-Paket separat",
+      "includedLabel": "Im Festpreis enthalten",
+      "includedItems": [
+        "Landingpage (One-Pager), responsive, DE/EN",
+        "Briefing & Konzept-Skizze (60 Min)",
+        "Design und technische Umsetzung",
+        "Zwei Revisionsrunden",
+        "SEO-Grundgerüst (Meta-Tags, Sitemap, strukturierte Daten)",
+        "Performance-Optimierung (Core Web Vitals)",
+        "Kontaktformular mit Mailversand",
+        "Datenschutzfreundliche Analytics (z. B. Plausible)",
+        "DSGVO-Basics (Impressum, Datenschutz, Cookie-Banner)",
+        "Live-Schaltung + 30 Tage Korrektur-Fenster"
+      ],
+      "excludedLabel": "Nicht enthalten",
+      "excludedItems": [
+        "Texterstellung & Übersetzungen",
+        "Foto-/Videomaterial",
+        "Weitere Revisionsrunden",
+        "Laufende Pflege (siehe Hosting unten)"
+      ]
     },
     "fullstack": {
       "title": "Fullstack-Webapps",
@@ -194,19 +185,24 @@
     "process": {
       "label": "Ablauf",
       "steps": [
-        { "title": "Gespräch", "body": "30 Minuten, kostenlos. Ich höre zu, frage nach, sage ehrlich, ob ich passe." },
+        { "title": "Gespräch", "body": "30 Minuten, kostenlos. Ich sage ehrlich, ob ich passe." },
         { "title": "Festpreis-Angebot", "body": "Klare Leistung, klarer Preis. Keine versteckten Stunden." },
-        { "title": "Umsetzung & Pflege", "body": "Klarer Status, eine Ansprechperson, sauberer Launch in 2–4 Wochen. Danach Hosting, Updates und kleinere Anpassungen aus einer Hand." }
+        { "title": "Umsetzung & Pflege", "body": "Launch in 2–4 Wochen. Danach Hosting und Pflege aus einer Hand." }
       ]
     }
   },
   "about": {
     "label": "Über",
     "byline": "Benjamin Nößler · Wien",
+    "metaItems": [
+      "Sitz · Wien · meist remote",
+      "Festanstellung · Stadt Wien Digitalisierung (über APC Business Services)",
+      "Freelance · Landingpages für lokale Unternehmen"
+    ],
     "bodyParagraphs": [
-      "Ich helfe österreichischen Unternehmen, ihre Webpräsenz zu modernisieren — Schwerpunkt sind Landingpage-Redesigns. Wien ist mein Ausgangspunkt, die meiste Arbeit findet remote statt.",
-      "Meine Zeit teile ich zwischen einer Festanstellung im Digitalisierungsteam der Stadt Wien (über APC Business Services GmbH, derzeit an einem Webapp-Projekt) und ausgewählten Freelance-Aufträgen — vor allem Landingpage-Redesigns für lokale Unternehmen. Webapps baue ich seit Jahren in Anstellung und in eigenen Projekten (z. B. <a class=\"inline-link\" href=\"https://github.com/HelplessSneeker/b-cal\" rel=\"noopener external\" target=\"_blank\">b-cal</a>); im Freelance-Bereich starte ich bewusst mit kleinerem Scope.",
-      "Ich arbeite am liebsten an Dingen, die länger als ein Quartal leben sollen: sauber gebaut, auf eigener Infrastruktur (Hetzner/Coolify), mit Werkzeugen, denen ich auch in zwei Jahren noch vertraue. Mir ist der Business-Kontext mindestens so wichtig wie der Code — deswegen rede ich gerne mit Menschen, die ihr Problem selbst kennen, und bleibe bei den meisten Projekten auch nach dem Launch als Ansprechperson dabei."
+      "Ich helfe österreichischen Unternehmen, ihre Webpräsenz zu modernisieren — Schwerpunkt sind Landingpage-Redesigns.",
+      "Webapps baue ich seit Jahren in Anstellung und in eigenen Projekten (z. B. <a class=\"inline-link\" href=\"https://github.com/HelplessSneeker/b-cal\" rel=\"noopener external\" target=\"_blank\">b-cal</a>); im Freelance-Bereich starte ich bewusst mit kleinerem Scope. Für größere Vorhaben sprechen wir den passenden Umfang ab.",
+      "Ich arbeite am liebsten an Dingen, die länger als ein Quartal leben sollen: sauber gebaut, auf eigener Infrastruktur, mit Werkzeugen, denen ich auch in zwei Jahren noch vertraue. Bei den meisten Projekten bleibe ich nach dem Launch als Ansprechperson dabei."
     ]
   },
   "contact": {

@@ -8,13 +8,22 @@ export interface Props {
 
 const { locale } = Astro.props;
 const paragraphs = tArray(locale, 'about.bodyParagraphs');
+const metaItems = tArray(locale, 'about.metaItems');
 const byline = t(locale, 'about.byline');
 ---
 <section class="section about-section" id="about" aria-labelledby="about-heading">
   <div class="container">
     <h2 id="about-heading" class="section-label">{t(locale, 'about.label')}</h2>
     <div class="about-body">
-      {paragraphs.map((paragraph) => (
+      {paragraphs.length > 0 && (
+        <p class="about-text" set:html={paragraphs[0]}></p>
+      )}
+      {metaItems.length > 0 && (
+        <ul class="about-meta" aria-hidden="true">
+          {metaItems.map((item) => <li>{item}</li>)}
+        </ul>
+      )}
+      {paragraphs.slice(1).map((paragraph) => (
         <p class="about-text" set:html={paragraph}></p>
       ))}
       <p class="about-byline label-meta" aria-hidden="true">
@@ -62,6 +71,28 @@ const byline = t(locale, 'about.byline');
   }
   .about-text :global(.inline-link:hover) {
     text-decoration-thickness: 2px;
+  }
+
+  /* Mono pull-out — employment / location / freelance metadata that used
+     to be inline parentheticals in the body prose. Hoisting it out shortens
+     the paragraphs and lets a skimmer read the structural facts at a glance.
+     Same vocabulary as the proof strip and the hero colophon: mono with
+     accent middle-dots, muted text color. */
+  .about-meta {
+    list-style: none;
+    padding: var(--space-3) 0;
+    margin: 0;
+    border-top: 1px solid var(--color-rule);
+    border-bottom: 1px solid var(--color-rule);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+    font-family: var(--font-mono);
+    font-feature-settings: var(--font-features-mono);
+    font-size: var(--fs-xs);
+    color: var(--color-text-muted);
+    line-height: 1.5;
+    letter-spacing: 0.02em;
   }
 
   .about-byline {

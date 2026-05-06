@@ -6,10 +6,12 @@ export interface Props {
 }
 
 const { locale } = Astro.props;
+const dict = getDict(locale);
+const hosting = dict.services.hosting;
+const tiers = hosting.tiers;
+const features = hosting.features;
 const landingIncluded = tArray(locale, 'services.landing.includedItems');
-const hosting = getDict(locale).services.hosting;
-const primaryScope = hosting.primary.scope;
-const alternates = hosting.alternates;
+const landingExcluded = tArray(locale, 'services.landing.excludedItems');
 ---
 <section class="section services-section" id="services" aria-labelledby="services-heading">
   <div class="container">
@@ -18,72 +20,102 @@ const alternates = hosting.alternates;
 
     <article class="service service-primary">
       <p class="service-index" aria-hidden="true"><span>01</span><span class="rule"></span></p>
-      <h3 class="service-title">{t(locale, 'services.hosting.title')}</h3>
-      <p class="service-desc">{t(locale, 'services.hosting.description')}</p>
+      <p class="service-kicker label-meta">{t(locale, 'services.landing.kicker')}</p>
+      <h3 class="service-title">{t(locale, 'services.landing.title')}</h3>
+      <p class="service-desc">{t(locale, 'services.landing.description')}</p>
 
-      <p class="tier-label label-meta">
-        <span>{hosting.primary.label}</span>
-        {hosting.primary.recommendedTag && (
-          <span class="tier-recommended">{hosting.primary.recommendedTag}</span>
-        )}
+      <p class="price-callout single" aria-hidden="true">
+        <span class="price-callout-num">{t(locale, 'services.landing.priceAnchor')}</span>
       </p>
-      <dl class="service-meta">
-        <div class="meta-row meta-row-anchor">
-          <dt class="label-meta">{t(locale, 'services.priceAnchorLabel')}</dt>
-          <dd class="price-anchor">{hosting.primary.priceAnchor}</dd>
-        </div>
-        <div class="meta-row">
-          <dt class="label-meta">{hosting.primary.scopeLabel}</dt>
-          <dd>
-            <ul class="meta-list">
-              {primaryScope.map((item) => <li>{item}</li>)}
-            </ul>
-          </dd>
-        </div>
-      </dl>
+      <p class="price-callout-cadence">{t(locale, 'services.landing.priceCadence')}</p>
 
-      <div class="alternates">
-        <p class="alternates-label label-meta">{hosting.alternatesLabel}</p>
-        {alternates.map((alt) => (
-          <div class="alternate">
-            <div class="alternate-head">
-              <span class="alternate-label">{alt.label}</span>
-              <span class="alternate-price">{alt.priceAnchor}</span>
-            </div>
-            <ul class="meta-list alternate-scope">
-              {alt.scope.map((item) => <li>{item}</li>)}
-            </ul>
-          </div>
-        ))}
+      <div class="landing-lists">
+        <div class="landing-list">
+          <p class="landing-list-label label-meta">{t(locale, 'services.landing.includedLabel')}</p>
+          <ul class="landing-list-items is-included">
+            {landingIncluded.map((item) => <li>{item}</li>)}
+          </ul>
+        </div>
+        <div class="landing-list">
+          <p class="landing-list-label label-meta">{t(locale, 'services.landing.excludedLabel')}</p>
+          <ul class="landing-list-items is-excluded">
+            {landingExcluded.map((item) => <li>{item}</li>)}
+          </ul>
+        </div>
       </div>
-
-      <p class="hosting-cancel">{hosting.cancelAnytime}</p>
-      <p class="hourly-note">{hosting.hourlyNote}</p>
     </article>
 
     <article class="service service-primary">
       <p class="service-index" aria-hidden="true"><span>02</span><span class="rule"></span></p>
-      <h3 class="service-title">{t(locale, 'services.landing.title')}</h3>
-      <p class="service-desc">{t(locale, 'services.landing.description')}</p>
+      <h3 class="service-title">{hosting.title}</h3>
+      <p class="service-desc">{hosting.description}</p>
 
-      <dl class="service-meta">
-        <div class="meta-row meta-row-anchor">
-          <dt class="label-meta">{t(locale, 'services.priceAnchorLabel')}</dt>
-          <dd class="price-anchor">{t(locale, 'services.landing.priceAnchor')}</dd>
-        </div>
-        <div class="meta-row">
-          <dt class="label-meta">{t(locale, 'services.landing.includedLabel')}</dt>
-          <dd>
-            <ul class="meta-list">
-              {landingIncluded.map((item) => <li>{item}</li>)}
+      <p class="price-callout" aria-hidden="true">
+        {tiers.map((tier, i) => (
+          <>
+            {i > 0 && <span class="price-callout-sep">·</span>}
+            <span class={`price-callout-num${tier.recommended ? ' is-recommended' : ''}`}>{tier.price}</span>
+          </>
+        ))}
+      </p>
+
+      {/* Mobile: stacked tier cards (each card = its own checklist) */}
+      <ul class="hosting-cards" aria-label={hosting.featuresLabel}>
+        {tiers.map((tier, ti) => (
+          <li class={`hosting-card${tier.recommended ? ' is-recommended' : ''}`}>
+            <div class="hosting-card-head">
+              <span class="hosting-card-name">{tier.label}</span>
+              {tier.tag && <span class="hosting-card-tag">{tier.tag}</span>}
+            </div>
+            <p class="hosting-card-price">
+              <span class="hosting-card-amount">{tier.price}</span>
+              <span class="hosting-card-cadence">{tier.cadence}</span>
+            </p>
+            <ul class="hosting-card-features">
+              {features.filter((f) => f.in[ti]).map((f) => (
+                <li>{f.label}</li>
+              ))}
             </ul>
-          </dd>
-        </div>
-        <div class="meta-row">
-          <dt class="label-meta">{t(locale, 'services.landing.excludedLabel')}</dt>
-          <dd class="excluded-text">{t(locale, 'services.landing.excludedText')}</dd>
-        </div>
-      </dl>
+          </li>
+        ))}
+      </ul>
+
+      {/* Desktop: comparison matrix */}
+      <table class="hosting-matrix" aria-label={hosting.featuresLabel}>
+        <thead>
+          <tr>
+            <th scope="col" class="matrix-feature-head">
+              <span class="visually-hidden">{hosting.featuresLabel}</span>
+            </th>
+            {tiers.map((tier) => (
+              <th scope="col" class={`matrix-tier-head${tier.recommended ? ' is-recommended' : ''}`}>
+                <span class="matrix-tier-name">{tier.label}</span>
+                <span class="matrix-tier-price">
+                  <span class="matrix-tier-amount">{tier.price}</span>
+                  <span class="matrix-tier-cadence">{tier.cadence}</span>
+                </span>
+                {tier.tag && <span class="matrix-tier-tag">{tier.tag}</span>}
+              </th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {features.map((f) => (
+            <tr>
+              <th scope="row" class="matrix-feature-label">{f.label}</th>
+              {f.in.map((included, ti) => (
+                <td class={`matrix-cell${tiers[ti].recommended ? ' is-recommended' : ''}`}>
+                  <span aria-hidden="true">{included ? '●' : '—'}</span>
+                  <span class="visually-hidden">{included ? hosting.yes : hosting.no}</span>
+                </td>
+              ))}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+
+      <p class="hosting-cancel">{hosting.cancelAnytime}</p>
+      <p class="hourly-note">{hosting.hourlyNote}</p>
     </article>
 
     <aside class="service-extension" aria-label={t(locale, 'services.extensionLabel')}>
@@ -103,7 +135,7 @@ const alternates = hosting.alternates;
   }
 
   .service-primary {
-    max-width: 52rem;
+    max-width: 56rem;
   }
 
   .service-primary + .service-primary {
@@ -140,6 +172,15 @@ const alternates = hosting.alternates;
     text-wrap: balance;
   }
 
+  /* Sub-label that names the scope variants below the index marker but
+     above the title. Sits in the same accent-mono voice as service-index;
+     here it carries a meaning beat (e.g. "Neu oder Redesign") rather than
+     a numeric one. */
+  .service-kicker {
+    color: var(--color-accent);
+    margin: 0 0 calc(var(--space-1) * -1) 0;
+  }
+
   .service-desc {
     font-size: var(--fs-md);
     line-height: var(--lh-relaxed);
@@ -147,160 +188,258 @@ const alternates = hosting.alternates;
     max-width: 56ch;
   }
 
-  .service-meta {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: var(--space-4);
-    margin: var(--space-3) 0 0 0;
-    padding-top: var(--space-4);
-    border-top: 1px solid var(--color-rule);
+  /* Oversized mono numerals — the "graphic numbers" move that announces the
+     hosting price range before any prose. Tabular figures, accent-color
+     middle-dots, intentionally far larger than any other number on the page.
+     The recommended tier is rendered in full text color (not muted) so the
+     eye lands on €120 first even though the dots between are accent. */
+  .price-callout {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.45em;
+    margin: var(--space-5) 0 0 0;
+    font-family: var(--font-mono);
+    font-feature-settings: var(--font-features-mono);
+    font-variant-numeric: tabular-nums;
+    line-height: 1;
   }
 
-  .meta-row {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: var(--space-2);
+  .price-callout-num {
+    font-size: clamp(2.25rem, 1.5rem + 3vw, 3.5rem);
+    font-weight: 500;
+    color: var(--color-text-muted);
+    letter-spacing: -0.02em;
   }
-  @media (min-width: 40rem) {
-    .meta-row {
-      grid-template-columns: 5rem 1fr;
-      gap: var(--space-4);
-      align-items: baseline;
-    }
+  .price-callout-num.is-recommended {
+    color: var(--color-text);
   }
 
-  .service-meta dt {
+  .price-callout-sep {
+    font-size: clamp(1.75rem, 1.2rem + 2vw, 2.75rem);
+    color: var(--color-accent);
+  }
+
+  .price-callout.single .price-callout-num {
+    color: var(--color-text);
+  }
+
+  .price-callout-cadence {
+    font-family: var(--font-mono);
+    font-feature-settings: var(--font-features-mono);
+    font-size: var(--fs-xs);
     color: var(--color-text-subtle);
+    margin: var(--space-2) 0 0 0;
+    letter-spacing: 0.02em;
   }
 
-  .service-meta dd {
-    margin: 0;
-  }
-
-  .meta-list {
+  /* Hosting tier cards — mobile shape. On desktop they hide; the matrix
+     takes over. Each card is self-contained: tier name, price, and only
+     the features included in that tier (filtered render). The recommended
+     card gets a slightly stronger border and an accent-tinted tag. */
+  .hosting-cards {
     list-style: none;
     padding: 0;
-    margin: 0;
+    margin: var(--space-6) 0 0 0;
     display: flex;
     flex-direction: column;
-    gap: var(--space-1);
-    font-family: var(--font-mono);
-    font-feature-settings: var(--font-features-mono);
-    font-size: var(--fs-sm);
-    color: var(--color-text);
+    gap: var(--space-4);
   }
 
-  .meta-list li {
-    display: grid;
-    grid-template-columns: 1.5rem 1fr;
-    align-items: baseline;
-  }
-
-  .meta-list li::before {
-    content: '—';
-    color: var(--color-text-subtle);
-  }
-
-  .price-anchor {
-    font-family: var(--font-mono);
-    font-feature-settings: var(--font-features-mono);
-    font-size: var(--fs-md);
-    color: var(--color-text);
-    line-height: 1.4;
-  }
-
-  .excluded-text {
-    font-size: var(--fs-sm);
-    color: var(--color-text-muted);
-    line-height: 1.5;
-    text-wrap: pretty;
-  }
-
-  /* Tier label carries two beats: the tier name (left) and the optional
-     recommendation flag (right). Both share the label-meta voice; the
-     recommendation sits in the same accent color but separated by a
-     hairline rule so the eye reads "tier name — recommended" rather than
-     "two competing labels". The flex layout keeps it on one line at any
-     width that fits both, and wraps the recommendation below cleanly. */
-  .tier-label {
-    color: var(--color-accent);
-    margin: var(--space-4) 0 0 0;
-    display: flex;
-    align-items: center;
-    gap: var(--space-3);
-    flex-wrap: wrap;
-  }
-
-  .tier-recommended {
-    display: inline-flex;
-    align-items: center;
-    gap: var(--space-3);
-    color: var(--color-accent);
-  }
-  .tier-recommended::before {
-    content: '';
-    display: inline-block;
-    width: 1.5rem;
-    height: 1px;
-    background: var(--color-accent);
-  }
-
-  .alternates {
-    margin-top: var(--space-7);
-    padding-top: var(--space-5);
-    border-top: 1px solid var(--color-rule);
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-5);
-  }
-
-  .alternates-label {
-    color: var(--color-text-subtle);
-    margin: 0;
-  }
-
-  .alternate {
+  .hosting-card {
+    border: 1px solid var(--color-rule);
+    padding: var(--space-5);
     display: flex;
     flex-direction: column;
     gap: var(--space-3);
+    background: transparent;
+  }
+  .hosting-card.is-recommended {
+    border-color: var(--color-accent);
   }
 
-  .alternate + .alternate {
-    padding-top: var(--space-5);
-    border-top: 1px solid var(--color-rule);
-  }
-
-  .alternate-head {
+  .hosting-card-head {
     display: flex;
-    justify-content: space-between;
     align-items: baseline;
     gap: var(--space-3);
     flex-wrap: wrap;
   }
-
-  .alternate-label {
+  .hosting-card-name {
     font-family: var(--font-display);
     font-size: var(--fs-md);
     font-weight: var(--weight-medium);
     color: var(--color-text);
   }
+  .hosting-card-tag {
+    font-family: var(--font-mono);
+    font-feature-settings: var(--font-features-mono);
+    font-size: var(--fs-xs);
+    letter-spacing: var(--tracking-label);
+    color: var(--color-accent);
+    text-transform: uppercase;
+  }
 
-  .alternate-price {
+  .hosting-card-price {
+    margin: 0;
+    display: flex;
+    align-items: baseline;
+    gap: 0.15em;
+    font-family: var(--font-mono);
+    font-feature-settings: var(--font-features-mono);
+    font-variant-numeric: tabular-nums;
+  }
+  .hosting-card-amount {
+    font-size: var(--fs-xl);
+    font-weight: 500;
+    color: var(--color-text);
+    letter-spacing: -0.01em;
+  }
+  .hosting-card-cadence {
+    font-size: var(--fs-sm);
+    color: var(--color-text-subtle);
+  }
+
+  .hosting-card-features {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
     font-family: var(--font-mono);
     font-feature-settings: var(--font-features-mono);
     font-size: var(--fs-sm);
     color: var(--color-text);
+  }
+  .hosting-card-features li {
+    display: grid;
+    grid-template-columns: 1.25rem 1fr;
+    align-items: baseline;
+    gap: var(--space-2);
+  }
+  .hosting-card-features li::before {
+    content: '●';
+    color: var(--color-accent);
+    font-size: 0.75em;
+  }
+
+  /* Comparison matrix — desktop shape. A real <table> for SEO and a11y;
+     CSS hides it on mobile and the cards take over. Borders are hairline
+     accents only, no zebra-striping. The recommended column gets a faint
+     vertical accent rule and a slightly bolder header. */
+  .hosting-matrix {
+    display: none;
+    width: 100%;
+    border-collapse: collapse;
+    margin: var(--space-6) 0 0 0;
+    font-family: var(--font-mono);
+    font-feature-settings: var(--font-features-mono);
+  }
+
+  .hosting-matrix th,
+  .hosting-matrix td {
+    text-align: left;
+    padding: var(--space-3) var(--space-4);
+    vertical-align: baseline;
+    border-bottom: 1px solid var(--color-rule);
+  }
+
+  .matrix-feature-head {
+    width: auto;
+  }
+
+  .matrix-tier-head {
+    text-align: left;
+    border-bottom: 2px solid var(--color-rule);
+    width: 11rem;
+    padding-bottom: var(--space-4);
+  }
+  .matrix-tier-head.is-recommended {
+    border-bottom-color: var(--color-accent);
+  }
+
+  .matrix-tier-name {
+    display: block;
+    font-family: var(--font-display);
+    font-size: var(--fs-md);
+    font-weight: var(--weight-medium);
+    color: var(--color-text);
+    margin-bottom: var(--space-2);
+    letter-spacing: -0.005em;
+  }
+
+  .matrix-tier-price {
+    display: flex;
+    align-items: baseline;
+    gap: 0.15em;
     font-variant-numeric: tabular-nums;
   }
-
-  .alternate-scope {
-    max-width: 56ch;
+  .matrix-tier-amount {
+    font-size: var(--fs-xl);
+    font-weight: 500;
+    color: var(--color-text);
+    letter-spacing: -0.01em;
+  }
+  .matrix-tier-cadence {
+    font-size: var(--fs-sm);
+    color: var(--color-text-subtle);
   }
 
-  /* The cancel-anytime line is the anti-lock-in trust beat — it lives in
-     body voice (not the mono fine-print voice) so a skimmer reads it as
-     reassurance, not as billing disclaimer. The hourly note below is fine
-     print and stays mono fs-xs. */
+  .matrix-tier-tag {
+    display: inline-block;
+    margin-top: var(--space-2);
+    font-size: var(--fs-xs);
+    letter-spacing: var(--tracking-label);
+    color: var(--color-accent);
+    text-transform: uppercase;
+  }
+
+  .matrix-feature-label {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: var(--fs-sm);
+    color: var(--color-text);
+    text-wrap: pretty;
+  }
+
+  .matrix-cell {
+    text-align: center;
+    font-size: var(--fs-md);
+    color: var(--color-accent);
+    font-variant-numeric: tabular-nums;
+  }
+  .matrix-cell:has(span[aria-hidden="true"]:not(:empty)) {
+    /* placeholder; cells already styled above */
+  }
+
+  /* Em-dash cells render in muted color so the eye scans dots-as-presence
+     and dashes-as-absence at a glance. */
+  .matrix-cell span[aria-hidden="true"] {
+    display: inline-block;
+  }
+
+  /* Distinguish absence vs. presence purely via opacity of the same
+     accent-colored marker — keeps the matrix tonally calm. */
+  .matrix-cell:has(span[aria-hidden="true"]:not(:empty)) {
+    line-height: 1;
+  }
+
+  @media (min-width: 56rem) {
+    .hosting-cards {
+      display: none;
+    }
+    .hosting-matrix {
+      display: table;
+    }
+  }
+
+  /* Use opacity to fade em-dash cells without needing JS. */
+  @supports selector(:has(*)) {
+    .matrix-cell:has(span[aria-hidden="true"]) {
+      /* fallback */
+    }
+  }
+
   .hosting-cancel {
     margin: var(--space-5) 0 0 0;
     padding-top: var(--space-4);
@@ -321,10 +460,70 @@ const alternates = hosting.alternates;
     max-width: 56ch;
   }
 
-  /* Extension card — clearly subordinate to the primary service.
-     Smaller heading, narrower column, set apart with extra space and a
-     subtle treatment. The asymmetry communicates "this is an addendum,
-     not a co-equal offering." */
+  /* Landing redesign block — parallel mono lists, no verbose paragraph.
+     Two columns on desktop; stacked on mobile. Included items lead with
+     a filled accent dot, excluded with a muted em-dash; same visual
+     vocabulary as the hosting matrix. */
+  .landing-lists {
+    margin: var(--space-6) 0 0 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+  @media (min-width: 40rem) {
+    .landing-lists {
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-7);
+    }
+  }
+
+  .landing-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    min-width: 0;
+  }
+
+  .landing-list-label {
+    color: var(--color-text-subtle);
+    margin: 0;
+  }
+
+  .landing-list-items {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    font-family: var(--font-mono);
+    font-feature-settings: var(--font-features-mono);
+    font-size: var(--fs-sm);
+    color: var(--color-text);
+    line-height: 1.5;
+  }
+
+  .landing-list-items li {
+    display: grid;
+    grid-template-columns: 1.25rem 1fr;
+    align-items: baseline;
+    gap: var(--space-2);
+  }
+
+  .landing-list-items.is-included li::before {
+    content: '●';
+    color: var(--color-accent);
+    font-size: 0.75em;
+  }
+  .landing-list-items.is-excluded li {
+    color: var(--color-text-muted);
+  }
+  .landing-list-items.is-excluded li::before {
+    content: '—';
+    color: var(--color-text-subtle);
+  }
+
+  /* Extension card — clearly subordinate to the primary service. */
   .service-extension {
     margin-top: var(--space-9);
     padding-top: var(--space-6);
