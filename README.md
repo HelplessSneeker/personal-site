@@ -53,16 +53,17 @@ Content is separated from markup. To change copy, edit `src/i18n/de.json` and
 
 ## TODO before launch
 
-Search for `TODO` in the codebase — placeholders render as visible orange chips
-in the browser so they can't be missed. Key ones:
-
-- [ ] **Impressum** — `src/pages/impressum.astro`: Adresse, UID, Gewerbe
-- [ ] **Datenschutz** — `src/pages/datenschutz.astro`: Adresse aus Impressum
-- [ ] **EN imprint + privacy** — `src/pages/en/imprint.astro` + `privacy.astro`
-- [ ] **OG image** — `public/og-image.png` is an auto-generated placeholder; replace
-      with a real one before launch
-- [ ] **Call-booking URL** — `src/components/Contact.astro:21` is a placeholder;
-      wire to a real Cal.com / SavvyCal slot picker
+- [x] **Impressum / Datenschutz (DE + EN)** — filled post-WKO (Gewerbe, GISA-Zahl,
+      Kleinunternehmer-Status, Aufsichtsbehörde). The `.todo-placeholder` infra was
+      removed once the last chip was filled.
+- [x] **OG image** — `public/og-image.png` regenerated; source layout in
+      `public/og-image.svg`. Regenerate the PNG by rasterising a styled 1200×630
+      HTML card with the real General Sans / Commit Mono webfonts.
+- [ ] **Call-booking link** — set `PUBLIC_CAL_URL` in Coolify (Build Variable) once
+      a Cal.com slot picker exists; until then the call-booking block is hidden.
+- [ ] **Server-log retention line** — `datenschutz.astro` / `en/privacy.astro` state
+      "max. 14 Tage". Verify against the actual Coolify/Docker log config and adjust
+      if different.
 
 ## Deployment
 
