@@ -9,7 +9,9 @@ const { locale } = Astro.props;
 const year = new Date().getFullYear();
 const imprintPath = locale === 'de' ? '/impressum' : '/en/imprint';
 const privacyPath = locale === 'de' ? '/datenschutz' : '/en/privacy';
+const aboutPagePath = locale === 'de' ? '/ueber' : '/en/about';
 const home = getLocalizedPath(locale, '/');
+const path = Astro.url.pathname.replace(/\/$/, '') || '/';
 const sourceUrl = 'https://github.com/HelplessSneeker/personal-site';
 ---
 <footer class="site-footer">
@@ -35,12 +37,15 @@ const sourceUrl = 'https://github.com/HelplessSneeker/personal-site';
       </p>
     </div>
 
-    <nav aria-label={t(locale, 'footer.legalLabel')} class="footer-legal">
-      <span class="colophon-label label-meta">{t(locale, 'footer.legalLabel')}</span>
+    <nav aria-label={t(locale, 'footer.navLabel')} class="footer-legal">
+      <span class="colophon-label label-meta">{t(locale, 'footer.navLabel')}</span>
       <ul>
+        {path !== aboutPagePath && (
+          <li><a href={aboutPagePath}>{t(locale, 'footer.aboutPage')}</a></li>
+        )}
         <li><a href={imprintPath}>{t(locale, 'footer.imprint')}</a></li>
         <li><a href={privacyPath}>{t(locale, 'footer.privacy')}</a></li>
-        {Astro.url.pathname !== home && (
+        {path !== (home.replace(/\/$/, '') || '/') && (
           <li><a href={home}>{t(locale, 'footer.backToHome')}</a></li>
         )}
       </ul>

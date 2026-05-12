@@ -1,7 +1,7 @@
 {
   "site": {
-    "title": "Benjamin Nößler — Fullstack developer based in Vienna",
-    "description": "Vienna-based freelance developer. Websites for Austrian businesses — built, hosted and maintained from one source. Focus on hotels and restaurants."
+    "title": "Benjamin Nößler — Web presence & digital · Vienna",
+    "description": "I help small Austrian businesses with their website, online booking, newsletter, and the digital stuff around it — built, maintained, reachable. Focus on hotels and restaurants."
   },
   "meta": {
     "jobTitle": "Fullstack Developer"
@@ -25,9 +25,9 @@
     "inquiryAria": "Send an inquiry"
   },
   "hero": {
-    "kicker": "Freelance · Web development & operations · Vienna",
-    "headline": "Built, hosted, maintained.",
-    "body": "Websites for Austrian businesses — fixed price, launched in 2–4 weeks, then hosting and maintenance at a steady monthly rate. Focus: hotels and restaurants.",
+    "kicker": "Freelance · Web presence & digital · Vienna",
+    "headline": "The digital side of your business.",
+    "body": "I help small businesses with their website and the digital stuff around it — built, maintained, reachable. Focus: hotels and restaurants.",
     "ctaPrimary": "Discuss your project",
     "ctaSecondary": "See examples",
     "meta": [
@@ -100,39 +100,15 @@
   },
   "services": {
     "label": "Services",
-    "intro": "I build websites for Austrian businesses — and take care of what comes after: hosting, maintenance, small changes. Often for hotels, guesthouses and restaurants.",
+    "intro": "I build websites for small businesses — and take care of what comes after. Plus the digital tools around it: booking, newsletter, invoicing. Often for hotels, guesthouses and restaurants.",
     "taxNote": "All prices VAT-exempt — Austrian small-business scheme (§6(1)(27) UStG); no VAT is added.",
     "extensionLabel": "Also available",
-    "hosting": {
-      "title": "Hosting & operations",
-      "description": "Three packages per month — from full ongoing care down to “just keep it online.” You pick how much you handle yourself.",
-      "tiers": [
-        { "label": "Strategy & operations", "price": "€120", "cadence": "/month", "recommended": true, "tag": "Recommended" },
-        { "label": "Hosting + monitoring", "price": "€50", "cadence": "/month" },
-        { "label": "Hosting only", "price": "€20", "cadence": "/month" }
-      ],
-      "featuresLabel": "What's included",
-      "features": [
-        { "label": "Hosting on owned infrastructure (Vienna)", "in": [true, true, true] },
-        { "label": "SSL encryption & daily backups", "in": [true, true, true] },
-        { "label": "Uptime monitoring, around the clock", "in": [true, true, false] },
-        { "label": "Incident response within 10 business hours", "in": [true, true, false] },
-        { "label": "Monthly report (usage + SEO)", "in": [true, false, false] },
-        { "label": "SEO actions implemented", "in": [true, false, false] },
-        { "label": "Annual strategy call (1h)", "in": [true, false, false] },
-        { "label": "Full redesign every 2 years included", "in": [true, false, false] }
-      ],
-      "yes": "yes",
-      "no": "—",
-      "cancelAnytime": "Cancel any time at the end of a month — no minimum term.",
-      "hourlyNote": "Content changes billed by the hour: €60/h (in 15-minute increments)."
-    },
-    "landing": {
+    "website": {
       "title": "Website",
       "kicker": "From scratch or redesign",
       "description": "A new website built from scratch — or an existing site rebuilt. One-pager or multi-page, depending on scope. Clear structure, fast load times, proper bilingual DE/EN.",
       "priceAnchor": "from €1,800",
-      "priceCadence": "Fixed price · hosting package extra",
+      "priceCadence": "Fixed price · operation billed separately",
       "includedLabel": "Included in the fixed price",
       "includedItems": [
         "Website (one-pager or multi-page), responsive, DE/EN",
@@ -151,8 +127,36 @@
         "Copywriting & translations",
         "Photo/video material",
         "Additional revision rounds",
-        "Ongoing maintenance (see Hosting below)"
+        "Ongoing operation (see below)"
       ]
+    },
+    "care": {
+      "title": "Operation & care",
+      "kicker": "After launch",
+      "description": "The site keeps running on my infrastructure in Vienna — hosting, updates, backups, small changes. A fixed monthly fee, one point of contact, cancel any time. You don't have to think about it.",
+      "priceAnchor": "from €49",
+      "priceCadence": "/month · cancel any time at month's end",
+      "includedLabel": "Included",
+      "includedItems": [
+        "Hosting on owned infrastructure in Vienna · SSL · daily backups",
+        "Updates and security patches",
+        "Reachable when something breaks — response within one business day",
+        "Small text changes included"
+      ],
+      "note": "Larger changes billed by the hour: €60/h (in 15-minute increments). SEO, monthly reports and an annual strategy call available on request."
+    },
+    "tools": {
+      "title": "Digital tools",
+      "kicker": "Instead of monthly subscriptions",
+      "description": "Booking, scheduling, newsletter, invoicing — many businesses pay monthly third-party fees or steep commissions for these. I set up the right open-source tools and run them on owned infrastructure. Your data stays with you.",
+      "examplesLabel": "For example",
+      "examples": [
+        "Direct booking for hotels & guesthouses — instead of 15–20 % commission",
+        "Online scheduling — instead of phone calls and sticky notes",
+        "Newsletter — without the monthly subscription trap",
+        "Simple invoicing & time tracking"
+      ],
+      "note": "Scope and price defined after a call — usually as part of the Operation & care package."
     },
     "fullstack": {
       "title": "Fullstack web apps",
@@ -198,13 +202,27 @@
     "metaItems": [
       "Base · Vienna · mostly remote",
       "Permanent role · City of Vienna digital team (via APC Business Services)",
-      "Freelance · websites & operations for local businesses"
+      "Freelance · web & digital for small businesses"
     ],
     "bodyParagraphs": [
-      "I help Austrian businesses get visible online and stay that way: build or rebuild the website, then take over hosting and maintenance. Most often for hotels, guesthouses and restaurants.",
-      "I've been building web apps for years in employment and in my own projects (e.g. <a class=\"inline-link\" href=\"https://github.com/HelplessSneeker/b-cal\" rel=\"noopener external\" target=\"_blank\">b-cal</a>); on the freelance side I'm deliberately starting with a smaller scope. For larger projects, we'll scope it together.",
+      "I help small Austrian businesses get visible online and stay that way — and take over the digital stuff a business would otherwise have to handle on the side. Most often for hotels, guesthouses and restaurants.",
+      "My day job is on the City of Vienna's digital team; on the side I've been building web apps and my own projects for years. On most things I stay on as the point of contact after launch."
+    ],
+    "moreLabel": "More about me — background, work history and the technical part"
+  },
+  "aboutPage": {
+    "title": "About me",
+    "metaTitle": "About Benjamin Nößler — background & tech",
+    "description": "Benjamin Nößler — background, work history and the technical part. Fullstack developer based in Vienna, day job on the City of Vienna's digital team, freelance for small businesses on the side.",
+    "kicker": "Fullstack developer · Vienna",
+    "lede": "Day job on the City of Vienna's digital team, freelance for small businesses on the side — website, operation, and the digital tools around it.",
+    "bodyParagraphs": [
+      "I help small Austrian businesses get visible online and stay that way: build or rebuild the website, then take over operation and care, plus the digital tools around it — booking, newsletter, invoicing. Focus: hotels and restaurants.",
+      "I've been building web apps for years in employment and in my own projects (e.g. <a class=\"inline-link\" href=\"https://github.com/HelplessSneeker/b-cal\" rel=\"noopener external\" target=\"_blank\">b-cal</a>); on the freelance side I'm deliberately starting with a smaller scope and scope larger projects together.",
       "I prefer projects meant to last longer than a quarter: cleanly built, on my own infrastructure in Vienna, with tools I'll still trust in two years. On most projects I stay on as the point of contact after launch."
-    ]
+    ],
+    "backToHome": "Back to homepage",
+    "contactCta": "Get in touch"
   },
   "contact": {
     "label": "Contact",
@@ -258,12 +276,13 @@
   "footer": {
     "builtWith": "Built with Astro · Hosted on Hetzner",
     "viewSource": "View source",
+    "aboutPage": "About me",
     "imprint": "Imprint",
     "privacy": "Privacy",
     "backToHome": "Back to homepage",
     "location": "Vienna",
     "directLabel": "Email me directly",
-    "legalLabel": "Legal"
+    "navLabel": "More"
   },
   "legal": {
     "imprint": {

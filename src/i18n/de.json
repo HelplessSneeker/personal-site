@@ -1,7 +1,7 @@
 {
   "site": {
-    "title": "Benjamin Nößler — Fullstack-Entwickler aus Wien",
-    "description": "Freelance-Entwickler aus Wien. Websites für österreichische Betriebe — gebaut, gehostet und gepflegt aus einer Hand. Schwerpunkt Hotellerie und Gastronomie."
+    "title": "Benjamin Nößler — Webpräsenz & Digitalisierung · Wien",
+    "description": "Ich helfe kleinen österreichischen Betrieben mit Website, Online-Buchung, Newsletter und dem digitalen Kram drumherum — gebaut, betreut, erreichbar. Schwerpunkt Hotellerie und Gastronomie."
   },
   "meta": {
     "jobTitle": "Fullstack-Entwickler"
@@ -25,9 +25,9 @@
     "inquiryAria": "Anfrage stellen"
   },
   "hero": {
-    "kicker": "Freelance · Webentwicklung & Betrieb · Wien",
-    "headline": "Gebaut, gehostet, gepflegt.",
-    "body": "Websites für österreichische Betriebe — Festpreis, Launch in 2–4 Wochen, danach Hosting und Pflege zum festen Monatsbetrag. Schwerpunkt: Hotellerie und Gastronomie.",
+    "kicker": "Freelance · Webpräsenz & Digitalisierung · Wien",
+    "headline": "Die digitale Seite deines Betriebs.",
+    "body": "Ich helfe kleinen Betrieben mit ihrer Website und dem digitalen Kram drumherum — gebaut, betreut, erreichbar. Schwerpunkt: Hotellerie und Gastronomie.",
     "ctaPrimary": "Projekt besprechen",
     "ctaSecondary": "Beispiele ansehen",
     "meta": [
@@ -100,39 +100,15 @@
   },
   "services": {
     "label": "Leistungen",
-    "intro": "Ich baue Websites für österreichische Betriebe — und übernehme, was danach kommt: Hosting, Pflege und kleinere Anpassungen. Besonders oft für Hotels, Pensionen und Gastronomie.",
+    "intro": "Ich baue Websites für kleine Betriebe — und übernehme, was danach kommt. Dazu die digitalen Werkzeuge drumherum: Buchung, Newsletter, Rechnungen. Besonders oft für Hotels, Pensionen und Gastronomie.",
     "taxNote": "Alle Preise umsatzsteuerbefreit — Kleinunternehmer gemäß §6 Abs. 1 Z 27 UStG; es kommt keine USt. dazu.",
     "extensionLabel": "Auch möglich",
-    "hosting": {
-      "title": "Hosting & Betrieb",
-      "description": "Drei Pakete pro Monat — von voller Begleitung bis „nur online halten“. Du wählst, wieviel du selbst übernimmst.",
-      "tiers": [
-        { "label": "Strategie & Betrieb", "price": "€120", "cadence": "/Monat", "recommended": true, "tag": "Empfohlen" },
-        { "label": "Hosting + Monitoring", "price": "€50", "cadence": "/Monat" },
-        { "label": "Nur Hosting", "price": "€20", "cadence": "/Monat" }
-      ],
-      "featuresLabel": "Im Paket enthalten",
-      "features": [
-        { "label": "Hosting auf eigener Infrastruktur (Wien)", "in": [true, true, true] },
-        { "label": "SSL-Verschlüsselung & tägliche Backups", "in": [true, true, true] },
-        { "label": "Uptime-Monitoring rund um die Uhr", "in": [true, true, false] },
-        { "label": "Reaktion auf Vorfälle ≤ 10 Geschäftsstd.", "in": [true, true, false] },
-        { "label": "Monatlicher Bericht (Nutzung + SEO)", "in": [true, false, false] },
-        { "label": "SEO-Maßnahmen umgesetzt", "in": [true, false, false] },
-        { "label": "Jährliches Strategiegespräch (1h)", "in": [true, false, false] },
-        { "label": "Redesign alle 2 Jahre inklusive", "in": [true, false, false] }
-      ],
-      "yes": "ja",
-      "no": "—",
-      "cancelAnytime": "Jederzeit zum Monatsende kündbar — ohne Mindestlaufzeit.",
-      "hourlyNote": "Inhaltliche Änderungen nach Aufwand: €60/h (in 15-Minuten-Schritten abgerechnet)."
-    },
-    "landing": {
+    "website": {
       "title": "Website",
       "kicker": "Neu oder Redesign",
       "description": "Neue Website von Grund auf — oder bestehende Seite neu umsetzen. One-Pager oder mehrseitig, je nach Umfang. Klare Struktur, schnelle Ladezeiten, sauber zweisprachig.",
       "priceAnchor": "ab €1.800",
-      "priceCadence": "Festpreis · Hosting-Paket separat",
+      "priceCadence": "Festpreis · Betrieb separat",
       "includedLabel": "Im Festpreis enthalten",
       "includedItems": [
         "Website (One-Pager oder mehrseitig), responsive, DE/EN",
@@ -151,8 +127,36 @@
         "Texterstellung & Übersetzungen",
         "Foto-/Videomaterial",
         "Weitere Revisionsrunden",
-        "Laufende Pflege (siehe Hosting unten)"
+        "Laufender Betrieb (siehe unten)"
       ]
+    },
+    "care": {
+      "title": "Betrieb & Pflege",
+      "kicker": "Nach dem Launch",
+      "description": "Die Seite läuft auf meiner Infrastruktur in Wien weiter — Hosting, Updates, Backups, kleine Änderungen. Ein fester Monatsbetrag, ein Ansprechpartner, jederzeit kündbar. Du musst dich nicht drum kümmern.",
+      "priceAnchor": "ab €49",
+      "priceCadence": "/Monat · jederzeit zum Monatsende kündbar",
+      "includedLabel": "Inklusive",
+      "includedItems": [
+        "Hosting auf eigener Infrastruktur in Wien · SSL · tägliche Backups",
+        "Updates und Sicherheits-Patches",
+        "Erreichbar bei Problemen — Reaktion innerhalb eines Werktags",
+        "Kleine Textänderungen inklusive"
+      ],
+      "note": "Größere Änderungen nach Aufwand: €60/h (in 15-Minuten-Schritten abgerechnet). SEO, monatliche Berichte und ein jährliches Strategiegespräch auf Wunsch."
+    },
+    "tools": {
+      "title": "Digitale Werkzeuge",
+      "kicker": "Statt monatlicher Abos",
+      "description": "Buchung, Terminvergabe, Newsletter, Rechnungen — viele Betriebe zahlen dafür monatlich an Drittanbieter oder hohe Provisionen. Ich richte die passenden Open-Source-Werkzeuge ein und betreibe sie auf eigener Infrastruktur. Deine Daten bleiben bei dir.",
+      "examplesLabel": "Zum Beispiel",
+      "examples": [
+        "Direktbuchung für Hotels & Pensionen — statt 15–20 % Provision",
+        "Online-Terminvergabe — statt Telefon und Notizzettel",
+        "Newsletter — ohne monatliche Abo-Falle",
+        "Einfache Rechnungen & Zeiterfassung"
+      ],
+      "note": "Umfang und Preis nach Gespräch — meist als Teil des Betrieb-&-Pflege-Pakets."
     },
     "fullstack": {
       "title": "Fullstack-Webapps",
@@ -198,13 +202,27 @@
     "metaItems": [
       "Sitz · Wien · meist remote",
       "Festanstellung · Stadt Wien Digitalisierung (über APC Business Services)",
-      "Freelance · Websites & Betrieb für lokale Betriebe"
+      "Freelance · Web & Digitalisierung für kleine Betriebe"
     ],
     "bodyParagraphs": [
-      "Ich helfe österreichischen Betrieben, online sichtbar zu sein und es zu bleiben: Website neu bauen oder überarbeiten, danach Hosting und Pflege übernehmen. Am häufigsten für Hotels, Pensionen und Gastronomie.",
-      "Webapps baue ich seit Jahren in Anstellung und in eigenen Projekten (z. B. <a class=\"inline-link\" href=\"https://github.com/HelplessSneeker/b-cal\" rel=\"noopener external\" target=\"_blank\">b-cal</a>); im Freelance-Bereich starte ich bewusst mit kleinerem Scope. Für größere Vorhaben sprechen wir den passenden Umfang ab.",
+      "Ich helfe kleinen österreichischen Betrieben, online sichtbar zu sein und es zu bleiben — und übernehme den digitalen Kram, den man als Betrieb sonst nebenbei stemmen müsste. Am häufigsten für Hotels, Pensionen und Gastronomie.",
+      "Hauptberuflich arbeite ich in der Digitalisierung der Stadt Wien; nebenbei baue ich seit Jahren Webapps und eigene Projekte. Bei den meisten Sachen bleibe ich nach dem Launch als Ansprechperson dabei."
+    ],
+    "moreLabel": "Mehr über mich — Werdegang, Hintergrund und der Technik-Teil"
+  },
+  "aboutPage": {
+    "title": "Über mich",
+    "metaTitle": "Über Benjamin Nößler — Hintergrund & Technik",
+    "description": "Benjamin Nößler — Hintergrund, Werdegang und der technische Teil. Fullstack-Entwickler aus Wien, hauptberuflich in der Digitalisierung der Stadt Wien, daneben freiberuflich für kleine Betriebe.",
+    "kicker": "Fullstack-Entwickler · Wien",
+    "lede": "Hauptberuflich in der Digitalisierung der Stadt Wien, daneben freiberuflich für kleine Betriebe — Website, Betrieb und die digitalen Werkzeuge drumherum.",
+    "bodyParagraphs": [
+      "Ich helfe kleinen österreichischen Betrieben, online sichtbar zu sein und es zu bleiben: Website neu bauen oder überarbeiten, danach Betrieb und Pflege übernehmen, dazu die digitalen Werkzeuge drumherum — Buchung, Newsletter, Rechnungen. Schwerpunkt: Hotellerie und Gastronomie.",
+      "Webapps baue ich seit Jahren in Anstellung und in eigenen Projekten (z. B. <a class=\"inline-link\" href=\"https://github.com/HelplessSneeker/b-cal\" rel=\"noopener external\" target=\"_blank\">b-cal</a>); im Freelance-Bereich starte ich bewusst mit kleinerem Scope und spreche bei größeren Vorhaben den passenden Umfang ab.",
       "Ich arbeite am liebsten an Dingen, die länger als ein Quartal leben sollen: sauber gebaut, auf eigener Infrastruktur in Wien, mit Werkzeugen, denen ich auch in zwei Jahren noch vertraue. Bei den meisten Projekten bleibe ich nach dem Launch als Ansprechperson dabei."
-    ]
+    ],
+    "backToHome": "Zur Startseite",
+    "contactCta": "Kontakt aufnehmen"
   },
   "contact": {
     "label": "Kontakt",
@@ -258,12 +276,13 @@
   "footer": {
     "builtWith": "Gebaut mit Astro · Gehostet auf Hetzner",
     "viewSource": "Quellcode ansehen",
+    "aboutPage": "Über mich",
     "imprint": "Impressum",
     "privacy": "Datenschutz",
     "backToHome": "Zur Startseite",
     "location": "Wien",
     "directLabel": "Direkt schreiben",
-    "legalLabel": "Rechtliches"
+    "navLabel": "Weitere Seiten"
   },
   "legal": {
     "imprint": {

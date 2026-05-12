@@ -1,0 +1,161 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import FromEmployment from '../components/FromEmployment.astro';
+import Stack from '../components/Stack.astro';
+import { t, tArray, getAltUrl, getLocalizedPath } from '../i18n/util';
+
+export const prerender = true;
+
+const locale = 'de' as const;
+const altUrl = getAltUrl(Astro.url.pathname, locale);
+const paragraphs = tArray(locale, 'aboutPage.bodyParagraphs');
+const home = getLocalizedPath(locale, '/');
+---
+<BaseLayout
+  title={t(locale, 'aboutPage.metaTitle')}
+  description={t(locale, 'aboutPage.description')}
+  locale={locale}
+  altLocaleUrl={altUrl}
+  canonicalPath="/ueber"
+>
+  <Header locale={locale} />
+  <main id="main">
+    <section class="section hero about-page-intro" aria-labelledby="about-page-heading">
+      <div class="container about-page-head">
+        <span class="about-page-rule" aria-hidden="true"></span>
+        <p class="about-page-kicker label-meta">{t(locale, 'aboutPage.kicker')}</p>
+        <h1 id="about-page-heading" class="about-page-title">{t(locale, 'aboutPage.title')}</h1>
+        <p class="about-page-lede">{t(locale, 'aboutPage.lede')}</p>
+        <div class="about-page-body">
+          {paragraphs.map((p) => <p class="about-page-text" set:html={p}></p>)}
+        </div>
+      </div>
+    </section>
+
+    <FromEmployment locale={locale} />
+
+    <section class="section about-page-stack">
+      <div class="container">
+        <Stack locale={locale} />
+      </div>
+    </section>
+
+    <section class="section about-page-cta">
+      <div class="container about-page-cta-inner">
+        <a href={home} class="about-page-back">{t(locale, 'aboutPage.backToHome')}</a>
+        <a href={`${home}#contact`} class="btn btn-primary">
+          {t(locale, 'aboutPage.contactCta')} <span aria-hidden="true">→</span>
+        </a>
+      </div>
+    </section>
+  </main>
+  <Footer locale={locale} />
+</BaseLayout>
+
+<style>
+  /* Intro reuses the .hero exclusion so it isn't hidden/animated on load —
+     it's this page's overture, not a section in a reveal sequence. */
+  .about-page-intro {
+    padding-block: var(--space-9) var(--space-8);
+    border-top: none;
+  }
+  @media (min-width: 48rem) {
+    .about-page-intro {
+      padding-block: clamp(var(--space-9), 9vh, var(--space-10)) var(--space-8);
+    }
+  }
+
+  .about-page-head {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    max-width: 62ch;
+  }
+
+  .about-page-rule {
+    display: block;
+    width: 2.5rem;
+    height: 1px;
+    background: var(--color-accent);
+    margin-bottom: var(--space-4);
+  }
+
+  .about-page-kicker {
+    color: var(--color-text-subtle);
+    margin-bottom: var(--space-4);
+  }
+
+  .about-page-title {
+    font-family: var(--font-display);
+    font-size: var(--fs-2xl);
+    font-weight: var(--weight-medium);
+    letter-spacing: var(--tracking-heading-xl);
+    line-height: 1.05;
+    color: var(--color-text);
+    margin-bottom: var(--space-5);
+  }
+
+  .about-page-lede {
+    font-size: var(--fs-lg);
+    line-height: 1.4;
+    color: var(--color-text);
+    margin-bottom: var(--space-7);
+    text-wrap: pretty;
+  }
+
+  .about-page-body {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-5);
+  }
+
+  /* Stack disclosure is a single collapsed bar — don't surround it with
+     a full section's worth of whitespace. Reads as a continuation of the
+     employment list above it. */
+  .about-page-stack {
+    padding-block: var(--section-continued) var(--section-default);
+  }
+
+  .about-page-text {
+    font-size: var(--fs-md);
+    line-height: var(--lh-relaxed);
+    color: var(--color-text);
+    text-wrap: pretty;
+  }
+  .about-page-text :global(.inline-link) {
+    color: var(--color-accent);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.18em;
+  }
+  .about-page-text :global(.inline-link:hover) {
+    text-decoration-thickness: 2px;
+  }
+
+  .about-page-cta-inner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-6);
+  }
+
+  .about-page-back {
+    font-family: var(--font-mono);
+    font-feature-settings: var(--font-features-mono);
+    font-size: var(--fs-sm);
+    color: var(--color-text-muted);
+    text-decoration: underline;
+    text-decoration-color: color-mix(in oklab, currentColor 35%, transparent);
+    text-underline-offset: 0.2em;
+  }
+  .about-page-back::before {
+    content: '←\00a0 ';
+    color: var(--color-accent);
+  }
+  .about-page-back:hover {
+    color: var(--color-accent);
+    text-decoration-color: currentColor;
+  }
+</style>

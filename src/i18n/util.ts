@@ -65,12 +65,16 @@ export function getAltUrl(url: URL | string, currentLocale: Locale): string {
 
   const routeMap: Record<string, string> = {
     '/': '/en/',
+    '/ueber': '/en/about',
+    '/ueber/': '/en/about',
     '/impressum': '/en/imprint',
     '/impressum/': '/en/imprint',
     '/datenschutz': '/en/privacy',
     '/datenschutz/': '/en/privacy',
     '/en/': '/',
     '/en': '/',
+    '/en/about': '/ueber',
+    '/en/about/': '/ueber',
     '/en/imprint': '/impressum',
     '/en/imprint/': '/impressum',
     '/en/privacy': '/datenschutz',
