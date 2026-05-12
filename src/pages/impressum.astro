@@ -14,14 +14,10 @@ const altUrl = getAltUrl(Astro.url.pathname, locale);
   altLocaleUrl={altUrl}
   canonicalPath="/impressum"
 >
-  <p class="todo-placeholder">
-    TODO Benjamin: Nach dem WKO-Termin (Anfang Mai 2026) noch UID-Status, Unternehmensgegenstand und
-    Aufsichtsbehörde ergänzen — danach diese Warnung entfernen.
-  </p>
-
   <h2>Angaben gemäß §5 ECG, §25 MedienG</h2>
   <address>
     <strong>Benjamin Nößler</strong><br />
+    Einzelunternehmen<br />
     Fasangasse 26/4<br />
     1030 Wien<br />
     Österreich
@@ -30,18 +26,29 @@ const altUrl = getAltUrl(Astro.url.pathname, locale);
     <strong>E-Mail:</strong> <a href="mailto:benjamin@noessler.at">benjamin@noessler.at</a>
   </p>
   <p>
-    <strong>Unternehmensgegenstand:</strong>
-    <span class="todo-placeholder">TODO (post-WKO 2026-05): Unternehmensgegenstand laut Gewerbeschein</span>
+    <strong>Unternehmensgegenstand:</strong> Dienstleistungen in der automatischen Datenverarbeitung
+    und Informationstechnik (freies Gewerbe)
   </p>
   <p>
-    <strong>UID-Nummer:</strong>
-    <span class="todo-placeholder">TODO (post-WKO 2026-05): UID-Status klären (Kleinunternehmer-Hinweis oder ATU-Nummer)</span>
+    <strong>GISA-Zahl:</strong> 39647481
+  </p>
+  <p>
+    <strong>UID-Nummer:</strong> Nicht UID-pflichtig — Kleinunternehmer gemäß §6 Abs. 1 Z 27 UStG
+    (keine Umsatzsteuer-Ausweisung).
   </p>
 
-  <h2>Zuständige Aufsichtsbehörde / Gewerbeordnung</h2>
+  <h2>Gewerbebehörde, Kammer und Rechtsvorschriften</h2>
   <p>
-    <span class="todo-placeholder">TODO (post-WKO 2026-05): Aufsichtsbehörde + Gewerberechtsstatus (Gewerbe vs. Neue Selbständige)</span>
-    · <a href="https://www.wko.at" rel="noopener external" target="_blank">Kammerzugehörigkeit WKO ↗</a>
+    <strong>Gewerbebehörde:</strong> Magistratisches Bezirksamt für den 3. Bezirk, Wien
+  </p>
+  <p>
+    <strong>Mitgliedschaft:</strong> Wirtschaftskammer Wien, Fachgruppe Unternehmensberatung,
+    Buchhaltung und Informationstechnologie (UBIT) ·
+    <a href="https://www.wko.at" rel="noopener external" target="_blank">wko.at ↗</a>
+  </p>
+  <p>
+    <strong>Anwendbare Rechtsvorschrift:</strong> Gewerbeordnung 1994 (GewO), abrufbar unter
+    <a href="https://www.ris.bka.gv.at" rel="noopener external" target="_blank">ris.bka.gv.at ↗</a>
   </p>
 
   <h2>Haftungsausschluss</h2>
