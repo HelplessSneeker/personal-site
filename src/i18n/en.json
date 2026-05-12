@@ -1,7 +1,7 @@
 {
   "site": {
     "title": "Benjamin Nößler — Fullstack developer based in Vienna",
-    "description": "Vienna-based freelance developer. Landing-page redesigns and fullstack builds for businesses that think beyond the next quarter."
+    "description": "Vienna-based freelance developer. Websites for Austrian businesses — built, hosted and maintained from one source. Focus on hotels and restaurants."
   },
   "meta": {
     "jobTitle": "Fullstack Developer"
@@ -25,9 +25,9 @@
     "inquiryAria": "Send an inquiry"
   },
   "hero": {
-    "kicker": "Freelance · Landing pages & hosting · Vienna",
-    "headline": "Landing pages that stay in one pair of hands.",
-    "body": "Redesign at a fixed price, launched in 2–4 weeks — then hosting and care at a steady monthly rate.",
+    "kicker": "Freelance · Web development & operations · Vienna",
+    "headline": "Built, hosted, maintained.",
+    "body": "Websites for Austrian businesses — fixed price, launched in 2–4 weeks, then hosting and maintenance at a steady monthly rate. Focus: hotels and restaurants.",
     "ctaPrimary": "Discuss your project",
     "ctaSecondary": "See examples",
     "meta": [
@@ -100,7 +100,8 @@
   },
   "services": {
     "label": "Services",
-    "intro": "I build landing pages for Austrian businesses — and take care of what comes after: hosting, maintenance, small changes.",
+    "intro": "I build websites for Austrian businesses — and take care of what comes after: hosting, maintenance, small changes. Often for hotels, guesthouses and restaurants.",
+    "taxNote": "All prices VAT-exempt — Austrian small-business scheme (§6(1)(27) UStG); no VAT is added.",
     "extensionLabel": "Also available",
     "hosting": {
       "title": "Hosting & operations",
@@ -127,14 +128,14 @@
       "hourlyNote": "Content changes billed by the hour: €60/h (in 15-minute increments)."
     },
     "landing": {
-      "title": "Landing page",
+      "title": "Website",
       "kicker": "From scratch or redesign",
-      "description": "A new landing page built from scratch — or an existing marketing/landing page rebuilt. Clear structure, fast load times, proper bilingual DE/EN.",
+      "description": "A new website built from scratch — or an existing site rebuilt. One-pager or multi-page, depending on scope. Clear structure, fast load times, proper bilingual DE/EN.",
       "priceAnchor": "from €1,800",
       "priceCadence": "Fixed price · hosting package extra",
       "includedLabel": "Included in the fixed price",
       "includedItems": [
-        "Landing page (one-pager), responsive, DE/EN",
+        "Website (one-pager or multi-page), responsive, DE/EN",
         "Briefing & concept sketch (60 min)",
         "Design and technical implementation",
         "Two rounds of revisions",
@@ -197,12 +198,12 @@
     "metaItems": [
       "Base · Vienna · mostly remote",
       "Permanent role · City of Vienna digital team (via APC Business Services)",
-      "Freelance · landing pages for local businesses"
+      "Freelance · websites & operations for local businesses"
     ],
     "bodyParagraphs": [
-      "I help Austrian businesses modernise their web presence — the focus is landing-page redesigns.",
+      "I help Austrian businesses get visible online and stay that way: build or rebuild the website, then take over hosting and maintenance. Most often for hotels, guesthouses and restaurants.",
       "I've been building web apps for years in employment and in my own projects (e.g. <a class=\"inline-link\" href=\"https://github.com/HelplessSneeker/b-cal\" rel=\"noopener external\" target=\"_blank\">b-cal</a>); on the freelance side I'm deliberately starting with a smaller scope. For larger projects, we'll scope it together.",
-      "I prefer projects meant to last longer than a quarter: cleanly built, on my own infrastructure, with tools I'll still trust in two years. On most projects I stay on as the point of contact after launch."
+      "I prefer projects meant to last longer than a quarter: cleanly built, on my own infrastructure in Vienna, with tools I'll still trust in two years. On most projects I stay on as the point of contact after launch."
     ]
   },
   "contact": {
@@ -221,7 +222,7 @@
       "emailPlaceholder": "you@example.com",
       "projectTypeLabel": "Project type",
       "projectTypeOptions": {
-        "landing": "Landing page redesign",
+        "landing": "New website or redesign",
         "fullstack": "Fullstack project",
         "other": "Something else"
       },

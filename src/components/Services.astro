@@ -123,6 +123,8 @@ const landingExcluded = tArray(locale, 'services.landing.excludedItems');
       <h3 class="extension-title">{t(locale, 'services.fullstack.title')}</h3>
       <p class="extension-desc">{t(locale, 'services.fullstack.description')}</p>
     </aside>
+
+    <p class="services-tax-note">{t(locale, 'services.taxNote')}</p>
   </div>
 </section>
 
@@ -555,5 +557,20 @@ const landingExcluded = tArray(locale, 'services.landing.excludedItems');
     color: var(--color-text-muted);
     max-width: 56ch;
     margin: 0;
+  }
+
+  /* Tax basis — stated once, in fine print, at the foot of the section.
+     Same quiet mono voice as .hourly-note. Kleinunternehmer status means
+     no VAT line on any of the prices above; this is the disclosure. */
+  .services-tax-note {
+    margin: var(--space-8) 0 0 0;
+    padding-top: var(--space-4);
+    border-top: 1px solid var(--color-rule);
+    font-family: var(--font-mono);
+    font-feature-settings: var(--font-features-mono);
+    font-size: var(--fs-xs);
+    color: var(--color-text-subtle);
+    line-height: 1.5;
+    max-width: 56ch;
   }
 </style>

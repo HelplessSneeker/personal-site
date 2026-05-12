@@ -1,7 +1,7 @@
 {
   "site": {
     "title": "Benjamin Nößler — Fullstack-Entwickler aus Wien",
-    "description": "Freelance-Entwickler aus Wien. Landingpage-Redesigns und Fullstack-Builds für Unternehmen, die länger als ein Quartal denken."
+    "description": "Freelance-Entwickler aus Wien. Websites für österreichische Betriebe — gebaut, gehostet und gepflegt aus einer Hand. Schwerpunkt Hotellerie und Gastronomie."
   },
   "meta": {
     "jobTitle": "Fullstack-Entwickler"
@@ -25,9 +25,9 @@
     "inquiryAria": "Anfrage stellen"
   },
   "hero": {
-    "kicker": "Freelance · Landingpages & Hosting · Wien",
-    "headline": "Landingpages, die in einer Hand bleiben.",
-    "body": "Redesign zum Festpreis, Launch in 2–4 Wochen — danach Hosting und Pflege zum festen Monatsbetrag.",
+    "kicker": "Freelance · Webentwicklung & Betrieb · Wien",
+    "headline": "Gebaut, gehostet, gepflegt.",
+    "body": "Websites für österreichische Betriebe — Festpreis, Launch in 2–4 Wochen, danach Hosting und Pflege zum festen Monatsbetrag. Schwerpunkt: Hotellerie und Gastronomie.",
     "ctaPrimary": "Projekt besprechen",
     "ctaSecondary": "Beispiele ansehen",
     "meta": [
@@ -100,7 +100,8 @@
   },
   "services": {
     "label": "Leistungen",
-    "intro": "Ich baue Landingpages für österreichische Unternehmen — und übernehme, was danach kommt: Hosting, Pflege und kleinere Anpassungen.",
+    "intro": "Ich baue Websites für österreichische Betriebe — und übernehme, was danach kommt: Hosting, Pflege und kleinere Anpassungen. Besonders oft für Hotels, Pensionen und Gastronomie.",
+    "taxNote": "Alle Preise umsatzsteuerbefreit — Kleinunternehmer gemäß §6 Abs. 1 Z 27 UStG; es kommt keine USt. dazu.",
     "extensionLabel": "Auch möglich",
     "hosting": {
       "title": "Hosting & Betrieb",
@@ -127,14 +128,14 @@
       "hourlyNote": "Inhaltliche Änderungen nach Aufwand: €60/h (in 15-Minuten-Schritten abgerechnet)."
     },
     "landing": {
-      "title": "Landingpage",
+      "title": "Website",
       "kicker": "Neu oder Redesign",
-      "description": "Neue Landingpage von Grund auf — oder bestehende Marketing-/Landingpage neu umsetzen. Klare Struktur, schnelle Ladezeiten, sauber zweisprachig.",
+      "description": "Neue Website von Grund auf — oder bestehende Seite neu umsetzen. One-Pager oder mehrseitig, je nach Umfang. Klare Struktur, schnelle Ladezeiten, sauber zweisprachig.",
       "priceAnchor": "ab €1.800",
       "priceCadence": "Festpreis · Hosting-Paket separat",
       "includedLabel": "Im Festpreis enthalten",
       "includedItems": [
-        "Landingpage (One-Pager), responsive, DE/EN",
+        "Website (One-Pager oder mehrseitig), responsive, DE/EN",
         "Briefing & Konzept-Skizze (60 Min)",
         "Design und technische Umsetzung",
         "Zwei Revisionsrunden",
@@ -197,12 +198,12 @@
     "metaItems": [
       "Sitz · Wien · meist remote",
       "Festanstellung · Stadt Wien Digitalisierung (über APC Business Services)",
-      "Freelance · Landingpages für lokale Unternehmen"
+      "Freelance · Websites & Betrieb für lokale Betriebe"
     ],
     "bodyParagraphs": [
-      "Ich helfe österreichischen Unternehmen, ihre Webpräsenz zu modernisieren — Schwerpunkt sind Landingpage-Redesigns.",
+      "Ich helfe österreichischen Betrieben, online sichtbar zu sein und es zu bleiben: Website neu bauen oder überarbeiten, danach Hosting und Pflege übernehmen. Am häufigsten für Hotels, Pensionen und Gastronomie.",
       "Webapps baue ich seit Jahren in Anstellung und in eigenen Projekten (z. B. <a class=\"inline-link\" href=\"https://github.com/HelplessSneeker/b-cal\" rel=\"noopener external\" target=\"_blank\">b-cal</a>); im Freelance-Bereich starte ich bewusst mit kleinerem Scope. Für größere Vorhaben sprechen wir den passenden Umfang ab.",
-      "Ich arbeite am liebsten an Dingen, die länger als ein Quartal leben sollen: sauber gebaut, auf eigener Infrastruktur, mit Werkzeugen, denen ich auch in zwei Jahren noch vertraue. Bei den meisten Projekten bleibe ich nach dem Launch als Ansprechperson dabei."
+      "Ich arbeite am liebsten an Dingen, die länger als ein Quartal leben sollen: sauber gebaut, auf eigener Infrastruktur in Wien, mit Werkzeugen, denen ich auch in zwei Jahren noch vertraue. Bei den meisten Projekten bleibe ich nach dem Launch als Ansprechperson dabei."
     ]
   },
   "contact": {
@@ -221,7 +222,7 @@
       "emailPlaceholder": "du@example.com",
       "projectTypeLabel": "Projekttyp",
       "projectTypeOptions": {
-        "landing": "Landingpage-Redesign",
+        "landing": "Neue Website oder Redesign",
         "fullstack": "Fullstack-Projekt",
         "other": "Sonstiges"
       },
