@@ -79,12 +79,14 @@ function buildEmailBody(payload: z.infer<typeof contactSchema>): { text: string;
 let cachedTransporter: Transporter | null = null;
 function getTransporter(): Transporter | null {
   if (cachedTransporter) return cachedTransporter;
-  const host = import.meta.env.SMTP_HOST;
-  const user = import.meta.env.SMTP_USER;
-  const pass = import.meta.env.SMTP_PASS;
+  // Vite replaces `import.meta.env.X` statically at build time; for runtime-only
+  // server secrets we read `process.env` directly so Coolify/Docker env vars work.
+  const host = process.env.SMTP_HOST;
+  const user = process.env.SMTP_USER;
+  const pass = process.env.SMTP_PASS;
   if (!host || !user || !pass) return null;
-  const port = Number(import.meta.env.SMTP_PORT) || 587;
-  const secure = String(import.meta.env.SMTP_SECURE ?? '').toLowerCase() === 'true';
+  const port = Number(process.env.SMTP_PORT) || 587;
+  const secure = String(process.env.SMTP_SECURE ?? '').toLowerCase() === 'true';
   cachedTransporter = nodemailer.createTransport({
     host,
     port,
@@ -159,8 +161,8 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
   }
 
   const transporter = getTransporter();
-  const toEmail = import.meta.env.CONTACT_TO_EMAIL || 'benjamin@noessler.at';
-  const fromAddress = import.meta.env.SMTP_USER || toEmail;
+  const toEmail = process.env.CONTACT_TO_EMAIL || 'benjamin@noessler.at';
+  const fromAddress = process.env.SMTP_USER || toEmail;
 
   if (!transporter) {
     if (import.meta.env.DEV) {
