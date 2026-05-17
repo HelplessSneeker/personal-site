@@ -13,6 +13,7 @@ const { locale } = Astro.props;
       <header class="pricing-bundle-header">
         <h2 id="pricing-bundle-heading" class="section-label pricing-bundle-label">{t(locale, 'pricing.proBundle.label')}</h2>
         <p class="pricing-bundle-title">{t(locale, 'pricing.proBundle.title')}</p>
+        <p class="pricing-bundle-tools label-meta">{t(locale, 'pricing.proBundle.tools')}</p>
       </header>
 
       <p class="pricing-bundle-body">{t(locale, 'pricing.proBundle.body')}</p>
@@ -90,6 +91,11 @@ const { locale } = Astro.props;
     color: var(--color-text);
     margin: 0;
     text-wrap: balance;
+  }
+
+  .pricing-bundle-tools {
+    color: var(--color-text-subtle);
+    margin: 0;
   }
 
   .pricing-bundle-body {

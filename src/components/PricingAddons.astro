@@ -11,6 +11,7 @@ const dict = getDict(locale) as unknown as {
     addons: Array<{
       key: string;
       title: string;
+      toolName: string;
       kicker: string;
       description: string;
       setup: string;
@@ -32,7 +33,7 @@ const addons = dict.pricing.addons;
             <span>{String(index + 1).padStart(2, '0')}</span>
             <span class="rule"></span>
           </p>
-          <p class="pricing-addon-kicker label-meta">{addon.kicker}</p>
+          <p class="pricing-addon-tool label-meta">{addon.toolName}</p>
           <h3 class="pricing-addon-title">{addon.title}</h3>
           <p class="pricing-addon-desc">{addon.description}</p>
           <dl class="pricing-addon-prices tabular">
@@ -100,7 +101,11 @@ const addons = dict.pricing.addons;
     background: var(--color-rule);
   }
 
-  .pricing-addon-kicker {
+  /* Tool name tag — was the descriptive kicker before; bfn wanted the
+     use case in the title and the tool name smaller. Same small-caps
+     label-meta voice, slightly accented to distinguish "MIT CAL.COM"
+     from a pure tagline kicker. */
+  .pricing-addon-tool {
     color: var(--color-text-subtle);
     margin: 0;
   }

@@ -40,7 +40,7 @@
   "proof": {
     "ariaLabel": "Eckdaten",
     "items": [
-      "Eigene Infrastruktur in Wien",
+      "Selbst gehostet · EU-Region",
       "Festpreis",
       "DE/EN",
       "DSGVO"
@@ -137,12 +137,12 @@
     "care": {
       "title": "Betrieb & Pflege",
       "kicker": "Nach dem Launch",
-      "description": "Die Seite läuft auf meiner Infrastruktur in Wien weiter — Hosting, Updates, Backups, kleine Änderungen. Ein fester Monatsbetrag, ein Ansprechpartner, jederzeit kündbar. Du musst dich nicht drum kümmern.",
+      "description": "Die Seite läuft auf einer von mir betriebenen Cloud weiter — Hosting, Updates, Backups, kleine Änderungen. Ein fester Monatsbetrag, ein Ansprechpartner, jederzeit kündbar. Du musst dich nicht drum kümmern.",
       "priceAnchor": "ab €49",
       "priceCadence": "/Monat · jederzeit zum Monatsende kündbar",
       "includedLabel": "Inklusive",
       "includedItems": [
-        "Hosting auf eigener Infrastruktur in Wien · SSL · tägliche Backups",
+        "Selbst gehostet auf europäischer Cloud (Hetzner) · SSL · tägliche Backups",
         "Updates und Sicherheits-Patches",
         "Erreichbar bei Problemen — Reaktion innerhalb eines Werktags",
         "Kleine Textänderungen inklusive"
@@ -152,7 +152,7 @@
     "tools": {
       "title": "Digitale Werkzeuge",
       "kicker": "Statt monatlicher Abos",
-      "description": "Buchung, Terminvergabe, Newsletter, Rechnungen — viele Betriebe zahlen dafür monatlich an Drittanbieter oder hohe Provisionen. Ich richte die passenden Open-Source-Werkzeuge ein und betreibe sie auf eigener Infrastruktur. Deine Daten bleiben bei dir.",
+      "description": "Buchung, Terminvergabe, Newsletter, Rechnungen — viele Betriebe zahlen dafür monatlich an Drittanbieter oder hohe Provisionen. Ich richte die passenden Open-Source-Werkzeuge ein und betreibe sie selbst auf europäischer Cloud. Deine Daten bleiben bei dir.",
       "examplesLabel": "Zum Beispiel",
       "examples": [
         "Direktbuchung für Hotels & Pensionen — statt 15–20 % Provision",
@@ -164,7 +164,7 @@
     },
     "fullstack": {
       "title": "Fullstack-Webapps",
-      "description": "Für Vorhaben jenseits einer einzelnen Seite — Webapps, Dashboards, APIs, interne Tools. Sauber gebaut, transparent deployed auf eigener Infrastruktur. Umfang und Preis nach Gespräch."
+      "description": "Für Vorhaben jenseits einer einzelnen Seite — Webapps, Dashboards, APIs, interne Tools. Sauber gebaut, transparent deployed in der EU-Region. Umfang und Preis nach Gespräch."
     }
   },
   "work": {
@@ -223,7 +223,7 @@
     "bodyParagraphs": [
       "Ich helfe kleinen österreichischen Betrieben, online sichtbar zu sein und es zu bleiben: Website neu bauen oder überarbeiten, danach Betrieb und Pflege übernehmen, dazu die digitalen Werkzeuge drumherum — Buchung, Newsletter, Rechnungen. Schwerpunkt: Hotellerie und Gastronomie.",
       "Webapps baue ich seit Jahren in Anstellung und in eigenen Projekten (z. B. <a class=\"inline-link\" href=\"https://github.com/HelplessSneeker/b-cal\" rel=\"noopener external\" target=\"_blank\">b-cal</a>); im Freelance-Bereich starte ich bewusst mit kleinerem Scope und spreche bei größeren Vorhaben den passenden Umfang ab.",
-      "Ich arbeite am liebsten an Dingen, die länger als ein Quartal leben sollen: sauber gebaut, auf eigener Infrastruktur in Wien, mit Werkzeugen, denen ich auch in zwei Jahren noch vertraue. Bei den meisten Projekten bleibe ich nach dem Launch als Ansprechperson dabei."
+      "Ich arbeite am liebsten an Dingen, die länger als ein Quartal leben sollen: sauber gebaut, selbst gehostet und voll von mir verwaltet, mit Werkzeugen, denen ich auch in zwei Jahren noch vertraue. Bei den meisten Projekten bleibe ich nach dem Launch als Ansprechperson dabei."
     ],
     "backToHome": "Zur Startseite",
     "contactCta": "Kontakt aufnehmen"
@@ -318,7 +318,7 @@
     "hero": {
       "kicker": "Pakete & Preise · Stand 16.05.2026",
       "headline": "Eine Website, ein Rechnungs-Stack, ein Wartungs-Versprechen.",
-      "body": "Ein Setup, ein Monatsbetrag, ein Ansprechpartner. Die Website läuft auf eigener Infrastruktur in Wien, die Rechnungen sind EN16931-konform für die ab 2028 in Österreich einsetzende E-Rechnungs-Pflicht. Alle Preise stehen hier offen, ohne Auf-Anfrage-Falle.",
+      "body": "Ein Setup, ein Monatsbetrag, ein Ansprechpartner. Die Website läuft selbst gehostet auf europäischer Cloud-Infrastruktur, die Rechnungen sind EN16931-konform für die ab 2028 in Österreich einsetzende E-Rechnungs-Pflicht. Alle Preise stehen hier offen, ohne Auf-Anfrage-Falle.",
       "metaItems": [
         "Festpreis · keine versteckten Stunden",
         "Kleinunternehmer · ohne USt.",
@@ -328,7 +328,7 @@
     "base": {
       "label": "Base · Was bei jedem Kunden enthalten ist",
       "title": "Website + Invoice Ninja",
-      "description": "Neue Website (Astro, schnell, zweisprachig) und eine selbst gehostete Rechnungs-Lösung mit EN16931-Hybrid-PDF, EPC-QR-Code zum Bezahlen und KU-Klausel. Beides läuft auf eigener Infrastruktur in Wien.",
+      "description": "Neue Website (Astro, schnell, zweisprachig) und eine selbst gehostete Rechnungs-Lösung mit EN16931-Hybrid-PDF, EPC-QR-Code zum Bezahlen und KU-Klausel. Beides läuft auf europäischer Cloud-Infrastruktur (Hetzner), voll von mir verwaltet.",
       "setupLabel": "Setup einmalig",
       "setupItems": [
         { "label": "Website Setup (Konzept, Design, Umsetzung, Launch)", "price": "1.800 €" },
@@ -339,7 +339,7 @@
       "monthlyCadence": "/Monat",
       "includedLabel": "In 89 €/Monat enthalten",
       "includedItems": [
-        "Hosting auf eigener Infrastruktur in Wien · SSL · tägliche Backups",
+        "Selbst gehostet auf europäischer Cloud (Hetzner) · SSL · tägliche Backups",
         "Updates und Sicherheits-Patches für beide Anwendungen",
         "SMTP-Versand für Rechnungen (gepoolt)",
         "1 Support-Ticket pro Monat, Reaktion innerhalb eines Werktags",
@@ -356,7 +356,8 @@
     "addons": [
       {
         "key": "cal",
-        "title": "Cal.com",
+        "title": "Online-Terminbuchung",
+        "toolName": "Mit Cal.com",
         "kicker": "Direktbuchung statt Telefon",
         "description": "Termine, Beratungen, Erstgespräche, Restaurant-Reservierungen. Kunden buchen direkt, dein Kalender ist synchronisiert. Selbst gehostet, keine Drittanbieter-Abos.",
         "setup": "90 €",
@@ -364,17 +365,19 @@
       },
       {
         "key": "umami",
-        "title": "Umami Analytics",
+        "title": "Privacy-Web-Analytics",
+        "toolName": "Mit Umami",
         "kicker": "Statt Google Analytics",
-        "description": "Privacy-friendly Web-Analytics, DSGVO-konform, ohne Cookie-Banner. Du siehst, was auf der Seite passiert, ohne deine Besucher zu tracken.",
+        "description": "DSGVO-konform, ohne Cookie-Banner. Du siehst, was auf der Seite passiert, ohne deine Besucher zu tracken oder ein Banner-Theater zu veranstalten.",
         "setup": "50 €",
         "monthly": "+5 €/Monat"
       },
       {
         "key": "listmonk",
-        "title": "Listmonk Newsletter",
+        "title": "Newsletter-Versand",
+        "toolName": "Mit Listmonk",
         "kicker": "Newsletter ohne Abo-Falle",
-        "description": "Newsletter-Versand für saisonale Aktionen, Stammkunden-Pflege. Selbst gehostet, keine 30-€-pro-5.000-Abonnenten-Falle.",
+        "description": "Versand für saisonale Aktionen und Stammkunden-Pflege. Selbst gehostet, keine 30-€-pro-5.000-Abonnenten-Falle.",
         "setup": "90 €",
         "monthly": "+10 €/Monat"
       }
@@ -382,7 +385,8 @@
     "proBundle": {
       "label": "Pro-Bundle",
       "kicker": "Alle drei Add-ons gemeinsam",
-      "title": "Cal.com + Umami + Listmonk",
+      "title": "Terminbuchung + Analytics + Newsletter",
+      "tools": "Mit Cal.com, Umami und Listmonk",
       "body": "Wenn du alle drei nimmst, geht der Monatsbetrag von 25 € auf 20 €, beim Setup von 230 € auf 200 €. Klein, aber spürbar.",
       "setupSaving": "30 € gespart",
       "monthlySaving": "5 €/Monat gespart",

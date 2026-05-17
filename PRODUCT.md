@@ -40,6 +40,8 @@ Unpacked:
 
 **Voice**: quiet confidence. Nothing defensive ("I'm not like those other developers"), nothing boastful ("trusted by X"). Close to how someone describes their own work at a Heuriger when asked politely — understated, accurate, slightly dry.
 
+**Honest about infrastructure**: the site and client apps currently run on a **Hetzner Cloud VPS in the EU region (Germany)**, not on physical hardware in Vienna. Wien is where bfn lives and works, not where the metal lives. Copy must reflect this — avoid "eigene Hardware", "Server in Wien", "eigene Infrastruktur in Wien" framings; they read as marketing-puff against the rest of the page's direct voice. Honest alternatives: "selbst gehostet", "voll von mir verwaltet", "europäische Cloud-Infrastruktur (Hetzner)", "EU-Region". The sovereignty argument carries via "no SaaS vendor in between, one point of contact" — not via geography. "Wien" stays where it refers to bfn the person (hero kicker, byline, about), gets dropped where it referred to the server's location.
+
 **Emotional goal**: when a prospect lands, they should feel *"this person is calm, thorough, probably reliable, and someone I could keep working with for years."* The "for years" beat is new and important — recurring revenue requires the page to feel like the start of a relationship, not a one-night project. When a peer lands, they should feel *"this was built by someone whose taste I respect."*
 
 ### Aesthetic Direction
