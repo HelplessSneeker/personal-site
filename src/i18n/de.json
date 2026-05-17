@@ -368,7 +368,7 @@
         "title": "Privacy-Web-Analytics",
         "toolName": "Mit Umami",
         "kicker": "Statt Google Analytics",
-        "description": "DSGVO-konform, ohne Cookie-Banner. Du siehst, was auf der Seite passiert, ohne deine Besucher zu tracken oder ein Banner-Theater zu veranstalten.",
+        "description": "Selbst gehostet, DSGVO-freundlich im Standard-Setup. Du siehst, was auf der Seite passiert, ohne deine Besucher persönlich zu identifizieren. Keine Cookies, anonymisierte Aggregate, kein Banner-Theater.",
         "setup": "50 €",
         "monthly": "+5 €/Monat"
       },

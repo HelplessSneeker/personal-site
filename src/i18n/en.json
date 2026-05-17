@@ -368,7 +368,7 @@
         "title": "Privacy web analytics",
         "toolName": "With Umami",
         "kicker": "Instead of Google Analytics",
-        "description": "GDPR-clean, no cookie banner. You see what's happening on the site without tracking your visitors or staging a banner-consent theatre.",
+        "description": "Self-hosted, GDPR-friendly in the default setup. You see what's happening on the site without personally identifying your visitors. No cookies, anonymized aggregates, no consent banner theatre.",
         "setup": "€50",
         "monthly": "+€5/month"
       },
