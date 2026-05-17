@@ -1,0 +1,202 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-05-17T12:00:00Z",
+  "title": "Design System: benjamin.noessler.at",
+  "extensions": {
+    "colorMeta": {
+      "accent-light": {
+        "role": "primary",
+        "displayName": "Fountain-Pen Ink Blue",
+        "canonical": "oklch(34% 0.12 248)",
+        "tonalRamp": [
+          "oklch(15% 0.06 248)",
+          "oklch(22% 0.09 248)",
+          "oklch(27% 0.11 248)",
+          "oklch(34% 0.12 248)",
+          "oklch(45% 0.11 248)",
+          "oklch(58% 0.09 248)",
+          "oklch(78% 0.06 248)",
+          "oklch(93% 0.03 248)"
+        ]
+      },
+      "accent-dark": {
+        "role": "primary",
+        "displayName": "Parchment Blue",
+        "canonical": "oklch(78% 0.12 248)",
+        "tonalRamp": [
+          "oklch(25% 0.05 248)",
+          "oklch(38% 0.08 248)",
+          "oklch(50% 0.10 248)",
+          "oklch(62% 0.11 248)",
+          "oklch(72% 0.12 248)",
+          "oklch(78% 0.12 248)",
+          "oklch(86% 0.10 248)",
+          "oklch(94% 0.05 248)"
+        ]
+      },
+      "bg-light": {
+        "role": "neutral",
+        "displayName": "Warm Off-White",
+        "canonical": "oklch(98.5% 0.004 248)",
+        "tonalRamp": [
+          "oklch(18% 0.015 248)",
+          "oklch(44% 0.012 248)",
+          "oklch(64% 0.012 248)",
+          "oklch(78% 0.010 248)",
+          "oklch(88.5% 0.008 248)",
+          "oklch(92% 0.006 248)",
+          "oklch(96.2% 0.005 248)",
+          "oklch(98.5% 0.004 248)"
+        ]
+      },
+      "bg-dark": {
+        "role": "neutral",
+        "displayName": "Warm Charcoal",
+        "canonical": "oklch(15.5% 0.010 248)",
+        "tonalRamp": [
+          "oklch(13% 0.010 248)",
+          "oklch(15.5% 0.010 248)",
+          "oklch(19% 0.012 248)",
+          "oklch(22% 0.010 248)",
+          "oklch(28% 0.010 248)",
+          "oklch(38% 0.010 248)",
+          "oklch(64% 0.010 248)",
+          "oklch(92% 0.010 248)"
+        ]
+      },
+      "danger-light": {
+        "role": "tertiary",
+        "displayName": "Form-Error Warm Red",
+        "canonical": "oklch(50% 0.180 28)",
+        "tonalRamp": [
+          "oklch(25% 0.10 28)",
+          "oklch(35% 0.14 28)",
+          "oklch(50% 0.180 28)",
+          "oklch(62% 0.16 28)",
+          "oklch(74% 0.140 28)",
+          "oklch(85% 0.08 28)",
+          "oklch(94% 0.04 28)",
+          "oklch(96% 0.025 28)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Hero headline only. Page overture." },
+      "headline": { "displayName": "Headline", "purpose": "Top-level section headings on dedicated pages." },
+      "title": { "displayName": "Title", "purpose": "Article / service titles inside a section." },
+      "body": { "displayName": "Body", "purpose": "Reading text. Fixed size — never clamps with viewport." },
+      "label": { "displayName": "Label / Small-Caps Meta", "purpose": "The .label-meta and .section-label voice — kickers, role labels, dl labels." },
+      "mono": { "displayName": "Commit Mono", "purpose": "Metadata only — years, role tags, stack, kbd, code, the § marker. Never body or headline." }
+    },
+    "shadows": [],
+    "motion": [
+      { "name": "ease-out-quart", "value": "cubic-bezier(0.25, 1, 0.5, 1)", "purpose": "Default easing for state transitions and the scroll-reveal." },
+      { "name": "ease-out-expo", "value": "cubic-bezier(0.16, 1, 0.3, 1)", "purpose": "Reserved for the rare emphasized entrance." },
+      { "name": "duration-fast", "value": "140ms", "purpose": "Hover / focus state transitions." },
+      { "name": "duration-med", "value": "220ms", "purpose": "Slightly more deliberate state changes." },
+      { "name": "scroll-reveal-duration", "value": "560ms", "purpose": "One-shot fade + 14px rise as each section enters viewport." }
+    ],
+    "breakpoints": [
+      { "name": "tablet", "value": "48rem" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The single saturated UI element on most viewports. Solid accent on background-color, page-bg on text. Used for the hero CTA and contact submit.",
+      "html": "<a href=\"#contact\" class=\"ds-btn ds-btn-primary\">Anfrage senden <span aria-hidden=\"true\">→</span></a>",
+      "css": ".ds-btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; padding: 0.75rem 1.5rem; font-family: 'General Sans Variable', ui-sans-serif, system-ui, sans-serif; font-size: 1.0625rem; font-weight: 500; line-height: 1.2; letter-spacing: -0.005em; border-radius: 3px; cursor: pointer; text-decoration: none; min-height: 44px; white-space: nowrap; transition: background-color 140ms cubic-bezier(0.25, 1, 0.5, 1), border-color 140ms cubic-bezier(0.25, 1, 0.5, 1), color 140ms cubic-bezier(0.25, 1, 0.5, 1); } .ds-btn-primary { color: oklch(98.5% 0.004 248); background: oklch(34% 0.12 248); border: 1px solid oklch(34% 0.12 248); } .ds-btn-primary:hover { background: oklch(27% 0.12 248); border-color: oklch(27% 0.12 248); } .ds-btn-primary:focus-visible { outline: 2px solid oklch(34% 0.12 248); outline-offset: 3px; }"
+    },
+    {
+      "name": "Secondary Button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Transparent button with stroked border. Used alongside primary CTA for the lower-friction option (e.g. 'View work').",
+      "html": "<a href=\"#work\" class=\"ds-btn ds-btn-secondary\">Arbeiten ansehen</a>",
+      "css": ".ds-btn-secondary { display: inline-flex; align-items: center; justify-content: center; padding: 0.75rem 1.5rem; font-family: 'General Sans Variable', sans-serif; font-size: 1.0625rem; font-weight: 500; color: oklch(18% 0.015 248); background: transparent; border: 1px solid oklch(78% 0.010 248); border-radius: 3px; min-height: 44px; text-decoration: none; transition: border-color 140ms, color 140ms; } .ds-btn-secondary:hover { border-color: oklch(34% 0.12 248); color: oklch(34% 0.12 248); } .ds-btn-secondary:focus-visible { outline: 2px solid oklch(34% 0.12 248); outline-offset: 3px; }"
+    },
+    {
+      "name": "Section Label",
+      "kind": "custom",
+      "refersTo": "section-label",
+      "description": "The recurring editorial signature. Small-caps heading prefixed with a § glyph in the accent color. Used at the top of every section.",
+      "html": "<h2 class=\"ds-section-label\">Services</h2>",
+      "css": ".ds-section-label { display: inline-block; font-family: 'General Sans Variable', sans-serif; font-size: 0.875rem; font-weight: 500; font-variant-caps: all-small-caps; letter-spacing: 0.06em; color: oklch(50% 0.012 248); margin: 0 0 1.5rem 0; } .ds-section-label::before { content: '§\\00a0 '; color: oklch(34% 0.12 248); font-weight: 500; }"
+    },
+    {
+      "name": "Availability Pill",
+      "kind": "custom",
+      "description": "Calm-signal element used in hero meta panel and footer. Communicates booking availability without sales-push framing.",
+      "html": "<span class=\"ds-availability\"><span class=\"ds-availability-dot\" aria-hidden=\"true\"></span> Verfügbar ab Juni 2026</span>",
+      "css": ".ds-availability { display: inline-flex; align-items: center; gap: 0.5rem; font-family: 'General Sans Variable', sans-serif; font-size: 0.875rem; font-weight: 500; font-variant-caps: all-small-caps; letter-spacing: 0.06em; color: oklch(18% 0.015 248); } .ds-availability-dot { display: inline-block; width: 0.5rem; height: 0.5rem; border-radius: 50%; background: oklch(34% 0.12 248); flex-shrink: 0; }"
+    },
+    {
+      "name": "Service Entry",
+      "kind": "custom",
+      "description": "Numbered editorial entry — the Services section's distinctive pattern. Leading mono numeral with a horizontal rule, kicker, title, description, price callout, and included/excluded lists. Specifically not bordered or boxed.",
+      "html": "<article class=\"ds-service\"><p class=\"ds-service-index\" aria-hidden=\"true\"><span>01</span><span class=\"ds-rule\"></span></p><p class=\"ds-service-kicker\">Website-Redesign</p><h3 class=\"ds-service-title\">Eine Landingpage, die wirklich verkauft</h3><p class=\"ds-service-desc\">Fixpreis ab €500. Inkl. Briefing, Design, Entwicklung und Launch.</p></article>",
+      "css": ".ds-service { display: flex; flex-direction: column; gap: 1rem; } .ds-service-index { display: flex; align-items: center; gap: 0.75rem; font-family: 'Commit Mono', monospace; font-size: 0.875rem; color: oklch(50% 0.012 248); margin: 0; font-feature-settings: 'tnum'; } .ds-rule { flex: 1; height: 1px; background: oklch(92% 0.006 248); } .ds-service-kicker { font-family: 'General Sans Variable', sans-serif; font-size: 0.875rem; font-weight: 500; font-variant-caps: all-small-caps; letter-spacing: 0.06em; color: oklch(50% 0.012 248); margin: 0; } .ds-service-title { font-family: 'General Sans Variable', sans-serif; font-size: 1.375rem; font-weight: 500; line-height: 1.25; letter-spacing: -0.015em; color: oklch(18% 0.015 248); margin: 0; } .ds-service-desc { font-family: 'General Sans Variable', sans-serif; font-size: 1.0625rem; line-height: 1.55; color: oklch(18% 0.015 248); margin: 0; max-width: 38rem; }"
+    },
+    {
+      "name": "Editorial Link",
+      "kind": "custom",
+      "description": "Inline link treatment. Underline tinted at 25% accent, never the full color. The underline goes full-contrast on hover.",
+      "html": "<p>Mehr dazu in der <a class=\"ds-link\" href=\"#\">Case Study zu Vordermann</a>.</p>",
+      "css": ".ds-link { color: oklch(34% 0.12 248); text-decoration: underline; text-decoration-color: color-mix(in oklab, oklch(34% 0.12 248) 25%, transparent); text-underline-offset: 0.18em; text-decoration-thickness: 1px; transition: color 140ms, text-decoration-color 140ms; } .ds-link:hover { color: oklch(27% 0.12 248); text-decoration-color: currentColor; } .ds-link:focus-visible { outline: 2px solid oklch(34% 0.12 248); outline-offset: 3px; border-radius: 3px; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "An engineer's notebook crossed with a Viennese craftsman's business card.",
+    "overview": "A self-hosted personal site for an Austrian freelance developer whose primary offer is recurring hosting & care for small-business landing pages. Every choice must read as calm, precise, trustworthy — the visual layer of an engagement that's meant to last years, not a one-night project. European editorial sensibility, not Silicon-Valley dev-portfolio. The page rewards skim readers and survives a peer's close inspection. The system rejects three nearby aesthetic families: agency-flashy, corporate consultancy bland, and generic dev portfolio. The Geist + Geist Mono pairing was specifically rejected for becoming the AI-template default; General Sans Variable + Commit Mono carries the same precision with European warmth.",
+    "keyCharacteristics": [
+      "Typographic-first — hierarchy is type weight, size, tracking, and mono treatment, almost never color or shadow.",
+      "Asymmetric where content earns it; centering is the safe default rejected on purpose.",
+      "Three named section-rhythm modes (default / continued / pause).",
+      "Metadata-as-craft — small mono labels signal 'labelled by someone who notices details.'",
+      "Both themes deliberately tuned; dark is not an inverse of light.",
+      "Recurring-relationship voice — Hosting & Care leads; one-shot project is the entry point."
+    ],
+    "rules": [
+      { "name": "The Ink-Blue Rule", "body": "The accent appears on ≤10% of any given viewport. Its rarity is the signal. Every additional use weakens the previous one.", "section": "colors" },
+      { "name": "The No-Pure Rule", "body": "No #000, no #fff. Every neutral is tinted toward 248° at chroma 0.004–0.015. Pure black or pure white is a bug.", "section": "colors" },
+      { "name": "The Selection Rule", "body": "::selection inverts to the accent. Tiny detail, deliberate.", "section": "colors" },
+      { "name": "The Mono-as-Metadata Rule", "body": "Mono never carries body copy or headlines. It carries metadata: project years, role labels, stack tags, kbd, code, the § marker.", "section": "typography" },
+      { "name": "The Section-Marker Rule", "body": "section-label always prefixes with § in the accent color. The page's recurring editorial signature.", "section": "typography" },
+      { "name": "The Tracking-by-Size Rule", "body": "Heading tracking forms a graded scale tighter as size grows. Do not tweak per-instance.", "section": "typography" },
+      { "name": "The Balance + Pretty Rule", "body": "Headings use text-wrap: balance. Body and list items use text-wrap: pretty.", "section": "typography" },
+      { "name": "The No-Shadow Rule", "body": "Box-shadow is forbidden as a decorative or hierarchical signal. Depth is tonal layering plus 1px rules.", "section": "elevation" },
+      { "name": "The Section-Rhythm Rule", "body": "Three modes — default 6rem, continued 3rem, pause 8rem. Every section picks one; exceptions carry a comment naming the reason.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do use OKLCH for every color. Hex is forbidden in the source.",
+      "Do carry one ink-blue hue (248°) across accent + every neutral.",
+      "Do let typography carry the design before reaching for color, gradient, or shadow.",
+      "Do label every section with the § small-caps section-label pattern.",
+      "Do break the grid intentionally in one or two places per page; don't break it everywhere.",
+      "Do use text-wrap: balance on headings, text-wrap: pretty on body and lists.",
+      "Do use tabular figures (tnum) wherever mono touches numerics.",
+      "Do respect prefers-reduced-motion rigorously.",
+      "Do keep the page-load orchestration restrained — one stagger sequence, ~400–600ms, ease-out-quart.",
+      "Do use --color-rule (the lightest border) for section dividers."
+    ],
+    "donts": [
+      "Don't use #000 or #fff anywhere.",
+      "Don't use border-left or border-right greater than 1px as a colored accent stripe.",
+      "Don't use gradient text. Solid colors only, ever.",
+      "Don't introduce glassmorphism, glow, neon, or animated gradient.",
+      "Don't place an icon above every heading.",
+      "Don't build card grids of icon + heading + text.",
+      "Don't write a hero subtitle that restates the headline.",
+      "Don't use modals where a dedicated page or inline disclosure would do.",
+      "Don't use em dashes in any new UI copy.",
+      "Don't add a 'trusted by' logo wall or friend-network testimonials.",
+      "Don't scroll-jack, parallax, or animate on scroll progress beyond the existing one-shot fade-in.",
+      "Don't add a CSS framework.",
+      "Don't transition layout properties. Only transform and opacity.",
+      "Don't introduce a third font. Two families is the ceiling.",
+      "Don't add a third-party CAPTCHA."
+    ]
+  }
+}
