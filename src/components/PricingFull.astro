@@ -1,0 +1,122 @@
+---
+import { t, type Locale } from '../i18n/util';
+
+export interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+---
+<section class="section pricing-full" aria-labelledby="pricing-full-heading">
+  <div class="container">
+    <h2 id="pricing-full-heading" class="section-label">{t(locale, 'pricing.fullPackage.label')}</h2>
+
+    <article class="pricing-full-row">
+      <div class="pricing-full-text">
+        <h3 class="pricing-full-title">{t(locale, 'pricing.fullPackage.title')}</h3>
+        <p class="pricing-full-body">{t(locale, 'pricing.fullPackage.body')}</p>
+      </div>
+
+      <dl class="pricing-full-prices tabular">
+        <div class="pricing-full-price-row">
+          <dt class="label-meta">{t(locale, 'pricing.fullPackage.setupLabel')}</dt>
+          <dd>{t(locale, 'pricing.fullPackage.setup')}</dd>
+        </div>
+        <div class="pricing-full-price-row">
+          <dt class="label-meta">Wartung</dt>
+          <dd>{t(locale, 'pricing.fullPackage.monthly')}<span class="pricing-full-cadence">{t(locale, 'pricing.fullPackage.monthlyCadence')}</span></dd>
+        </div>
+      </dl>
+    </article>
+  </div>
+</section>
+
+<style>
+  .pricing-full {
+    padding-block: var(--space-7);
+  }
+  @media (min-width: 48rem) {
+    .pricing-full {
+      padding-block: var(--space-8);
+    }
+  }
+
+  .pricing-full-row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-5);
+    align-items: end;
+  }
+  @media (min-width: 48rem) {
+    .pricing-full-row {
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+      gap: var(--space-7);
+    }
+  }
+
+  .pricing-full-text {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+
+  .pricing-full-title {
+    font-size: var(--fs-lg);
+    line-height: var(--lh-snug);
+    letter-spacing: var(--tracking-heading-lg);
+    margin: 0;
+    text-wrap: balance;
+  }
+
+  .pricing-full-body {
+    font-size: var(--fs-md);
+    line-height: var(--lh-normal);
+    color: var(--color-text-muted);
+    margin: 0;
+    max-width: 52ch;
+    text-wrap: pretty;
+  }
+
+  .pricing-full-prices {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    padding-top: var(--space-4);
+    border-top: 1px solid var(--color-rule);
+    margin: 0;
+  }
+  @media (min-width: 48rem) {
+    .pricing-full-prices {
+      padding-top: 0;
+      border-top: none;
+    }
+  }
+
+  .pricing-full-price-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: var(--space-3);
+  }
+
+  .pricing-full-price-row dt {
+    color: var(--color-text-subtle);
+    margin: 0;
+  }
+
+  .pricing-full-price-row dd {
+    font-family: var(--font-mono);
+    font-feature-settings: var(--font-features-mono);
+    font-size: var(--fs-lg);
+    font-weight: var(--weight-medium);
+    color: var(--color-text);
+    margin: 0;
+    white-space: nowrap;
+  }
+
+  .pricing-full-cadence {
+    font-size: 0.6em;
+    color: var(--color-text-muted);
+    margin-inline-start: 0.1em;
+  }
+</style>

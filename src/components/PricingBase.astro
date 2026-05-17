@@ -1,0 +1,235 @@
+---
+import { t, tArray, getDict, type Locale } from '../i18n/util';
+
+export interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const dict = getDict(locale) as unknown as {
+  pricing: {
+    base: {
+      setupItems: Array<{ label: string; price: string }>;
+    };
+  };
+};
+const setupItems = dict.pricing.base.setupItems;
+const includedItems = tArray(locale, 'pricing.base.includedItems');
+---
+<section class="section pricing-base" id="base" aria-labelledby="pricing-base-heading">
+  <div class="container">
+    <h2 id="pricing-base-heading" class="section-label">{t(locale, 'pricing.base.label')}</h2>
+
+    <article class="pricing-base-card">
+      <header class="pricing-base-header">
+        <h3 class="pricing-base-title">{t(locale, 'pricing.base.title')}</h3>
+        <p class="pricing-base-desc">{t(locale, 'pricing.base.description')}</p>
+      </header>
+
+      <div class="pricing-base-grid">
+        <div class="pricing-base-setup">
+          <p class="pricing-base-setup-label label-meta">{t(locale, 'pricing.base.setupLabel')}</p>
+          <dl class="pricing-base-setup-list tabular">
+            {setupItems.map((item) => (
+              <div class="pricing-base-setup-row">
+                <dt>{item.label}</dt>
+                <dd>{item.price}</dd>
+              </div>
+            ))}
+          </dl>
+        </div>
+
+        <div class="pricing-base-monthly">
+          <p class="pricing-base-monthly-label label-meta">{t(locale, 'pricing.base.monthlyLabel')}</p>
+          <p class="pricing-base-monthly-callout tabular" aria-hidden="true">
+            <span class="pricing-base-monthly-num">{t(locale, 'pricing.base.monthlyPrice')}</span><span class="pricing-base-monthly-cadence">{t(locale, 'pricing.base.monthlyCadence')}</span>
+          </p>
+          <p class="visually-hidden">{t(locale, 'pricing.base.monthlyPrice')} {t(locale, 'pricing.base.monthlyCadence')}</p>
+        </div>
+      </div>
+
+      <div class="pricing-base-included">
+        <p class="pricing-base-included-label label-meta">{t(locale, 'pricing.base.includedLabel')}</p>
+        <ul class="pricing-base-included-items">
+          {includedItems.map((item) => <li>{item}</li>)}
+        </ul>
+      </div>
+
+      <aside class="pricing-base-standalone">
+        <p class="pricing-base-standalone-label label-meta">{t(locale, 'pricing.base.standaloneLabel')}</p>
+        <p class="pricing-base-standalone-body">{t(locale, 'pricing.base.standaloneBody')}</p>
+      </aside>
+    </article>
+  </div>
+</section>
+
+<style>
+  .pricing-base {
+    padding-block: var(--space-7);
+  }
+  @media (min-width: 48rem) {
+    .pricing-base {
+      padding-block: var(--space-8);
+    }
+  }
+
+  .pricing-base-card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+    min-width: 0;
+  }
+
+  .pricing-base-header {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+
+  .pricing-base-title {
+    font-size: var(--fs-xl);
+    line-height: var(--lh-tight);
+    letter-spacing: var(--tracking-heading-xl);
+    margin: 0;
+    text-wrap: balance;
+  }
+
+  .pricing-base-desc {
+    font-size: var(--fs-md);
+    line-height: var(--lh-normal);
+    color: var(--color-text);
+    margin: 0;
+    max-width: 60ch;
+    text-wrap: pretty;
+  }
+
+  .pricing-base-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-5);
+    padding-block: var(--space-5);
+    border-top: 1px solid var(--color-rule);
+    border-bottom: 1px solid var(--color-rule);
+  }
+  @media (min-width: 48rem) {
+    .pricing-base-grid {
+      grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
+      gap: var(--space-7);
+      align-items: start;
+    }
+  }
+
+  .pricing-base-setup-label,
+  .pricing-base-monthly-label,
+  .pricing-base-included-label,
+  .pricing-base-standalone-label {
+    color: var(--color-text-subtle);
+    margin: 0 0 var(--space-3) 0;
+  }
+
+  .pricing-base-setup-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    margin: 0;
+  }
+
+  .pricing-base-setup-row {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: var(--space-3);
+    align-items: baseline;
+    padding-block-end: var(--space-3);
+    border-bottom: 1px dotted var(--color-rule);
+  }
+  .pricing-base-setup-row:last-child {
+    border-bottom: none;
+    padding-block-end: 0;
+  }
+
+  .pricing-base-setup-row dt {
+    font-size: var(--fs-md);
+    line-height: var(--lh-snug);
+    color: var(--color-text);
+    margin: 0;
+    max-width: 32ch;
+    text-wrap: pretty;
+  }
+
+  .pricing-base-setup-row dd {
+    font-family: var(--font-mono);
+    font-feature-settings: var(--font-features-mono);
+    font-size: var(--fs-md);
+    font-weight: var(--weight-medium);
+    color: var(--color-text);
+    margin: 0;
+    white-space: nowrap;
+  }
+
+  .pricing-base-monthly-callout {
+    display: flex;
+    align-items: baseline;
+    gap: var(--space-1);
+    font-family: var(--font-sans);
+    margin: 0;
+    line-height: 1;
+  }
+
+  .pricing-base-monthly-num {
+    font-size: clamp(2.5rem, 2rem + 2vw, 3.5rem);
+    font-weight: var(--weight-medium);
+    letter-spacing: var(--tracking-display);
+    color: var(--color-text);
+  }
+
+  .pricing-base-monthly-cadence {
+    font-size: var(--fs-md);
+    font-weight: var(--weight-body);
+    color: var(--color-text-muted);
+  }
+
+  .pricing-base-included-items {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    max-width: 56ch;
+  }
+
+  .pricing-base-included-items li {
+    position: relative;
+    padding-inline-start: var(--space-5);
+    font-size: var(--fs-md);
+    line-height: var(--lh-normal);
+    color: var(--color-text);
+    text-wrap: pretty;
+  }
+
+  .pricing-base-included-items li::before {
+    content: '✓';
+    position: absolute;
+    inset-inline-start: 0;
+    top: 0.1em;
+    color: var(--color-accent);
+    font-weight: var(--weight-medium);
+    font-size: 0.9em;
+  }
+
+  .pricing-base-standalone {
+    margin-top: var(--space-2);
+    padding: var(--space-4) var(--space-5);
+    background: var(--color-surface);
+    border-radius: var(--radius-sm);
+  }
+
+  .pricing-base-standalone-body {
+    font-size: var(--fs-sm);
+    line-height: var(--lh-normal);
+    color: var(--color-text-muted);
+    margin: 0;
+    max-width: 64ch;
+    text-wrap: pretty;
+  }
+</style>

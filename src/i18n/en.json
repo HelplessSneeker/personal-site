@@ -16,6 +16,7 @@
     "pageNavigation": "Page sections",
     "skipToContent": "Skip to content",
     "services": "Services",
+    "pricing": "Pricing",
     "work": "Work",
     "about": "About",
     "contact": "Contact"
@@ -102,6 +103,9 @@
     "label": "Services",
     "intro": "I build websites for small businesses — and take care of what comes after. Plus the digital tools around it: booking, newsletter, invoicing. Often for hotels, guesthouses and restaurants.",
     "taxNote": "All prices VAT-exempt — Austrian small-business scheme (§6(1)(27) UStG); no VAT is added.",
+    "detailsCta": "All packages and prices in detail",
+    "detailsCtaAria": "Go to pricing page",
+    "ongoingNote": "On most projects I stay on as point of contact after launch. Hosting and care from a single source, we keep working, not just deliver and disappear.",
     "extensionLabel": "Also available",
     "website": {
       "title": "Website",
@@ -306,6 +310,114 @@
       "email": "Email",
       "projectType": "Project type",
       "message": "Message"
+    }
+  },
+  "pricing": {
+    "metaTitle": "Packages & Pricing — Benjamin Nößler",
+    "metaDescription": "Hybrid bundle for Austrian SMBs: website plus self-hosted Invoice Ninja with EN16931 hybrid PDF, monthly care, modular add-ons. All prices transparent.",
+    "hero": {
+      "kicker": "Packages & Pricing · As of 2026-05-16",
+      "headline": "One website, one billing stack, one care arrangement.",
+      "body": "One setup, one monthly fee, one point of contact. The site runs on my own Vienna infrastructure; invoices are EN16931 hybrid PDFs, ready for the Austrian B2B e-invoicing rule coming in 2028. Every number is on this page, no on-request hide.",
+      "metaItems": [
+        "Fixed price · no hidden hours",
+        "VAT-exempt small business",
+        "Cancellable monthly"
+      ]
+    },
+    "base": {
+      "label": "Base · what every client gets",
+      "title": "Website + Invoice Ninja",
+      "description": "A new website (Astro, fast, bilingual) plus a self-hosted billing stack with EN16931 hybrid PDF, EPC QR for SEPA payment, and the Austrian small-business VAT clause built in. Both run on my own infrastructure in Vienna.",
+      "setupLabel": "One-time setup",
+      "setupItems": [
+        { "label": "Website setup (concept, design, build, launch)", "price": "€1,800" },
+        { "label": "Invoice Ninja setup (EN16931 + EPC-QR + VAT clause + branding)", "price": "€390" }
+      ],
+      "monthlyLabel": "Care & hosting",
+      "monthlyPrice": "€89",
+      "monthlyCadence": "/month",
+      "includedLabel": "Included in €89/month",
+      "includedItems": [
+        "Hosting on own infrastructure in Vienna · SSL · daily backups",
+        "Updates and security patches for both apps",
+        "SMTP relay for invoice sends (pooled)",
+        "One support ticket per month, reply within one business day",
+        "Uptime monitoring",
+        "Small text and image edits on the website included"
+      ],
+      "standaloneLabel": "Existing-site clients",
+      "standaloneBody": "Invoice Ninja hosting only, no website build: €390 setup + €49/month. Useful when your site already lives somewhere and you just need the invoicing compliance."
+    },
+    "addonsSection": {
+      "label": "Add-ons · subscribe any time",
+      "intro": "Three modules I run on the same infrastructure. Each has a clear purpose and a clear price. Take only what you need."
+    },
+    "addons": [
+      {
+        "key": "cal",
+        "title": "Cal.com",
+        "kicker": "Direct booking instead of phone tag",
+        "description": "Appointments, consultations, intro calls, restaurant reservations. Clients book directly, your calendar stays in sync. Self-hosted, no third-party subscriptions.",
+        "setup": "€90",
+        "monthly": "+€10/month"
+      },
+      {
+        "key": "umami",
+        "title": "Umami Analytics",
+        "kicker": "Instead of Google Analytics",
+        "description": "Privacy-friendly web analytics, GDPR-clean, no cookie banner. You see what's happening without tracking your visitors.",
+        "setup": "€50",
+        "monthly": "+€5/month"
+      },
+      {
+        "key": "listmonk",
+        "title": "Listmonk newsletter",
+        "kicker": "Newsletter, no SaaS trap",
+        "description": "Newsletter sending for seasonal campaigns and customer retention. Self-hosted, no €30-per-5k-subscribers gotcha.",
+        "setup": "€90",
+        "monthly": "+€10/month"
+      }
+    ],
+    "proBundle": {
+      "label": "Pro bundle",
+      "kicker": "All three add-ons together",
+      "title": "Cal.com + Umami + Listmonk",
+      "body": "Take all three and the monthly drops from €25 to €20; setup from €230 to €200. Small, but real.",
+      "setupSaving": "€30 saved",
+      "monthlySaving": "€5/month saved",
+      "monthly": "+€20",
+      "monthlyCadence": "/month",
+      "setup": "€200"
+    },
+    "fullPackage": {
+      "label": "Full package",
+      "title": "Base + Pro bundle",
+      "body": "Website + Invoice Ninja + all three add-ons. The most common path for clients who'd rather not piece it together.",
+      "setup": "€2,390",
+      "setupLabel": "One-time setup",
+      "monthly": "€109",
+      "monthlyCadence": "/month"
+    },
+    "hourly": {
+      "label": "Extensions billed hourly",
+      "title": "€60/hour",
+      "body": "Bigger changes, new features, custom work, billed in 15-minute increments. Hourly rate for existing clients on an active care plan."
+    },
+    "domain": {
+      "label": "Domain",
+      "title": "Your domain stays yours.",
+      "body": "You own the domain, I just manage it. So you're never locked in, when the relationship ends your business has immediate full access again. If you don't have a domain yet, I'll handle the registration for you (€50 one-time, then around €12/year direct to the registrar)."
+    },
+    "taxNote": "All prices VAT-exempt, Austrian small-business rule §6 (1) Z 27 UStG. No VAT added.",
+    "booking": {
+      "kicker": "30 minutes, free",
+      "title": "Let's talk briefly.",
+      "body": "I'll be honest about whether I'm the right fit. If not, I'll point you to someone who is. Both come free.",
+      "ctaLabel": "Book a call",
+      "ctaUrl": "https://cal.com/bfnoessler/30min",
+      "fallbackLabel": "Prefer email?",
+      "fallbackEmail": "benjamin@noessler.at"
     }
   }
 }

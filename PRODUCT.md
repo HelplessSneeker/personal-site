@@ -7,13 +7,26 @@
 1. **SMB prospects (primary)** — Austrian and German small-business owners (a physiotherapy practice owner, a local trade business, the person behind scanzy.at) evaluating Benjamin for a landing-page redesign that comes with ongoing hosting & maintenance. They're not buying a one-shot project — they're buying a relationship and a single point of contact who handles the whole stack so they don't have to. They're not reading for stack credibility — they're reading for *"does this person seem like they'd actually finish the job, not ghost me, and still be there in two years to update it."* Likely viewing on a phone, likely skimming, likely suspicious of web-designer fluff and of subscriptions that feel like SaaS lock-in.
 2. **Engineers, recruiters, technical peers (secondary)** — people who open the site after seeing Benjamin's name on GitHub, LinkedIn, or a referral. They look for: stack taste, architectural judgement, how the site itself is built, whether the person sounds like someone they'd want on a team. The page must still survive their gaze, but it should not contort itself to lead with stack-credibility signals at the expense of the SMB conversion.
 
-**Positioning posture (explicit)**: lead with the recurring relationship, not the one-shot project. Hosting & Betrieb is the *headline offer*, the landing-page redesign is how that relationship begins. The €120/Monat tier is intentionally first because it names the long-term shape of the engagement; ab €500 fixed-price is the entry point into it. Reframe wording so this reads as *"one point of contact, predictable monthly cost, you don't have to think about your site again"* — never as "subscription as gatekeeper" or generic SaaS lock-in.
+**Positioning posture (explicit)**: lead with the recurring relationship, not the one-shot project. Hosting & Betrieb is the *headline offer*, the landing-page redesign is how that relationship begins. Canonical Phase-1 storefront-bundle (per `primus-sb/wiki/firma/angebote.md`, Stand 16.05.2026):
+
+- **Base — Website + Invoice Ninja**: 1.800 € Setup (Website) + 390 € Setup (Invoice Ninja with EN16931 + EPC-QR + KU-Klausel) + **89 €/Monat** Wartung & Hosting.
+- **Add-ons** (jederzeit zubuchbar): Cal.com (+10 €/M), Umami Analytics (+5 €/M), Listmonk Newsletter (+10 €/M). Setups einmalig 50–90 €.
+- **Pro-Bundle** (alle drei Add-ons gemeinsam): **+20 €/Monat** statt 25 — der Anker, der die Bundle-Decision triggert.
+- **Vollpaket** (Base + Pro-Bundle): 2.390 € Setup + **109 €/Monat**.
+- **Standalone option**: nur Invoice Ninja Hosting ohne Website-Setup → 49 €/Monat. Existiert für Bestandskunden, ist NICHT die Headline.
+- **Stundensatz** für Erweiterungen: 60 €/h.
+
+Reframe wording so this reads as *"one point of contact, predictable monthly cost, you don't have to think about your site again"* — never as "subscription as gatekeeper" or generic SaaS lock-in. Invoice Ninja with EN16931-Hybrid-PDF is a real B2B differentiator (e-invoicing pflicht is incoming), not a side-feature; treat it as load-bearing in the pitch.
 
 **Context of use**: Daylight, mixed devices, low attention. No one is here for a tour — they want to decide in under 90 seconds whether to keep reading, bookmark, or send the inquiry form. The site must reward skimmers *and* survive close inspection.
 
 **Job to be done**:
 - Prospects (primary): "Will this person redesign my site, then keep it running so I don't have to think about it — and how much will that cost me per month?"
 - Peers (secondary): "Who is this, what do they actually build, and is the work interesting?"
+
+**Source of truth for pricing, scope, and offer composition**: `primus-sb/wiki/firma/angebote.md` and `primus-sb/wiki/firma/strategie.md`. If this file conflicts with the wiki, the wiki wins. Mirror wiki updates here when they affect site copy or IA.
+
+**IA implication**: the canonical Phase-1 deliverable per `wiki/firma/strategie.md` is a **dedicated Bundle-Pricing-Page** (`/preise` DE, `/en/pricing` EN) that contains Base-Card, Add-on-Cards, Pro-Bundle-Card, Trust-Block and Cal.com-Booking. The homepage Services section is the overview/teaser, not the full pricing surface. Phase-2 outreach (cold agency mails, warm-referral pitches) needs a linkable pricing URL that stands alone out-of-context — anchor-link on homepage is too weak.
 
 ### Brand Personality
 

@@ -16,6 +16,7 @@
     "pageNavigation": "Seitennavigation",
     "skipToContent": "Zum Inhalt springen",
     "services": "Leistungen",
+    "pricing": "Preise",
     "work": "Arbeiten",
     "about": "Über",
     "contact": "Kontakt"
@@ -102,6 +103,9 @@
     "label": "Leistungen",
     "intro": "Ich baue Websites für kleine Betriebe — und übernehme, was danach kommt. Dazu die digitalen Werkzeuge drumherum: Buchung, Newsletter, Rechnungen. Besonders oft für Hotels, Pensionen und Gastronomie.",
     "taxNote": "Alle Preise umsatzsteuerbefreit — Kleinunternehmer gemäß §6 Abs. 1 Z 27 UStG; es kommt keine USt. dazu.",
+    "detailsCta": "Alle Preise und Pakete im Detail",
+    "detailsCtaAria": "Zur Preisübersicht",
+    "ongoingNote": "Bei den meisten Aufträgen bleibe ich nach dem Launch als Ansprechperson dabei. Hosting und Pflege aus einer Hand — wir arbeiten weiter, nicht nur einmal.",
     "extensionLabel": "Auch möglich",
     "website": {
       "title": "Website",
@@ -306,6 +310,114 @@
       "email": "E-Mail",
       "projectType": "Projekttyp",
       "message": "Nachricht"
+    }
+  },
+  "pricing": {
+    "metaTitle": "Pakete & Preise — Benjamin Nößler",
+    "metaDescription": "Hybrid-Bundle für österreichische KMU: Website + Invoice Ninja mit EN16931-Hybrid-PDF, monatliche Wartung, modulare Add-ons. Alle Preise transparent.",
+    "hero": {
+      "kicker": "Pakete & Preise · Stand 16.05.2026",
+      "headline": "Eine Website, ein Rechnungs-Stack, ein Wartungs-Versprechen.",
+      "body": "Ein Setup, ein Monatsbetrag, ein Ansprechpartner. Die Website läuft auf eigener Infrastruktur in Wien, die Rechnungen sind EN16931-konform für die ab 2028 in Österreich einsetzende E-Rechnungs-Pflicht. Alle Preise stehen hier offen, ohne Auf-Anfrage-Falle.",
+      "metaItems": [
+        "Festpreis · keine versteckten Stunden",
+        "Kleinunternehmer · ohne USt.",
+        "Monatlich kündbar"
+      ]
+    },
+    "base": {
+      "label": "Base · Was bei jedem Kunden enthalten ist",
+      "title": "Website + Invoice Ninja",
+      "description": "Neue Website (Astro, schnell, zweisprachig) und eine selbst gehostete Rechnungs-Lösung mit EN16931-Hybrid-PDF, EPC-QR-Code zum Bezahlen und KU-Klausel. Beides läuft auf eigener Infrastruktur in Wien.",
+      "setupLabel": "Setup einmalig",
+      "setupItems": [
+        { "label": "Website Setup (Konzept, Design, Umsetzung, Launch)", "price": "1.800 €" },
+        { "label": "Invoice Ninja Setup (EN16931 + EPC-QR + KU-Klausel + Branding)", "price": "390 €" }
+      ],
+      "monthlyLabel": "Wartung & Hosting",
+      "monthlyPrice": "89 €",
+      "monthlyCadence": "/Monat",
+      "includedLabel": "In 89 €/Monat enthalten",
+      "includedItems": [
+        "Hosting auf eigener Infrastruktur in Wien · SSL · tägliche Backups",
+        "Updates und Sicherheits-Patches für beide Anwendungen",
+        "SMTP-Versand für Rechnungen (gepoolt)",
+        "1 Support-Ticket pro Monat, Reaktion innerhalb eines Werktags",
+        "Uptime-Monitoring",
+        "Kleine Text- und Bildänderungen auf der Website inklusive"
+      ],
+      "standaloneLabel": "Für Bestandskunden",
+      "standaloneBody": "Nur Invoice Ninja, ohne Website-Setup: 390 € Setup + 49 €/Monat. Sinnvoll, wenn deine Seite schon irgendwo läuft und du nur die Rechnungs-Compliance brauchst."
+    },
+    "addonsSection": {
+      "label": "Add-ons · jederzeit zubuchbar",
+      "intro": "Drei Module, die ich auf derselben Infrastruktur betreibe. Jedes hat einen klaren Zweck und einen klaren Preis. Du nimmst nur, was du brauchst."
+    },
+    "addons": [
+      {
+        "key": "cal",
+        "title": "Cal.com",
+        "kicker": "Direktbuchung statt Telefon",
+        "description": "Termine, Beratungen, Erstgespräche, Restaurant-Reservierungen. Kunden buchen direkt, dein Kalender ist synchronisiert. Selbst gehostet, keine Drittanbieter-Abos.",
+        "setup": "90 €",
+        "monthly": "+10 €/Monat"
+      },
+      {
+        "key": "umami",
+        "title": "Umami Analytics",
+        "kicker": "Statt Google Analytics",
+        "description": "Privacy-friendly Web-Analytics, DSGVO-konform, ohne Cookie-Banner. Du siehst, was auf der Seite passiert, ohne deine Besucher zu tracken.",
+        "setup": "50 €",
+        "monthly": "+5 €/Monat"
+      },
+      {
+        "key": "listmonk",
+        "title": "Listmonk Newsletter",
+        "kicker": "Newsletter ohne Abo-Falle",
+        "description": "Newsletter-Versand für saisonale Aktionen, Stammkunden-Pflege. Selbst gehostet, keine 30-€-pro-5.000-Abonnenten-Falle.",
+        "setup": "90 €",
+        "monthly": "+10 €/Monat"
+      }
+    ],
+    "proBundle": {
+      "label": "Pro-Bundle",
+      "kicker": "Alle drei Add-ons gemeinsam",
+      "title": "Cal.com + Umami + Listmonk",
+      "body": "Wenn du alle drei nimmst, geht der Monatsbetrag von 25 € auf 20 €, beim Setup von 230 € auf 200 €. Klein, aber spürbar.",
+      "setupSaving": "30 € gespart",
+      "monthlySaving": "5 €/Monat gespart",
+      "monthly": "+20 €",
+      "monthlyCadence": "/Monat",
+      "setup": "200 €"
+    },
+    "fullPackage": {
+      "label": "Vollpaket",
+      "title": "Base + Pro-Bundle",
+      "body": "Website + Invoice Ninja + alle drei Add-ons. Der häufigste Pfad für Betriebe, die nicht stückeln wollen.",
+      "setup": "2.390 €",
+      "setupLabel": "Setup einmalig",
+      "monthly": "109 €",
+      "monthlyCadence": "/Monat"
+    },
+    "hourly": {
+      "label": "Erweiterungen nach Aufwand",
+      "title": "60 €/Stunde",
+      "body": "Größere Änderungen, neue Features, eigene Anpassungen — in 15-Minuten-Schritten abgerechnet. Stundensatz für Bestandskunden mit aktiver Wartung."
+    },
+    "domain": {
+      "label": "Domain",
+      "title": "Die Domain bleibt bei dir.",
+      "body": "Du besitzt die Domain, ich verwalte sie nur. So bist du nie an mich gebunden, beim Beziehungsende hat dein Geschäft sofort wieder vollen Zugriff. Wenn du noch keine Domain hast, kümmere ich mich um die Registrierung für dich (50 € einmalig, danach rund 12 € pro Jahr direkt an den Registrar)."
+    },
+    "taxNote": "Alle Preise umsatzsteuerbefreit, Kleinunternehmer gemäß §6 Abs. 1 Z 27 UStG. Es kommt keine USt. dazu.",
+    "booking": {
+      "kicker": "30 Minuten, kostenlos",
+      "title": "Reden wir kurz drüber.",
+      "body": "Ich sage ehrlich, ob ich passe. Wenn nicht, empfehle ich jemanden, der besser passt. Beides gibt's umsonst.",
+      "ctaLabel": "Gespräch buchen",
+      "ctaUrl": "https://cal.com/bfnoessler/30min",
+      "fallbackLabel": "Lieber per Mail?",
+      "fallbackEmail": "benjamin@noessler.at"
     }
   }
 }

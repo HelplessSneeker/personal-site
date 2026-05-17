@@ -1,260 +1,195 @@
 ---
-import { t, tArray, type Locale } from '../i18n/util';
+import { t, type Locale, getLocalizedPath } from '../i18n/util';
 
 export interface Props {
   locale: Locale;
 }
 
 const { locale } = Astro.props;
-const websiteIncluded = tArray(locale, 'services.website.includedItems');
-const websiteExcluded = tArray(locale, 'services.website.excludedItems');
-const careIncluded = tArray(locale, 'services.care.includedItems');
-const toolsExamples = tArray(locale, 'services.tools.examples');
+const pricingPath = getLocalizedPath(locale, locale === 'de' ? '/preise' : '/pricing');
+
+/* The homepage Services section is the overview teaser; full prices, included
+   lists, and the tax note live on the dedicated /preise page. The three
+   editorial entries below carry kicker + title + description only, then hand
+   off to the pricing page via the CTA. */
 ---
 <section class="section services-section" id="services" aria-labelledby="services-heading">
   <div class="container">
     <h2 id="services-heading" class="section-label">{t(locale, 'services.label')}</h2>
     <p class="section-lede">{t(locale, 'services.intro')}</p>
 
-    {/* 01 — Website */}
-    <article class="service service-primary">
-      <p class="service-index" aria-hidden="true"><span>01</span><span class="rule"></span></p>
-      <p class="service-kicker label-meta">{t(locale, 'services.website.kicker')}</p>
-      <h3 class="service-title">{t(locale, 'services.website.title')}</h3>
-      <p class="service-desc">{t(locale, 'services.website.description')}</p>
+    <ol class="services-list">
+      <li class="service-overview">
+        <p class="service-overview-index tabular" aria-hidden="true">
+          <span>01</span>
+          <span class="rule"></span>
+        </p>
+        <p class="service-overview-kicker label-meta">{t(locale, 'services.website.kicker')}</p>
+        <h3 class="service-overview-title">{t(locale, 'services.website.title')}</h3>
+        <p class="service-overview-desc">{t(locale, 'services.website.description')}</p>
+      </li>
 
-      <p class="price-callout" aria-hidden="true">
-        <span class="price-callout-num">{t(locale, 'services.website.priceAnchor')}</span>
-      </p>
-      <p class="price-callout-cadence">{t(locale, 'services.website.priceCadence')}</p>
+      <li class="service-overview">
+        <p class="service-overview-index tabular" aria-hidden="true">
+          <span>02</span>
+          <span class="rule"></span>
+        </p>
+        <p class="service-overview-kicker label-meta">{t(locale, 'services.care.kicker')}</p>
+        <h3 class="service-overview-title">{t(locale, 'services.care.title')}</h3>
+        <p class="service-overview-desc">{t(locale, 'services.care.description')}</p>
+      </li>
 
-      <div class="service-lists">
-        <div class="service-list">
-          <p class="service-list-label label-meta">{t(locale, 'services.website.includedLabel')}</p>
-          <ul class="service-list-items is-included">
-            {websiteIncluded.map((item) => <li>{item}</li>)}
-          </ul>
-        </div>
-        <div class="service-list">
-          <p class="service-list-label label-meta">{t(locale, 'services.website.excludedLabel')}</p>
-          <ul class="service-list-items is-excluded">
-            {websiteExcluded.map((item) => <li>{item}</li>)}
-          </ul>
-        </div>
-      </div>
-    </article>
+      <li class="service-overview">
+        <p class="service-overview-index tabular" aria-hidden="true">
+          <span>03</span>
+          <span class="rule"></span>
+        </p>
+        <p class="service-overview-kicker label-meta">{t(locale, 'services.tools.kicker')}</p>
+        <h3 class="service-overview-title">{t(locale, 'services.tools.title')}</h3>
+        <p class="service-overview-desc">{t(locale, 'services.tools.description')}</p>
+      </li>
+    </ol>
 
-    {/* 02 — Betrieb & Pflege (flat monthly offer) */}
-    <article class="service service-primary">
-      <p class="service-index" aria-hidden="true"><span>02</span><span class="rule"></span></p>
-      <p class="service-kicker label-meta">{t(locale, 'services.care.kicker')}</p>
-      <h3 class="service-title">{t(locale, 'services.care.title')}</h3>
-      <p class="service-desc">{t(locale, 'services.care.description')}</p>
+    <p class="services-ongoing">{t(locale, 'services.ongoingNote')}</p>
 
-      <p class="price-callout" aria-hidden="true">
-        <span class="price-callout-num">{t(locale, 'services.care.priceAnchor')}</span>
-      </p>
-      <p class="price-callout-cadence">{t(locale, 'services.care.priceCadence')}</p>
-
-      <div class="service-list service-list-single">
-        <p class="service-list-label label-meta">{t(locale, 'services.care.includedLabel')}</p>
-        <ul class="service-list-items is-included">
-          {careIncluded.map((item) => <li>{item}</li>)}
-        </ul>
-      </div>
-      <p class="service-note">{t(locale, 'services.care.note')}</p>
-    </article>
-
-    {/* 03 — Digitale Werkzeuge */}
-    <article class="service service-primary">
-      <p class="service-index" aria-hidden="true"><span>03</span><span class="rule"></span></p>
-      <p class="service-kicker label-meta">{t(locale, 'services.tools.kicker')}</p>
-      <h3 class="service-title">{t(locale, 'services.tools.title')}</h3>
-      <p class="service-desc">{t(locale, 'services.tools.description')}</p>
-
-      <div class="service-list service-list-single">
-        <p class="service-list-label label-meta">{t(locale, 'services.tools.examplesLabel')}</p>
-        <ul class="service-list-items is-included">
-          {toolsExamples.map((item) => <li>{item}</li>)}
-        </ul>
-      </div>
-      <p class="service-note">{t(locale, 'services.tools.note')}</p>
-    </article>
+    <p class="services-details-cta">
+      <a
+        href={pricingPath}
+        class="services-details-link"
+        aria-label={t(locale, 'services.detailsCtaAria')}
+      >
+        {t(locale, 'services.detailsCta')}
+        <span class="services-details-arrow" aria-hidden="true">→</span>
+      </a>
+    </p>
 
     <aside class="service-extension" aria-label={t(locale, 'services.extensionLabel')}>
       <p class="extension-label label-meta">{t(locale, 'services.extensionLabel')}</p>
       <h3 class="extension-title">{t(locale, 'services.fullstack.title')}</h3>
       <p class="extension-desc">{t(locale, 'services.fullstack.description')}</p>
     </aside>
-
-    <p class="services-tax-note">{t(locale, 'services.taxNote')}</p>
   </div>
 </section>
 
 <style>
-  .service {
+  .services-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-7);
+  }
+  @media (min-width: 48rem) {
+    .services-list {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: var(--space-7);
+    }
+  }
+
+  .service-overview {
     display: flex;
     flex-direction: column;
-    gap: var(--space-4);
+    gap: var(--space-3);
     min-width: 0;
   }
 
-  .service-primary {
-    max-width: 56rem;
-  }
-
-  .service-primary + .service-primary {
-    margin-top: var(--space-9);
-    padding-top: var(--space-7);
-    border-top: 1px solid var(--color-rule);
-  }
-
-  .service-index {
+  .service-overview-index {
     display: flex;
     align-items: center;
     gap: var(--space-3);
-    margin: 0 0 var(--space-2) 0;
+    margin: 0;
     font-family: var(--font-mono);
     font-feature-settings: var(--font-features-mono);
     font-size: var(--fs-xs);
     letter-spacing: var(--tracking-label);
     color: var(--color-accent);
   }
-  .service-index .rule {
+  .service-overview-index .rule {
     flex: 1;
     height: 1px;
     background: var(--color-rule);
     display: block;
   }
 
-  .service-title {
+  .service-overview-kicker {
+    color: var(--color-text-subtle);
+    margin: 0;
+  }
+
+  .service-overview-title {
     font-family: var(--font-display);
-    font-size: var(--fs-2xl);
+    font-size: var(--fs-lg);
     font-weight: var(--weight-medium);
-    letter-spacing: var(--tracking-heading-xl);
-    line-height: 1.1;
+    line-height: var(--lh-snug);
+    letter-spacing: var(--tracking-heading-lg);
     color: var(--color-text);
+    margin: 0;
     text-wrap: balance;
   }
 
-  /* Sub-label between the index marker and the title — accent-mono voice,
-     carries a meaning beat ("Neu oder Redesign", "Nach dem Launch", …). */
-  .service-kicker {
-    color: var(--color-accent);
-    margin: 0 0 calc(var(--space-1) * -1) 0;
-  }
-
-  .service-desc {
+  .service-overview-desc {
     font-size: var(--fs-md);
     line-height: var(--lh-relaxed);
     color: var(--color-text);
-    max-width: 56ch;
+    margin: 0;
+    text-wrap: pretty;
   }
 
-  /* Oversized mono price anchor — the "graphic number" move that announces
-     the price before any list. Tabular figures; far larger than any other
-     number on the page. */
-  .price-callout {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: baseline;
-    gap: 0.45em;
-    margin: var(--space-5) 0 0 0;
-    font-family: var(--font-mono);
-    font-feature-settings: var(--font-features-mono);
-    font-variant-numeric: tabular-nums;
-    line-height: 1;
-  }
-  .price-callout-num {
-    font-size: clamp(2.25rem, 1.5rem + 3vw, 3.5rem);
-    font-weight: 500;
+  /* The "we keep working" beat — sits just before the pricing CTA so the
+     recurring-relationship framing reads as the bridge from overview to
+     details. Editorial voice, slightly larger than body, max width tuned
+     to read in 2 lines on desktop. */
+  .services-ongoing {
+    margin: var(--space-8) 0 0 0;
+    padding-top: var(--space-5);
+    border-top: 1px solid var(--color-rule);
+    font-size: var(--fs-lg);
+    line-height: 1.45;
     color: var(--color-text);
-    letter-spacing: -0.02em;
-  }
-  .price-callout-cadence {
-    font-family: var(--font-mono);
-    font-feature-settings: var(--font-features-mono);
-    font-size: var(--fs-xs);
-    color: var(--color-text-subtle);
-    margin: var(--space-2) 0 0 0;
-    letter-spacing: 0.02em;
+    max-width: 56ch;
+    text-wrap: pretty;
   }
 
-  /* Parallel mono lists, no verbose paragraph. Two columns on desktop for
-     the website "im Festpreis / nicht enthalten" pair; a single column for
-     the care / tools blocks. Included items lead with a filled accent dot,
-     excluded with a muted em-dash — same vocabulary throughout. */
-  .service-lists {
-    margin: var(--space-6) 0 0 0;
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: var(--space-6);
+  .services-details-cta {
+    margin: var(--space-5) 0 0 0;
   }
-  @media (min-width: 40rem) {
-    .service-lists {
-      grid-template-columns: 1fr 1fr;
-      gap: var(--space-7);
+
+  .services-details-link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-family: var(--font-sans);
+    font-size: var(--fs-md);
+    font-weight: var(--weight-medium);
+    color: var(--color-accent);
+    text-decoration: underline;
+    text-decoration-color: color-mix(in oklab, var(--color-accent) 25%, transparent);
+    text-underline-offset: 0.18em;
+    text-decoration-thickness: 1px;
+  }
+  .services-details-link:hover {
+    color: var(--color-accent-hover);
+    text-decoration-color: currentColor;
+  }
+  .services-details-link:hover .services-details-arrow {
+    transform: translateX(0.15em);
+  }
+  .services-details-arrow {
+    transition: transform var(--transition);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .services-details-arrow {
+      transition: none;
+    }
+    .services-details-link:hover .services-details-arrow {
+      transform: none;
     }
   }
 
-  .service-list {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-3);
-    min-width: 0;
-  }
-  .service-list-single {
-    margin: var(--space-6) 0 0 0;
-  }
-
-  .service-list-label {
-    color: var(--color-text-subtle);
-    margin: 0;
-  }
-
-  .service-list-items {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-2);
-    font-family: var(--font-mono);
-    font-feature-settings: var(--font-features-mono);
-    font-size: var(--fs-sm);
-    color: var(--color-text);
-    line-height: 1.5;
-  }
-  .service-list-items li {
-    display: grid;
-    grid-template-columns: 1.25rem 1fr;
-    align-items: baseline;
-    gap: var(--space-2);
-  }
-  .service-list-items.is-included li::before {
-    content: '●';
-    color: var(--color-accent);
-    font-size: 0.75em;
-  }
-  .service-list-items.is-excluded li {
-    color: var(--color-text-muted);
-  }
-  .service-list-items.is-excluded li::before {
-    content: '—';
-    color: var(--color-text-subtle);
-  }
-
-  /* Quiet sans footnote under a service — pricing caveats, optional add-ons,
-     "Umfang nach Gespräch". One per service at most. */
-  .service-note {
-    margin: var(--space-4) 0 0 0;
-    font-size: var(--fs-sm);
-    color: var(--color-text-muted);
-    line-height: 1.5;
-    max-width: 56ch;
-  }
-
-  /* Extension card — clearly subordinate to the primary services. */
+  /* Extension card — clearly subordinate to the primary services. Unchanged
+     from the previous Services layout; kept as a quiet aside for visitors
+     who land on the page with a "bigger than a website" question. */
   .service-extension {
     margin-top: var(--space-9);
     padding-top: var(--space-6);
@@ -283,19 +218,5 @@ const toolsExamples = tArray(locale, 'services.tools.examples');
     color: var(--color-text-muted);
     max-width: 56ch;
     margin: 0;
-  }
-
-  /* Tax basis — stated once, in fine print, at the foot of the section.
-     Kleinunternehmer status means no VAT line on any price above. */
-  .services-tax-note {
-    margin: var(--space-8) 0 0 0;
-    padding-top: var(--space-4);
-    border-top: 1px solid var(--color-rule);
-    font-family: var(--font-mono);
-    font-feature-settings: var(--font-features-mono);
-    font-size: var(--fs-xs);
-    color: var(--color-text-subtle);
-    line-height: 1.5;
-    max-width: 56ch;
   }
 </style>

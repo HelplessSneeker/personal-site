@@ -1,0 +1,165 @@
+---
+import { t, type Locale } from '../i18n/util';
+
+export interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+---
+<section class="section pricing-bundle" aria-labelledby="pricing-bundle-heading">
+  <div class="container">
+    <article class="pricing-bundle-card">
+      <header class="pricing-bundle-header">
+        <h2 id="pricing-bundle-heading" class="section-label pricing-bundle-label">{t(locale, 'pricing.proBundle.label')}</h2>
+        <p class="pricing-bundle-kicker label-meta">{t(locale, 'pricing.proBundle.kicker')}</p>
+        <p class="pricing-bundle-title">{t(locale, 'pricing.proBundle.title')}</p>
+      </header>
+
+      <p class="pricing-bundle-body">{t(locale, 'pricing.proBundle.body')}</p>
+
+      <dl class="pricing-bundle-prices tabular">
+        <div class="pricing-bundle-price-row">
+          <dt class="label-meta">Setup</dt>
+          <dd>
+            <span class="pricing-bundle-price-num">{t(locale, 'pricing.proBundle.setup')}</span>
+            <span class="pricing-bundle-price-saving">{t(locale, 'pricing.proBundle.setupSaving')}</span>
+          </dd>
+        </div>
+        <div class="pricing-bundle-price-row">
+          <dt class="label-meta">Monatlich</dt>
+          <dd>
+            <span class="pricing-bundle-price-num">{t(locale, 'pricing.proBundle.monthly')}<span class="pricing-bundle-price-cadence">{t(locale, 'pricing.proBundle.monthlyCadence')}</span></span>
+            <span class="pricing-bundle-price-saving">{t(locale, 'pricing.proBundle.monthlySaving')}</span>
+          </dd>
+        </div>
+      </dl>
+    </article>
+  </div>
+</section>
+
+<style>
+  /* The Pro-Bundle is the "anchor" element on the page — small, but the
+     thing that triggers the bundle decision. Treated as a continued
+     section so it reads as a direct beat after the add-ons grid, not as
+     a new chapter. */
+  .pricing-bundle {
+    padding-block: var(--space-6);
+  }
+  @media (min-width: 48rem) {
+    .pricing-bundle {
+      padding-block: var(--space-7);
+    }
+  }
+
+  /* Section-rhythm exception: continued mode after Addons. */
+  .pricing-bundle.section {
+    border-top: none;
+  }
+
+  .pricing-bundle-card {
+    max-width: var(--container-wide);
+    padding: var(--space-6);
+    background: var(--color-surface);
+    border-radius: var(--radius-sm);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+  @media (min-width: 48rem) {
+    .pricing-bundle-card {
+      padding: var(--space-7);
+    }
+  }
+
+  .pricing-bundle-header {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .pricing-bundle-label {
+    margin: 0;
+  }
+
+  .pricing-bundle-kicker {
+    color: var(--color-text-subtle);
+    margin: 0;
+  }
+
+  .pricing-bundle-title {
+    font-family: var(--font-display);
+    font-size: var(--fs-lg);
+    font-weight: var(--weight-medium);
+    line-height: var(--lh-snug);
+    letter-spacing: var(--tracking-heading-lg);
+    color: var(--color-text);
+    margin: 0;
+    text-wrap: balance;
+  }
+
+  .pricing-bundle-body {
+    font-size: var(--fs-md);
+    line-height: var(--lh-normal);
+    color: var(--color-text);
+    margin: 0;
+    max-width: 56ch;
+    text-wrap: pretty;
+  }
+
+  .pricing-bundle-prices {
+    margin: var(--space-2) 0 0 0;
+    padding-top: var(--space-4);
+    border-top: 1px solid var(--color-rule);
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-3);
+  }
+  @media (min-width: 36rem) {
+    .pricing-bundle-prices {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: var(--space-5);
+    }
+  }
+
+  .pricing-bundle-price-row {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+  }
+
+  .pricing-bundle-price-row dt {
+    color: var(--color-text-subtle);
+    margin: 0;
+  }
+
+  .pricing-bundle-price-row dd {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.1em;
+  }
+
+  .pricing-bundle-price-num {
+    font-family: var(--font-mono);
+    font-feature-settings: var(--font-features-mono);
+    font-size: var(--fs-xl);
+    font-weight: var(--weight-medium);
+    color: var(--color-text);
+    line-height: 1;
+  }
+
+  .pricing-bundle-price-cadence {
+    font-size: 0.55em;
+    color: var(--color-text-muted);
+    margin-inline-start: 0.1em;
+  }
+
+  .pricing-bundle-price-saving {
+    font-family: var(--font-sans);
+    font-size: var(--fs-sm);
+    font-variant-caps: all-small-caps;
+    letter-spacing: var(--tracking-smallcaps);
+    color: var(--color-accent);
+  }
+</style>
