@@ -12,7 +12,6 @@ const { locale } = Astro.props;
     <article class="pricing-bundle-card">
       <header class="pricing-bundle-header">
         <h2 id="pricing-bundle-heading" class="section-label pricing-bundle-label">{t(locale, 'pricing.proBundle.label')}</h2>
-        <p class="pricing-bundle-kicker label-meta">{t(locale, 'pricing.proBundle.kicker')}</p>
         <p class="pricing-bundle-title">{t(locale, 'pricing.proBundle.title')}</p>
       </header>
 
@@ -79,11 +78,6 @@ const { locale } = Astro.props;
   }
 
   .pricing-bundle-label {
-    margin: 0;
-  }
-
-  .pricing-bundle-kicker {
-    color: var(--color-text-subtle);
     margin: 0;
   }
 
@@ -155,11 +149,15 @@ const { locale } = Astro.props;
     margin-inline-start: 0.1em;
   }
 
+  /* Savings text — small accent voice, but NOT small-caps. Small-caps
+     plus the 0.06em tracking eats the space between currency units
+     ("5 €/Monat gespart" collapses to "5 €/MonatGespart" visually).
+     Regular sans, smaller, accent-colored reads cleanly. */
   .pricing-bundle-price-saving {
     font-family: var(--font-sans);
-    font-size: var(--fs-sm);
-    font-variant-caps: all-small-caps;
-    letter-spacing: var(--tracking-smallcaps);
+    font-size: var(--fs-xs);
+    font-weight: var(--weight-medium);
     color: var(--color-accent);
+    letter-spacing: 0.01em;
   }
 </style>
