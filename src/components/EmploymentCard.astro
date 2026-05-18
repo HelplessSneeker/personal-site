@@ -34,17 +34,6 @@ const contextLine = [context, project.years].filter(Boolean).join(' · ');
         <dd>{role}</dd>
       </div>
     )}
-
-    <div class="meta-row">
-      <dt class="label-meta">{t(locale, 'work.stackLabel')}</dt>
-      <dd>
-        <ul class="stack-list">
-          {project.stack.map((tech) => (
-            <li class="stack-tech">{tech}</li>
-          ))}
-        </ul>
-      </dd>
-    </div>
   </dl>
 </article>
 
@@ -130,31 +119,4 @@ const contextLine = [context, project.years].filter(Boolean).join(' · ');
     min-width: 0;
   }
 
-  .stack-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: baseline;
-    font-family: var(--font-mono);
-    font-feature-settings: var(--font-features-mono);
-    font-size: var(--fs-sm);
-    color: var(--color-text-muted);
-  }
-
-  .stack-list li {
-    display: inline-flex;
-    align-items: baseline;
-  }
-
-  .stack-list li:not(:last-child)::after {
-    content: '·';
-    color: var(--color-text-subtle);
-    margin-inline: 0.55em;
-  }
-
-  .stack-tech {
-    color: var(--color-text);
-  }
 </style>

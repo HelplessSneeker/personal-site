@@ -49,8 +49,8 @@ export const projects: Project[] = [
       en: 'scanzy.at homepage — SCANZY wordmark above a dark mountain landscape with the headline “Ihr Objekt hat mehr verdient als nur Fotos.”',
     },
     outcome: {
-      de: 'Live · zentraler Anlaufpunkt für Anfragen und Standort-Präsentation.',
-      en: 'Live · central inquiry channel and online presence for the business.',
+      de: 'Zentraler Anlaufpunkt für Anfragen und Standort-Präsentation.',
+      en: 'Central inquiry channel and online presence for the business.',
     },
     testimonial: {
       quote: {
@@ -81,8 +81,8 @@ export const projects: Project[] = [
       en: 'foundersgroup.at homepage — two velvet chairs on a Viennese balcony at night with the headline “Bist du bereit dein Umfeld zu ändern?”',
     },
     outcome: {
-      de: 'Live · Zugang für Member-Anfragen und Vereinskommunikation.',
-      en: 'Live · entry point for member inquiries and community communications.',
+      de: 'Zugang für Member-Anfragen und Vereinskommunikation.',
+      en: 'Entry point for member inquiries and community communications.',
     },
   },
   {

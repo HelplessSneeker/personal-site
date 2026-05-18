@@ -175,7 +175,6 @@
     "statusLabel": "Status",
     "outcomeLabel": "Ergebnis",
     "linksLabel": "Links",
-    "stackLabel": "Stack",
     "visitLink": "Website besuchen",
     "githubLink": "GitHub Repository",
     "status": {

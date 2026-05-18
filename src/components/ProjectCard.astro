@@ -87,21 +87,12 @@ const testimonialAuthor = project.testimonial?.author
           </div>
         )}
 
-        <div class="meta-row">
-          <dt class="label-meta">{statusLabel}</dt>
-          <dd>{statusText}</dd>
-        </div>
-
-        <div class="meta-row">
-          <dt class="label-meta">{t(locale, 'work.stackLabel')}</dt>
-          <dd>
-            <ul class="stack-list">
-              {project.stack.map((tech) => (
-                <li class="stack-tech">{tech}</li>
-              ))}
-            </ul>
-          </dd>
-        </div>
+        {project.status !== 'live' && (
+          <div class="meta-row">
+            <dt class="label-meta">{statusLabel}</dt>
+            <dd>{statusText}</dd>
+          </div>
+        )}
 
         {project.links && project.links.length > 0 && (
           <div class="meta-row">
@@ -314,7 +305,6 @@ const testimonialAuthor = project.testimonial?.author
     color: var(--color-text-subtle);
   }
 
-  .stack-list,
   .link-list {
     list-style: none;
     padding: 0;
@@ -328,21 +318,15 @@ const testimonialAuthor = project.testimonial?.author
     color: var(--color-text-muted);
   }
 
-  .stack-list li,
   .link-list li {
     display: inline-flex;
     align-items: baseline;
   }
 
-  .stack-list li:not(:last-child)::after,
   .link-list li:not(:last-child)::after {
     content: '·';
     color: var(--color-text-subtle);
     margin-inline: 0.55em;
-  }
-
-  .stack-tech {
-    color: var(--color-text);
   }
 
   .link-list a {
