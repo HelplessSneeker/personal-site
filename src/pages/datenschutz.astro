@@ -43,12 +43,23 @@ const altUrl = getAltUrl(Astro.url.pathname, locale);
 
   <h2>Analyse</h2>
   <p>
-    Diese Seite nutzt selbst gehostetes <strong>Umami</strong> auf vom Verantwortlichen betriebener
-    Infrastruktur für einfache, datenschutzfreundliche Nutzungsstatistiken. Umami erfasst
-    aufgerufene Seitenpfade, Referrer, User-Agent und ein aus der IP-Adresse abgeleitetes Land;
-    die rohe IP-Adresse wird nicht gespeichert. Es werden keine Cookies gesetzt und kein
-    seitenübergreifendes Tracking durchgeführt. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO
-    (berechtigtes Interesse an der Auswertung der Websitenutzung).
+    Diese Seite nutzt selbst gehostetes <strong>Umami</strong> für einfache, datenschutzfreundliche
+    Nutzungsstatistiken. Umami läuft auf vom Verantwortlichen betriebener Infrastruktur in der
+    EU-Region (Hetzner Online GmbH, Deutschland) — es werden keine Daten an Server außerhalb der
+    EU übermittelt, und es ist kein externer Auftragsverarbeiter beteiligt.
+  </p>
+  <p>
+    Erfasst werden aufgerufene Seitenpfade, Referrer, User-Agent und ein aus der IP-Adresse
+    abgeleitetes Land. Die IP-Adresse selbst wird <strong>nicht gespeichert</strong>: sie wird
+    serverseitig mit einem täglich rotierenden Salt gehasht, um eine anonyme Sitzungs-ID zu
+    erzeugen — die rohe IP wird anschließend verworfen. Es werden keine Cookies gesetzt und kein
+    seitenübergreifendes Tracking durchgeführt.
+  </p>
+  <p>
+    Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an der Auswertung der
+    aggregierten Websitenutzung). Nach <strong>Art. 21 DSGVO</strong> hast du jederzeit das Recht,
+    dieser Verarbeitung zu widersprechen — eine formlose E-Mail an die oben genannte Adresse
+    genügt, und du wirst von der Auswertung ausgenommen.
   </p>
 
   <h2>Kontaktformular</h2>

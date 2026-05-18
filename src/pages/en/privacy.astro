@@ -43,11 +43,23 @@ const altUrl = getAltUrl(Astro.url.pathname, locale);
 
   <h2>Analytics</h2>
   <p>
-    This site uses self-hosted <strong>Umami</strong> on infrastructure operated by the controller
-    for basic, privacy-friendly usage statistics. Umami records page paths, referrer, user-agent
-    string, and a country derived from the IP address; the raw IP address is not stored. No
-    cookies are set and no cross-site tracking takes place. The legal basis is Art. 6(1)(f) GDPR
-    (legitimate interest in understanding how the site is used).
+    This site uses self-hosted <strong>Umami</strong> for basic, privacy-friendly usage statistics.
+    Umami runs on infrastructure operated by the controller within the EU region (Hetzner Online
+    GmbH, Germany) — no data is transmitted to servers outside the EU, and no external processor
+    is involved.
+  </p>
+  <p>
+    The following data is recorded: page paths, referrer, user-agent string, and a country
+    derived from the IP address. The IP address itself is <strong>not stored</strong>: it is
+    hashed server-side together with a daily-rotating salt to derive an anonymous session
+    identifier, after which the raw IP is discarded. No cookies are set and no cross-site
+    tracking takes place.
+  </p>
+  <p>
+    The legal basis is Art. 6(1)(f) GDPR (legitimate interest in understanding aggregate site
+    usage). Under <strong>Art. 21 GDPR</strong> you have the right to object to this processing
+    at any time — an informal email to the address above is sufficient, and you will be excluded
+    from analytics going forward.
   </p>
 
   <h2>Contact form</h2>
