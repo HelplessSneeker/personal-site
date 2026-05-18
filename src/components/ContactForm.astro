@@ -31,10 +31,7 @@ const messages = {
   <input type="hidden" name="locale" value={locale} />
 
   <div class="field">
-    <label class="label-meta" for="cf-name">
-      {form.nameLabel}
-      <span class="required" aria-hidden="true">*</span>
-    </label>
+    <label class="label-meta" for="cf-name">{form.nameLabel}</label>
     <input
       id="cf-name"
       name="name"
@@ -49,10 +46,7 @@ const messages = {
   </div>
 
   <div class="field">
-    <label class="label-meta" for="cf-email">
-      {form.emailLabel}
-      <span class="required" aria-hidden="true">*</span>
-    </label>
+    <label class="label-meta" for="cf-email">{form.emailLabel}</label>
     <input
       id="cf-email"
       name="email"
@@ -67,32 +61,7 @@ const messages = {
   </div>
 
   <div class="field">
-    <label class="label-meta" for="cf-projectType">
-      {form.projectTypeLabel}
-      <span class="required" aria-hidden="true">*</span>
-    </label>
-    <span class="select-wrap">
-      <select
-        id="cf-projectType"
-        name="projectType"
-        required
-        aria-describedby="cf-projectType-hint cf-projectType-error"
-      >
-        <option value="">{form.projectTypeNone}</option>
-        <option value="landing">{form.projectTypeOptions.landing}</option>
-        <option value="fullstack">{form.projectTypeOptions.fullstack}</option>
-        <option value="other">{form.projectTypeOptions.other}</option>
-      </select>
-    </span>
-    <p class="field-hint" id="cf-projectType-hint">{form.projectTypeHint}</p>
-    <p class="field-error" id="cf-projectType-error" aria-live="polite"></p>
-  </div>
-
-  <div class="field">
-    <label class="label-meta" for="cf-message">
-      {form.messageLabel}
-      <span class="required" aria-hidden="true">*</span>
-    </label>
+    <label class="label-meta" for="cf-message">{form.messageLabel}</label>
     <textarea
       id="cf-message"
       name="message"
@@ -130,8 +99,7 @@ const messages = {
     | 'emailRequired'
     | 'emailInvalid'
     | 'messageRequired'
-    | 'messageTooShort'
-    | 'projectTypeRequired';
+    | 'messageTooShort';
 
   interface Messages {
     submitting: string;
@@ -161,7 +129,7 @@ const messages = {
   }
 
   function clearErrors() {
-    ['cf-name', 'cf-email', 'cf-projectType', 'cf-message'].forEach((id) => setError(id, ''));
+    ['cf-name', 'cf-email', 'cf-message'].forEach((id) => setError(id, ''));
     if (statusNode) {
       statusNode.hidden = true;
       statusNode.classList.remove('form-status--success', 'form-status--error');
@@ -189,7 +157,6 @@ const messages = {
     const name = String(formData.get('name') ?? '').trim();
     const email = String(formData.get('email') ?? '').trim();
     const message = String(formData.get('message') ?? '').trim();
-    const projectType = String(formData.get('projectType') ?? '');
     const locale = String(formData.get('locale') ?? 'de');
     const honeypot = String(formData.get('company') ?? '').trim();
 
@@ -205,7 +172,6 @@ const messages = {
     if (!name) { setError('cf-name', messages.validation.nameRequired); hasError = true; }
     if (!email) { setError('cf-email', messages.validation.emailRequired); hasError = true; }
     else if (!validateEmail(email)) { setError('cf-email', messages.validation.emailInvalid); hasError = true; }
-    if (!projectType) { setError('cf-projectType', messages.validation.projectTypeRequired); hasError = true; }
     if (!message) { setError('cf-message', messages.validation.messageRequired); hasError = true; }
     else if (message.length < 20) { setError('cf-message', messages.validation.messageTooShort); hasError = true; }
     if (hasError) return;
@@ -219,7 +185,7 @@ const messages = {
       const response = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-        body: JSON.stringify({ name, email, message, projectType, locale }),
+        body: JSON.stringify({ name, email, message, locale }),
       });
 
       const result = await response.json().catch(() => ({ ok: false }));
@@ -255,13 +221,8 @@ const messages = {
   .field label {
     color: var(--color-text-subtle);
   }
-  .required {
-    color: var(--color-accent);
-    margin-left: 2px;
-  }
   .field input,
-  .field textarea,
-  .field select {
+  .field textarea {
     width: 100%;
     padding: var(--space-3) 0;
     font: inherit;
@@ -278,13 +239,11 @@ const messages = {
     color: var(--color-text-subtle);
   }
   .field input:hover,
-  .field textarea:hover,
-  .field select:hover {
+  .field textarea:hover {
     border-bottom-color: var(--color-text-muted);
   }
   .field input:focus,
-  .field textarea:focus,
-  .field select:focus {
+  .field textarea:focus {
     outline: none;
     border-bottom-color: var(--color-accent);
     box-shadow: 0 1.5px 0 0 var(--color-accent);
@@ -298,29 +257,6 @@ const messages = {
     min-height: 8rem;
     padding-top: var(--space-2);
   }
-  .select-wrap {
-    position: relative;
-    display: block;
-  }
-  .field select {
-    appearance: none;
-    padding-right: var(--space-6);
-  }
-  /* Chevron via a masked pseudo so the color tracks --color-text-subtle
-     in both themes — no hex duplication, no theme-fork. */
-  .select-wrap::after {
-    content: '';
-    position: absolute;
-    right: 8px;
-    top: 50%;
-    width: 10px;
-    height: 6px;
-    margin-top: -3px;
-    background-color: var(--color-text-subtle);
-    -webkit-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 6'><path d='M1 1l4 4 4-4' fill='none' stroke='black' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/></svg>") no-repeat center / 10px 6px;
-            mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 6'><path d='M1 1l4 4 4-4' fill='none' stroke='black' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/></svg>") no-repeat center / 10px 6px;
-    pointer-events: none;
-  }
   .field-error {
     font-size: var(--fs-sm);
     color: var(--color-danger);
@@ -329,13 +265,6 @@ const messages = {
   }
   .field-error:empty {
     display: none;
-  }
-
-  .field-hint {
-    font-size: var(--fs-sm);
-    line-height: 1.45;
-    color: var(--color-text-subtle);
-    margin: 0;
   }
 
   .hp-field {

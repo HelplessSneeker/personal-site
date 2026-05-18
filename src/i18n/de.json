@@ -242,17 +242,9 @@
       "namePlaceholder": "Dein Name",
       "emailLabel": "E-Mail",
       "emailPlaceholder": "du@example.com",
-      "projectTypeLabel": "Projekttyp",
-      "projectTypeOptions": {
-        "landing": "Neue Website oder Redesign",
-        "fullstack": "Fullstack-Projekt",
-        "other": "Sonstiges"
-      },
-      "projectTypeNone": "Bitte wählen",
-      "projectTypeHint": "Nicht sicher? 'Sonstiges' wählen — wir klären das im Gespräch.",
       "messageLabel": "Nachricht",
       "messagePlaceholder": "Worum geht es? Gerne 2–3 Sätze zum Projekt, zur aktuellen Seite oder zur Zielgruppe.",
-      "submitLabel": "Anfrage senden",
+      "submitLabel": "Nachricht senden",
       "submittingLabel": "Wird gesendet…",
       "successHeading": "Danke für deine Nachricht.",
       "successBody": "Ich melde mich in der Regel innerhalb von 48 Stunden.",
@@ -263,8 +255,7 @@
         "emailRequired": "Bitte gib eine E-Mail-Adresse an.",
         "emailInvalid": "Bitte gib eine gültige E-Mail-Adresse an.",
         "messageRequired": "Bitte schreib eine Nachricht.",
-        "messageTooShort": "Die Nachricht sollte mindestens 20 Zeichen lang sein.",
-        "projectTypeRequired": "Bitte wähle einen Projekttyp."
+        "messageTooShort": "Die Nachricht sollte mindestens 20 Zeichen lang sein."
       }
     },
     "social": {
@@ -308,7 +299,6 @@
     "labels": {
       "name": "Name",
       "email": "E-Mail",
-      "projectType": "Projekttyp",
       "message": "Nachricht"
     }
   },

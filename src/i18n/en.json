@@ -242,17 +242,9 @@
       "namePlaceholder": "Your name",
       "emailLabel": "Email",
       "emailPlaceholder": "you@example.com",
-      "projectTypeLabel": "Project type",
-      "projectTypeOptions": {
-        "landing": "New website or redesign",
-        "fullstack": "Fullstack project",
-        "other": "Something else"
-      },
-      "projectTypeNone": "Select one",
-      "projectTypeHint": "Not sure? Pick 'Something else' — we'll sort it out in the call.",
       "messageLabel": "Message",
       "messagePlaceholder": "What's this about? A few sentences about the project, the current page, or your audience is perfect.",
-      "submitLabel": "Send inquiry",
+      "submitLabel": "Send message",
       "submittingLabel": "Sending…",
       "successHeading": "Thanks for your message.",
       "successBody": "I usually reply within 48 hours.",
@@ -263,8 +255,7 @@
         "emailRequired": "Please enter an email address.",
         "emailInvalid": "Please enter a valid email address.",
         "messageRequired": "Please write a message.",
-        "messageTooShort": "Your message should be at least 20 characters.",
-        "projectTypeRequired": "Please select a project type."
+        "messageTooShort": "Your message should be at least 20 characters."
       }
     },
     "social": {
@@ -308,7 +299,6 @@
     "labels": {
       "name": "Name",
       "email": "Email",
-      "projectType": "Project type",
       "message": "Message"
     }
   },

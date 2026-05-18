@@ -9,7 +9,6 @@ const contactSchema = z.object({
   name: z.string().trim().min(1).max(200),
   email: z.email().trim().max(320),
   message: z.string().trim().min(20).max(5000),
-  projectType: z.enum(['landing', 'fullstack', 'other']),
   locale: z.enum(['de', 'en']).default('de'),
   // Honeypot: real users won't see or fill this field. Bots that
   // blindly populate every input get caught here.
@@ -58,7 +57,6 @@ function buildEmailBody(payload: z.infer<typeof contactSchema>): { text: string;
   const text = [
     `${labels.name}: ${payload.name}`,
     `${labels.email}: ${payload.email}`,
-    `${labels.projectType}: ${payload.projectType}`,
     '',
     payload.message,
   ].filter(Boolean).join('\n');
@@ -67,7 +65,6 @@ function buildEmailBody(payload: z.infer<typeof contactSchema>): { text: string;
     <div style="font-family: system-ui, -apple-system, sans-serif; max-width: 640px;">
       <p><strong>${labels.name}:</strong> ${escapeHtml(payload.name)}</p>
       <p><strong>${labels.email}:</strong> <a href="mailto:${escapeHtml(payload.email)}">${escapeHtml(payload.email)}</a></p>
-      <p><strong>${labels.projectType}:</strong> ${escapeHtml(payload.projectType)}</p>
       <hr style="border: none; border-top: 1px solid #ddd; margin: 16px 0;" />
       <p style="white-space: pre-wrap;">${escapeHtml(payload.message)}</p>
     </div>
@@ -167,7 +164,7 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
   if (!transporter) {
     if (import.meta.env.DEV) {
       console.log('[contact] SMTP not configured — logging submission instead:');
-      console.log({ name: data.name, email: data.email, projectType: data.projectType });
+      console.log({ name: data.name, email: data.email });
       console.log(data.message);
       return new Response(JSON.stringify({ ok: true, dev: true }), {
         status: 200,
