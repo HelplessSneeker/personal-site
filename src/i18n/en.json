@@ -1,7 +1,7 @@
 {
   "site": {
     "title": "Benjamin Nößler — Web presence & digital · Vienna",
-    "description": "I help small Austrian businesses with their website, online booking, newsletter, and the digital stuff around it — built, maintained, reachable. Focus on hotels and restaurants."
+    "description": "I help small Austrian businesses with their website, online booking, newsletter, and the digital stuff around it — built, maintained, reachable."
   },
   "meta": {
     "jobTitle": "Fullstack Developer"
@@ -28,7 +28,7 @@
   "hero": {
     "kicker": "Freelance · Web presence & digital · Vienna",
     "headline": "The digital side of your business.",
-    "body": "I help small businesses with their website and the digital stuff around it — built, maintained, reachable. Focus: hotels and restaurants.",
+    "body": "I help small businesses with their website and the digital stuff around it — built, maintained, reachable.",
     "ctaPrimary": "Discuss your project",
     "ctaSecondary": "See examples",
     "meta": [
@@ -101,7 +101,7 @@
   },
   "services": {
     "label": "Services",
-    "intro": "I build websites for small businesses — and take care of what comes after. Plus the digital tools around it: booking, newsletter, invoicing. Often for hotels, guesthouses and restaurants.",
+    "intro": "I build websites for small businesses — and take care of what comes after. Plus the digital tools around it: booking, newsletter, invoicing.",
     "taxNote": "All prices VAT-exempt — Austrian small-business scheme (§6(1)(27) UStG); no VAT is added.",
     "detailsCta": "All packages and prices in detail",
     "detailsCtaAria": "Go to pricing page",
@@ -155,7 +155,7 @@
       "description": "Booking, scheduling, newsletter, invoicing — many businesses pay monthly third-party fees or steep commissions for these. I set up the right open-source tools and run them self-hosted on European cloud. Your data stays with you.",
       "examplesLabel": "For example",
       "examples": [
-        "Direct booking for hotels & guesthouses — instead of 15–20 % commission",
+        "Direct booking through your own site — no platform commissions",
         "Online scheduling — instead of phone calls and sticky notes",
         "Newsletter — without the monthly subscription trap",
         "Simple invoicing & time tracking"
@@ -209,7 +209,7 @@
       "Freelance · web & digital for small businesses"
     ],
     "bodyParagraphs": [
-      "I help small Austrian businesses get visible online and stay that way — and take over the digital stuff a business would otherwise have to handle on the side. Most often for hotels, guesthouses and restaurants.",
+      "I help small Austrian businesses get visible online and stay that way — and take over the digital stuff a business would otherwise have to handle on the side.",
       "My day job is on the City of Vienna's digital team; on the side I've been building web apps and my own projects for years. On most things I stay on as the point of contact after launch."
     ],
     "moreLabel": "More about me — background, work history and the technical part"
@@ -221,7 +221,7 @@
     "kicker": "Fullstack developer · Vienna",
     "lede": "Day job on the City of Vienna's digital team, freelance for small businesses on the side — website, operation, and the digital tools around it.",
     "bodyParagraphs": [
-      "I help small Austrian businesses get visible online and stay that way: build or rebuild the website, then take over operation and care, plus the digital tools around it — booking, newsletter, invoicing. Focus: hotels and restaurants.",
+      "I help small Austrian businesses get visible online and stay that way: build or rebuild the website, then take over operation and care, plus the digital tools around it — booking, newsletter, invoicing.",
       "I've been building web apps for years in employment and in my own projects (e.g. <a class=\"inline-link\" href=\"https://github.com/HelplessSneeker/b-cal\" rel=\"noopener external\" target=\"_blank\">b-cal</a>); on the freelance side I'm deliberately starting with a smaller scope and scope larger projects together.",
       "I prefer projects meant to last longer than a quarter: cleanly built, self-hosted on infrastructure I manage end-to-end, with tools I'll still trust in two years. On most projects I stay on as the point of contact after launch."
     ],
@@ -359,7 +359,7 @@
         "title": "Online booking",
         "toolName": "With Cal.com",
         "kicker": "Direct booking instead of phone tag",
-        "description": "Appointments, consultations, intro calls, restaurant reservations. Clients book directly, your calendar stays in sync. Self-hosted, no third-party subscriptions.",
+        "description": "Appointments, consultations, intro calls, reservations. Clients book directly, your calendar stays in sync. Self-hosted, no third-party subscriptions.",
         "setup": "€90",
         "monthly": "+€10/month"
       },

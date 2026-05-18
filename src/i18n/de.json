@@ -1,7 +1,7 @@
 {
   "site": {
     "title": "Benjamin Nößler — Webpräsenz & Digitalisierung · Wien",
-    "description": "Ich helfe kleinen österreichischen Betrieben mit Website, Online-Buchung, Newsletter und dem digitalen Kram drumherum — gebaut, betreut, erreichbar. Schwerpunkt Hotellerie und Gastronomie."
+    "description": "Ich helfe kleinen österreichischen Betrieben mit Website, Online-Buchung, Newsletter und dem digitalen Kram drumherum — gebaut, betreut, erreichbar."
   },
   "meta": {
     "jobTitle": "Fullstack-Entwickler"
@@ -28,7 +28,7 @@
   "hero": {
     "kicker": "Freelance · Webpräsenz & Digitalisierung · Wien",
     "headline": "Die digitale Seite deines Betriebs.",
-    "body": "Ich helfe kleinen Betrieben mit ihrer Website und dem digitalen Kram drumherum — gebaut, betreut, erreichbar. Schwerpunkt: Hotellerie und Gastronomie.",
+    "body": "Ich helfe kleinen Betrieben mit ihrer Website und dem digitalen Kram drumherum — gebaut, betreut, erreichbar.",
     "ctaPrimary": "Projekt besprechen",
     "ctaSecondary": "Beispiele ansehen",
     "meta": [
@@ -101,7 +101,7 @@
   },
   "services": {
     "label": "Leistungen",
-    "intro": "Ich baue Websites für kleine Betriebe — und übernehme, was danach kommt. Dazu die digitalen Werkzeuge drumherum: Buchung, Newsletter, Rechnungen. Besonders oft für Hotels, Pensionen und Gastronomie.",
+    "intro": "Ich baue Websites für kleine Betriebe — und übernehme, was danach kommt. Dazu die digitalen Werkzeuge drumherum: Buchung, Newsletter, Rechnungen.",
     "taxNote": "Alle Preise umsatzsteuerbefreit — Kleinunternehmer gemäß §6 Abs. 1 Z 27 UStG; es kommt keine USt. dazu.",
     "detailsCta": "Alle Preise und Pakete im Detail",
     "detailsCtaAria": "Zur Preisübersicht",
@@ -155,7 +155,7 @@
       "description": "Buchung, Terminvergabe, Newsletter, Rechnungen — viele Betriebe zahlen dafür monatlich an Drittanbieter oder hohe Provisionen. Ich richte die passenden Open-Source-Werkzeuge ein und betreibe sie selbst auf europäischer Cloud. Deine Daten bleiben bei dir.",
       "examplesLabel": "Zum Beispiel",
       "examples": [
-        "Direktbuchung für Hotels & Pensionen — statt 15–20 % Provision",
+        "Direktbuchung über die eigene Seite — ohne Plattform-Provisionen",
         "Online-Terminvergabe — statt Telefon und Notizzettel",
         "Newsletter — ohne monatliche Abo-Falle",
         "Einfache Rechnungen & Zeiterfassung"
@@ -209,7 +209,7 @@
       "Freelance · Web & Digitalisierung für kleine Betriebe"
     ],
     "bodyParagraphs": [
-      "Ich helfe kleinen österreichischen Betrieben, online sichtbar zu sein und es zu bleiben — und übernehme den digitalen Kram, den man als Betrieb sonst nebenbei stemmen müsste. Am häufigsten für Hotels, Pensionen und Gastronomie.",
+      "Ich helfe kleinen österreichischen Betrieben, online sichtbar zu sein und es zu bleiben — und übernehme den digitalen Kram, den man als Betrieb sonst nebenbei stemmen müsste.",
       "Hauptberuflich arbeite ich in der Digitalisierung der Stadt Wien; nebenbei baue ich seit Jahren Webapps und eigene Projekte. Bei den meisten Sachen bleibe ich nach dem Launch als Ansprechperson dabei."
     ],
     "moreLabel": "Mehr über mich — Werdegang, Hintergrund und der Technik-Teil"
@@ -221,7 +221,7 @@
     "kicker": "Fullstack-Entwickler · Wien",
     "lede": "Hauptberuflich in der Digitalisierung der Stadt Wien, daneben freiberuflich für kleine Betriebe — Website, Betrieb und die digitalen Werkzeuge drumherum.",
     "bodyParagraphs": [
-      "Ich helfe kleinen österreichischen Betrieben, online sichtbar zu sein und es zu bleiben: Website neu bauen oder überarbeiten, danach Betrieb und Pflege übernehmen, dazu die digitalen Werkzeuge drumherum — Buchung, Newsletter, Rechnungen. Schwerpunkt: Hotellerie und Gastronomie.",
+      "Ich helfe kleinen österreichischen Betrieben, online sichtbar zu sein und es zu bleiben: Website neu bauen oder überarbeiten, danach Betrieb und Pflege übernehmen, dazu die digitalen Werkzeuge drumherum — Buchung, Newsletter, Rechnungen.",
       "Webapps baue ich seit Jahren in Anstellung und in eigenen Projekten (z. B. <a class=\"inline-link\" href=\"https://github.com/HelplessSneeker/b-cal\" rel=\"noopener external\" target=\"_blank\">b-cal</a>); im Freelance-Bereich starte ich bewusst mit kleinerem Scope und spreche bei größeren Vorhaben den passenden Umfang ab.",
       "Ich arbeite am liebsten an Dingen, die länger als ein Quartal leben sollen: sauber gebaut, selbst gehostet und voll von mir verwaltet, mit Werkzeugen, denen ich auch in zwei Jahren noch vertraue. Bei den meisten Projekten bleibe ich nach dem Launch als Ansprechperson dabei."
     ],
@@ -359,7 +359,7 @@
         "title": "Online-Terminbuchung",
         "toolName": "Mit Cal.com",
         "kicker": "Direktbuchung statt Telefon",
-        "description": "Termine, Beratungen, Erstgespräche, Restaurant-Reservierungen. Kunden buchen direkt, dein Kalender ist synchronisiert. Selbst gehostet, keine Drittanbieter-Abos.",
+        "description": "Termine, Beratungen, Erstgespräche, Reservierungen. Kunden buchen direkt, dein Kalender ist synchronisiert. Selbst gehostet, keine Drittanbieter-Abos.",
         "setup": "90 €",
         "monthly": "+10 €/Monat"
       },
