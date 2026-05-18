@@ -3,7 +3,7 @@ import node from '@astrojs/node';
 import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-  site: 'https://benjamin.noessler.at',
+  site: 'https://bfnoessler.at',
   output: 'server',
   adapter: node({ mode: 'standalone' }),
   integrations: [

@@ -28,7 +28,7 @@ const {
 
 const navLabel = t(locale, 'nav.pageNavigation');
 
-const siteUrl = Astro.site?.toString().replace(/\/$/, '') ?? 'https://benjamin.noessler.at';
+const siteUrl = Astro.site?.toString().replace(/\/$/, '') ?? 'https://bfnoessler.at';
 const canonicalUrl = `${siteUrl}${canonicalPath}`;
 const ogImageUrl = ogImage.startsWith('http') ? ogImage : `${siteUrl}${ogImage}`;
 

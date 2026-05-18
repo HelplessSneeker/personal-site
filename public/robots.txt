@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://benjamin.noessler.at/sitemap-index.xml
+Sitemap: https://bfnoessler.at/sitemap-index.xml
