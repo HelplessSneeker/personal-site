@@ -24,7 +24,8 @@ const altUrl = getAltUrl(Astro.url.pathname, locale);
   <h2>General</h2>
   <p>
     This website processes personal data only within the bounds of applicable law (GDPR, Austrian
-    Data Protection Act). No data is shared for analytics purposes and no tracking cookies are set.
+    Data Protection Act). No data is shared with third parties for analytics purposes and no
+    tracking cookies are set.
   </p>
 
   <h2>Server logs</h2>
@@ -38,6 +39,15 @@ const altUrl = getAltUrl(Astro.url.pathname, locale);
     <a href="https://www.hetzner.com/rechtliches/datenschutz" rel="noopener external" target="_blank">
       Hetzner privacy notice ↗
     </a>
+  </p>
+
+  <h2>Analytics</h2>
+  <p>
+    This site uses self-hosted <strong>Umami</strong> on infrastructure operated by the controller
+    for basic, privacy-friendly usage statistics. Umami records page paths, referrer, user-agent
+    string, and a country derived from the IP address; the raw IP address is not stored. No
+    cookies are set and no cross-site tracking takes place. The legal basis is Art. 6(1)(f) GDPR
+    (legitimate interest in understanding how the site is used).
   </p>
 
   <h2>Contact form</h2>
