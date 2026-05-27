@@ -5,9 +5,8 @@ import Footer from '../../components/Footer.astro';
 import Hero from '../../components/Hero.astro';
 import Proof from '../../components/Proof.astro';
 import Services from '../../components/Services.astro';
-import Trust from '../../components/Trust.astro';
+import Process from '../../components/Process.astro';
 import SelectedWork from '../../components/SelectedWork.astro';
-import About from '../../components/About.astro';
 import Contact from '../../components/Contact.astro';
 import { t, getAltUrl } from '../../i18n/util';
 
@@ -19,9 +18,8 @@ const altUrl = getAltUrl(Astro.url.pathname, locale);
 const sections = [
   { id: 'top', label: t(locale, 'nav.top') },
   { id: 'services', label: t(locale, 'nav.services') },
-  { id: 'trust', label: t(locale, 'trust.label') },
+  { id: 'process', label: t(locale, 'process.label') },
   { id: 'work', label: t(locale, 'nav.work') },
-  { id: 'about', label: t(locale, 'nav.about') },
   { id: 'contact', label: t(locale, 'nav.contact') },
 ];
 ---
@@ -38,9 +36,8 @@ const sections = [
     <Hero locale={locale} />
     <Proof locale={locale} />
     <Services locale={locale} />
-    <Trust locale={locale} />
+    <Process locale={locale} />
     <SelectedWork locale={locale} />
-    <About locale={locale} />
     <Contact locale={locale} />
   </main>
   <Footer locale={locale} />

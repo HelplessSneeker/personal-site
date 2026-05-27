@@ -6,12 +6,7 @@ export interface Props {
 }
 
 const { locale } = Astro.props;
-const pricingPath = getLocalizedPath(locale, locale === 'de' ? '/preise' : '/pricing');
-
-/* The homepage Services section is the overview teaser; full prices, included
-   lists, and the tax note live on the dedicated /preise page. The three
-   editorial entries below carry kicker + title + description only, then hand
-   off to the pricing page via the CTA. */
+const bundlePath = getLocalizedPath(locale, '/bundle');
 ---
 <section class="section services-section" id="services" aria-labelledby="services-heading">
   <div class="container">
@@ -24,9 +19,9 @@ const pricingPath = getLocalizedPath(locale, locale === 'de' ? '/preise' : '/pri
           <span>01</span>
           <span class="rule"></span>
         </p>
-        <p class="service-overview-kicker label-meta">{t(locale, 'services.website.kicker')}</p>
-        <h3 class="service-overview-title">{t(locale, 'services.website.title')}</h3>
-        <p class="service-overview-desc">{t(locale, 'services.website.description')}</p>
+        <p class="service-overview-kicker label-meta">{t(locale, 'services.sites.kicker')}</p>
+        <h3 class="service-overview-title">{t(locale, 'services.sites.title')}</h3>
+        <p class="service-overview-desc">{t(locale, 'services.sites.description')}</p>
       </li>
 
       <li class="service-overview">
@@ -34,9 +29,9 @@ const pricingPath = getLocalizedPath(locale, locale === 'de' ? '/preise' : '/pri
           <span>02</span>
           <span class="rule"></span>
         </p>
-        <p class="service-overview-kicker label-meta">{t(locale, 'services.care.kicker')}</p>
-        <h3 class="service-overview-title">{t(locale, 'services.care.title')}</h3>
-        <p class="service-overview-desc">{t(locale, 'services.care.description')}</p>
+        <p class="service-overview-kicker label-meta">{t(locale, 'services.ai.kicker')}</p>
+        <h3 class="service-overview-title">{t(locale, 'services.ai.title')}</h3>
+        <p class="service-overview-desc">{t(locale, 'services.ai.description')}</p>
       </li>
 
       <li class="service-overview">
@@ -44,17 +39,15 @@ const pricingPath = getLocalizedPath(locale, locale === 'de' ? '/preise' : '/pri
           <span>03</span>
           <span class="rule"></span>
         </p>
-        <p class="service-overview-kicker label-meta">{t(locale, 'services.tools.kicker')}</p>
-        <h3 class="service-overview-title">{t(locale, 'services.tools.title')}</h3>
-        <p class="service-overview-desc">{t(locale, 'services.tools.description')}</p>
+        <p class="service-overview-kicker label-meta">{t(locale, 'services.stack.kicker')}</p>
+        <h3 class="service-overview-title">{t(locale, 'services.stack.title')}</h3>
+        <p class="service-overview-desc">{t(locale, 'services.stack.description')}</p>
       </li>
     </ol>
 
-    <p class="services-ongoing">{t(locale, 'services.ongoingNote')}</p>
-
     <p class="services-details-cta">
       <a
-        href={pricingPath}
+        href={bundlePath}
         class="services-details-link"
         aria-label={t(locale, 'services.detailsCtaAria')}
       >
@@ -62,12 +55,6 @@ const pricingPath = getLocalizedPath(locale, locale === 'de' ? '/preise' : '/pri
         <span class="services-details-arrow" aria-hidden="true">→</span>
       </a>
     </p>
-
-    <aside class="service-extension" aria-label={t(locale, 'services.extensionLabel')}>
-      <p class="extension-label label-meta">{t(locale, 'services.extensionLabel')}</p>
-      <h3 class="extension-title">{t(locale, 'services.fullstack.title')}</h3>
-      <p class="extension-desc">{t(locale, 'services.fullstack.description')}</p>
-    </aside>
   </div>
 </section>
 
@@ -136,23 +123,10 @@ const pricingPath = getLocalizedPath(locale, locale === 'de' ? '/preise' : '/pri
     text-wrap: pretty;
   }
 
-  /* The "we keep working" beat — sits just before the pricing CTA so the
-     recurring-relationship framing reads as the bridge from overview to
-     details. Editorial voice, slightly larger than body, max width tuned
-     to read in 2 lines on desktop. */
-  .services-ongoing {
+  .services-details-cta {
     margin: var(--space-8) 0 0 0;
     padding-top: var(--space-5);
     border-top: 1px solid var(--color-rule);
-    font-size: var(--fs-lg);
-    line-height: 1.45;
-    color: var(--color-text);
-    max-width: 56ch;
-    text-wrap: pretty;
-  }
-
-  .services-details-cta {
-    margin: var(--space-5) 0 0 0;
   }
 
   .services-details-link {
@@ -185,38 +159,5 @@ const pricingPath = getLocalizedPath(locale, locale === 'de' ? '/preise' : '/pri
     .services-details-link:hover .services-details-arrow {
       transform: none;
     }
-  }
-
-  /* Extension card — clearly subordinate to the primary services. Unchanged
-     from the previous Services layout; kept as a quiet aside for visitors
-     who land on the page with a "bigger than a website" question. */
-  .service-extension {
-    margin-top: var(--space-9);
-    padding-top: var(--space-6);
-    border-top: 1px solid var(--color-rule);
-    max-width: 44rem;
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-3);
-  }
-  .extension-label {
-    color: var(--color-text-subtle);
-    margin: 0;
-  }
-  .extension-title {
-    font-family: var(--font-display);
-    font-size: var(--fs-lg);
-    font-weight: var(--weight-medium);
-    letter-spacing: var(--tracking-heading-lg);
-    line-height: 1.15;
-    color: var(--color-text);
-    margin: 0;
-  }
-  .extension-desc {
-    font-size: var(--fs-md);
-    line-height: var(--lh-relaxed);
-    color: var(--color-text-muted);
-    max-width: 56ch;
-    margin: 0;
   }
 </style>

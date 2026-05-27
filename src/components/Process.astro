@@ -7,13 +7,14 @@ export interface Props {
 
 const { locale } = Astro.props;
 const dict = getDict(locale);
-const steps = dict.trust.process.steps;
+const steps = dict.process.steps;
 ---
-<section class="section trust-section" id="trust" aria-labelledby="trust-heading">
+<section class="section process-section" id="process" aria-labelledby="process-heading">
   <div class="container">
-    <h2 id="trust-heading" class="section-label">{t(locale, 'trust.label')}</h2>
+    <h2 id="process-heading" class="section-label">{t(locale, 'process.label')}</h2>
+    <p class="section-lede">{t(locale, 'process.intro')}</p>
 
-    <ol class="timeline" aria-label={t(locale, 'trust.process.label')}>
+    <ol class="timeline" aria-label={t(locale, 'process.label')}>
       {steps.map((step, i) => (
         <li class="timeline-step">
           <span class="timeline-marker" aria-hidden="true">
@@ -29,25 +30,21 @@ const steps = dict.trust.process.steps;
 </section>
 
 <style>
-  /* Tighten the gap above Trust so it reads as a continuation of Services. */
-  .trust-section {
+  /* Tighten the gap above Process so it reads as a continuation of the
+     prior section. */
+  .process-section {
     padding-block-start: var(--section-continued);
   }
 
-  /* Timeline — three steps on a connecting hairline rule with accent dots
-     at each step. Editorial graphic vocabulary, not consultancy "process
-     trio" cards. Mobile = vertical (dots stack down a left-side rule),
-     desktop = horizontal (dots span a top rule, content drops below). */
+  /* Timeline — four steps on a connecting hairline rule with accent dots.
+     Mobile = vertical (dots stack down a left-side rule), desktop = four
+     equal columns with the rule running horizontally through the dots. */
   .timeline {
     list-style: none;
     padding: 0;
     margin: var(--space-7) 0 0 0;
   }
 
-  /* MOBILE: vertical timeline.
-     The connecting rule is drawn with a single ::before on the <ol> so it
-     spans all steps continuously without per-li seams. Each li offsets
-     content past the rule via padding. The dot sits centered on the rule. */
   .timeline {
     position: relative;
     display: flex;
@@ -129,17 +126,13 @@ const steps = dict.trust.process.steps;
     margin: 0;
   }
 
-  /* DESKTOP: horizontal timeline.
-     Three equal columns, dots sit on a horizontal rule that spans the row
-     edge-to-edge. Content drops below each dot. The rule is drawn behind
-     the dots; dots have a background-colored ring so they cleanly punch
-     through the rule. */
+  /* DESKTOP: four-column horizontal timeline. */
   @media (min-width: 48rem) {
     .timeline {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(4, minmax(0, 1fr));
       gap: var(--space-6);
-      max-width: 64rem;
+      max-width: 72rem;
     }
     .timeline::before {
       left: 0;

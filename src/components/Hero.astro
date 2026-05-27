@@ -8,6 +8,8 @@ export interface Props {
 const { locale } = Astro.props;
 const home = getLocalizedPath(locale, '/');
 const metaItems = tArray(locale, 'hero.meta');
+// TODO Loom-URL eintragen (60–90s Intro). Fallback: Anker zu #contact.
+const loomUrl = import.meta.env.PUBLIC_LOOM_INTRO_URL || `${home}#contact`;
 ---
 <section class="section hero" id="top" aria-labelledby="hero-heading">
   <div class="container hero-grid">
@@ -18,11 +20,16 @@ const metaItems = tArray(locale, 'hero.meta');
       <p class="hero-body">{t(locale, 'hero.body')}</p>
 
       <div class="hero-cta">
-        <a href={`${home}#contact`} class="btn btn-primary hero-cta-primary">
+        <a
+          href={loomUrl}
+          class="btn btn-primary hero-cta-primary"
+          rel={loomUrl.startsWith('http') ? 'noopener external' : undefined}
+          target={loomUrl.startsWith('http') ? '_blank' : undefined}
+        >
           {t(locale, 'hero.ctaPrimary')}
           <span class="hero-cta-arrow" aria-hidden="true">→</span>
         </a>
-        <a href={`${home}#work`} class="hero-cta-link">
+        <a href="mailto:benjamin@noessler.at" class="hero-cta-link">
           {t(locale, 'hero.ctaSecondary')}
         </a>
       </div>
