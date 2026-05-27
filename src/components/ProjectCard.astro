@@ -22,6 +22,7 @@ const yearsLabel = t(locale, 'work.yearsLabel');
 const statusLabel = t(locale, 'work.statusLabel');
 const outcomeLabel = t(locale, 'work.outcomeLabel');
 const linksLabel = t(locale, 'work.linksLabel');
+const stackLabel = t(locale, 'work.stackLabel');
 const statusKeyMap: Record<Project['status'], 'live' | 'archived' | 'inDevelopment' | 'caseStudy'> = {
   live: 'live',
   archived: 'archived',
@@ -113,7 +114,7 @@ const testimonialAuthor = project.testimonial?.author
       </dl>
     </div>
 
-    {project.image && (
+    {project.image ? (
       <figure class="project-figure">
         <img
           class="project-image"
@@ -125,6 +126,13 @@ const testimonialAuthor = project.testimonial?.author
           height="900"
         />
       </figure>
+    ) : project.stack.length > 0 && (
+      <aside class="project-figure project-figure-stack" aria-label={stackLabel}>
+        <p class="project-figure-stack-label label-meta">{stackLabel}</p>
+        <ul class="project-figure-stack-list">
+          {project.stack.map((item) => <li>{item}</li>)}
+        </ul>
+      </aside>
     )}
   </div>
 </article>
@@ -345,6 +353,44 @@ const testimonialAuthor = project.testimonial?.author
     object-fit: cover;
     border: 1px solid var(--color-border);
     background: var(--color-surface);
+  }
+
+  /* Stack panel — alternative right column for cards without an image.
+     Same visual footprint as .project-image (4/3 aspect, surface bg, border)
+     so the row rhythm stays even across cards. Reads as a "credits"
+     plaque, not as a placeholder. */
+  .project-figure-stack {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    padding: var(--space-5);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+
+  .project-figure-stack-label {
+    color: var(--color-text-subtle);
+    margin: 0;
+  }
+
+  .project-figure-stack-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+    font-family: var(--font-mono);
+    font-feature-settings: var(--font-features-mono);
+    font-size: var(--fs-sm);
+    color: var(--color-text);
+    line-height: 1.5;
+  }
+  .project-figure-stack-list li::before {
+    content: '·\00a0 ';
+    color: var(--color-accent);
   }
 
   @media (max-width: 52rem) {

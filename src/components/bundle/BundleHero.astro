@@ -6,6 +6,7 @@ export interface Props {
 }
 
 const { locale } = Astro.props;
+const snapshotItems = tArray(locale, 'bundle.hero.snapshotItems');
 const metaItems = tArray(locale, 'bundle.hero.metaItems');
 ---
 <section class="section bundle-hero" id="top" aria-labelledby="bundle-hero-heading">
@@ -14,6 +15,12 @@ const metaItems = tArray(locale, 'bundle.hero.metaItems');
     <p class="bundle-hero-kicker label-meta">{t(locale, 'bundle.hero.kicker')}</p>
     <h1 id="bundle-hero-heading" class="bundle-hero-headline">{t(locale, 'bundle.hero.headline')}</h1>
     <p class="bundle-hero-body">{t(locale, 'bundle.hero.body')}</p>
+
+    {snapshotItems.length > 0 && (
+      <ul class="bundle-hero-snapshot tabular" aria-label={t(locale, 'bundle.hero.kicker')}>
+        {snapshotItems.map((item) => <li>{item}</li>)}
+      </ul>
+    )}
 
     {metaItems.length > 0 && (
       <ul class="bundle-hero-meta" aria-hidden="true">
@@ -75,7 +82,37 @@ const metaItems = tArray(locale, 'bundle.hero.metaItems');
     color: var(--color-text);
     max-width: 56ch;
     text-wrap: pretty;
-    margin: 0 0 var(--space-6) 0;
+    margin: 0 0 var(--space-5) 0;
+  }
+
+  /* Above-the-fold price snapshot — three figures in the same mono colophon
+     voice as Hero's meta and the page-wide proof bar. Heavier than the
+     bundle-hero-meta below it (--fs-sm vs --fs-xs, --color-text vs subtle)
+     because this is substantive content (the prices), not a colophon. */
+  .bundle-hero-snapshot {
+    list-style: none;
+    padding: var(--space-3) 0;
+    margin: 0 0 var(--space-5) 0;
+    border-top: 1px solid var(--color-rule);
+    border-bottom: 1px solid var(--color-rule);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    font-family: var(--font-mono);
+    font-feature-settings: var(--font-features-mono);
+    font-variant-numeric: tabular-nums;
+    font-size: var(--fs-sm);
+    color: var(--color-text);
+    line-height: 1.5;
+  }
+  .bundle-hero-snapshot li {
+    display: inline-flex;
+    align-items: baseline;
+  }
+  .bundle-hero-snapshot li:not(:last-child)::after {
+    content: '·';
+    color: var(--color-accent);
+    margin-inline: 0.55em;
   }
 
   .bundle-hero-meta {

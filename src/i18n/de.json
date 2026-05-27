@@ -28,20 +28,21 @@
     "kicker": "Astro + AI-Integration · Wien · projektbasiert",
     "headline": "Schnelle Websites mit AI-Integration. Aus Wien, ohne Agentur-Overhead.",
     "body": "Astro-Frontends und LLM-Plumbing für Agenturen und Direktkunden, die ihre Website wieder selbst verstehen wollen.",
-    "ctaPrimary": "Loom-Intro ansehen",
+    "ctaPrimaryLoom": "Loom-Intro ansehen",
+    "ctaPrimaryContact": "Direkt anfragen",
     "ctaSecondary": "benjamin@noessler.at",
     "meta": [
-      "Wien",
-      "Hetzner",
-      "DE/EN"
+      "DE/EN",
+      "EU · Hetzner",
+      "EN16931 + EPC-QR"
     ]
   },
   "proof": {
     "ariaLabel": "Eckdaten",
     "items": [
-      "Wien",
-      "seit 2026",
-      "aktive Kunden: Vordermann Flächenreinigung, FoundersGroup, SCANZY"
+      "Astro + Self-Hosted",
+      "EU-Server · Hetzner",
+      "Wartung oder Übergabe"
     ]
   },
   "stack": {
@@ -115,7 +116,7 @@
     "stack": {
       "title": "Self-Hosted Stack",
       "kicker": "Website + E-Rechnung + Tooling",
-      "description": "Website, Invoice Ninja, Buchung, Newsletter — alles auf einer eigenen Coolify-Instanz, EU-Region, EN16931-konform. Eher für KMU als für Agenturen."
+      "description": "Website, Invoice Ninja, Buchung, Newsletter — auf einer eigenen Coolify-Instanz, EU-Region, EN16931-konform. Voll von mir betrieben und gepflegt — eher für KMU als für Agenturen."
     }
   },
   "work": {
@@ -126,6 +127,7 @@
     "statusLabel": "Status",
     "outcomeLabel": "Ergebnis",
     "linksLabel": "Links",
+    "stackLabel": "Stack",
     "visitLink": "Website besuchen",
     "githubLink": "GitHub Repository",
     "status": {
@@ -141,12 +143,12 @@
   },
   "process": {
     "label": "So arbeiten wir",
-    "intro": "Vier Schritte, transparente Preise, kein Verkaufstheater. Vienna-based, persönlicher Kontakt.",
+    "intro": "Vier Schritte, transparente Preise, kein Verkaufstheater. Bei den meisten bleibe ich als Ansprechperson nach dem Launch.",
     "steps": [
       { "title": "Discovery-Call", "body": "30 Minuten, kostenlos. Verständnis für Problem und Scope — ich sage ehrlich, ob ich passe." },
       { "title": "Festpreis-Angebot", "body": "Klare Leistung, klarer Preis. Keine versteckten Stunden, kein „Auf Anfrage“." },
       { "title": "Build mit Milestones", "body": "Saubere Etappen, regelmäßige Vorschauen, Launch nach Plan." },
-      { "title": "Optionales Wartungs-Abo", "body": "Hosting, Updates, kleinere Änderungen aus einer Hand — oder du übernimmst, dein Code." }
+      { "title": "Wartung oder Übergabe", "body": "Hosting, Updates, kleinere Änderungen aus einer Hand — oder du übernimmst, dein Code. Die meisten bleiben." }
     ]
   },
   "aboutPage": {
@@ -249,6 +251,11 @@
       "kicker": "Self-Hosted Business-Stack · Stand 26.05.2026",
       "headline": "Website + Rechnung aus einer Hand. Eigene Daten, EU-Server, kein SaaS-Lock-in.",
       "body": "Für österreichische KMU, die ihre Tools selbst betreiben wollen — statt jeden Monat an drei verschiedene SaaS-Anbieter zu überweisen. Ein Setup, ein Monatsbetrag, ein Ansprechpartner.",
+      "snapshotItems": [
+        "Setup ab 2.190 €",
+        "Monatlich ab 89 €",
+        "Pro-Bundle: +20 €/Monat statt +25 €"
+      ],
       "metaItems": [
         "EU-Region · Coolify",
         "EN16931 + EPC-QR",
@@ -334,7 +341,7 @@
         {
           "label": "Vordermann Flächenreinigung",
           "body": "Astro-Redesign mit Buchungs-Workflow für einen Wiener Reinigungsbetrieb. Direkter Anfragekanal statt Telefon-Pingpong.",
-          "href": ""
+          "href": "https://vordermann-reinigung.at"
         }
       ]
     },

@@ -28,20 +28,21 @@
     "kicker": "Astro + AI integration · Vienna · project-based",
     "headline": "Fast websites with AI integration. From Vienna, no agency overhead.",
     "body": "Astro frontends and LLM plumbing for agencies and direct clients who want to understand their website again.",
-    "ctaPrimary": "Watch the Loom intro",
+    "ctaPrimaryLoom": "Watch the Loom intro",
+    "ctaPrimaryContact": "Get in touch",
     "ctaSecondary": "benjamin@noessler.at",
     "meta": [
-      "Vienna",
-      "Hetzner",
-      "DE/EN"
+      "DE/EN",
+      "EU · Hetzner",
+      "EN16931 + EPC-QR"
     ]
   },
   "proof": {
     "ariaLabel": "At a glance",
     "items": [
-      "Vienna",
-      "since 2026",
-      "active clients: Vordermann Flächenreinigung, FoundersGroup, SCANZY"
+      "Astro + self-hosted",
+      "EU server · Hetzner",
+      "Care plan or handover"
     ]
   },
   "stack": {
@@ -115,7 +116,7 @@
     "stack": {
       "title": "Self-hosted stack",
       "kicker": "Website + invoicing + tooling",
-      "description": "Website, Invoice Ninja, booking, newsletter — all on a single Coolify instance, EU region, EN16931-compliant. More for SMBs than for agencies."
+      "description": "Website, Invoice Ninja, booking, newsletter — on a single Coolify instance, EU region, EN16931-compliant. Run and cared for end-to-end by me — more for SMBs than for agencies."
     }
   },
   "work": {
@@ -126,6 +127,7 @@
     "statusLabel": "Status",
     "outcomeLabel": "Outcome",
     "linksLabel": "Links",
+    "stackLabel": "Stack",
     "visitLink": "Visit website",
     "githubLink": "GitHub repository",
     "status": {
@@ -141,12 +143,12 @@
   },
   "process": {
     "label": "How we'll work together",
-    "intro": "Four steps, transparent prices, no sales theatre. Vienna-based, direct contact.",
+    "intro": "Four steps, transparent prices, no sales theatre. On most projects I stay on as the point of contact after launch.",
     "steps": [
       { "title": "Discovery call", "body": "30 minutes, free. Understanding the problem and the scope — I'll be honest about whether I'm a fit." },
       { "title": "Fixed-price quote", "body": "Clear scope, clear price. No hidden hours, no \"available on request\"." },
       { "title": "Build with milestones", "body": "Clean stages, regular previews, launch on schedule." },
-      { "title": "Optional care plan", "body": "Hosting, updates, smaller changes from a single source — or you take over, your code." }
+      { "title": "Care plan or handover", "body": "Hosting, updates, smaller changes from a single source — or you take over, your code. Most clients stay." }
     ]
   },
   "aboutPage": {
@@ -249,6 +251,11 @@
       "kicker": "Self-hosted business stack · As of 2026-05-26",
       "headline": "Website + invoicing from a single source. Your data, EU servers, no SaaS lock-in.",
       "body": "For Austrian SMBs that want to run their own tools — instead of wiring monthly fees to three different SaaS vendors. One setup, one monthly fee, one point of contact.",
+      "snapshotItems": [
+        "Setup from €2,190",
+        "Monthly from €89",
+        "Pro bundle: +€20/month instead of +€25"
+      ],
       "metaItems": [
         "EU region · Coolify",
         "EN16931 + EPC-QR",
@@ -334,7 +341,7 @@
         {
           "label": "Vordermann Flächenreinigung",
           "body": "Astro redesign with a booking workflow for a Vienna-based cleaning business. Direct inquiry channel instead of phone tag.",
-          "href": ""
+          "href": "https://vordermann-reinigung.at"
         }
       ]
     },
