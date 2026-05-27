@@ -1,0 +1,208 @@
+---
+import { t, getDict, type Locale } from '../../i18n/util';
+
+export interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const dict = getDict(locale);
+const setupItems = dict.bundle.base.setupItems;
+const includedItems = dict.bundle.base.includedItems;
+---
+<section class="section base-section" id="base" aria-labelledby="base-heading">
+  <div class="container">
+    <p class="section-label label-meta">{t(locale, 'bundle.base.label')}</p>
+    <h2 id="base-heading" class="base-title">{t(locale, 'bundle.base.title')}</h2>
+    <p class="base-desc">{t(locale, 'bundle.base.description')}</p>
+
+    <div class="base-grid">
+      <div class="base-col">
+        <p class="base-col-label label-meta">{t(locale, 'bundle.base.setupLabel')}</p>
+        <dl class="base-setup tabular">
+          {setupItems.map((item) => (
+            <div class="base-setup-row">
+              <dt>{item.label}</dt>
+              <dd>{item.price}</dd>
+            </div>
+          ))}
+        </dl>
+      </div>
+
+      <div class="base-col base-col-monthly">
+        <p class="base-col-label label-meta">{t(locale, 'bundle.base.monthlyLabel')}</p>
+        <p class="base-monthly">
+          <span class="base-monthly-price tabular">{t(locale, 'bundle.base.monthlyPrice')}</span>
+          <span class="base-monthly-cadence">{t(locale, 'bundle.base.monthlyCadence')}</span>
+        </p>
+      </div>
+    </div>
+
+    <div class="base-included">
+      <p class="base-col-label label-meta">{t(locale, 'bundle.base.includedLabel')}</p>
+      <ul class="base-included-list">
+        {includedItems.map((item) => <li>{item}</li>)}
+      </ul>
+    </div>
+  </div>
+</section>
+
+<style>
+  .base-section {
+    padding-block-start: var(--section-continued);
+  }
+
+  .base-title {
+    font-family: var(--font-display);
+    font-size: var(--fs-2xl);
+    font-weight: var(--weight-medium);
+    letter-spacing: var(--tracking-heading-xl);
+    line-height: 1.05;
+    color: var(--color-text);
+    margin: var(--space-2) 0 var(--space-4) 0;
+    text-wrap: balance;
+    max-width: 22ch;
+  }
+
+  .base-desc {
+    font-size: var(--fs-md);
+    line-height: var(--lh-relaxed);
+    color: var(--color-text);
+    max-width: 64ch;
+    text-wrap: pretty;
+    margin: 0 0 var(--space-7) 0;
+  }
+
+  .base-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+    padding-block: var(--space-5);
+    border-top: 1px solid var(--color-rule);
+    border-bottom: 1px solid var(--color-rule);
+  }
+  @media (min-width: 48rem) {
+    .base-grid {
+      grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+      gap: var(--space-7);
+      align-items: start;
+    }
+  }
+
+  .base-col {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    min-width: 0;
+  }
+
+  .base-col-label {
+    color: var(--color-text-subtle);
+    margin: 0;
+  }
+
+  .base-setup {
+    display: grid;
+    gap: var(--space-3);
+    margin: 0;
+  }
+
+  .base-setup-row {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: var(--space-4);
+    align-items: baseline;
+  }
+
+  .base-setup-row dt {
+    font-size: var(--fs-md);
+    color: var(--color-text);
+    line-height: 1.4;
+  }
+
+  .base-setup-row dd {
+    margin: 0;
+    font-family: var(--font-mono);
+    font-feature-settings: var(--font-features-mono);
+    font-variant-numeric: tabular-nums;
+    font-size: var(--fs-md);
+    color: var(--color-accent);
+    white-space: nowrap;
+  }
+
+  .base-col-monthly {
+    border-top: 1px solid var(--color-rule);
+    padding-top: var(--space-5);
+  }
+  @media (min-width: 48rem) {
+    .base-col-monthly {
+      border-top: none;
+      border-left: 1px solid var(--color-rule);
+      padding-top: 0;
+      padding-left: var(--space-6);
+    }
+  }
+
+  .base-monthly {
+    margin: 0;
+    display: flex;
+    align-items: baseline;
+    gap: var(--space-2);
+  }
+
+  .base-monthly-price {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 1.5rem + 1.5vw, 2.75rem);
+    font-weight: var(--weight-medium);
+    color: var(--color-accent);
+    line-height: 1;
+    letter-spacing: var(--tracking-heading-xl);
+  }
+
+  .base-monthly-cadence {
+    font-family: var(--font-mono);
+    font-feature-settings: var(--font-features-mono);
+    font-size: var(--fs-sm);
+    color: var(--color-text-muted);
+  }
+
+  .base-included {
+    margin-top: var(--space-6);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+
+  .base-included-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: var(--space-3);
+    max-width: 64rem;
+  }
+  @media (min-width: 48rem) {
+    .base-included-list {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      column-gap: var(--space-6);
+    }
+  }
+
+  .base-included-list li {
+    position: relative;
+    padding-left: var(--space-5);
+    font-size: var(--fs-md);
+    line-height: var(--lh-relaxed);
+    color: var(--color-text);
+    text-wrap: pretty;
+  }
+  .base-included-list li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    top: 0.05em;
+    font-family: var(--font-mono);
+    font-size: 0.9em;
+    color: var(--color-accent);
+  }
+</style>

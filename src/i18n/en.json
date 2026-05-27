@@ -1,7 +1,7 @@
 {
   "site": {
-    "title": "Benjamin Nößler — Web presence & digital · Vienna",
-    "description": "I help small Austrian businesses with their website, online booking, newsletter, and the digital stuff around it — built, maintained, reachable."
+    "title": "Benjamin Nößler — Astro + AI integration developer · Vienna",
+    "description": "Fast websites with AI integration. Based in Vienna, no agency overhead — Astro frontends and LLM plumbing for agencies and tech-savvy direct clients."
   },
   "meta": {
     "jobTitle": "Fullstack Developer"
@@ -16,7 +16,6 @@
     "pageNavigation": "Page sections",
     "skipToContent": "Skip to content",
     "services": "Services",
-    "pricing": "Pricing",
     "work": "Work",
     "about": "About",
     "contact": "Contact"
@@ -26,24 +25,24 @@
     "inquiryAria": "Send an inquiry"
   },
   "hero": {
-    "kicker": "Freelance · Web presence & digital · Vienna",
-    "headline": "The digital side of your business.",
-    "body": "I help small businesses with their website and the digital stuff around it — built, maintained, reachable.",
-    "ctaPrimary": "Discuss your project",
-    "ctaSecondary": "See examples",
+    "kicker": "Astro + AI integration · Vienna · project-based",
+    "headline": "Fast websites with AI integration. From Vienna, no agency overhead.",
+    "body": "Astro frontends and LLM plumbing for agencies and direct clients who want to understand their website again.",
+    "ctaPrimaryLoom": "Watch the Loom intro",
+    "ctaPrimaryContact": "Get in touch",
+    "ctaSecondary": "benjamin@noessler.at",
     "meta": [
-      "Vienna",
-      "Hetzner",
-      "DE/EN"
+      "DE/EN",
+      "EU · Hetzner",
+      "EN16931 + EPC-QR"
     ]
   },
   "proof": {
     "ariaLabel": "At a glance",
     "items": [
-      "Self-hosted · EU region",
-      "Fixed price",
-      "DE/EN",
-      "GDPR"
+      "Astro + self-hosted",
+      "EU server · Hetzner",
+      "Care plan or handover"
     ]
   },
   "stack": {
@@ -100,71 +99,24 @@
     }
   },
   "services": {
-    "label": "Services",
-    "intro": "I build websites for small businesses — and take care of what comes after. Plus the digital tools around it: booking, newsletter, invoicing.",
-    "taxNote": "All prices VAT-exempt — Austrian small-business scheme (§6(1)(27) UStG); no VAT is added.",
-    "detailsCta": "All packages and prices in detail",
-    "detailsCtaAria": "Go to pricing page",
-    "ongoingNote": "On most projects I stay on as point of contact after launch. Hosting and care from a single source, we keep working, not just deliver and disappear.",
-    "extensionLabel": "Also available",
-    "website": {
-      "title": "Website",
-      "kicker": "From scratch or redesign",
-      "description": "A new website built from scratch — or an existing site rebuilt. One-pager or multi-page, depending on scope. Clear structure, fast load times, proper bilingual DE/EN.",
-      "priceAnchor": "from €1,800",
-      "priceCadence": "Fixed price · operation billed separately",
-      "includedLabel": "Included in the fixed price",
-      "includedItems": [
-        "Website (one-pager or multi-page), responsive, DE/EN",
-        "Briefing & concept sketch (60 min)",
-        "Design and technical implementation",
-        "Two rounds of revisions",
-        "SEO foundation (meta tags, sitemap, structured data)",
-        "Performance optimisation (Core Web Vitals)",
-        "Contact form with email delivery",
-        "Privacy-friendly analytics (e.g. Plausible)",
-        "GDPR basics (imprint, privacy, cookie banner)",
-        "Launch + 30-day correction window"
-      ],
-      "excludedLabel": "Not included",
-      "excludedItems": [
-        "Copywriting & translations",
-        "Photo/video material",
-        "Additional revision rounds",
-        "Ongoing operation (see below)"
-      ]
+    "label": "What I do",
+    "intro": "Three areas I'm building in right now. Clean frontends, AI integration with substance, and a modular self-hosted stack for SMBs that want to run their own tools.",
+    "detailsCta": "Self-hosted stack in detail",
+    "detailsCtaAria": "Go to bundle page",
+    "sites": {
+      "title": "Astro sites",
+      "kicker": "Fast, maintainable, headless",
+      "description": "Marketing sites and landing pages on Astro. Server output where needed, static where possible. No WordPress-plugin hell, no 200 KB of JS for a headline."
     },
-    "care": {
-      "title": "Operation & care",
-      "kicker": "After launch",
-      "description": "The site keeps running on cloud infrastructure I manage end-to-end — hosting, updates, backups, small changes. A fixed monthly fee, one point of contact, cancel any time. You don't have to think about it.",
-      "priceAnchor": "from €49",
-      "priceCadence": "/month · cancel any time at month's end",
-      "includedLabel": "Included",
-      "includedItems": [
-        "Self-hosted on European cloud (Hetzner) · SSL · daily backups",
-        "Updates and security patches",
-        "Reachable when something breaks — response within one business day",
-        "Small text changes included"
-      ],
-      "note": "Larger changes billed by the hour: €60/h (in 15-minute increments). SEO, monthly reports and an annual strategy call available on request."
+    "ai": {
+      "title": "AI integration",
+      "kicker": "RAG, LLM plumbing, eval setup",
+      "description": "Embeddings, retrieval, tool use, eval pipelines. Self-hosted or cloud — whichever fits the use case. Not hype-chasing, but finding the spots where an LLM actually changes something."
     },
-    "tools": {
-      "title": "Digital tools",
-      "kicker": "Instead of monthly subscriptions",
-      "description": "Booking, scheduling, newsletter, invoicing — many businesses pay monthly third-party fees or steep commissions for these. I set up the right open-source tools and run them self-hosted on European cloud. Your data stays with you.",
-      "examplesLabel": "For example",
-      "examples": [
-        "Direct booking through your own site — no platform commissions",
-        "Online scheduling — instead of phone calls and sticky notes",
-        "Newsletter — without the monthly subscription trap",
-        "Simple invoicing & time tracking"
-      ],
-      "note": "Scope and price defined after a call — usually as part of the Operation & care package."
-    },
-    "fullstack": {
-      "title": "Fullstack web apps",
-      "description": "For projects beyond a single page — web apps, dashboards, APIs, internal tools. Cleanly built, transparently deployed in the EU region. Scope and price defined after a call."
+    "stack": {
+      "title": "Self-hosted stack",
+      "kicker": "Website + invoicing + tooling",
+      "description": "Website, Invoice Ninja, booking, newsletter — on a single Coolify instance, EU region, EN16931-compliant. Run and cared for end-to-end by me — more for SMBs than for agencies."
     }
   },
   "work": {
@@ -175,6 +127,7 @@
     "statusLabel": "Status",
     "outcomeLabel": "Outcome",
     "linksLabel": "Links",
+    "stackLabel": "Stack",
     "visitLink": "Visit website",
     "githubLink": "GitHub repository",
     "status": {
@@ -188,30 +141,15 @@
     "label": "From employment",
     "intro": "Selected projects from my permanent role — for context, not as a freelance portfolio."
   },
-  "trust": {
+  "process": {
     "label": "How we'll work together",
-    "process": {
-      "label": "Process",
-      "steps": [
-        { "title": "Talk", "body": "30 minutes, free. I tell you honestly whether I'm a fit." },
-        { "title": "Fixed-price quote", "body": "Clear scope, clear price. No hidden hours." },
-        { "title": "Build & ongoing care", "body": "Launch in 2–4 weeks. Then hosting and care from one hand." }
-      ]
-    }
-  },
-  "about": {
-    "label": "About",
-    "byline": "Benjamin Nößler · Vienna",
-    "metaItems": [
-      "Base · Vienna · mostly remote",
-      "Permanent role · City of Vienna digital team (via APC Business Services)",
-      "Freelance · web & digital for small businesses"
-    ],
-    "bodyParagraphs": [
-      "I help small Austrian businesses get visible online and stay that way — and take over the digital stuff a business would otherwise have to handle on the side.",
-      "My day job is on the City of Vienna's digital team; on the side I've been building web apps and my own projects for years. On most things I stay on as the point of contact after launch."
-    ],
-    "moreLabel": "More about me — background, work history and the technical part"
+    "intro": "Four steps, transparent prices, no sales theatre. On most projects I stay on as the point of contact after launch.",
+    "steps": [
+      { "title": "Discovery call", "body": "30 minutes, free. Understanding the problem and the scope — I'll be honest about whether I'm a fit." },
+      { "title": "Fixed-price quote", "body": "Clear scope, clear price. No hidden hours, no \"available on request\"." },
+      { "title": "Build with milestones", "body": "Clean stages, regular previews, launch on schedule." },
+      { "title": "Care plan or handover", "body": "Hosting, updates, smaller changes from a single source — or you take over, your code. Most clients stay." }
+    ]
   },
   "aboutPage": {
     "title": "About me",
@@ -262,15 +200,16 @@
       "github": "GitHub",
       "linkedin": "LinkedIn"
     },
-    "callBooking": {
-      "intro": "Prefer to talk?",
-      "linkLabel": "Book a 30-min intro call"
+    "loom": {
+      "intro": "Prefer a 60-second Loom first?",
+      "linkLabel": "Watch the intro walkthrough"
     }
   },
   "footer": {
     "builtWith": "Built with Astro · Hosted on Hetzner",
     "viewSource": "View source",
     "aboutPage": "About me",
+    "bundle": "Self-hosted stack",
     "imprint": "Imprint",
     "privacy": "Privacy",
     "backToHome": "Back to homepage",
@@ -301,16 +240,25 @@
       "message": "Message"
     }
   },
-  "pricing": {
-    "metaTitle": "Packages & Pricing — Benjamin Nößler",
-    "metaDescription": "Hybrid bundle for Austrian SMBs: website plus self-hosted Invoice Ninja with EN16931 hybrid PDF, monthly care, modular add-ons. All prices transparent.",
+  "bundle": {
+    "priceLabels": {
+      "setup": "Setup",
+      "monthly": "Monthly"
+    },
+    "metaTitle": "Self-hosted business stack — Benjamin Nößler",
+    "metaDescription": "Website + Invoice Ninja from a single source, with modular add-ons for booking, analytics and newsletter. Your data, EU servers, EN16931-compliant, no SaaS lock-in.",
     "hero": {
-      "kicker": "Packages & Pricing · As of 2026-05-16",
-      "headline": "One website, one billing stack, one care arrangement.",
-      "body": "One setup, one monthly fee, one point of contact. The site runs self-hosted on European cloud infrastructure; invoices are EN16931 hybrid PDFs, ready for the Austrian B2B e-invoicing rule coming in 2028. Every number is on this page, no on-request hide.",
+      "kicker": "Self-hosted business stack · As of 2026-05-26",
+      "headline": "Website + invoicing from a single source. Your data, EU servers, no SaaS lock-in.",
+      "body": "For Austrian SMBs that want to run their own tools — instead of wiring monthly fees to three different SaaS vendors. One setup, one monthly fee, one point of contact.",
+      "snapshotItems": [
+        "Setup from €2,190",
+        "Monthly from €89",
+        "Pro bundle: +€20/month instead of +€25"
+      ],
       "metaItems": [
-        "Fixed price · no hidden hours",
-        "VAT-exempt small business",
+        "EU region · Coolify",
+        "EN16931 + EPC-QR",
         "Cancellable monthly"
       ]
     },
@@ -328,15 +276,13 @@
       "monthlyCadence": "/month",
       "includedLabel": "Included in €89/month",
       "includedItems": [
-        "Self-hosted on European cloud (Hetzner) · SSL · daily backups",
+        "Coolify hosting (shared CPX22, EU server) · SSL · daily backups",
         "Updates and security patches for both apps",
-        "SMTP relay for invoice sends (pooled)",
+        "SMTP relay (Brevo/Postmark, shared quota pool)",
         "One support ticket per month, reply within one business day",
         "Uptime monitoring",
         "Small text and image edits on the website included"
-      ],
-      "standaloneLabel": "Existing-site clients",
-      "standaloneBody": "Invoice Ninja hosting only, no website build: €390 setup + €49/month. Useful when your site already lives somewhere and you just need the invoicing compliance."
+      ]
     },
     "addonsSection": {
       "label": "Add-ons · subscribe any time",
@@ -344,9 +290,9 @@
     },
     "addons": [
       {
-        "key": "cal",
+        "key": "appointments",
         "title": "Online booking",
-        "toolName": "With Cal.com",
+        "toolName": "With Easy!Appointments",
         "kicker": "Direct booking instead of phone tag",
         "description": "Appointments, consultations, intro calls, reservations. Clients book directly, your calendar stays in sync. Self-hosted, no third-party subscriptions.",
         "setup": "€90",
@@ -375,7 +321,7 @@
       "label": "Pro bundle",
       "kicker": "All three add-ons together",
       "title": "Booking + analytics + newsletter",
-      "tools": "With Cal.com, Umami and Listmonk",
+      "tools": "With Easy!Appointments, Umami and Listmonk",
       "body": "Take all three and the monthly drops from €25 to €20; setup from €230 to €200. Small, but real.",
       "setupSaving": "€30 saved",
       "monthlySaving": "€5/month saved",
@@ -383,34 +329,42 @@
       "monthlyCadence": "/month",
       "setup": "€200"
     },
-    "fullPackage": {
-      "label": "Full package",
-      "title": "Base + Pro bundle",
-      "body": "Website + Invoice Ninja + all three add-ons. The most common path for clients who'd rather not piece it together.",
-      "setup": "€2,390",
-      "setupLabel": "One-time setup",
-      "monthly": "€109",
-      "monthlyCadence": "/month"
+    "trust": {
+      "label": "In the wild",
+      "intro": "Two examples that show what the stack looks like in practice.",
+      "items": [
+        {
+          "label": "My own Invoice Ninja instance",
+          "body": "I bill through the same setup I'm offering — EN16931 hybrid PDF, EPC QR, small-business VAT clause included.",
+          "href": ""
+        },
+        {
+          "label": "Vordermann Flächenreinigung",
+          "body": "Astro redesign with a booking workflow for a Vienna-based cleaning business. Direct inquiry channel instead of phone tag.",
+          "href": "https://vordermann-reinigung.at"
+        }
+      ]
     },
-    "hourly": {
-      "label": "Extensions billed hourly",
-      "title": "€60/hour",
-      "body": "Bigger changes, new features, custom work, billed in 15-minute increments. Hourly rate for existing clients on an active care plan."
+    "fineprint": {
+      "hourly": {
+        "label": "Extensions billed hourly",
+        "title": "€60/hour",
+        "body": "Bigger changes, new features, custom work — billed in 15-minute increments. Hourly rate for existing clients on an active care plan."
+      },
+      "domain": {
+        "label": "Domain",
+        "title": "Your domain stays yours.",
+        "body": "You own the domain, I just manage it. If you don't have one yet, I'll handle the registration (€50 one-time, then around €12/year direct to the registrar)."
+      },
+      "tax": "All prices VAT-exempt, Austrian small-business rule §6 (1) Z 27 UStG. No VAT added.",
+      "compliance": "EN16931 + EPC-QR + small-business clause — ready for the Austrian B2B e-invoicing rule coming in 2028."
     },
-    "domain": {
-      "label": "Domain",
-      "title": "Your domain stays yours.",
-      "body": "You own the domain, I just manage it. So you're never locked in, when the relationship ends your business has immediate full access again. If you don't have a domain yet, I'll handle the registration for you (€50 one-time, then around €12/year direct to the registrar)."
-    },
-    "taxNote": "All prices VAT-exempt, Austrian small-business rule §6 (1) Z 27 UStG. No VAT added.",
-    "booking": {
-      "kicker": "30 minutes, free",
-      "title": "Let's talk briefly.",
-      "body": "I'll be honest about whether I'm the right fit. If not, I'll point you to someone who is. Both come free.",
-      "ctaLabel": "Book a call",
-      "ctaUrl": "https://cal.com/bfnoessler/30min",
-      "fallbackLabel": "Prefer email?",
-      "fallbackEmail": "benjamin@noessler.at"
+    "contact": {
+      "kicker": "Let's talk briefly",
+      "title": "Loom intro first, then a call.",
+      "body": "Send me a few sentences about your business — what you pay today, what you want to self-host, where it gets stuck. I usually reply within 48 hours.",
+      "loomIntro": "Prefer a 90-second walkthrough first?",
+      "loomLinkLabel": "Watch the bundle Loom"
     }
   }
 }

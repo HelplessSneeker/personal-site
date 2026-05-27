@@ -1,28 +1,28 @@
 ---
-import { t, type Locale } from '../i18n/util';
-import ContactForm from './ContactForm.astro';
-import { socialLinks } from '../data/social';
+import { t, type Locale } from '../../i18n/util';
+import ContactForm from '../ContactForm.astro';
+import { socialLinks } from '../../data/social';
 
 export interface Props {
   locale: Locale;
 }
 
 const { locale } = Astro.props;
-// TODO Loom-URL eintragen (60–90s Intro). Block rendert nur, wenn PUBLIC_LOOM_INTRO_URL gesetzt ist.
-const loomUrl = import.meta.env.PUBLIC_LOOM_INTRO_URL;
+// TODO Bundle-Loom-URL eintragen. Block rendert nur, wenn PUBLIC_LOOM_BUNDLE_URL gesetzt ist.
+const loomUrl = import.meta.env.PUBLIC_LOOM_BUNDLE_URL;
 ---
-<section class="section contact-section" id="contact" aria-labelledby="contact-heading">
+<section class="section contact-section" id="contact" aria-labelledby="bundle-contact-heading">
   <div class="container contact-inner">
     <header class="contact-header">
-      <p class="section-label">{t(locale, 'contact.label')}</p>
-      <h2 id="contact-heading" class="contact-heading">{t(locale, 'contact.heading')}</h2>
-      <p class="contact-body">{t(locale, 'contact.body')}</p>
+      <p class="section-label">{t(locale, 'bundle.contact.kicker')}</p>
+      <h2 id="bundle-contact-heading" class="contact-heading">{t(locale, 'bundle.contact.title')}</h2>
+      <p class="contact-body">{t(locale, 'bundle.contact.body')}</p>
 
       {loomUrl && (
         <p class="contact-call">
-          {t(locale, 'contact.loom.intro')}{' '}
+          {t(locale, 'bundle.contact.loomIntro')}{' '}
           <a class="contact-call-link" href={loomUrl} rel="noopener external" target="_blank">
-            {t(locale, 'contact.loom.linkLabel')} <span aria-hidden="true">→</span>
+            {t(locale, 'bundle.contact.loomLinkLabel')} <span aria-hidden="true">→</span>
           </a>
         </p>
       )}
@@ -61,13 +61,6 @@ const loomUrl = import.meta.env.PUBLIC_LOOM_INTRO_URL;
 </section>
 
 <style>
-  /* Documented exception to the section grammar.
-     Contact is the page's closing chord — conversion moment, give it room
-     to land. Two deliberate deviations from the standard section pattern:
-       1. Uses the --section-pause padding token (generous, not default)
-       2. Kicker (Kontakt) + h2 (conversion line) pair, mirroring Hero's
-          overture composition — the kicker carries the section-label
-          voice, the h2 carries the call. */
   .contact-section {
     padding-block-start: var(--section-pause);
   }
@@ -89,12 +82,9 @@ const loomUrl = import.meta.env.PUBLIC_LOOM_INTRO_URL;
     display: flex;
     flex-direction: column;
     gap: var(--space-4);
-    max-width: 30rem;
+    max-width: 32rem;
   }
 
-  /* Reset spacing on the kicker — the flex gap above governs distance to
-     the h2 below, so the .section-label's default margin-bottom would
-     stack with it and feel slack. */
   .contact-header .section-label {
     margin-bottom: 0;
   }
@@ -113,7 +103,7 @@ const loomUrl = import.meta.env.PUBLIC_LOOM_INTRO_URL;
     font-size: var(--fs-md);
     line-height: var(--lh-relaxed);
     color: var(--color-text);
-    max-width: 42ch;
+    max-width: 44ch;
     text-wrap: pretty;
   }
 

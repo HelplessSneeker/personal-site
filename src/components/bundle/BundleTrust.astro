@@ -1,0 +1,93 @@
+---
+import { t, getDict, type Locale } from '../../i18n/util';
+
+export interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const dict = getDict(locale);
+const items = dict.bundle.trust.items;
+---
+<section class="section trust-section" id="trust" aria-labelledby="bundle-trust-heading">
+  <div class="container">
+    <h2 id="bundle-trust-heading" class="section-label">{t(locale, 'bundle.trust.label')}</h2>
+    <p class="section-lede">{t(locale, 'bundle.trust.intro')}</p>
+
+    <ul class="trust-list">
+      {items.map((item) => (
+        <li class="trust-item">
+          <h3 class="trust-item-label">{item.label}</h3>
+          <p class="trust-item-body">{item.body}</p>
+          {item.href && (
+            <p class="trust-item-link">
+              <a href={item.href} rel="noopener external" target="_blank">
+                {item.href.replace(/^https?:\/\//, '')} <span aria-hidden="true">↗</span>
+              </a>
+            </p>
+          )}
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>
+
+<style>
+  .trust-section {
+    padding-block-start: var(--section-continued);
+  }
+
+  .trust-list {
+    list-style: none;
+    padding: 0;
+    margin: var(--space-7) 0 0 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-5);
+  }
+  @media (min-width: 48rem) {
+    .trust-list {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: var(--space-6);
+    }
+  }
+
+  .trust-item {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    padding-block: var(--space-5);
+    border-top: 1px solid var(--color-rule);
+  }
+
+  .trust-item-label {
+    font-family: var(--font-display);
+    font-size: var(--fs-lg);
+    font-weight: var(--weight-medium);
+    letter-spacing: var(--tracking-heading-lg);
+    line-height: var(--lh-snug);
+    color: var(--color-text);
+    margin: 0;
+    text-wrap: balance;
+  }
+
+  .trust-item-body {
+    font-size: var(--fs-md);
+    line-height: var(--lh-relaxed);
+    color: var(--color-text);
+    margin: 0;
+    text-wrap: pretty;
+    max-width: 50ch;
+  }
+
+  .trust-item-link {
+    margin: 0;
+    font-family: var(--font-mono);
+    font-feature-settings: var(--font-features-mono);
+    font-size: var(--fs-sm);
+  }
+
+  .trust-item-link a {
+    color: var(--color-accent);
+  }
+</style>

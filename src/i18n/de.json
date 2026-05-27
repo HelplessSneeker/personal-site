@@ -1,7 +1,7 @@
 {
   "site": {
-    "title": "Benjamin Nößler — Webpräsenz & Digitalisierung · Wien",
-    "description": "Ich helfe kleinen österreichischen Betrieben mit Website, Online-Buchung, Newsletter und dem digitalen Kram drumherum — gebaut, betreut, erreichbar."
+    "title": "Benjamin Nößler — Astro + AI-Integration Developer · Wien",
+    "description": "Schnelle Websites mit AI-Integration. Aus Wien, ohne Agentur-Overhead — Astro-Frontends und LLM-Plumbing für Agenturen und tech-affine Direktkunden."
   },
   "meta": {
     "jobTitle": "Fullstack-Entwickler"
@@ -16,7 +16,6 @@
     "pageNavigation": "Seitennavigation",
     "skipToContent": "Zum Inhalt springen",
     "services": "Leistungen",
-    "pricing": "Preise",
     "work": "Arbeiten",
     "about": "Über",
     "contact": "Kontakt"
@@ -26,24 +25,24 @@
     "inquiryAria": "Anfrage stellen"
   },
   "hero": {
-    "kicker": "Freelance · Webpräsenz & Digitalisierung · Wien",
-    "headline": "Die digitale Seite deines Betriebs.",
-    "body": "Ich helfe kleinen Betrieben mit ihrer Website und dem digitalen Kram drumherum — gebaut, betreut, erreichbar.",
-    "ctaPrimary": "Projekt besprechen",
-    "ctaSecondary": "Beispiele ansehen",
+    "kicker": "Astro + AI-Integration · Wien · projektbasiert",
+    "headline": "Schnelle Websites mit AI-Integration. Aus Wien, ohne Agentur-Overhead.",
+    "body": "Astro-Frontends und LLM-Plumbing für Agenturen und Direktkunden, die ihre Website wieder selbst verstehen wollen.",
+    "ctaPrimaryLoom": "Loom-Intro ansehen",
+    "ctaPrimaryContact": "Direkt anfragen",
+    "ctaSecondary": "benjamin@noessler.at",
     "meta": [
-      "Wien",
-      "Hetzner",
-      "DE/EN"
+      "DE/EN",
+      "EU · Hetzner",
+      "EN16931 + EPC-QR"
     ]
   },
   "proof": {
     "ariaLabel": "Eckdaten",
     "items": [
-      "Selbst gehostet · EU-Region",
-      "Festpreis",
-      "DE/EN",
-      "DSGVO"
+      "Astro + Self-Hosted",
+      "EU-Server · Hetzner",
+      "Wartung oder Übergabe"
     ]
   },
   "stack": {
@@ -100,71 +99,24 @@
     }
   },
   "services": {
-    "label": "Leistungen",
-    "intro": "Ich baue Websites für kleine Betriebe — und übernehme, was danach kommt. Dazu die digitalen Werkzeuge drumherum: Buchung, Newsletter, Rechnungen.",
-    "taxNote": "Alle Preise umsatzsteuerbefreit — Kleinunternehmer gemäß §6 Abs. 1 Z 27 UStG; es kommt keine USt. dazu.",
-    "detailsCta": "Alle Preise und Pakete im Detail",
-    "detailsCtaAria": "Zur Preisübersicht",
-    "ongoingNote": "Bei den meisten Aufträgen bleibe ich nach dem Launch als Ansprechperson dabei. Hosting und Pflege aus einer Hand — wir arbeiten weiter, nicht nur einmal.",
-    "extensionLabel": "Auch möglich",
-    "website": {
-      "title": "Website",
-      "kicker": "Neu oder Redesign",
-      "description": "Neue Website von Grund auf — oder bestehende Seite neu umsetzen. One-Pager oder mehrseitig, je nach Umfang. Klare Struktur, schnelle Ladezeiten, sauber zweisprachig.",
-      "priceAnchor": "ab €1.800",
-      "priceCadence": "Festpreis · Betrieb separat",
-      "includedLabel": "Im Festpreis enthalten",
-      "includedItems": [
-        "Website (One-Pager oder mehrseitig), responsive, DE/EN",
-        "Briefing & Konzept-Skizze (60 Min)",
-        "Design und technische Umsetzung",
-        "Zwei Revisionsrunden",
-        "SEO-Grundgerüst (Meta-Tags, Sitemap, strukturierte Daten)",
-        "Performance-Optimierung (Core Web Vitals)",
-        "Kontaktformular mit Mailversand",
-        "Datenschutzfreundliche Analytics (z. B. Plausible)",
-        "DSGVO-Basics (Impressum, Datenschutz, Cookie-Banner)",
-        "Live-Schaltung + 30 Tage Korrektur-Fenster"
-      ],
-      "excludedLabel": "Nicht enthalten",
-      "excludedItems": [
-        "Texterstellung & Übersetzungen",
-        "Foto-/Videomaterial",
-        "Weitere Revisionsrunden",
-        "Laufender Betrieb (siehe unten)"
-      ]
+    "label": "Was ich mache",
+    "intro": "Drei Felder, in denen ich aktuell baue. Saubere Frontends, AI-Integration mit Substanz, und ein modularer Self-Hosted-Stack für KMU, die ihre Tools selbst betreiben wollen.",
+    "detailsCta": "Self-Hosted Stack im Detail",
+    "detailsCtaAria": "Zur Bundle-Übersicht",
+    "sites": {
+      "title": "Astro Sites",
+      "kicker": "Schnell, wartbar, headless",
+      "description": "Marketing-Sites und Landingpages auf Astro. Server-Output wo nötig, Static wo möglich. Keine WordPress-Plugins-Hölle, kein 200-KB-JS-Bundle für eine Headline."
     },
-    "care": {
-      "title": "Betrieb & Pflege",
-      "kicker": "Nach dem Launch",
-      "description": "Die Seite läuft auf einer von mir betriebenen Cloud weiter — Hosting, Updates, Backups, kleine Änderungen. Ein fester Monatsbetrag, ein Ansprechpartner, jederzeit kündbar. Du musst dich nicht drum kümmern.",
-      "priceAnchor": "ab €49",
-      "priceCadence": "/Monat · jederzeit zum Monatsende kündbar",
-      "includedLabel": "Inklusive",
-      "includedItems": [
-        "Selbst gehostet auf europäischer Cloud (Hetzner) · SSL · tägliche Backups",
-        "Updates und Sicherheits-Patches",
-        "Erreichbar bei Problemen — Reaktion innerhalb eines Werktags",
-        "Kleine Textänderungen inklusive"
-      ],
-      "note": "Größere Änderungen nach Aufwand: €60/h (in 15-Minuten-Schritten abgerechnet). SEO, monatliche Berichte und ein jährliches Strategiegespräch auf Wunsch."
+    "ai": {
+      "title": "AI-Integration",
+      "kicker": "RAG, LLM-Plumbing, Eval-Setup",
+      "description": "Embeddings, Retrieval, Tool-Use, Eval-Pipelines. Selfhosted oder Cloud — was zum Use-Case passt. Kein Hype-Reiten, sondern Stellen finden, wo ein LLM wirklich etwas verändert."
     },
-    "tools": {
-      "title": "Digitale Werkzeuge",
-      "kicker": "Statt monatlicher Abos",
-      "description": "Buchung, Terminvergabe, Newsletter, Rechnungen — viele Betriebe zahlen dafür monatlich an Drittanbieter oder hohe Provisionen. Ich richte die passenden Open-Source-Werkzeuge ein und betreibe sie selbst auf europäischer Cloud. Deine Daten bleiben bei dir.",
-      "examplesLabel": "Zum Beispiel",
-      "examples": [
-        "Direktbuchung über die eigene Seite — ohne Plattform-Provisionen",
-        "Online-Terminvergabe — statt Telefon und Notizzettel",
-        "Newsletter — ohne monatliche Abo-Falle",
-        "Einfache Rechnungen & Zeiterfassung"
-      ],
-      "note": "Umfang und Preis nach Gespräch — meist als Teil des Betrieb-&-Pflege-Pakets."
-    },
-    "fullstack": {
-      "title": "Fullstack-Webapps",
-      "description": "Für Vorhaben jenseits einer einzelnen Seite — Webapps, Dashboards, APIs, interne Tools. Sauber gebaut, transparent deployed in der EU-Region. Umfang und Preis nach Gespräch."
+    "stack": {
+      "title": "Self-Hosted Stack",
+      "kicker": "Website + E-Rechnung + Tooling",
+      "description": "Website, Invoice Ninja, Buchung, Newsletter — auf einer eigenen Coolify-Instanz, EU-Region, EN16931-konform. Voll von mir betrieben und gepflegt — eher für KMU als für Agenturen."
     }
   },
   "work": {
@@ -175,6 +127,7 @@
     "statusLabel": "Status",
     "outcomeLabel": "Ergebnis",
     "linksLabel": "Links",
+    "stackLabel": "Stack",
     "visitLink": "Website besuchen",
     "githubLink": "GitHub Repository",
     "status": {
@@ -188,30 +141,15 @@
     "label": "Aus dem Hauptberuf",
     "intro": "Ausgewählte Projekte aus meiner Festanstellung — als Kontext, nicht als Freelance-Portfolio."
   },
-  "trust": {
+  "process": {
     "label": "So arbeiten wir",
-    "process": {
-      "label": "Ablauf",
-      "steps": [
-        { "title": "Gespräch", "body": "30 Minuten, kostenlos. Ich sage ehrlich, ob ich passe." },
-        { "title": "Festpreis-Angebot", "body": "Klare Leistung, klarer Preis. Keine versteckten Stunden." },
-        { "title": "Umsetzung & Pflege", "body": "Launch in 2–4 Wochen. Danach Hosting und Pflege aus einer Hand." }
-      ]
-    }
-  },
-  "about": {
-    "label": "Über",
-    "byline": "Benjamin Nößler · Wien",
-    "metaItems": [
-      "Sitz · Wien · meist remote",
-      "Festanstellung · Stadt Wien Digitalisierung (über APC Business Services)",
-      "Freelance · Web & Digitalisierung für kleine Betriebe"
-    ],
-    "bodyParagraphs": [
-      "Ich helfe kleinen österreichischen Betrieben, online sichtbar zu sein und es zu bleiben — und übernehme den digitalen Kram, den man als Betrieb sonst nebenbei stemmen müsste.",
-      "Hauptberuflich arbeite ich in der Digitalisierung der Stadt Wien; nebenbei baue ich seit Jahren Webapps und eigene Projekte. Bei den meisten Sachen bleibe ich nach dem Launch als Ansprechperson dabei."
-    ],
-    "moreLabel": "Mehr über mich — Werdegang, Hintergrund und der Technik-Teil"
+    "intro": "Vier Schritte, transparente Preise, kein Verkaufstheater. Bei den meisten bleibe ich als Ansprechperson nach dem Launch.",
+    "steps": [
+      { "title": "Discovery-Call", "body": "30 Minuten, kostenlos. Verständnis für Problem und Scope — ich sage ehrlich, ob ich passe." },
+      { "title": "Festpreis-Angebot", "body": "Klare Leistung, klarer Preis. Keine versteckten Stunden, kein „Auf Anfrage“." },
+      { "title": "Build mit Milestones", "body": "Saubere Etappen, regelmäßige Vorschauen, Launch nach Plan." },
+      { "title": "Wartung oder Übergabe", "body": "Hosting, Updates, kleinere Änderungen aus einer Hand — oder du übernimmst, dein Code. Die meisten bleiben." }
+    ]
   },
   "aboutPage": {
     "title": "Über mich",
@@ -262,15 +200,16 @@
       "github": "GitHub",
       "linkedin": "LinkedIn"
     },
-    "callBooking": {
-      "intro": "Lieber kurz reden?",
-      "linkLabel": "30-Min-Kennenlerngespräch buchen"
+    "loom": {
+      "intro": "Lieber erst ein 60-Sekunden-Loom?",
+      "linkLabel": "Intro-Walkthrough ansehen"
     }
   },
   "footer": {
     "builtWith": "Gebaut mit Astro · Gehostet auf Hetzner",
     "viewSource": "Quellcode ansehen",
     "aboutPage": "Über mich",
+    "bundle": "Self-Hosted Stack",
     "imprint": "Impressum",
     "privacy": "Datenschutz",
     "backToHome": "Zur Startseite",
@@ -301,16 +240,25 @@
       "message": "Nachricht"
     }
   },
-  "pricing": {
-    "metaTitle": "Pakete & Preise — Benjamin Nößler",
-    "metaDescription": "Hybrid-Bundle für österreichische KMU: Website + Invoice Ninja mit EN16931-Hybrid-PDF, monatliche Wartung, modulare Add-ons. Alle Preise transparent.",
+  "bundle": {
+    "priceLabels": {
+      "setup": "Setup",
+      "monthly": "Monatlich"
+    },
+    "metaTitle": "Self-Hosted Business-Stack — Benjamin Nößler",
+    "metaDescription": "Website + Invoice Ninja aus einer Hand, mit modularen Add-ons für Termine, Analytics und Newsletter. Eigene Daten, EU-Server, EN16931-konform, kein SaaS-Lock-in.",
     "hero": {
-      "kicker": "Pakete & Preise · Stand 16.05.2026",
-      "headline": "Eine Website, ein Rechnungs-Stack, ein Wartungs-Versprechen.",
-      "body": "Ein Setup, ein Monatsbetrag, ein Ansprechpartner. Die Website läuft selbst gehostet auf europäischer Cloud-Infrastruktur, die Rechnungen sind EN16931-konform für die ab 2028 in Österreich einsetzende E-Rechnungs-Pflicht. Alle Preise stehen hier offen, ohne Auf-Anfrage-Falle.",
+      "kicker": "Self-Hosted Business-Stack · Stand 26.05.2026",
+      "headline": "Website + Rechnung aus einer Hand. Eigene Daten, EU-Server, kein SaaS-Lock-in.",
+      "body": "Für österreichische KMU, die ihre Tools selbst betreiben wollen — statt jeden Monat an drei verschiedene SaaS-Anbieter zu überweisen. Ein Setup, ein Monatsbetrag, ein Ansprechpartner.",
+      "snapshotItems": [
+        "Setup ab 2.190 €",
+        "Monatlich ab 89 €",
+        "Pro-Bundle: +20 €/Monat statt +25 €"
+      ],
       "metaItems": [
-        "Festpreis · keine versteckten Stunden",
-        "Kleinunternehmer · ohne USt.",
+        "EU-Region · Coolify",
+        "EN16931 + EPC-QR",
         "Monatlich kündbar"
       ]
     },
@@ -328,15 +276,13 @@
       "monthlyCadence": "/Monat",
       "includedLabel": "In 89 €/Monat enthalten",
       "includedItems": [
-        "Selbst gehostet auf europäischer Cloud (Hetzner) · SSL · tägliche Backups",
+        "Coolify-Hosting (shared CPX22, EU-Server) · SSL · tägliche Backups",
         "Updates und Sicherheits-Patches für beide Anwendungen",
-        "SMTP-Versand für Rechnungen (gepoolt)",
+        "SMTP-Versand (Brevo/Postmark, geteilter Kontingent-Pool)",
         "1 Support-Ticket pro Monat, Reaktion innerhalb eines Werktags",
         "Uptime-Monitoring",
         "Kleine Text- und Bildänderungen auf der Website inklusive"
-      ],
-      "standaloneLabel": "Für Bestandskunden",
-      "standaloneBody": "Nur Invoice Ninja, ohne Website-Setup: 390 € Setup + 49 €/Monat. Sinnvoll, wenn deine Seite schon irgendwo läuft und du nur die Rechnungs-Compliance brauchst."
+      ]
     },
     "addonsSection": {
       "label": "Add-ons · jederzeit zubuchbar",
@@ -344,9 +290,9 @@
     },
     "addons": [
       {
-        "key": "cal",
-        "title": "Online-Terminbuchung",
-        "toolName": "Mit Cal.com",
+        "key": "appointments",
+        "title": "Online-Terminvergabe",
+        "toolName": "Mit Easy!Appointments",
         "kicker": "Direktbuchung statt Telefon",
         "description": "Termine, Beratungen, Erstgespräche, Reservierungen. Kunden buchen direkt, dein Kalender ist synchronisiert. Selbst gehostet, keine Drittanbieter-Abos.",
         "setup": "90 €",
@@ -374,8 +320,8 @@
     "proBundle": {
       "label": "Pro-Bundle",
       "kicker": "Alle drei Add-ons gemeinsam",
-      "title": "Terminbuchung + Analytics + Newsletter",
-      "tools": "Mit Cal.com, Umami und Listmonk",
+      "title": "Terminvergabe + Analytics + Newsletter",
+      "tools": "Mit Easy!Appointments, Umami und Listmonk",
       "body": "Wenn du alle drei nimmst, geht der Monatsbetrag von 25 € auf 20 €, beim Setup von 230 € auf 200 €. Klein, aber spürbar.",
       "setupSaving": "30 € gespart",
       "monthlySaving": "5 €/Monat gespart",
@@ -383,34 +329,42 @@
       "monthlyCadence": "/Monat",
       "setup": "200 €"
     },
-    "fullPackage": {
-      "label": "Vollpaket",
-      "title": "Base + Pro-Bundle",
-      "body": "Website + Invoice Ninja + alle drei Add-ons. Der häufigste Pfad für Betriebe, die nicht stückeln wollen.",
-      "setup": "2.390 €",
-      "setupLabel": "Setup einmalig",
-      "monthly": "109 €",
-      "monthlyCadence": "/Monat"
+    "trust": {
+      "label": "Schaufenster",
+      "intro": "Zwei Beispiele, an denen du sehen kannst, wie der Stack in der Praxis läuft.",
+      "items": [
+        {
+          "label": "Eigene Invoice-Ninja-Instanz",
+          "body": "Ich rechne selbst über die gleiche Lösung ab, die ich anbiete — EN16931-Hybrid-PDF, EPC-QR, KU-Klausel inklusive.",
+          "href": ""
+        },
+        {
+          "label": "Vordermann Flächenreinigung",
+          "body": "Astro-Redesign mit Buchungs-Workflow für einen Wiener Reinigungsbetrieb. Direkter Anfragekanal statt Telefon-Pingpong.",
+          "href": "https://vordermann-reinigung.at"
+        }
+      ]
     },
-    "hourly": {
-      "label": "Erweiterungen nach Aufwand",
-      "title": "60 €/Stunde",
-      "body": "Größere Änderungen, neue Features, eigene Anpassungen — in 15-Minuten-Schritten abgerechnet. Stundensatz für Bestandskunden mit aktiver Wartung."
+    "fineprint": {
+      "hourly": {
+        "label": "Erweiterungen nach Aufwand",
+        "title": "60 €/Stunde",
+        "body": "Größere Änderungen, neue Features, eigene Anpassungen — in 15-Minuten-Schritten abgerechnet. Stundensatz für Bestandskunden mit aktiver Wartung."
+      },
+      "domain": {
+        "label": "Domain",
+        "title": "Die Domain bleibt bei dir.",
+        "body": "Du besitzt die Domain, ich verwalte sie nur. Wenn du noch keine hast, kümmere ich mich um die Registrierung (50 € einmalig, danach rund 12 € pro Jahr direkt an den Registrar)."
+      },
+      "tax": "Alle Preise umsatzsteuerbefreit, Kleinunternehmer gemäß §6 Abs. 1 Z 27 UStG. Es kommt keine USt. dazu.",
+      "compliance": "EN16931 + EPC-QR + KU-Klausel — passend zur ab 2028 in Österreich einsetzenden E-Rechnungs-Pflicht im B2B."
     },
-    "domain": {
-      "label": "Domain",
-      "title": "Die Domain bleibt bei dir.",
-      "body": "Du besitzt die Domain, ich verwalte sie nur. So bist du nie an mich gebunden, beim Beziehungsende hat dein Geschäft sofort wieder vollen Zugriff. Wenn du noch keine Domain hast, kümmere ich mich um die Registrierung für dich (50 € einmalig, danach rund 12 € pro Jahr direkt an den Registrar)."
-    },
-    "taxNote": "Alle Preise umsatzsteuerbefreit, Kleinunternehmer gemäß §6 Abs. 1 Z 27 UStG. Es kommt keine USt. dazu.",
-    "booking": {
-      "kicker": "30 Minuten, kostenlos",
-      "title": "Reden wir kurz drüber.",
-      "body": "Ich sage ehrlich, ob ich passe. Wenn nicht, empfehle ich jemanden, der besser passt. Beides gibt's umsonst.",
-      "ctaLabel": "Gespräch buchen",
-      "ctaUrl": "https://cal.com/bfnoessler/30min",
-      "fallbackLabel": "Lieber per Mail?",
-      "fallbackEmail": "benjamin@noessler.at"
+    "contact": {
+      "kicker": "Reden wir kurz",
+      "title": "Loom-Intro vorab, dann ein Anruf.",
+      "body": "Schreib mir ein paar Sätze zu deinem Betrieb — was du heute zahlst, was du selbst betreiben willst, wo es hakt. Antwort meist innerhalb von 48 Stunden.",
+      "loomIntro": "Lieber erst ein 90-Sekunden-Walkthrough?",
+      "loomLinkLabel": "Bundle-Loom ansehen"
     }
   }
 }

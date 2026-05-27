@@ -1,0 +1,149 @@
+---
+import { t, getDict, type Locale } from '../../i18n/util';
+
+export interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const dict = getDict(locale);
+const addons = dict.bundle.addons;
+---
+<section class="section addons-section" id="addons" aria-labelledby="addons-heading">
+  <div class="container">
+    <h2 id="addons-heading" class="section-label">{t(locale, 'bundle.addonsSection.label')}</h2>
+    <p class="section-lede">{t(locale, 'bundle.addonsSection.intro')}</p>
+
+    <ol class="addons-list">
+      {addons.map((addon, i) => (
+        <li class="addon-card">
+          <p class="addon-index tabular" aria-hidden="true">
+            <span>{String(i + 1).padStart(2, '0')}</span>
+            <span class="rule"></span>
+          </p>
+          <p class="addon-tool label-meta">{addon.toolName}</p>
+          <h3 class="addon-title">{addon.title}</h3>
+          <p class="addon-kicker">{addon.kicker}</p>
+          <p class="addon-desc">{addon.description}</p>
+          <dl class="addon-price tabular">
+            <div class="addon-price-row">
+              <dt class="label-meta">{t(locale, 'bundle.priceLabels.setup')}</dt>
+              <dd>{addon.setup}</dd>
+            </div>
+            <div class="addon-price-row">
+              <dt class="label-meta">{t(locale, 'bundle.priceLabels.monthly')}</dt>
+              <dd>{addon.monthly}</dd>
+            </div>
+          </dl>
+        </li>
+      ))}
+    </ol>
+  </div>
+</section>
+
+<style>
+  .addons-section {
+    padding-block-start: var(--section-continued);
+  }
+
+  .addons-list {
+    list-style: none;
+    padding: 0;
+    margin: var(--space-7) 0 0 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+  @media (min-width: 48rem) {
+    .addons-list {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: var(--space-6);
+    }
+  }
+
+  .addon-card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    min-width: 0;
+    padding-block: var(--space-5);
+    border-top: 1px solid var(--color-rule);
+  }
+
+  .addon-index {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    margin: 0 0 var(--space-2) 0;
+    font-family: var(--font-mono);
+    font-feature-settings: var(--font-features-mono);
+    font-size: var(--fs-xs);
+    letter-spacing: var(--tracking-label);
+    color: var(--color-accent);
+  }
+  .addon-index .rule {
+    flex: 1;
+    height: 1px;
+    background: var(--color-rule);
+    display: block;
+  }
+
+  .addon-tool {
+    color: var(--color-text-subtle);
+    margin: 0;
+  }
+
+  .addon-title {
+    font-family: var(--font-display);
+    font-size: var(--fs-lg);
+    font-weight: var(--weight-medium);
+    letter-spacing: var(--tracking-heading-lg);
+    line-height: var(--lh-snug);
+    color: var(--color-text);
+    margin: 0;
+    text-wrap: balance;
+  }
+
+  .addon-kicker {
+    font-size: var(--fs-sm);
+    color: var(--color-text-muted);
+    margin: 0;
+  }
+
+  .addon-desc {
+    font-size: var(--fs-md);
+    line-height: var(--lh-relaxed);
+    color: var(--color-text);
+    margin: 0 0 var(--space-3) 0;
+    text-wrap: pretty;
+  }
+
+  .addon-price {
+    margin: auto 0 0 0;
+    padding-top: var(--space-4);
+    border-top: 1px solid var(--color-rule);
+    display: grid;
+    gap: var(--space-2);
+  }
+
+  .addon-price-row {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: var(--space-3);
+    align-items: baseline;
+  }
+
+  .addon-price-row dt {
+    color: var(--color-text-subtle);
+  }
+
+  .addon-price-row dd {
+    margin: 0;
+    font-family: var(--font-mono);
+    font-feature-settings: var(--font-features-mono);
+    font-variant-numeric: tabular-nums;
+    font-size: var(--fs-md);
+    color: var(--color-accent);
+    text-align: right;
+  }
+</style>

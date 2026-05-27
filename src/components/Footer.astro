@@ -10,6 +10,7 @@ const year = new Date().getFullYear();
 const imprintPath = locale === 'de' ? '/impressum' : '/en/imprint';
 const privacyPath = locale === 'de' ? '/datenschutz' : '/en/privacy';
 const aboutPagePath = locale === 'de' ? '/ueber' : '/en/about';
+const bundlePath = getLocalizedPath(locale, '/bundle');
 const home = getLocalizedPath(locale, '/');
 const path = Astro.url.pathname.replace(/\/$/, '') || '/';
 const sourceUrl = 'https://github.com/HelplessSneeker/personal-site';
@@ -42,6 +43,9 @@ const sourceUrl = 'https://github.com/HelplessSneeker/personal-site';
       <ul>
         {path !== aboutPagePath && (
           <li><a href={aboutPagePath}>{t(locale, 'footer.aboutPage')}</a></li>
+        )}
+        {path !== bundlePath.replace(/\/$/, '') && (
+          <li><a href={bundlePath}>{t(locale, 'footer.bundle')}</a></li>
         )}
         <li><a href={imprintPath}>{t(locale, 'footer.imprint')}</a></li>
         <li><a href={privacyPath}>{t(locale, 'footer.privacy')}</a></li>

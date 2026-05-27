@@ -1,0 +1,151 @@
+---
+import { t, type Locale } from '../../i18n/util';
+
+export interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+---
+<section class="section pro-section" id="pro" aria-labelledby="pro-heading">
+  <div class="container">
+    <div class="pro-card">
+      <p class="section-label label-meta">{t(locale, 'bundle.proBundle.label')}</p>
+      <p class="pro-kicker">{t(locale, 'bundle.proBundle.kicker')}</p>
+      <h2 id="pro-heading" class="pro-title">{t(locale, 'bundle.proBundle.title')}</h2>
+      <p class="pro-tools label-meta">{t(locale, 'bundle.proBundle.tools')}</p>
+      <p class="pro-body">{t(locale, 'bundle.proBundle.body')}</p>
+
+      <dl class="pro-price tabular">
+        <div class="pro-price-row">
+          <dt class="label-meta">{t(locale, 'bundle.priceLabels.setup')}</dt>
+          <dd class="pro-price-amount">
+            <span class="tabular">{t(locale, 'bundle.proBundle.setup')}</span>
+            <span class="pro-saving">{t(locale, 'bundle.proBundle.setupSaving')}</span>
+          </dd>
+        </div>
+        <div class="pro-price-row">
+          <dt class="label-meta">{t(locale, 'bundle.priceLabels.monthly')}</dt>
+          <dd class="pro-price-amount">
+            <span class="tabular">
+              {t(locale, 'bundle.proBundle.monthly')}
+              <span class="pro-cadence">{t(locale, 'bundle.proBundle.monthlyCadence')}</span>
+            </span>
+            <span class="pro-saving">{t(locale, 'bundle.proBundle.monthlySaving')}</span>
+          </dd>
+        </div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<style>
+  .pro-section {
+    padding-block-start: var(--section-continued);
+  }
+
+  .pro-card {
+    padding: var(--space-6);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+  @media (min-width: 48rem) {
+    .pro-card {
+      padding: var(--space-7);
+    }
+  }
+
+  .pro-kicker {
+    font-size: var(--fs-sm);
+    color: var(--color-text-muted);
+    margin: 0;
+  }
+
+  .pro-title {
+    font-family: var(--font-display);
+    font-size: var(--fs-xl);
+    font-weight: var(--weight-medium);
+    letter-spacing: var(--tracking-heading-lg);
+    line-height: var(--lh-snug);
+    color: var(--color-text);
+    margin: 0;
+    text-wrap: balance;
+  }
+
+  .pro-tools {
+    color: var(--color-text-subtle);
+    margin: 0;
+  }
+
+  .pro-body {
+    font-size: var(--fs-md);
+    line-height: var(--lh-relaxed);
+    color: var(--color-text);
+    max-width: 56ch;
+    text-wrap: pretty;
+    margin: 0 0 var(--space-3) 0;
+  }
+
+  .pro-price {
+    margin: 0;
+    padding-top: var(--space-5);
+    border-top: 1px solid var(--color-rule);
+    display: grid;
+    gap: var(--space-4);
+  }
+  @media (min-width: 32rem) {
+    .pro-price {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: var(--space-6);
+    }
+  }
+
+  .pro-price-row {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .pro-price-row dt {
+    color: var(--color-text-subtle);
+  }
+
+  .pro-price-row dd {
+    margin: 0;
+  }
+
+  .pro-price-amount {
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+    font-family: var(--font-mono);
+    font-feature-settings: var(--font-features-mono);
+    font-variant-numeric: tabular-nums;
+    font-size: var(--fs-xl);
+    color: var(--color-accent);
+  }
+
+  .pro-cadence {
+    font-size: var(--fs-sm);
+    color: var(--color-text-muted);
+    margin-left: 0.15em;
+  }
+
+  .pro-saving {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.2rem 0.55rem;
+    border: 1px solid var(--color-accent);
+    border-radius: 999px;
+    background: var(--color-accent-subtle);
+    color: var(--color-accent-ink);
+    font-family: var(--font-mono);
+    font-feature-settings: var(--font-features-mono);
+    font-size: var(--fs-xs);
+    letter-spacing: 0.04em;
+  }
+</style>

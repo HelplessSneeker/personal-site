@@ -1,0 +1,47 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import BundleHero from '../components/bundle/BundleHero.astro';
+import BundleBaseCard from '../components/bundle/BundleBaseCard.astro';
+import BundleAddons from '../components/bundle/BundleAddons.astro';
+import BundleProBundle from '../components/bundle/BundleProBundle.astro';
+import BundleTrust from '../components/bundle/BundleTrust.astro';
+import BundleFineprint from '../components/bundle/BundleFineprint.astro';
+import BundleContact from '../components/bundle/BundleContact.astro';
+import { t, getAltUrl } from '../i18n/util';
+
+export const prerender = true;
+
+const locale = 'de' as const;
+const altUrl = getAltUrl(Astro.url.pathname, locale);
+
+const sections = [
+  { id: 'top', label: t(locale, 'nav.top') },
+  { id: 'base', label: t(locale, 'bundle.base.label') },
+  { id: 'addons', label: t(locale, 'bundle.addonsSection.label') },
+  { id: 'pro', label: t(locale, 'bundle.proBundle.label') },
+  { id: 'trust', label: t(locale, 'bundle.trust.label') },
+  { id: 'contact', label: t(locale, 'nav.contact') },
+];
+---
+<BaseLayout
+  title={t(locale, 'bundle.metaTitle')}
+  description={t(locale, 'bundle.metaDescription')}
+  locale={locale}
+  altLocaleUrl={altUrl}
+  canonicalPath="/bundle"
+  sections={sections}
+>
+  <Header locale={locale} />
+  <main id="main">
+    <BundleHero locale={locale} />
+    <BundleBaseCard locale={locale} />
+    <BundleAddons locale={locale} />
+    <BundleProBundle locale={locale} />
+    <BundleTrust locale={locale} />
+    <BundleFineprint locale={locale} />
+    <BundleContact locale={locale} />
+  </main>
+  <Footer locale={locale} />
+</BaseLayout>
