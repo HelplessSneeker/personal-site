@@ -125,8 +125,6 @@ export const projects: Project[] = [
       en: 'Evidence of AI-ops depth: own infrastructure instead of someone else\'s black box.',
     },
   },
-  // Sobald cal.bfnoessler.at live ist: status auf 'live' heben, statusDe/En entfernen,
-  // Live-URL als zusätzlichen Link aufnehmen.
   {
     id: 'b-cal',
     title: 'b-cal',
@@ -137,10 +135,16 @@ export const projects: Project[] = [
     stack: ['TypeScript', 'Next.js', 'NestJS', 'Prisma'],
     context: { de: 'Eigenes Projekt', en: 'Personal project' },
     role: { de: 'Architektur & Entwicklung', en: 'Architecture & build' },
-    status: 'in-development',
-    statusDe: 'Demo coming',
-    statusEn: 'Demo coming',
-    links: [{ href: 'https://github.com/HelplessSneeker/b-cal', labelKey: 'work.githubLink' }],
+    status: 'live',
+    links: [
+      { href: 'https://cal.bfnoessler.at', labelKey: 'work.visitLink' },
+      { href: 'https://github.com/HelplessSneeker/b-cal', labelKey: 'work.githubLink' },
+    ],
+    image: '/projects/b-cal.png',
+    imageAlt: {
+      de: 'b-cal Monatsansicht (Mai 2026) in dunklem UI — Sidebar mit Mini-Kalender und „Default"-Kalender, Sprach-Popover mit Umschalter zwischen Englisch und Deutsch.',
+      en: 'b-cal month view (May 2026) in a dark UI — sidebar with mini-calendar and a "Default" calendar, language popover with a toggle between English and German.',
+    },
     outcome: {
       de: 'Showcase für sauber gebaute Webapps — ganzer Stack aus einer Hand.',
       en: 'Showcase for cleanly built web apps — full stack from a single hand.',
