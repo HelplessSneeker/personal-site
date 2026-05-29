@@ -20,22 +20,13 @@
     "about": "Über",
     "contact": "Kontakt"
   },
-  "header": {
-    "availabilityTag": "Aktuell verfügbar",
-    "inquiryAria": "Anfrage stellen"
-  },
   "hero": {
     "kicker": "Astro + AI-Integration · Wien · projektbasiert",
     "headline": "Schnelle Websites mit AI-Integration. Aus Wien, ohne Agentur-Overhead.",
     "body": "Astro-Frontends und LLM-Plumbing für Agenturen und Direktkunden, die ihre Website wieder selbst verstehen wollen.",
     "ctaPrimaryLoom": "Loom-Intro ansehen",
     "ctaPrimaryContact": "Direkt anfragen",
-    "ctaSecondary": "benjamin@noessler.at",
-    "meta": [
-      "DE/EN",
-      "EU · Hetzner",
-      "EN16931 + EPC-QR"
-    ]
+    "ctaSecondary": "benjamin@noessler.at"
   },
   "proof": {
     "ariaLabel": "Eckdaten",
