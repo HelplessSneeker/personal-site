@@ -92,8 +92,6 @@
   "services": {
     "label": "What I do",
     "intro": "Three areas I'm building in right now. Clean frontends, AI integration with substance, and a modular self-hosted stack for SMBs that want to run their own tools.",
-    "detailsCta": "Self-hosted stack in detail",
-    "detailsCtaAria": "Go to bundle page",
     "sites": {
       "title": "Astro sites",
       "kicker": "Fast, maintainable, headless",
@@ -107,7 +105,8 @@
     "stack": {
       "title": "Self-hosted stack",
       "kicker": "Website + invoicing + tooling",
-      "description": "Website, Invoice Ninja, booking, newsletter — on a single Coolify instance, EU region, EN16931-compliant. Run and cared for end-to-end by me — more for SMBs than for agencies."
+      "description": "Website, Invoice Ninja, booking, newsletter — on a single Coolify instance, EU region, EN16931-compliant. Run and cared for end-to-end by me — more for SMBs than for agencies.",
+      "cta": "See packages and pricing"
     }
   },
   "work": {

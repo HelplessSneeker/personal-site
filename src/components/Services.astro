@@ -34,7 +34,7 @@ const bundlePath = getLocalizedPath(locale, '/bundle');
         <p class="service-overview-desc">{t(locale, 'services.ai.description')}</p>
       </li>
 
-      <li class="service-overview">
+      <li class="service-overview service-overview--linked">
         <p class="service-overview-index tabular" aria-hidden="true">
           <span>03</span>
           <span class="rule"></span>
@@ -42,19 +42,12 @@ const bundlePath = getLocalizedPath(locale, '/bundle');
         <p class="service-overview-kicker label-meta">{t(locale, 'services.stack.kicker')}</p>
         <h3 class="service-overview-title">{t(locale, 'services.stack.title')}</h3>
         <p class="service-overview-desc">{t(locale, 'services.stack.description')}</p>
+        <a href={bundlePath} class="service-overview-link">
+          {t(locale, 'services.stack.cta')}
+          <span class="service-overview-arrow" aria-hidden="true">→</span>
+        </a>
       </li>
     </ol>
-
-    <p class="services-details-cta">
-      <a
-        href={bundlePath}
-        class="services-details-link"
-        aria-label={t(locale, 'services.detailsCtaAria')}
-      >
-        {t(locale, 'services.detailsCta')}
-        <span class="services-details-arrow" aria-hidden="true">→</span>
-      </a>
-    </p>
   </div>
 </section>
 
@@ -123,16 +116,14 @@ const bundlePath = getLocalizedPath(locale, '/bundle');
     text-wrap: pretty;
   }
 
-  .services-details-cta {
-    margin: var(--space-8) 0 0 0;
-    padding-top: var(--space-5);
-    border-top: 1px solid var(--color-rule);
-  }
-
-  .services-details-link {
+  /* Card 03 owns the bundle pitch — it gets an in-card link to /bundle so
+     small-business visitors who read the third card see a clear next step
+     without having to scroll past the work section to find the footer. */
+  .service-overview-link {
     display: inline-flex;
     align-items: center;
     gap: var(--space-2);
+    margin-top: var(--space-3);
     font-family: var(--font-sans);
     font-size: var(--fs-md);
     font-weight: var(--weight-medium);
@@ -141,22 +132,23 @@ const bundlePath = getLocalizedPath(locale, '/bundle');
     text-decoration-color: color-mix(in oklab, var(--color-accent) 25%, transparent);
     text-underline-offset: 0.18em;
     text-decoration-thickness: 1px;
+    transition: color var(--transition), text-decoration-color var(--transition);
   }
-  .services-details-link:hover {
+  .service-overview-link:hover {
     color: var(--color-accent-hover);
     text-decoration-color: currentColor;
   }
-  .services-details-link:hover .services-details-arrow {
-    transform: translateX(0.15em);
-  }
-  .services-details-arrow {
+  .service-overview-arrow {
     transition: transform var(--transition);
   }
+  .service-overview-link:hover .service-overview-arrow {
+    transform: translateX(0.15em);
+  }
   @media (prefers-reduced-motion: reduce) {
-    .services-details-arrow {
+    .service-overview-arrow {
       transition: none;
     }
-    .services-details-link:hover .services-details-arrow {
+    .service-overview-link:hover .service-overview-arrow {
       transform: none;
     }
   }
