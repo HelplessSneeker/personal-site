@@ -3,9 +3,10 @@ import { t, tArray, type Locale } from '../i18n/util';
 
 export interface Props {
   locale: Locale;
+  open?: boolean;
 }
 
-const { locale } = Astro.props;
+const { locale, open = false } = Astro.props;
 
 const groupKeys = ['languages', 'frontend', 'backend', 'infra', 'tools'] as const;
 const groups = groupKeys.map((key) => ({
@@ -17,7 +18,7 @@ const groups = groupKeys.map((key) => ({
 const triggerLabel = t(locale, 'stack.trigger.label');
 const triggerHint = t(locale, 'stack.trigger.hint');
 ---
-<details class="stack-disclosure" id="stack">
+<details class="stack-disclosure" id="stack" open={open}>
   <summary class="stack-trigger">
     <span class="stack-trigger-text">
       <span class="stack-trigger-label">{triggerLabel}</span>

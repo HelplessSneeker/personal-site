@@ -12,6 +12,15 @@ const locale = 'de' as const;
 const altUrl = getAltUrl(Astro.url.pathname, locale);
 const paragraphs = tArray(locale, 'aboutPage.bodyParagraphs');
 const home = getLocalizedPath(locale, '/');
+const facts = [
+  { label: t(locale, 'aboutPage.facts.locationLabel'), value: t(locale, 'aboutPage.facts.location') },
+  { label: t(locale, 'aboutPage.facts.availabilityLabel'), value: t(locale, 'aboutPage.facts.availability') },
+  { label: t(locale, 'aboutPage.facts.languagesLabel'), value: t(locale, 'aboutPage.facts.languages') },
+];
+const social = [
+  { href: 'https://github.com/HelplessSneeker', label: t(locale, 'contact.social.github') },
+  { href: 'https://www.linkedin.com/in/benjamin-noessler/', label: t(locale, 'contact.social.linkedin') },
+];
 ---
 <BaseLayout
   title={t(locale, 'aboutPage.metaTitle')}
@@ -23,14 +32,42 @@ const home = getLocalizedPath(locale, '/');
   <Header locale={locale} />
   <main id="main">
     <section class="section hero about-page-intro" aria-labelledby="about-page-heading">
-      <div class="container about-page-head">
-        <span class="about-page-rule" aria-hidden="true"></span>
-        <p class="about-page-kicker label-meta">{t(locale, 'aboutPage.kicker')}</p>
-        <h1 id="about-page-heading" class="about-page-title">{t(locale, 'aboutPage.title')}</h1>
-        <p class="about-page-lede">{t(locale, 'aboutPage.lede')}</p>
-        <div class="about-page-body">
-          {paragraphs.map((p) => <p class="about-page-text" set:html={p}></p>)}
+      <div class="container about-page-grid">
+        <div class="about-page-head">
+          <span class="about-page-rule" aria-hidden="true"></span>
+          <p class="about-page-kicker label-meta">{t(locale, 'aboutPage.kicker')}</p>
+          <h1 id="about-page-heading" class="about-page-title">{t(locale, 'aboutPage.title')}</h1>
+          <p class="about-page-lede">{t(locale, 'aboutPage.lede')}</p>
+          <div class="about-page-body">
+            {paragraphs.map((p) => <p class="about-page-text" set:html={p}></p>)}
+          </div>
         </div>
+
+        <aside class="about-page-facts" aria-label={t(locale, 'aboutPage.facts.label')}>
+          <dl class="about-page-facts-list">
+            {facts.map((fact) => (
+              <div class="about-page-fact">
+                <dt class="about-page-fact-label label-meta">{fact.label}</dt>
+                <dd class="about-page-fact-value">{fact.value}</dd>
+              </div>
+            ))}
+            <div class="about-page-fact">
+              <dt class="about-page-fact-label label-meta">{t(locale, 'aboutPage.facts.linksLabel')}</dt>
+              <dd class="about-page-fact-value">
+                <ul class="about-page-fact-links">
+                  {social.map((link) => (
+                    <li>
+                      <a href={link.href} rel="noopener external" target="_blank">
+                        {link.label}
+                        <span class="about-page-fact-link-arrow" aria-hidden="true">↗</span>
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </dd>
+            </div>
+          </dl>
+        </aside>
       </div>
     </section>
 
@@ -38,7 +75,7 @@ const home = getLocalizedPath(locale, '/');
 
     <section class="section about-page-stack">
       <div class="container">
-        <Stack locale={locale} />
+        <Stack locale={locale} open />
       </div>
     </section>
 
@@ -67,11 +104,93 @@ const home = getLocalizedPath(locale, '/');
     }
   }
 
+  /* Two-column intro: body on the left, facts card on the right. The right
+     column stops the page reading as "one paragraph in a half-empty page"
+     and gives a cold visitor the trust signals (location, availability,
+     languages, profiles) without scrolling. */
+  .about-page-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-7);
+    align-items: start;
+  }
+  @media (min-width: 56rem) {
+    .about-page-grid {
+      grid-template-columns: minmax(0, 1.6fr) minmax(14rem, 1fr);
+      gap: var(--space-9);
+    }
+  }
+
   .about-page-head {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     max-width: 62ch;
+  }
+
+  .about-page-facts {
+    align-self: start;
+    width: 100%;
+    padding: var(--space-5) var(--space-5);
+    border: 1px solid var(--color-rule);
+    border-radius: var(--radius-md);
+    background: var(--color-bg-subtle, transparent);
+  }
+  @media (min-width: 56rem) {
+    .about-page-facts {
+      margin-top: calc(var(--space-4) + 1px);
+    }
+  }
+
+  .about-page-facts-list {
+    margin: 0;
+    display: grid;
+    gap: var(--space-4);
+  }
+
+  .about-page-fact {
+    display: grid;
+    gap: 2px;
+  }
+
+  .about-page-fact-label {
+    color: var(--color-text-subtle);
+    margin: 0;
+  }
+
+  .about-page-fact-value {
+    margin: 0;
+    font-size: var(--fs-md);
+    color: var(--color-text);
+  }
+
+  .about-page-fact-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .about-page-fact-links a {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0.35em;
+    color: var(--color-accent);
+    text-decoration: underline;
+    text-decoration-color: color-mix(in oklab, var(--color-accent) 25%, transparent);
+    text-underline-offset: 0.18em;
+    text-decoration-thickness: 1px;
+    transition: color var(--transition), text-decoration-color var(--transition);
+  }
+  .about-page-fact-links a:hover {
+    color: var(--color-accent-hover);
+    text-decoration-color: currentColor;
+  }
+  .about-page-fact-link-arrow {
+    font-family: var(--font-mono);
+    font-feature-settings: var(--font-features-mono);
+    font-size: 0.85em;
   }
 
   .about-page-rule {

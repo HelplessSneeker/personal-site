@@ -156,6 +156,16 @@
       "I've been building web apps for years in employment and in my own projects (e.g. <a class=\"inline-link\" href=\"https://github.com/HelplessSneeker/b-cal\" rel=\"noopener external\" target=\"_blank\">b-cal</a>); on the freelance side I'm deliberately starting with a smaller scope and scope larger projects together.",
       "I prefer projects meant to last longer than a quarter: cleanly built, self-hosted on infrastructure I manage end-to-end, with tools I'll still trust in two years. On most projects I stay on as the point of contact after launch."
     ],
+    "facts": {
+      "label": "At a glance",
+      "locationLabel": "Location",
+      "location": "Vienna, Austria",
+      "availabilityLabel": "Availability",
+      "availability": "Currently available · project-based",
+      "languagesLabel": "Languages",
+      "languages": "German, English",
+      "linksLabel": "Online"
+    },
     "backToHome": "Back to homepage",
     "contactCta": "Get in touch"
   },

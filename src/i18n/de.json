@@ -156,6 +156,16 @@
       "Webapps baue ich seit Jahren in Anstellung und in eigenen Projekten (z. B. <a class=\"inline-link\" href=\"https://github.com/HelplessSneeker/b-cal\" rel=\"noopener external\" target=\"_blank\">b-cal</a>); im Freelance-Bereich starte ich bewusst mit kleinerem Scope und spreche bei größeren Vorhaben den passenden Umfang ab.",
       "Ich arbeite am liebsten an Dingen, die länger als ein Quartal leben sollen: sauber gebaut, selbst gehostet und voll von mir verwaltet, mit Werkzeugen, denen ich auch in zwei Jahren noch vertraue. Bei den meisten Projekten bleibe ich nach dem Launch als Ansprechperson dabei."
     ],
+    "facts": {
+      "label": "Eckdaten",
+      "locationLabel": "Standort",
+      "location": "Wien, Österreich",
+      "availabilityLabel": "Verfügbarkeit",
+      "availability": "Aktuell verfügbar · projektbasiert",
+      "languagesLabel": "Sprachen",
+      "languages": "Deutsch, Englisch",
+      "linksLabel": "Online"
+    },
     "backToHome": "Zur Startseite",
     "contactCta": "Kontakt aufnehmen"
   },
