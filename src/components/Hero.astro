@@ -1,5 +1,5 @@
 ---
-import { t, tArray, type Locale, getLocalizedPath } from '../i18n/util';
+import { t, type Locale, getLocalizedPath } from '../i18n/util';
 
 export interface Props {
   locale: Locale;
@@ -7,7 +7,6 @@ export interface Props {
 
 const { locale } = Astro.props;
 const home = getLocalizedPath(locale, '/');
-const metaItems = tArray(locale, 'hero.meta');
 // Loom-URL (60–90s Intro): wenn gesetzt, führt der Primärbutton dorthin;
 // wenn leer, fällt der Button auf #contact zurück und das Label wechselt
 // auf "Direkt anfragen" — damit Label und Aktion ehrlich zusammenpassen.
@@ -18,40 +17,32 @@ const primaryLabel = loomUrl
   : t(locale, 'hero.ctaPrimaryContact');
 ---
 <section class="section hero" id="top" aria-labelledby="hero-heading">
-  <div class="container hero-grid">
-    <div class="hero-text">
-      <span class="hero-rule" aria-hidden="true"></span>
+  <div class="container hero-stack">
+    <span class="hero-rule" aria-hidden="true"></span>
+    <div class="hero-top-row">
       <p class="hero-kicker label-meta">{t(locale, 'hero.kicker')}</p>
-      <h1 id="hero-heading" class="hero-headline">{t(locale, 'hero.headline')}</h1>
-      <p class="hero-body">{t(locale, 'hero.body')}</p>
-
-      <div class="hero-cta">
-        <a
-          href={primaryHref}
-          class="btn btn-primary hero-cta-primary"
-          rel={primaryHref.startsWith('http') ? 'noopener external' : undefined}
-          target={primaryHref.startsWith('http') ? '_blank' : undefined}
-        >
-          {primaryLabel}
-          <span class="hero-cta-arrow" aria-hidden="true">→</span>
-        </a>
-        <a href="mailto:benjamin@noessler.at" class="hero-cta-link">
-          {t(locale, 'hero.ctaSecondary')}
-        </a>
-      </div>
-    </div>
-
-    <aside class="hero-meta" aria-label={t(locale, 'availability.label')}>
-      <span class="availability-pill">
+      <span class="availability-pill" aria-label={t(locale, 'availability.label')}>
         <span class="availability-dot" aria-hidden="true"></span>
         {t(locale, 'availability.value')}
       </span>
-      {metaItems.length > 0 && (
-        <ul class="hero-meta-list" aria-hidden="true">
-          {metaItems.map((item) => <li>{item}</li>)}
-        </ul>
-      )}
-    </aside>
+    </div>
+    <h1 id="hero-heading" class="hero-headline">{t(locale, 'hero.headline')}</h1>
+    <p class="hero-body">{t(locale, 'hero.body')}</p>
+
+    <div class="hero-cta">
+      <a
+        href={primaryHref}
+        class="btn btn-primary hero-cta-primary"
+        rel={primaryHref.startsWith('http') ? 'noopener external' : undefined}
+        target={primaryHref.startsWith('http') ? '_blank' : undefined}
+      >
+        {primaryLabel}
+        <span class="hero-cta-arrow" aria-hidden="true">→</span>
+      </a>
+      <a href="mailto:benjamin@noessler.at" class="hero-cta-link">
+        {t(locale, 'hero.ctaSecondary')}
+      </a>
+    </div>
   </div>
 </section>
 
@@ -76,52 +67,26 @@ const primaryLabel = loomUrl
   }
 
   /* Hero composition.
-     Mobile: single column, metadata stacks below the body text.
-     Desktop (≥48rem): asymmetric 1.3fr / 1fr split — left column is the
-     editorial overture (kicker, headline, body, CTAs); right column is a
-     metadata panel (availability pill + dot-separated mono colophon).
-     The asymmetry comes from the right column being narrower than the left,
-     not from centering — left-aligned text throughout. */
-  .hero-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: var(--space-7);
-    align-items: start;
-  }
-  @media (min-width: 48rem) {
-    .hero-grid {
-      grid-template-columns: minmax(0, 1.3fr) minmax(12rem, 1fr);
-      gap: var(--space-8);
-    }
-  }
-
-  .hero-text {
-    min-width: 0;
+     Single column at every breakpoint — the page overture is one column of
+     editorial copy, not a split with a metadata sidebar. The availability
+     pill rides next to the kicker on a single top row instead of occupying
+     a separate panel; that keeps it as the page's first signal without
+     ceding half the width to a near-empty column. */
+  .hero-stack {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
   }
 
-  /* Right column: metadata panel.
-     Holds the availability pill (the brief's named "break-the-grid" moment;
-     it appears here once and not again in Trust) plus a mono colophon line
-     that mirrors the proof-bar's middle-dot pattern.
-     On desktop the panel sits flush with the top of the headline, not
-     baseline-aligned with the body — so the pill reads as a counterweight
-     to the kicker, both at the page's top edge. */
-  .hero-meta {
-    min-width: 0;
+  .hero-top-row {
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: var(--space-5);
-    margin-top: var(--space-2);
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-3) var(--space-5);
+    margin-bottom: var(--space-5);
   }
-  @media (min-width: 48rem) {
-    .hero-meta {
-      align-self: start;
-      padding-top: var(--space-3);
-    }
+  .hero-top-row .hero-kicker {
+    margin-bottom: 0;
   }
 
   .availability-pill {
@@ -143,32 +108,6 @@ const primaryLabel = loomUrl
     height: 0.5rem;
     border-radius: 50%;
     background: var(--color-accent);
-  }
-
-  /* Colophon-style mono caption — same vocabulary as Proof / footer-legal /
-     social-list. Middle-dots in accent color; quiet line height. */
-  .hero-meta-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: baseline;
-    font-family: var(--font-mono);
-    font-feature-settings: var(--font-features-mono);
-    font-size: var(--fs-xs);
-    color: var(--color-text-subtle);
-    line-height: 1.5;
-    letter-spacing: 0.02em;
-  }
-  .hero-meta-list li {
-    display: inline-flex;
-    align-items: baseline;
-  }
-  .hero-meta-list li:not(:last-child)::after {
-    content: '·';
-    color: var(--color-accent);
-    margin-inline: 0.55em;
   }
 
   /* Leading editorial rule — "start of article" mark, common in print and
@@ -194,13 +133,13 @@ const primaryLabel = loomUrl
     line-height: 1.0;
     letter-spacing: var(--tracking-display);
     color: var(--color-text);
-    max-width: 18ch;
+    max-width: 22ch;
     text-wrap: balance;
     margin-bottom: var(--space-6);
   }
   @media (min-width: 64rem) {
     .hero-headline {
-      max-width: 14ch;
+      max-width: 20ch;
     }
   }
 
@@ -208,7 +147,7 @@ const primaryLabel = loomUrl
     font-size: var(--fs-lg);
     line-height: 1.5;
     color: var(--color-text);
-    max-width: 46ch;
+    max-width: 52ch;
     margin-bottom: var(--space-8);
     text-wrap: pretty;
   }

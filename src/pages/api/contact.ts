@@ -183,7 +183,7 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
 
   try {
     await sendWithRetry(transporter, {
-      from: `Benjamin Nößler Website <${fromAddress}>`,
+      from: `Benjamin Franz Nößler Website <${fromAddress}>`,
       to: toEmail,
       replyTo: data.email,
       subject,

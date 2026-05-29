@@ -1,7 +1,7 @@
 {
   "site": {
-    "title": "Benjamin Nößler — Astro + AI-Integration Developer · Wien",
-    "description": "Schnelle Websites mit AI-Integration. Aus Wien, ohne Agentur-Overhead — Astro-Frontends und LLM-Plumbing für Agenturen und tech-affine Direktkunden."
+    "title": "Benjamin Franz Nößler — Astro + AI-Integration Developer · Wien",
+    "description": "Schnelle Websites mit AI-Integration. Aus Wien — Astro-Frontends für Agenturen, die Kapazität brauchen, und KMU, die ihre Website wieder selbst verstehen wollen."
   },
   "meta": {
     "jobTitle": "Fullstack-Entwickler"
@@ -20,22 +20,13 @@
     "about": "Über",
     "contact": "Kontakt"
   },
-  "header": {
-    "availabilityTag": "Aktuell verfügbar",
-    "inquiryAria": "Anfrage stellen"
-  },
   "hero": {
     "kicker": "Astro + AI-Integration · Wien · projektbasiert",
-    "headline": "Schnelle Websites mit AI-Integration. Aus Wien, ohne Agentur-Overhead.",
-    "body": "Astro-Frontends und LLM-Plumbing für Agenturen und Direktkunden, die ihre Website wieder selbst verstehen wollen.",
+    "headline": "Schnelle Websites mit AI-Integration. Aus Wien.",
+    "body": "Für Agenturen, die Astro-Kapazität brauchen — und KMU, die ihre Website wieder selbst verstehen wollen.",
     "ctaPrimaryLoom": "Loom-Intro ansehen",
     "ctaPrimaryContact": "Direkt anfragen",
-    "ctaSecondary": "benjamin@noessler.at",
-    "meta": [
-      "DE/EN",
-      "EU · Hetzner",
-      "EN16931 + EPC-QR"
-    ]
+    "ctaSecondary": "benjamin@noessler.at"
   },
   "proof": {
     "ariaLabel": "Eckdaten",
@@ -101,8 +92,6 @@
   "services": {
     "label": "Was ich mache",
     "intro": "Drei Felder, in denen ich aktuell baue. Saubere Frontends, AI-Integration mit Substanz, und ein modularer Self-Hosted-Stack für KMU, die ihre Tools selbst betreiben wollen.",
-    "detailsCta": "Self-Hosted Stack im Detail",
-    "detailsCtaAria": "Zur Bundle-Übersicht",
     "sites": {
       "title": "Astro Sites",
       "kicker": "Schnell, wartbar, headless",
@@ -116,11 +105,16 @@
     "stack": {
       "title": "Self-Hosted Stack",
       "kicker": "Website + E-Rechnung + Tooling",
-      "description": "Website, Invoice Ninja, Buchung, Newsletter — auf einer eigenen Coolify-Instanz, EU-Region, EN16931-konform. Voll von mir betrieben und gepflegt — eher für KMU als für Agenturen."
+      "description": "Website, Invoice Ninja, Buchung, Newsletter — auf einer eigenen Coolify-Instanz, EU-Region, EN16931-konform. Voll von mir betrieben und gepflegt — eher für KMU als für Agenturen.",
+      "cta": "Pakete + Preise ansehen"
     }
   },
   "work": {
     "label": "Ausgewählte Arbeiten",
+    "groups": {
+      "client": "Für Kunden",
+      "personal": "Eigene Projekte & Lab"
+    },
     "contextLabel": "Kontext",
     "roleLabel": "Rolle",
     "yearsLabel": "Jahr",
@@ -146,15 +140,15 @@
     "intro": "Vier Schritte, transparente Preise, kein Verkaufstheater. Bei den meisten bleibe ich als Ansprechperson nach dem Launch.",
     "steps": [
       { "title": "Discovery-Call", "body": "30 Minuten, kostenlos. Verständnis für Problem und Scope — ich sage ehrlich, ob ich passe." },
-      { "title": "Festpreis-Angebot", "body": "Klare Leistung, klarer Preis. Keine versteckten Stunden, kein „Auf Anfrage“." },
+      { "title": "Festpreis-Angebot", "body": "Klare Leistung, klarer Preis. Sites ab 1.800 €, Self-Hosted-Stack ab 2.190 €. Keine versteckten Stunden, kein „Auf Anfrage“." },
       { "title": "Build mit Milestones", "body": "Saubere Etappen, regelmäßige Vorschauen, Launch nach Plan." },
       { "title": "Wartung oder Übergabe", "body": "Hosting, Updates, kleinere Änderungen aus einer Hand — oder du übernimmst, dein Code. Die meisten bleiben." }
     ]
   },
   "aboutPage": {
     "title": "Über mich",
-    "metaTitle": "Über Benjamin Nößler — Hintergrund & Technik",
-    "description": "Benjamin Nößler — Hintergrund, Werdegang und der technische Teil. Fullstack-Entwickler aus Wien, hauptberuflich in der Digitalisierung der Stadt Wien, daneben freiberuflich für kleine Betriebe.",
+    "metaTitle": "Über Benjamin Franz Nößler — Hintergrund & Technik",
+    "description": "Benjamin Franz Nößler — Hintergrund, Werdegang und der technische Teil. Fullstack-Entwickler aus Wien, hauptberuflich in der Digitalisierung der Stadt Wien, daneben freiberuflich für kleine Betriebe.",
     "kicker": "Fullstack-Entwickler · Wien",
     "lede": "Hauptberuflich in der Digitalisierung der Stadt Wien, daneben freiberuflich für kleine Betriebe — Website, Betrieb und die digitalen Werkzeuge drumherum.",
     "bodyParagraphs": [
@@ -162,6 +156,16 @@
       "Webapps baue ich seit Jahren in Anstellung und in eigenen Projekten (z. B. <a class=\"inline-link\" href=\"https://github.com/HelplessSneeker/b-cal\" rel=\"noopener external\" target=\"_blank\">b-cal</a>); im Freelance-Bereich starte ich bewusst mit kleinerem Scope und spreche bei größeren Vorhaben den passenden Umfang ab.",
       "Ich arbeite am liebsten an Dingen, die länger als ein Quartal leben sollen: sauber gebaut, selbst gehostet und voll von mir verwaltet, mit Werkzeugen, denen ich auch in zwei Jahren noch vertraue. Bei den meisten Projekten bleibe ich nach dem Launch als Ansprechperson dabei."
     ],
+    "facts": {
+      "label": "Eckdaten",
+      "locationLabel": "Standort",
+      "location": "Wien, Österreich",
+      "availabilityLabel": "Verfügbarkeit",
+      "availability": "Aktuell verfügbar · projektbasiert",
+      "languagesLabel": "Sprachen",
+      "languages": "Deutsch, Englisch",
+      "linksLabel": "Online"
+    },
     "backToHome": "Zur Startseite",
     "contactCta": "Kontakt aufnehmen"
   },
@@ -245,7 +249,7 @@
       "setup": "Setup",
       "monthly": "Monatlich"
     },
-    "metaTitle": "Self-Hosted Business-Stack — Benjamin Nößler",
+    "metaTitle": "Self-Hosted Business-Stack — Benjamin Franz Nößler",
     "metaDescription": "Website + Invoice Ninja aus einer Hand, mit modularen Add-ons für Termine, Analytics und Newsletter. Eigene Daten, EU-Server, EN16931-konform, kein SaaS-Lock-in.",
     "hero": {
       "kicker": "Self-Hosted Business-Stack · Stand 26.05.2026",

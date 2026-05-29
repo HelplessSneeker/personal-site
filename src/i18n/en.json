@@ -1,7 +1,7 @@
 {
   "site": {
-    "title": "Benjamin Nößler — Astro + AI integration developer · Vienna",
-    "description": "Fast websites with AI integration. Based in Vienna, no agency overhead — Astro frontends and LLM plumbing for agencies and tech-savvy direct clients."
+    "title": "Benjamin Franz Nößler — Astro + AI integration developer · Vienna",
+    "description": "Fast websites with AI integration. From Vienna — Astro frontends for agencies that need capacity and small businesses who want to understand their website again."
   },
   "meta": {
     "jobTitle": "Fullstack Developer"
@@ -20,22 +20,13 @@
     "about": "About",
     "contact": "Contact"
   },
-  "header": {
-    "availabilityTag": "Currently available",
-    "inquiryAria": "Send an inquiry"
-  },
   "hero": {
     "kicker": "Astro + AI integration · Vienna · project-based",
-    "headline": "Fast websites with AI integration. From Vienna, no agency overhead.",
-    "body": "Astro frontends and LLM plumbing for agencies and direct clients who want to understand their website again.",
+    "headline": "Fast websites with AI integration. From Vienna.",
+    "body": "For agencies that need Astro capacity — and small businesses who want to understand their website again.",
     "ctaPrimaryLoom": "Watch the Loom intro",
     "ctaPrimaryContact": "Get in touch",
-    "ctaSecondary": "benjamin@noessler.at",
-    "meta": [
-      "DE/EN",
-      "EU · Hetzner",
-      "EN16931 + EPC-QR"
-    ]
+    "ctaSecondary": "benjamin@noessler.at"
   },
   "proof": {
     "ariaLabel": "At a glance",
@@ -101,8 +92,6 @@
   "services": {
     "label": "What I do",
     "intro": "Three areas I'm building in right now. Clean frontends, AI integration with substance, and a modular self-hosted stack for SMBs that want to run their own tools.",
-    "detailsCta": "Self-hosted stack in detail",
-    "detailsCtaAria": "Go to bundle page",
     "sites": {
       "title": "Astro sites",
       "kicker": "Fast, maintainable, headless",
@@ -116,11 +105,16 @@
     "stack": {
       "title": "Self-hosted stack",
       "kicker": "Website + invoicing + tooling",
-      "description": "Website, Invoice Ninja, booking, newsletter — on a single Coolify instance, EU region, EN16931-compliant. Run and cared for end-to-end by me — more for SMBs than for agencies."
+      "description": "Website, Invoice Ninja, booking, newsletter — on a single Coolify instance, EU region, EN16931-compliant. Run and cared for end-to-end by me — more for SMBs than for agencies.",
+      "cta": "See packages and pricing"
     }
   },
   "work": {
     "label": "Selected work",
+    "groups": {
+      "client": "For clients",
+      "personal": "Personal projects & lab"
+    },
     "contextLabel": "Context",
     "roleLabel": "Role",
     "yearsLabel": "Year",
@@ -146,15 +140,15 @@
     "intro": "Four steps, transparent prices, no sales theatre. On most projects I stay on as the point of contact after launch.",
     "steps": [
       { "title": "Discovery call", "body": "30 minutes, free. Understanding the problem and the scope — I'll be honest about whether I'm a fit." },
-      { "title": "Fixed-price quote", "body": "Clear scope, clear price. No hidden hours, no \"available on request\"." },
+      { "title": "Fixed-price quote", "body": "Clear scope, clear price. Sites from €1,800, self-hosted stack from €2,190. No hidden hours, no \"available on request\"." },
       { "title": "Build with milestones", "body": "Clean stages, regular previews, launch on schedule." },
       { "title": "Care plan or handover", "body": "Hosting, updates, smaller changes from a single source — or you take over, your code. Most clients stay." }
     ]
   },
   "aboutPage": {
     "title": "About me",
-    "metaTitle": "About Benjamin Nößler — background & tech",
-    "description": "Benjamin Nößler — background, work history and the technical part. Fullstack developer based in Vienna, day job on the City of Vienna's digital team, freelance for small businesses on the side.",
+    "metaTitle": "About Benjamin Franz Nößler — background & tech",
+    "description": "Benjamin Franz Nößler — background, work history and the technical part. Fullstack developer based in Vienna, day job on the City of Vienna's digital team, freelance for small businesses on the side.",
     "kicker": "Fullstack developer · Vienna",
     "lede": "Day job on the City of Vienna's digital team, freelance for small businesses on the side — website, operation, and the digital tools around it.",
     "bodyParagraphs": [
@@ -162,6 +156,16 @@
       "I've been building web apps for years in employment and in my own projects (e.g. <a class=\"inline-link\" href=\"https://github.com/HelplessSneeker/b-cal\" rel=\"noopener external\" target=\"_blank\">b-cal</a>); on the freelance side I'm deliberately starting with a smaller scope and scope larger projects together.",
       "I prefer projects meant to last longer than a quarter: cleanly built, self-hosted on infrastructure I manage end-to-end, with tools I'll still trust in two years. On most projects I stay on as the point of contact after launch."
     ],
+    "facts": {
+      "label": "At a glance",
+      "locationLabel": "Location",
+      "location": "Vienna, Austria",
+      "availabilityLabel": "Availability",
+      "availability": "Currently available · project-based",
+      "languagesLabel": "Languages",
+      "languages": "German, English",
+      "linksLabel": "Online"
+    },
     "backToHome": "Back to homepage",
     "contactCta": "Get in touch"
   },
@@ -245,7 +249,7 @@
       "setup": "Setup",
       "monthly": "Monthly"
     },
-    "metaTitle": "Self-hosted business stack — Benjamin Nößler",
+    "metaTitle": "Self-hosted business stack — Benjamin Franz Nößler",
     "metaDescription": "Website + Invoice Ninja from a single source, with modular add-ons for booking, analytics and newsletter. Your data, EU servers, EN16931-compliant, no SaaS lock-in.",
     "hero": {
       "kicker": "Self-hosted business stack · As of 2026-05-26",
