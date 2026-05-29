@@ -111,6 +111,10 @@
   },
   "work": {
     "label": "Ausgewählte Arbeiten",
+    "groups": {
+      "client": "Für Kunden",
+      "personal": "Eigene Projekte & Lab"
+    },
     "contextLabel": "Kontext",
     "roleLabel": "Rolle",
     "yearsLabel": "Jahr",

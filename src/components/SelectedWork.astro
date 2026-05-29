@@ -8,19 +8,46 @@ export interface Props {
 }
 
 const { locale } = Astro.props;
-const freelanceProjects = projects.filter(
+
+// Split into client work (freelance) and personal work (own lab / projects).
+// Both share the same shipped/in-dev filter so case-study employment items
+// stay on the about page.
+const shipped = projects.filter(
   (p) => p.status === 'live' || p.status === 'in-development'
+);
+const clientContexts = new Set(['Freelance']);
+const clientProjects = shipped.filter((p) =>
+  p.context ? clientContexts.has(p.context.de) : false
+);
+const personalProjects = shipped.filter(
+  (p) => !p.context || !clientContexts.has(p.context.de)
 );
 ---
 <section class="section work-section" id="work" aria-labelledby="work-heading">
   <div class="container">
     <h2 id="work-heading" class="section-label">{t(locale, 'work.label')}</h2>
 
-    <div class="project-list" role="list">
-      {freelanceProjects.map((project, i) => (
-        <ProjectCard project={project} locale={locale} index={i} />
-      ))}
-    </div>
+    {clientProjects.length > 0 && (
+      <>
+        <p class="work-group-label label-meta">{t(locale, 'work.groups.client')}</p>
+        <div class="project-list" role="list">
+          {clientProjects.map((project, i) => (
+            <ProjectCard project={project} locale={locale} index={i} />
+          ))}
+        </div>
+      </>
+    )}
+
+    {personalProjects.length > 0 && (
+      <>
+        <p class="work-group-label work-group-label--secondary label-meta">{t(locale, 'work.groups.personal')}</p>
+        <div class="project-list" role="list">
+          {personalProjects.map((project, i) => (
+            <ProjectCard project={project} locale={locale} index={clientProjects.length + i} />
+          ))}
+        </div>
+      </>
+    )}
   </div>
 </section>
 
@@ -30,6 +57,17 @@ const freelanceProjects = projects.filter(
     flex-direction: column;
     gap: 0;
     border-top: 1px solid var(--color-rule);
-    margin-top: var(--space-6);
+    margin-top: var(--space-4);
+  }
+
+  /* Group label sits between the section heading and each project list so
+     visitors can tell client work (paid, named clients) from personal work
+     (lab + own apps) at a glance. Keeps the existing card layout untouched. */
+  .work-group-label {
+    margin: var(--space-7) 0 0 0;
+    color: var(--color-text-subtle);
+  }
+  .work-group-label--secondary {
+    margin-top: var(--space-9);
   }
 </style>
