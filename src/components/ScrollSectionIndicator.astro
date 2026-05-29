@@ -22,6 +22,7 @@ const { sections, navLabel = 'Page sections' } = Astro.props;
             aria-label={section.label}
             data-target={section.id}
           >
+            <span class="tick-label" aria-hidden="true">{section.label}</span>
             <span class="tick-line" aria-hidden="true"></span>
           </a>
         </li>
@@ -73,6 +74,7 @@ const { sections, navLabel = 'Page sections' } = Astro.props;
   .tick {
     display: inline-flex;
     align-items: center;
+    gap: var(--space-3);
     padding: 6px 0;
     text-decoration: none;
     color: inherit;
@@ -86,6 +88,42 @@ const { sections, navLabel = 'Page sections' } = Astro.props;
     content: '';
     position: absolute;
     inset: -6px;
+  }
+
+  /* Label sits left of the line (the indicator hugs the right edge), hidden
+     by default and revealed on hover/focus or on the current section. Keeps
+     the resting state quiet — small mono dashes — while still telling a
+     visitor what each tick means when they reach for one. */
+  .tick-label {
+    font-family: var(--font-mono);
+    font-feature-settings: var(--font-features-mono);
+    font-size: var(--fs-xs);
+    letter-spacing: var(--tracking-label);
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+    white-space: nowrap;
+    opacity: 0;
+    transform: translateX(4px);
+    transition:
+      opacity 180ms var(--ease-out-quart),
+      transform 180ms var(--ease-out-quart),
+      color 180ms var(--ease-out-quart);
+    pointer-events: none;
+  }
+  .tick:hover .tick-label,
+  .tick:focus-visible .tick-label,
+  .tick[aria-current="location"] .tick-label {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  .tick[aria-current="location"] .tick-label {
+    color: var(--color-accent);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .tick-label {
+      transition: opacity 120ms linear;
+      transform: none;
+    }
   }
 
   /* Line uses its full hover width (28px) at all times; the resting state
