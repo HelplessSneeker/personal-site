@@ -74,6 +74,16 @@ export const projects: Project[] = [
       de: 'Zugang für Member-Anfragen und Vereinskommunikation.',
       en: 'Entry point for member inquiries and community communications.',
     },
+    testimonial: {
+      quote: {
+        de: 'Kompetent in der Umsetzung — Benjamin werde ich auf jeden Fall weiterempfehlen.',
+        en: 'Competent execution — I will absolutely recommend Benjamin.',
+      },
+      author: {
+        de: 'Fabio Freisegger · Gründer foundersgroup',
+        en: 'Fabio Freisegger · Founder, foundersgroup',
+      },
+    },
   },
   {
     id: 'scanzy',
@@ -107,26 +117,26 @@ export const projects: Project[] = [
       },
     },
   },
-  // TODO image: '/projects/primus.png' — Screenshot/Diagramm folgt
-  // TODO links: GitHub-Repo verlinken, falls/sobald öffentlich
-  {
-    id: 'primus',
-    title: 'Primus / OpenClaw',
-    descriptionDe:
-      'Eigenes AI-Infra-Lab — Telegram-Gateway, agentic Workflows, selbst gehostet auf Hetzner via Tailscale-Mesh. Spielfeld für RAG, LLM-Plumbing und Eval-Setups jenseits von Stock-SaaS.',
-    descriptionEn:
-      'My own AI infrastructure lab — Telegram gateway, agentic workflows, self-hosted on Hetzner via a Tailscale mesh. Playground for RAG, LLM plumbing and eval setups beyond stock SaaS.',
-    stack: ['TypeScript', 'Python', 'Hetzner', 'Tailscale'],
-    context: { de: 'Eigenes Lab', en: 'Personal lab' },
-    role: { de: 'Architektur & Entwicklung', en: 'Architecture & build' },
-    status: 'live',
-    outcome: {
-      de: 'Beleg für AI-Ops-Tiefe: eigene Infrastruktur statt fremder Black-Box.',
-      en: 'Evidence of AI-ops depth: own infrastructure instead of someone else\'s black box.',
-    },
-  },
-  // Sobald cal.bfnoessler.at live ist: status auf 'live' heben, statusDe/En entfernen,
-  // Live-URL als zusätzlichen Link aufnehmen.
+  // Primus / OpenClaw — temporarily removed from the public portfolio.
+  // The framing was too inside-baseball (Tailscale mesh, agentic workflows,
+  // LLM plumbing) for a cold visitor; needs a rewrite that leads with what
+  // it does for me, not what it's built on, before going back on the site.
+  // {
+  //   id: 'primus',
+  //   title: 'Primus / OpenClaw',
+  //   descriptionDe:
+  //     'Eigenes AI-Infra-Lab — Telegram-Gateway, agentic Workflows, selbst gehostet auf Hetzner via Tailscale-Mesh. Spielfeld für RAG, LLM-Plumbing und Eval-Setups jenseits von Stock-SaaS.',
+  //   descriptionEn:
+  //     'My own AI infrastructure lab — Telegram gateway, agentic workflows, self-hosted on Hetzner via a Tailscale mesh. Playground for RAG, LLM plumbing and eval setups beyond stock SaaS.',
+  //   stack: ['TypeScript', 'Python', 'Hetzner', 'Tailscale'],
+  //   context: { de: 'Eigenes Lab', en: 'Personal lab' },
+  //   role: { de: 'Architektur & Entwicklung', en: 'Architecture & build' },
+  //   status: 'live',
+  //   outcome: {
+  //     de: 'Beleg für AI-Ops-Tiefe: eigene Infrastruktur statt fremder Black-Box.',
+  //     en: 'Evidence of AI-ops depth: own infrastructure instead of someone else\'s black box.',
+  //   },
+  // },
   {
     id: 'b-cal',
     title: 'b-cal',
@@ -137,36 +147,37 @@ export const projects: Project[] = [
     stack: ['TypeScript', 'Next.js', 'NestJS', 'Prisma'],
     context: { de: 'Eigenes Projekt', en: 'Personal project' },
     role: { de: 'Architektur & Entwicklung', en: 'Architecture & build' },
-    status: 'in-development',
-    statusDe: 'Demo coming',
-    statusEn: 'Demo coming',
-    links: [{ href: 'https://github.com/HelplessSneeker/b-cal', labelKey: 'work.githubLink' }],
+    status: 'live',
+    links: [
+      { href: 'https://cal.bfnoessler.at', labelKey: 'work.visitLink' },
+      { href: 'https://github.com/HelplessSneeker/b-cal', labelKey: 'work.githubLink' },
+    ],
     outcome: {
       de: 'Showcase für sauber gebaute Webapps — ganzer Stack aus einer Hand.',
       en: 'Showcase for cleanly built web apps — full stack from a single hand.',
     },
   },
-  // Sobald rag.bfnoessler.at live ist: status auf 'live' heben, statusDe/En entfernen,
-  // Live-URL als zusätzlichen Link aufnehmen.
-  {
-    id: 'rag-demo',
-    title: 'Doc-RAG-Demo',
-    descriptionDe:
-      'AI-Showcase — Astro-Docs-Chat mit Retrieval, Citations und kleiner Eval-Suite. Zeigt, wie sich ein LLM sauber an eine konkrete Wissensbasis hängen lässt, statt frei zu fabulieren.',
-    descriptionEn:
-      'AI showcase — an Astro docs chat with retrieval, citations and a small eval suite. Demonstrates how to anchor an LLM to a concrete knowledge base instead of letting it freewheel.',
-    stack: ['TypeScript', 'Astro', 'RAG', 'Embeddings'],
-    context: { de: 'Eigenes Lab', en: 'Personal lab' },
-    role: { de: 'Konzept & Entwicklung', en: 'Concept & build' },
-    status: 'in-development',
-    statusDe: 'Demo coming',
-    statusEn: 'Demo coming',
-    links: [{ href: 'https://github.com/HelplessSneeker/astro-rag-demo', labelKey: 'work.githubLink' }],
-    outcome: {
-      de: 'Beleg für AI-Integration mit Substanz — Retrieval und Eval statt Hype-Demo.',
-      en: 'Evidence of AI integration with substance — retrieval and eval over hype demos.',
-    },
-  },
+  // Doc-RAG-Demo — on ice (project paused). Keep the data here so we can
+  // un-comment when the demo gets revived; remove if it's permanently shelved.
+  // {
+  //   id: 'rag-demo',
+  //   title: 'Doc-RAG-Demo',
+  //   descriptionDe:
+  //     'AI-Showcase — Astro-Docs-Chat mit Retrieval, Citations und kleiner Eval-Suite. Zeigt, wie sich ein LLM sauber an eine konkrete Wissensbasis hängen lässt, statt frei zu fabulieren.',
+  //   descriptionEn:
+  //     'AI showcase — an Astro docs chat with retrieval, citations and a small eval suite. Demonstrates how to anchor an LLM to a concrete knowledge base instead of letting it freewheel.',
+  //   stack: ['TypeScript', 'Astro', 'RAG', 'Embeddings'],
+  //   context: { de: 'Eigenes Lab', en: 'Personal lab' },
+  //   role: { de: 'Konzept & Entwicklung', en: 'Concept & build' },
+  //   status: 'in-development',
+  //   statusDe: 'Demo coming',
+  //   statusEn: 'Demo coming',
+  //   links: [{ href: 'https://github.com/HelplessSneeker/astro-rag-demo', labelKey: 'work.githubLink' }],
+  //   outcome: {
+  //     de: 'Beleg für AI-Integration mit Substanz — Retrieval und Eval statt Hype-Demo.',
+  //     en: 'Evidence of AI integration with substance — retrieval and eval over hype demos.',
+  //   },
+  // },
   {
     id: 'healthcare',
     title: 'Healthcare-Kommunikationsplattform',
