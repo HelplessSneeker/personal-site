@@ -1,7 +1,7 @@
 {
   "site": {
     "title": "Benjamin Nößler — Astro + AI-Integration Developer · Wien",
-    "description": "Schnelle Websites mit AI-Integration. Aus Wien, ohne Agentur-Overhead — Astro-Frontends und LLM-Plumbing für Agenturen und tech-affine Direktkunden."
+    "description": "Schnelle Websites mit AI-Integration. Aus Wien — Astro-Frontends für Agenturen, die Kapazität brauchen, und KMU, die ihre Website wieder selbst verstehen wollen."
   },
   "meta": {
     "jobTitle": "Fullstack-Entwickler"
@@ -22,8 +22,8 @@
   },
   "hero": {
     "kicker": "Astro + AI-Integration · Wien · projektbasiert",
-    "headline": "Schnelle Websites mit AI-Integration. Aus Wien, ohne Agentur-Overhead.",
-    "body": "Astro-Frontends und LLM-Plumbing für Agenturen und Direktkunden, die ihre Website wieder selbst verstehen wollen.",
+    "headline": "Schnelle Websites mit AI-Integration. Aus Wien.",
+    "body": "Für Agenturen, die Astro-Kapazität brauchen — und KMU, die ihre Website wieder selbst verstehen wollen.",
     "ctaPrimaryLoom": "Loom-Intro ansehen",
     "ctaPrimaryContact": "Direkt anfragen",
     "ctaSecondary": "benjamin@noessler.at"
