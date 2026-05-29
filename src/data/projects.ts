@@ -25,9 +25,6 @@ export interface Project {
   status: ProjectStatus;
   links?: ProjectLink[];
   image?: string;
-  // CSS aspect-ratio string for the preview, e.g. "4 / 3" (default) or "2 / 1".
-  // Override when the source screenshot doesn't fit the default ratio cleanly.
-  imageAspectRatio?: string;
   imageAlt?: { de: string; en: string };
   outcome?: { de: string; en: string };
   testimonial?: Testimonial;
@@ -156,7 +153,6 @@ export const projects: Project[] = [
       { href: 'https://github.com/HelplessSneeker/b-cal', labelKey: 'work.githubLink' },
     ],
     image: '/projects/b-cal.png',
-    imageAspectRatio: '2 / 1',
     imageAlt: {
       de: 'b-cal Kalender-App — Monatsansicht Mai 2026 in dunklem Theme, links die Datums-Sidebar und „+ New Entry"-Button.',
       en: 'b-cal calendar app — May 2026 month view in dark theme, with the date sidebar and "+ New Entry" button on the left.',
