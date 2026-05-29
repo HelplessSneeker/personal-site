@@ -1,6 +1,6 @@
 {
   "site": {
-    "title": "Benjamin Nößler — Astro + AI integration developer · Vienna",
+    "title": "Benjamin Franz Nößler — Astro + AI integration developer · Vienna",
     "description": "Fast websites with AI integration. From Vienna — Astro frontends for agencies that need capacity and small businesses who want to understand their website again."
   },
   "meta": {
@@ -147,8 +147,8 @@
   },
   "aboutPage": {
     "title": "About me",
-    "metaTitle": "About Benjamin Nößler — background & tech",
-    "description": "Benjamin Nößler — background, work history and the technical part. Fullstack developer based in Vienna, day job on the City of Vienna's digital team, freelance for small businesses on the side.",
+    "metaTitle": "About Benjamin Franz Nößler — background & tech",
+    "description": "Benjamin Franz Nößler — background, work history and the technical part. Fullstack developer based in Vienna, day job on the City of Vienna's digital team, freelance for small businesses on the side.",
     "kicker": "Fullstack developer · Vienna",
     "lede": "Day job on the City of Vienna's digital team, freelance for small businesses on the side — website, operation, and the digital tools around it.",
     "bodyParagraphs": [
@@ -249,7 +249,7 @@
       "setup": "Setup",
       "monthly": "Monthly"
     },
-    "metaTitle": "Self-hosted business stack — Benjamin Nößler",
+    "metaTitle": "Self-hosted business stack — Benjamin Franz Nößler",
     "metaDescription": "Website + Invoice Ninja from a single source, with modular add-ons for booking, analytics and newsletter. Your data, EU servers, EN16931-compliant, no SaaS lock-in.",
     "hero": {
       "kicker": "Self-hosted business stack · As of 2026-05-26",

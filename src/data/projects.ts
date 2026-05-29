@@ -152,6 +152,11 @@ export const projects: Project[] = [
       { href: 'https://cal.bfnoessler.at', labelKey: 'work.visitLink' },
       { href: 'https://github.com/HelplessSneeker/b-cal', labelKey: 'work.githubLink' },
     ],
+    image: '/projects/b-cal.png',
+    imageAlt: {
+      de: 'b-cal Kalender-App — Monatsansicht Mai 2026 in dunklem Theme, links die Datums-Sidebar und „+ New Entry"-Button.',
+      en: 'b-cal calendar app — May 2026 month view in dark theme, with the date sidebar and "+ New Entry" button on the left.',
+    },
     outcome: {
       de: 'Showcase für sauber gebaute Webapps — ganzer Stack aus einer Hand.',
       en: 'Showcase for cleanly built web apps — full stack from a single hand.',

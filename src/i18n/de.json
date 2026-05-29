@@ -1,6 +1,6 @@
 {
   "site": {
-    "title": "Benjamin Nößler — Astro + AI-Integration Developer · Wien",
+    "title": "Benjamin Franz Nößler — Astro + AI-Integration Developer · Wien",
     "description": "Schnelle Websites mit AI-Integration. Aus Wien — Astro-Frontends für Agenturen, die Kapazität brauchen, und KMU, die ihre Website wieder selbst verstehen wollen."
   },
   "meta": {
@@ -147,8 +147,8 @@
   },
   "aboutPage": {
     "title": "Über mich",
-    "metaTitle": "Über Benjamin Nößler — Hintergrund & Technik",
-    "description": "Benjamin Nößler — Hintergrund, Werdegang und der technische Teil. Fullstack-Entwickler aus Wien, hauptberuflich in der Digitalisierung der Stadt Wien, daneben freiberuflich für kleine Betriebe.",
+    "metaTitle": "Über Benjamin Franz Nößler — Hintergrund & Technik",
+    "description": "Benjamin Franz Nößler — Hintergrund, Werdegang und der technische Teil. Fullstack-Entwickler aus Wien, hauptberuflich in der Digitalisierung der Stadt Wien, daneben freiberuflich für kleine Betriebe.",
     "kicker": "Fullstack-Entwickler · Wien",
     "lede": "Hauptberuflich in der Digitalisierung der Stadt Wien, daneben freiberuflich für kleine Betriebe — Website, Betrieb und die digitalen Werkzeuge drumherum.",
     "bodyParagraphs": [
@@ -249,7 +249,7 @@
       "setup": "Setup",
       "monthly": "Monatlich"
     },
-    "metaTitle": "Self-Hosted Business-Stack — Benjamin Nößler",
+    "metaTitle": "Self-Hosted Business-Stack — Benjamin Franz Nößler",
     "metaDescription": "Website + Invoice Ninja aus einer Hand, mit modularen Add-ons für Termine, Analytics und Newsletter. Eigene Daten, EU-Server, EN16931-konform, kein SaaS-Lock-in.",
     "hero": {
       "kicker": "Self-Hosted Business-Stack · Stand 26.05.2026",
