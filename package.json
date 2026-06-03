@@ -13,10 +13,10 @@
   },
   "dependencies": {
     "@astrojs/node": "10.1.0",
-    "@astrojs/sitemap": "^3.7.2",
+    "@astrojs/sitemap": "^3.7.3",
     "@fontsource/commit-mono": "^5.2.5",
-    "astro": "^6.3.7",
-    "nodemailer": "^8.0.8",
+    "astro": "^6.4.2",
+    "nodemailer": "^8.0.10",
     "zod": "^4.4.3"
   },
   "devDependencies": {
