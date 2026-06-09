@@ -154,8 +154,8 @@ export const projects: Project[] = [
     ],
     image: '/projects/b-cal.png',
     imageAlt: {
-      de: 'b-cal Kalender-App — Monatsansicht Mai 2026 in dunklem Theme, links die Datums-Sidebar und „+ New Entry"-Button.',
-      en: 'b-cal calendar app — May 2026 month view in dark theme, with the date sidebar and "+ New Entry" button on the left.',
+      de: 'b-cal Kalender-App — Monatsansicht in dunklem Theme mit farbcodierten Einträgen für die Kalender „Arbeit" und „Privat" und Datums-Sidebar links.',
+      en: 'b-cal calendar app — dark-theme month view with colour-coded entries across the "Arbeit" and "Privat" calendars, plus a date sidebar on the left.',
     },
     outcome: {
       de: 'Showcase für sauber gebaute Webapps — ganzer Stack aus einer Hand.',
