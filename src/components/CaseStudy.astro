@@ -1,0 +1,282 @@
+---
+import type { CaseStudy } from '../data/caseStudies';
+import { t, type Locale } from '../i18n/util';
+
+export interface Props {
+  study: CaseStudy;
+  locale: Locale;
+  index: number;
+}
+
+const { study, locale, index } = Astro.props;
+
+const title = locale === 'de' ? study.title.de : study.title.en;
+const meta = locale === 'de' ? study.meta.de : study.meta.en;
+const problem = locale === 'de' ? study.problem.de : study.problem.en;
+const solution = locale === 'de' ? study.solution.de : study.solution.en;
+const outcome = locale === 'de' ? study.outcome.de : study.outcome.en;
+const imageAlt = study.imageAlt ? (locale === 'de' ? study.imageAlt.de : study.imageAlt.en) : title;
+
+const problemLabel = t(locale, 'portfolioPage.sections.problem');
+const solutionLabel = t(locale, 'portfolioPage.sections.solution');
+const stackLabel = t(locale, 'portfolioPage.sections.stack');
+const outcomeLabel = t(locale, 'portfolioPage.sections.outcome');
+const linksLabel = t(locale, 'portfolioPage.sections.links');
+
+const indexLabel = String(index + 1).padStart(2, '0');
+---
+<article class="case-study" aria-labelledby={`case-${study.slug}-title`}>
+  <header class="case-head">
+    <span class="case-index" aria-hidden="true">{indexLabel}</span>
+    <div class="case-head-text">
+      <h2 id={`case-${study.slug}-title`} class="case-title">{title}</h2>
+      <p class="case-meta">{meta}</p>
+    </div>
+  </header>
+
+  <div class="case-body">
+    <div class="case-text">
+      <section class="case-block" aria-labelledby={`case-${study.slug}-problem`}>
+        <h3 id={`case-${study.slug}-problem`} class="case-block-label label-meta">{problemLabel}</h3>
+        <p class="case-prose">{problem}</p>
+      </section>
+
+      <section class="case-block" aria-labelledby={`case-${study.slug}-solution`}>
+        <h3 id={`case-${study.slug}-solution`} class="case-block-label label-meta">{solutionLabel}</h3>
+        <p class="case-prose">{solution}</p>
+      </section>
+
+      <section class="case-block" aria-labelledby={`case-${study.slug}-stack`}>
+        <h3 id={`case-${study.slug}-stack`} class="case-block-label label-meta">{stackLabel}</h3>
+        <ul class="case-stack" role="list">
+          {study.stack.map((item) => <li>{item}</li>)}
+        </ul>
+      </section>
+
+      <section class="case-block case-block--outcome" aria-labelledby={`case-${study.slug}-outcome`}>
+        <h3 id={`case-${study.slug}-outcome`} class="case-block-label label-meta">{outcomeLabel}</h3>
+        <p class="case-prose">{outcome}</p>
+      </section>
+
+      {study.links && study.links.length > 0 && (
+        <section class="case-block case-block--links" aria-labelledby={`case-${study.slug}-links`}>
+          <h3 id={`case-${study.slug}-links`} class="case-block-label label-meta">{linksLabel}</h3>
+          <ul class="case-links" role="list">
+            {study.links.map((link) => (
+              <li>
+                <a
+                  href={link.href}
+                  rel={link.external ? 'noopener external' : undefined}
+                  target={link.external ? '_blank' : undefined}
+                >
+                  {locale === 'de' ? link.label.de : link.label.en}
+                  {link.external && <span aria-hidden="true"> ↗</span>}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
+    </div>
+
+    {study.image && (
+      <figure class="case-figure">
+        <img
+          class="case-image"
+          src={study.image}
+          alt={imageAlt}
+          loading="lazy"
+          decoding="async"
+          width="1200"
+          height="900"
+        />
+      </figure>
+    )}
+  </div>
+</article>
+
+<style>
+  .case-study {
+    padding-block: var(--space-8) var(--space-9);
+    border-bottom: 1px solid var(--color-rule);
+  }
+  .case-study:last-of-type {
+    border-bottom: none;
+  }
+
+  .case-head {
+    display: grid;
+    grid-template-columns: 4.5rem 1fr;
+    gap: var(--space-4);
+    align-items: baseline;
+    margin-bottom: var(--space-6);
+  }
+
+  .case-index {
+    font-family: var(--font-mono);
+    font-feature-settings: var(--font-features-mono);
+    font-size: var(--fs-2xl);
+    font-weight: var(--weight-medium);
+    line-height: 1;
+    color: var(--color-text-subtle);
+    letter-spacing: 0.02em;
+  }
+
+  .case-head-text {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    min-width: 0;
+  }
+
+  .case-title {
+    font-family: var(--font-display);
+    font-size: var(--fs-2xl);
+    font-weight: var(--weight-medium);
+    letter-spacing: var(--tracking-heading-xl);
+    line-height: 1.08;
+    color: var(--color-text);
+    text-wrap: balance;
+    margin: 0;
+  }
+
+  .case-meta {
+    font-family: var(--font-mono);
+    font-feature-settings: var(--font-features-mono);
+    font-size: var(--fs-sm);
+    color: var(--color-text-muted);
+    margin: 0;
+  }
+
+  .case-body {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-7);
+  }
+  @media (min-width: 52rem) {
+    .case-body {
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+      gap: var(--space-8);
+      align-items: start;
+    }
+  }
+  @media (min-width: 64rem) {
+    .case-body {
+      padding-left: 4.5rem;
+    }
+  }
+
+  .case-text {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+    min-width: 0;
+  }
+
+  .case-block {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-3);
+    max-width: 60ch;
+  }
+  @media (min-width: 40rem) {
+    .case-block {
+      grid-template-columns: 6.5rem minmax(0, 1fr);
+      gap: var(--space-4);
+      align-items: baseline;
+    }
+  }
+
+  .case-block-label {
+    color: var(--color-text-subtle);
+    margin: 0;
+  }
+
+  .case-prose {
+    font-size: var(--fs-md);
+    line-height: var(--lh-relaxed);
+    color: var(--color-text);
+    margin: 0;
+    text-wrap: pretty;
+  }
+
+  /* Outcome block sits visually elevated above the rest — single beat the
+     reader should register before they leave the card. Tonal rule above and
+     below, no border-left or coloured stripe (banned in DESIGN.md). */
+  .case-block--outcome {
+    padding-block: var(--space-4);
+    border-top: 1px solid var(--color-rule);
+    border-bottom: 1px solid var(--color-rule);
+  }
+  .case-block--outcome .case-block-label {
+    color: var(--color-accent);
+  }
+
+  .case-stack {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2) var(--space-3);
+    font-family: var(--font-mono);
+    font-feature-settings: var(--font-features-mono);
+    font-size: var(--fs-sm);
+    color: var(--color-text);
+  }
+  .case-stack li {
+    display: inline-flex;
+    align-items: baseline;
+    padding: 0.2rem 0.55rem;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm, 3px);
+    background: var(--color-surface);
+    line-height: 1.3;
+  }
+
+  .case-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    font-family: var(--font-mono);
+    font-feature-settings: var(--font-features-mono);
+    font-size: var(--fs-sm);
+  }
+  .case-links li {
+    display: inline-flex;
+    align-items: baseline;
+  }
+  .case-links li:not(:last-child)::after {
+    content: '·';
+    color: var(--color-text-subtle);
+    margin-inline: 0.55em;
+  }
+  .case-links a {
+    color: var(--color-accent);
+  }
+
+  .case-figure {
+    margin: 0;
+    min-width: 0;
+  }
+  .case-image {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border: 1px solid var(--color-border);
+    background: var(--color-surface);
+  }
+
+  @media (max-width: 52rem) {
+    .case-head {
+      grid-template-columns: 3rem 1fr;
+      margin-bottom: var(--space-5);
+    }
+    .case-index {
+      font-size: var(--fs-xl);
+    }
+  }
+</style>

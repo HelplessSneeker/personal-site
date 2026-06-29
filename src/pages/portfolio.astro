@@ -1,0 +1,207 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import CaseStudy from '../components/CaseStudy.astro';
+import { caseStudies } from '../data/caseStudies';
+import { t, getAltUrl, getLocalizedPath } from '../i18n/util';
+
+export const prerender = true;
+
+const locale = 'de' as const;
+const altUrl = getAltUrl(Astro.url.pathname, locale);
+const home = getLocalizedPath(locale, '/');
+const contactHref = `${home}#contact`;
+---
+<BaseLayout
+  title={t(locale, 'portfolioPage.metaTitle')}
+  description={t(locale, 'portfolioPage.description')}
+  locale={locale}
+  altLocaleUrl={altUrl}
+  canonicalPath="/portfolio"
+>
+  <Header locale={locale} />
+  <main id="main">
+    <section class="section hero portfolio-intro" aria-labelledby="portfolio-heading">
+      <div class="container portfolio-intro-inner">
+        <span class="portfolio-rule" aria-hidden="true"></span>
+        <p class="portfolio-kicker label-meta">{t(locale, 'portfolioPage.kicker')}</p>
+        <h1 id="portfolio-heading" class="portfolio-title">{t(locale, 'portfolioPage.title')}</h1>
+        <p class="portfolio-lede">{t(locale, 'portfolioPage.lede')}</p>
+      </div>
+    </section>
+
+    <section class="section portfolio-list">
+      <div class="container">
+        {caseStudies.map((study, i) => (
+          <CaseStudy study={study} locale={locale} index={i} />
+        ))}
+      </div>
+    </section>
+
+    <section class="section portfolio-cta" id="contact" aria-labelledby="portfolio-cta-heading">
+      <div class="container portfolio-cta-inner">
+        <p class="section-label">{t(locale, 'portfolioPage.cta.kicker')}</p>
+        <h2 id="portfolio-cta-heading" class="portfolio-cta-heading">{t(locale, 'portfolioPage.cta.heading')}</h2>
+        <p class="portfolio-cta-body">{t(locale, 'portfolioPage.cta.body')}</p>
+        <div class="portfolio-cta-actions">
+          <a href={contactHref} class="btn btn-primary">
+            {t(locale, 'portfolioPage.cta.button')} <span aria-hidden="true">→</span>
+          </a>
+          <a href={home} class="portfolio-back">{t(locale, 'portfolioPage.backToHome')}</a>
+        </div>
+        <p class="portfolio-cta-direct">
+          <span class="label-meta">{t(locale, 'portfolioPage.cta.emailLabel')}</span>
+          <a href="mailto:benjamin@noessler.at">benjamin@noessler.at</a>
+        </p>
+      </div>
+    </section>
+  </main>
+  <Footer locale={locale} />
+</BaseLayout>
+
+<style>
+  /* Intro reuses `.hero` so it isn't pulled into the scroll-fade orchestration
+     run on `.section:not(.hero)` in BaseLayout. The portfolio overture
+     should be visible immediately, not animated in. */
+  .portfolio-intro {
+    padding-block: var(--space-9) var(--space-7);
+    border-top: none;
+  }
+  @media (min-width: 48rem) {
+    .portfolio-intro {
+      padding-block: clamp(var(--space-9), 9vh, var(--space-10)) var(--space-7);
+    }
+  }
+
+  .portfolio-intro-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    max-width: 62ch;
+  }
+
+  .portfolio-rule {
+    display: block;
+    width: 2.5rem;
+    height: 1px;
+    background: var(--color-accent);
+    margin-bottom: var(--space-4);
+  }
+
+  .portfolio-kicker {
+    color: var(--color-text-subtle);
+    margin-bottom: var(--space-4);
+  }
+
+  .portfolio-title {
+    font-family: var(--font-display);
+    font-size: var(--fs-2xl);
+    font-weight: var(--weight-medium);
+    letter-spacing: var(--tracking-heading-xl);
+    line-height: 1.05;
+    color: var(--color-text);
+    margin: 0 0 var(--space-5) 0;
+    text-wrap: balance;
+  }
+
+  .portfolio-lede {
+    font-size: var(--fs-lg);
+    line-height: 1.4;
+    color: var(--color-text);
+    margin: 0;
+    text-wrap: pretty;
+    max-width: 44rem;
+  }
+
+  /* The list section continues the intro visually — small gap, no top
+     border duplicating the intro/intro rule. */
+  .portfolio-list {
+    padding-block: var(--section-continued) var(--space-8);
+    border-top: none;
+  }
+
+  /* CTA mirrors Contact.astro's "closing chord" tone: generous padding,
+     kicker + heading + body + actions. Not the full contact form — the
+     full form lives on the home page; this is the conversion CTA at the
+     end of a deep read. */
+  .portfolio-cta {
+    padding-block-start: var(--section-pause);
+  }
+
+  .portfolio-cta-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-4);
+    max-width: 40rem;
+  }
+
+  .portfolio-cta-inner .section-label {
+    margin-bottom: 0;
+  }
+
+  .portfolio-cta-heading {
+    font-family: var(--font-display);
+    font-size: var(--fs-2xl);
+    font-weight: var(--weight-medium);
+    letter-spacing: var(--tracking-heading-xl);
+    line-height: 1.05;
+    margin: 0;
+    text-wrap: balance;
+  }
+
+  .portfolio-cta-body {
+    font-size: var(--fs-md);
+    line-height: var(--lh-relaxed);
+    color: var(--color-text);
+    margin: 0;
+    text-wrap: pretty;
+  }
+
+  .portfolio-cta-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-5);
+    margin-top: var(--space-2);
+  }
+
+  .portfolio-back {
+    font-family: var(--font-mono);
+    font-feature-settings: var(--font-features-mono);
+    font-size: var(--fs-sm);
+    color: var(--color-text-muted);
+    text-decoration: underline;
+    text-decoration-color: color-mix(in oklab, currentColor 35%, transparent);
+    text-underline-offset: 0.2em;
+  }
+  .portfolio-back::before {
+    content: '←\00a0 ';
+    color: var(--color-accent);
+  }
+  .portfolio-back:hover {
+    color: var(--color-accent);
+    text-decoration-color: currentColor;
+  }
+
+  .portfolio-cta-direct {
+    margin: var(--space-3) 0 0 0;
+    padding-top: var(--space-4);
+    border-top: 1px solid var(--color-rule);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: var(--space-3);
+    font-size: var(--fs-sm);
+    width: 100%;
+  }
+  .portfolio-cta-direct .label-meta {
+    color: var(--color-text-subtle);
+  }
+  .portfolio-cta-direct a {
+    color: var(--color-accent);
+    font-family: var(--font-mono);
+    font-feature-settings: var(--font-features-mono);
+  }
+</style>
