@@ -28,6 +28,9 @@ export interface Project {
   imageAlt?: { de: string; en: string };
   outcome?: { de: string; en: string };
   testimonial?: Testimonial;
+  /** Slug of a matching entry in `caseStudies.ts`. When set, the card renders
+   *  a "Case Study lesen →" link to the /portfolio page anchored at this id. */
+  caseStudySlug?: string;
 }
 
 export const projects: Project[] = [
@@ -52,6 +55,7 @@ export const projects: Project[] = [
       de: 'Direkte Anfragen statt Anrufkette — Webpräsenz und Lead-Kanal in einem.',
       en: 'Direct inquiries instead of a phone chain — web presence and lead channel in one.',
     },
+    caseStudySlug: 'vordermann',
   },
   {
     id: 'foundersgroup',
@@ -161,6 +165,7 @@ export const projects: Project[] = [
       de: 'Showcase für sauber gebaute Webapps — ganzer Stack aus einer Hand.',
       en: 'Showcase for cleanly built web apps — full stack from a single hand.',
     },
+    caseStudySlug: 'b-cal',
   },
   // Doc-RAG-Demo — on ice (project paused). Keep the data here so we can
   // un-comment when the demo gets revived; remove if it's permanently shelved.

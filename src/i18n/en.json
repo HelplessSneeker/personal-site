@@ -123,6 +123,7 @@
     "stackLabel": "Stack",
     "visitLink": "Visit website",
     "githubLink": "GitHub repository",
+    "caseStudyLink": "Read the case study",
     "status": {
       "live": "Live",
       "archived": "Archived",
@@ -143,6 +144,28 @@
       { "title": "Build with milestones", "body": "Clean stages, regular previews, launch on schedule." },
       { "title": "Care plan or handover", "body": "Hosting, updates, smaller changes from a single source — or you take over, your code. Most clients stay." }
     ]
+  },
+  "portfolioPage": {
+    "metaTitle": "Portfolio: three case studies · Benjamin Franz Nößler",
+    "description": "Three pieces of work in detail: Vordermann (Astro site redesign), b-cal (own web app, full stack) and an AI consulting engagement for a trading platform. Problem, solution, stack, outcome for each.",
+    "kicker": "Portfolio · case studies",
+    "title": "Three pieces of work in detail.",
+    "lede": "What had to be solved, how I built it, what with, and what actually shipped. No stack theatre, no buzzwords.",
+    "sections": {
+      "problem": "Problem",
+      "solution": "Solution",
+      "stack": "Stack",
+      "outcome": "Outcome",
+      "links": "Links"
+    },
+    "cta": {
+      "kicker": "Contact",
+      "heading": "Sounds like your project?",
+      "body": "Free 30-minute discovery call. I usually reply within 48 hours.",
+      "button": "Get in touch",
+      "emailLabel": "Or write directly to"
+    },
+    "backToHome": "Back to home"
   },
   "aboutPage": {
     "title": "About me",

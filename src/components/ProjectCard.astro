@@ -1,6 +1,6 @@
 ---
 import type { Project } from '../data/projects';
-import { t, type Locale } from '../i18n/util';
+import { t, type Locale, getLocalizedPath } from '../i18n/util';
 
 export interface Props {
   project: Project;
@@ -15,6 +15,9 @@ const status = locale === 'de' ? project.statusDe : project.statusEn;
 const role = project.role ? (locale === 'de' ? project.role.de : project.role.en) : undefined;
 const context = project.context ? (locale === 'de' ? project.context.de : project.context.en) : undefined;
 const imageAlt = project.imageAlt ? (locale === 'de' ? project.imageAlt.de : project.imageAlt.en) : title;
+const caseStudyHref = project.caseStudySlug
+  ? `${getLocalizedPath(locale, '/portfolio')}#case-${project.caseStudySlug}-title`
+  : undefined;
 
 const contextLabel = t(locale, 'work.contextLabel');
 const roleLabel = t(locale, 'work.roleLabel');
@@ -56,6 +59,14 @@ const testimonialAuthor = project.testimonial?.author
         <p class="project-outcome">
           <span class="outcome-label" aria-hidden="true">{outcomeLabel}</span>
           <span class="outcome-text">{outcome}</span>
+        </p>
+      )}
+
+      {caseStudyHref && (
+        <p class="project-deeplink">
+          <a href={caseStudyHref}>
+            {t(locale, 'work.caseStudyLink')} <span aria-hidden="true">→</span>
+          </a>
         </p>
       )}
 
@@ -239,6 +250,20 @@ const testimonialAuthor = project.testimonial?.author
     font-size: var(--fs-md);
     line-height: 1.4;
     color: var(--color-text);
+  }
+
+  /* Pointer to the dedicated case-study panel on /portfolio. Mono voice so it
+     reads as metadata, not a primary CTA — the project cards remain the
+     overview surface, the deep page carries the conversion CTA. */
+  .project-deeplink {
+    margin: 0;
+    font-family: var(--font-mono);
+    font-feature-settings: var(--font-features-mono);
+    font-size: var(--fs-sm);
+    line-height: 1.4;
+  }
+  .project-deeplink a {
+    color: var(--color-accent);
   }
 
   /* Testimonial pull-quote. The italic display face plus the em-dash
