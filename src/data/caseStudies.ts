@@ -35,39 +35,36 @@ export interface CaseStudy {
 
 export const caseStudies: CaseStudy[] = [
   {
-    slug: 'vordermann',
-    title: {
-      de: 'Vordermann Flächenreinigung',
-      en: 'Vordermann Flächenreinigung',
-    },
+    slug: 'scanzy',
+    title: { de: 'SCANZY', en: 'SCANZY' },
     meta: {
-      de: 'Freelance · Konzept, Design, Build · Astro · 2026',
-      en: 'Freelance · concept, design, build · Astro · 2026',
+      de: 'Freelance · Konzept, Design, Build · React + Vite · 2026',
+      en: 'Freelance · concept, design, build · React + Vite · 2026',
     },
     problem: {
-      de: 'Die bestehende Website lag als Angular-SPA im JS-Bundle vergraben. Inhalte waren für den Betrieb nicht pflegbar, mobile Performance schwach, und Anfragen kamen ausschließlich per Telefon. Vor jedem neuen Auftrag stand Pingpong zwischen Rückruf, Vor-Ort-Termin und Angebot.',
-      en: 'The existing site was an Angular SPA with the actual content buried in the JS bundle. Nothing was maintainable from the business side, mobile performance was weak, and every inquiry arrived by phone, so each new job started with callback ping-pong before a quote could be made.',
+      de: 'SCANZY verkauft 360°-Touren, Drohnenflüge und FPV-Kino an Hotellerie, Immobilien und Hospitality. Das Produkt ist visuell, die bestehende Site löste das Versprechen nicht ein. Aufgabe: die Premium-Story in fünf Sekunden liefern, ohne in Agency-Showreel-Optik abzurutschen, und die etablierten Branchen-Routen (Hotel, Real-Estate, Restaurant, Kärnten) im Header erhalten.',
+      en: 'SCANZY sells 360° tours, drone flights, and FPV cinematics to hotels, real estate, and hospitality. The product is visual, the previous site did not pay the promise. Brief: deliver the premium story in five seconds without sliding into agency-showreel optics, and keep the established industry routes (hotel, real estate, restaurant, Carinthia) intact in the header.',
     },
     solution: {
-      de: 'Redesign in Astro mit klarer Color-Block-Architektur, mobile-first. DSGVO-saubere selbst gehostete Schriften, Vorher/Nachher-Slider für Referenzen, Team-Section, ein klares Leistungs-Portfolio statt verstreuter Bullet-Listen. Anfrage-Formular als gleichwertiger Kanal neben dem Telefon. Legal-Pages mit echten Firmen-Stammdaten, Coolify-Deploy über Docker auf nginx.',
-      en: 'Rebuilt in Astro with a clear colour-block layout, mobile-first. GDPR-clean self-hosted fonts, a before/after slider for references, a team section, and a single tidy services list instead of scattered bullet points. The inquiry form sits as a proper channel next to the phone. Legal pages carry the real company details; deploy is Docker to nginx via Coolify.',
+      de: 'Editoriales Dark-Hero mit der Drohnen-Aufnahme als Signature-Element, Brand-System aus Mitternachtsblau, Cremegold und warmem Creme-Background (Edition 2026 als Canon). Source-Serif-Display mit goldenen Italics als wiederkehrendes Akzent-Motiv, bewusst kein Fraunces. Routen-Struktur für Immobilien-, Hotel-, Restaurant- und Kärnten-Landings im Header erhalten, Legal-Pages sauber daneben.',
+      en: 'Editorial dark hero with the drone footage as signature element, brand system in midnight navy, cream gold, and a warm cream background (Edition 2026 PDF as canon). Source Serif display with gold italics as recurring accent motif, deliberately not Fraunces. Industry routes for real estate, hotel, restaurant, and Carinthia landings preserved in the header, legal pages tidy alongside.',
     },
-    stack: ['Astro 5', 'Tailwind 4', 'TypeScript', 'pnpm', 'Docker', 'nginx', 'Coolify', 'Playwright'],
+    stack: ['TypeScript', 'React 18', 'Vite', 'Tailwind CSS', 'shadcn/ui'],
     outcome: {
-      de: 'Übergeben am 21.05.2026, Rechnung bezahlt. Die Site läuft live, der Betrieb empfängt Anfragen über das Formular und ist nicht mehr auf Telefon-Pingpong angewiesen. Inhalts-Updates landen nicht mehr im JS-Bundle.',
-      en: 'Handed over on 21 May 2026, invoice settled. The site is live, inquiries arrive through the form instead of phone tag, and content updates no longer live inside the JS bundle.',
+      de: 'Brand-System im Code festgeschrieben statt nur im PDF. Zentraler Anlaufpunkt für Anfragen, der Gründer empfiehlt seither aktiv weiter („Design und Struktur passen perfekt zum Angebot“).',
+      en: 'Brand system locked into code, not only in the PDF. Central inquiry channel; the founder has been actively recommending the work onward since then ("design and structure fit the offering perfectly").',
     },
     links: [
       {
-        href: 'https://vordermann-reinigung.at',
-        label: { de: 'vordermann-reinigung.at', en: 'vordermann-reinigung.at' },
+        href: 'https://scanzy.at',
+        label: { de: 'scanzy.at', en: 'scanzy.at' },
         external: true,
       },
     ],
-    image: '/projects/vordermann.png',
+    image: '/projects/scanzy.png',
     imageAlt: {
-      de: 'Startseite vordermann-reinigung.at: Mitarbeiter im Einsatz vor einer Garageneinfahrt, Headline „Wir bringen Ihr Grundstück wieder auf Vordermann.“',
-      en: 'vordermann-reinigung.at homepage: staff at work in front of a driveway with the headline "Wir bringen Ihr Grundstück wieder auf Vordermann."',
+      de: 'scanzy.at Startseite: Wortmarke SCANZY über einer dunklen Berglandschaft mit der Headline „Ihr Objekt hat mehr verdient als nur Fotos.“',
+      en: 'scanzy.at homepage: SCANZY wordmark above a dark mountain landscape with the headline "Ihr Objekt hat mehr verdient als nur Fotos."',
     },
   },
   {
@@ -109,28 +106,32 @@ export const caseStudies: CaseStudy[] = [
     },
   },
   {
-    slug: 'ai-trading-platform',
-    title: {
-      de: 'KI-gestützte Handelsplattform (Consulting)',
-      en: 'AI-powered trading platform (consulting)',
-    },
+    slug: 'personal-site',
+    title: { de: 'bfnoessler.at', en: 'bfnoessler.at' },
     meta: {
-      de: 'Consulting · Architektur-Sparring · 9,5 h · 2026',
-      en: 'Consulting · architecture sparring · 9.5 h · 2026',
+      de: 'Eigene Marke · Konzept, Design, Build · Astro · 2026',
+      en: 'Own brand · concept, design, build · Astro · 2026',
     },
     problem: {
-      de: 'Der Klient arbeitete an einer KI-gestützten Handelsplattform mit Sendungs-Tracking zwischen Händlern und Käufern. Offen war: Wie lässt sich AI sinnvoll integrieren, ohne sich an einen Anbieter zu binden, in der LLM-Hype-Falle zu landen oder den ersten Wurf zu überfrachten?',
-      en: 'The client was building an AI-powered trading platform with shipment tracking between traders and buyers. The open question: how to integrate AI in a way that stays useful, avoids vendor lock-in, sidesteps the LLM-hype trap, and keeps the first iteration small enough to ship.',
+      de: 'Standard-Templates für Dev-Portfolios verkaufen das Falsche: Geist plus Geist Mono ist der AI-Template-Default, „Trusted by“-Wände sind der Agentur-Reflex, animierte Gradients der Showreel-Reflex. Für ein Angebot, das auf wiederkehrender Pflege kleiner Landingpages basiert, muss die visuelle Ebene ruhig, präzise und vertrauenswürdig lesen, nicht wie ein Cursor-Blob-Showreel.',
+      en: 'Stock dev-portfolio templates sell the wrong thing: Geist plus Geist Mono is the AI-template default, "trusted by" walls are the agency reflex, animated gradients the showreel reflex. An offer built on recurring care for small landing pages needs a visual layer that reads as calm, precise, trustworthy, not as a cursor-blob showreel.',
     },
     solution: {
-      de: '9,5 Stunden fokussiertes Architektur-Sparring. Diskutiert wurden eine LLM-Provider-Abstraktion (mock, lokal, hosted), die Wahl zwischen RAG und Function-Calling für den ersten Use-Case, ein einfaches Eval-Setup zur frühen Qualitäts-Messung sowie die Daten-Pipeline. Ergebnis war eine geschnittene Roadmap mit klarem Scope für Iteration 1 und 2.',
-      en: '9.5 hours of focused architecture sparring. We worked through a provider-agnostic LLM abstraction (mock, local, hosted), the choice between RAG and function calling for the first use case, a lightweight eval setup to measure quality early, and the data pipeline. The outcome was a sliced roadmap with a clear scope for iteration 1 and 2.',
+      de: 'Self-hosted Astro-6-Site mit handgeschriebenem CSS-Token-System (kein Tailwind, kein Framework), einem einzigen Ink-Blue-Hue (oklch 248°), General Sans Variable plus Commit Mono statt Geist-Default, asymmetrisches editoriales Layout statt zentrierte Bullet-Grids. Zweisprachig DE/EN, jeweils eigene Stimme statt 1:1-Übersetzung. Kontaktformular mit Honeypot plus Per-IP-Rate-Limit, SMTP über nodemailer, kein Third-Party-Service. Kein Tracking, keine Third-Party-Schriften.',
+      en: 'Self-hosted Astro 6 site with a hand-written CSS token system (no Tailwind, no framework), a single ink-blue hue (oklch 248°), General Sans Variable plus Commit Mono instead of the Geist default, asymmetric editorial layout instead of centred bullet grids. Bilingual DE/EN, each with its own voice rather than a one-to-one translation. Contact form with honeypot plus per-IP rate-limit, SMTP via nodemailer, no third-party transactional service. No tracking, no third-party fonts.',
     },
-    stack: ['LLM-Architektur', 'Provider-Abstraktion', 'RAG-Patterns', 'Function Calling', 'Eval-Setup'],
+    stack: ['Astro 6', 'TypeScript', 'Hand-written CSS', 'Node standalone', 'nodemailer', 'Docker', 'Coolify'],
     outcome: {
-      de: 'Klare Roadmap, der Klient konnte eigenständig weiterbauen, ohne sich an einen Anbieter zu binden. Rechnung bezahlt. Liefer-Feedback („zu technisch, zu wenig Big Picture“) hat den Pitch-Stil meiner Folge-Akquise direkt geprägt.',
-      en: 'Clear roadmap and the client could move forward on their own without locking into a vendor. Invoice settled. The delivery feedback ("too technical, not enough big picture") fed straight into how I pitch follow-up work.',
+      de: 'Die Seite genau hier. Lighthouse mobile konsistent ≥95 auf Performance, Accessibility, Best Practices, SEO. Brand- und Tooling-Ebene tragen das Angebot, statt es nur zu illustrieren.',
+      en: 'The page right here. Lighthouse mobile consistently ≥95 on Performance, Accessibility, Best Practices, SEO. Brand and tooling layer carry the offer instead of just illustrating it.',
     },
+    links: [
+      {
+        href: 'https://bfnoessler.at',
+        label: { de: 'bfnoessler.at', en: 'bfnoessler.at' },
+        external: true,
+      },
+    ],
   },
 ];
 

@@ -147,7 +147,7 @@
   },
   "portfolioPage": {
     "metaTitle": "Portfolio: drei Case Studies · Benjamin Franz Nößler",
-    "description": "Drei Arbeiten im Detail: Vordermann (Astro-Site-Redesign), b-cal (eigene Webapp, voller Stack) und ein KI-Consulting für eine Handelsplattform. Jeweils Problem, Lösung, Stack, Ergebnis.",
+    "description": "Drei Arbeiten im Detail: SCANZY (360°-Tour-Brand, React + Vite), b-cal (eigene Webapp, voller Stack) und bfnoessler.at selbst (Astro 6, hand-written CSS). Jeweils Problem, Lösung, Stack, Ergebnis.",
     "kicker": "Portfolio · Case Studies",
     "title": "Drei Arbeiten im Detail.",
     "lede": "Was zu lösen war, wie ich es gebaut habe, womit, und was am Ende lief. Kein Stack-Theater, keine Buzzwords.",

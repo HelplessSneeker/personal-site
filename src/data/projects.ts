@@ -55,7 +55,6 @@ export const projects: Project[] = [
       de: 'Direkte Anfragen statt Anrufkette — Webpräsenz und Lead-Kanal in einem.',
       en: 'Direct inquiries instead of a phone chain — web presence and lead channel in one.',
     },
-    caseStudySlug: 'vordermann',
   },
   {
     id: 'foundersgroup',
@@ -120,6 +119,7 @@ export const projects: Project[] = [
         en: 'Lukas Muchitsch · Founder, SCANZY',
       },
     },
+    caseStudySlug: 'scanzy',
   },
   // Primus / OpenClaw — temporarily removed from the public portfolio.
   // The framing was too inside-baseball (Tailscale mesh, agentic workflows,

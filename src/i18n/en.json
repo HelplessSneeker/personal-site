@@ -147,7 +147,7 @@
   },
   "portfolioPage": {
     "metaTitle": "Portfolio: three case studies · Benjamin Franz Nößler",
-    "description": "Three pieces of work in detail: Vordermann (Astro site redesign), b-cal (own web app, full stack) and an AI consulting engagement for a trading platform. Problem, solution, stack, outcome for each.",
+    "description": "Three pieces of work in detail: SCANZY (360° tour brand, React + Vite), b-cal (own web app, full stack), and bfnoessler.at itself (Astro 6, hand-written CSS). Problem, solution, stack, outcome for each.",
     "kicker": "Portfolio · case studies",
     "title": "Three pieces of work in detail.",
     "lede": "What had to be solved, how I built it, what with, and what actually shipped. No stack theatre, no buzzwords.",
