@@ -63,8 +63,8 @@ export const caseStudies: CaseStudy[] = [
     ],
     image: '/projects/scanzy.png',
     imageAlt: {
-      de: 'scanzy.at Startseite: Wortmarke SCANZY über einer dunklen Berglandschaft mit der Headline „Ihr Objekt hat mehr verdient als nur Fotos.“',
-      en: 'scanzy.at homepage: SCANZY wordmark above a dark mountain landscape with the headline "Ihr Objekt hat mehr verdient als nur Fotos."',
+      de: 'scanzy.at Startseite: SCANZY-Wortmarke über einer warmen Sonnenuntergangs-Berglandschaft, darunter die Headline „Ihr Objekt hat mehr verdient als nur Fotos.“',
+      en: 'scanzy.at homepage: SCANZY wordmark above a warm sunset mountain landscape with the headline "Ihr Objekt hat mehr verdient als nur Fotos."',
     },
   },
   {
