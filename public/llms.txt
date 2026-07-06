@@ -1,0 +1,31 @@
+# Benjamin Franz Nößler
+
+> Freelance web developer based in Vienna, Austria. Builds fast, editable websites with AI integration — Astro frontends for agencies that need extra capacity, and for small businesses who want to understand and maintain their own site again.
+
+Stack focus: Astro, TypeScript, Node.js, React, Next.js, Python. AI integration via LLM APIs (OpenAI, Anthropic), retrieval, and pragmatic workflow automation.
+
+Working languages: German (native), English.
+
+## Core pages
+
+- [Home (DE)](https://bfnoessler.at/): Overview, services, active clients, contact.
+- [Home (EN)](https://bfnoessler.at/en/): Same overview in English.
+- [About (DE)](https://bfnoessler.at/ueber): Background, approach, how the collaboration works.
+- [About (EN)](https://bfnoessler.at/en/about): Same in English.
+- [Portfolio (DE)](https://bfnoessler.at/portfolio): Selected client work and case references.
+- [Portfolio (EN)](https://bfnoessler.at/en/portfolio): Same in English.
+- [Bundle (DE)](https://bfnoessler.at/bundle): Packaged website offering for small businesses.
+- [Bundle (EN)](https://bfnoessler.at/en/bundle): Same in English.
+
+## Contact
+
+- Email: benjamin@noessler.at
+- GitHub: https://github.com/HelplessSneeker
+- LinkedIn: https://www.linkedin.com/in/bf-noessler/
+
+## Optional
+
+- [Imprint (DE)](https://bfnoessler.at/impressum)
+- [Imprint (EN)](https://bfnoessler.at/en/imprint)
+- [Privacy (DE)](https://bfnoessler.at/datenschutz)
+- [Privacy (EN)](https://bfnoessler.at/en/privacy)

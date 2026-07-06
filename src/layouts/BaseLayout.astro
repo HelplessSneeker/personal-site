@@ -41,12 +41,12 @@ const personSchema = {
   email: 'mailto:benjamin@noessler.at',
   address: {
     '@type': 'PostalAddress',
-    addressLocality: 'Wien',
+    addressLocality: locale === 'de' ? 'Wien' : 'Vienna',
     addressCountry: 'AT',
   },
   sameAs: [
-    'https://github.com/HelplessSneeker',
     'https://www.linkedin.com/in/bf-noessler/',
+    'https://github.com/HelplessSneeker',
   ],
 };
 ---
