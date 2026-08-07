@@ -146,24 +146,36 @@
     ]
   },
   "portfolioPage": {
-    "metaTitle": "Portfolio: drei Case Studies · Benjamin Franz Nößler",
-    "description": "Drei Arbeiten im Detail: SCANZY (360°-Tour-Brand, React + Vite), b-cal (eigene Webapp, voller Stack) und bfnoessler.at selbst (Astro 6, hand-written CSS). Jeweils Problem, Lösung, Stack, Ergebnis.",
-    "kicker": "Portfolio · Case Studies",
-    "title": "Drei Arbeiten im Detail.",
-    "lede": "Was zu lösen war, wie ich es gebaut habe, womit, und was am Ende lief. Kein Stack-Theater, keine Buzzwords.",
+    "metaTitle": "Portfolio: gebaut, selbst gebaut, betrieben · Benjamin Franz Nößler",
+    "description": "Drei Spuren: Arbeiten für Kunden, eigene Projekte ohne Auftraggeber, und die Systeme, die ich laufend betreibe, jedes mit Datum. Dazu drei Arbeiten als Case Study im Detail.",
+    "kicker": "Portfolio",
+    "title": "Gebaut, selbst gebaut, betrieben.",
+    "lede": "Drei Spuren, weil sie drei verschiedene Fragen beantworten: liefere ich für zahlende Kunden, baue ich auch ohne Auftrag, und halte ich Systeme über die Zeit am Laufen. Was hier steht, existiert. Was noch nicht existiert, steht nicht hier.",
+    "tracks": {
+      "client": {
+        "label": "Für Kunden gebaut",
+        "lede": "Bezahlte Arbeit für echte Betriebe, alle live und alle unter ihrem eigenen Namen erreichbar."
+      },
+      "personal": {
+        "label": "Selbst gebaut",
+        "lede": "Projekte ohne Auftraggeber. Sie beantworten die Frage, ob ich auch baue, wenn niemand dafür zahlt."
+      },
+      "operated": {
+        "label": "Betrieben",
+        "lede": "Nicht gebaut und übergeben, sondern laufend betrieben: Server, Netz und Dienste, die ich selbst warte und im Zweifel selbst repariere. Das Datum an jeder Zeile ist der eigentliche Beleg.",
+        "sinceLabel": "seit"
+      }
+    },
+    "detail": {
+      "label": "Im Detail",
+      "lede": "Drei Arbeiten aufgeschlüsselt: was zu lösen war, wie ich es gebaut habe, womit, und was am Ende lief."
+    },
     "sections": {
       "problem": "Problem",
       "solution": "Lösung",
       "stack": "Stack",
       "outcome": "Ergebnis",
       "links": "Links"
-    },
-    "cta": {
-      "kicker": "Kontakt",
-      "heading": "Klingt nach deinem Projekt?",
-      "body": "30-Minuten-Discovery-Call kostenlos. Ich melde mich in der Regel innerhalb von 48 Stunden.",
-      "button": "Direkt anfragen",
-      "emailLabel": "Oder schreib direkt an"
     },
     "backToHome": "Zur Startseite"
   },
