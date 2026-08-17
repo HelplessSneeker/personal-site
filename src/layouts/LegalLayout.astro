@@ -8,11 +8,13 @@ export interface Props {
   title: string;
   description: string;
   locale: Locale;
-  altLocaleUrl: string;
+  /** Omit on single-language pages — the toggle would link to a 404. */
+  altLocaleUrl?: string;
   canonicalPath: string;
+  noindex?: boolean;
 }
 
-const { title, description, locale, altLocaleUrl, canonicalPath } = Astro.props;
+const { title, description, locale, altLocaleUrl, canonicalPath, noindex = false } = Astro.props;
 ---
 <BaseLayout
   title={`${title} — Benjamin Franz Nößler`}
@@ -20,8 +22,9 @@ const { title, description, locale, altLocaleUrl, canonicalPath } = Astro.props;
   locale={locale}
   altLocaleUrl={altLocaleUrl}
   canonicalPath={canonicalPath}
+  noindex={noindex}
 >
-  <Header locale={locale} />
+  <Header locale={locale} showLanguageToggle={altLocaleUrl !== undefined} />
   <main id="main" class="legal-main">
     <article class="container legal-article">
       <h1>{title}</h1>
