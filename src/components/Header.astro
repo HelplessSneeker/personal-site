@@ -4,9 +4,11 @@ import { t, type Locale, getLocalizedPath } from '../i18n/util';
 
 export interface Props {
   locale: Locale;
+  /** Off for pages that exist in one language only. */
+  showLanguageToggle?: boolean;
 }
 
-const { locale } = Astro.props;
+const { locale, showLanguageToggle = true } = Astro.props;
 const home = getLocalizedPath(locale, '/');
 const aboutPath = getLocalizedPath(locale, locale === 'de' ? '/ueber' : '/about');
 const navLinks = [
@@ -46,7 +48,7 @@ const navLinks = [
       </ul>
     </nav>
 
-    <LanguageToggle currentLocale={locale} />
+    {showLanguageToggle && <LanguageToggle currentLocale={locale} />}
   </div>
 </header>
 

@@ -12,7 +12,10 @@ export default defineConfig({
         defaultLocale: 'de',
         locales: { de: 'de-AT', en: 'en-US' },
       },
-      filter: (page) => !page.includes('/api/'),
+      // /firefly/* sind noindex-Pflichtseiten für ein externes
+      // Registrierungsformular — sie gehören nicht in die Sitemap, sonst
+      // reicht man Google genau die URLs an, die es nicht indexieren soll.
+      filter: (page) => !page.includes('/api/') && !page.includes('/firefly/'),
       serialize(item) {
         return { ...item, lastmod: new Date().toISOString() };
       },

@@ -1,0 +1,71 @@
+---
+import LegalLayout from '../../layouts/LegalLayout.astro';
+
+export const prerender = true;
+
+// Siehe firefly/privacy.astro — gleiche Vorgaben (noindex, kein Footer-Link,
+// keine Sitemap, Deutsch only).
+const locale = 'de' as const;
+---
+<LegalLayout
+  title="Nutzungsbedingungen — Firefly III (private Finanzverwaltung)"
+  description="Nutzungsbedingungen für die selbst gehostete, privat genutzte Firefly-III-Instanz von Benjamin Franz Nößler."
+  locale={locale}
+  canonicalPath="/firefly/terms"
+  noindex
+>
+  <h2>Betreiber</h2>
+  <address>
+    <strong>Benjamin Franz Nößler</strong><br />
+    Fasangasse 26/4, 1030 Wien, Österreich<br />
+    E-Mail: <a href="mailto:benjamin@noessler.at">benjamin@noessler.at</a>
+  </address>
+
+  <h2>Gegenstand</h2>
+  <p>
+    Diese Anwendung ist eine selbst gehostete Instanz der Open-Source-Software Firefly III zur
+    privaten Haushaltsbuchhaltung. Sie wird ausschließlich vom Betreiber als Privatperson für dessen
+    eigene private Konten genutzt.
+  </p>
+
+  <h2>Kein Angebot an Dritte, keine gewerbliche Nutzung</h2>
+  <p>
+    Die Anwendung ist kein öffentlich angebotener Dienst. Es besteht keine Möglichkeit zur
+    Registrierung, es werden keine Leistungen für Dritte erbracht und es wird kein Entgelt erhoben.
+    Die Anwendung ist aus dem öffentlichen Internet nicht erreichbar. Eine Nutzung zu gewerblichen
+    oder beruflichen Zwecken sowie ein Zugriff auf Geschäftskonten finden nicht statt.
+  </p>
+
+  <h2>Umfang des Kontozugriffs</h2>
+  <p>
+    Der Zugriff auf Bankkonten erfolgt ausschließlich lesend (Kontoinformationen nach PSD2). Es
+    werden keine Zahlungen ausgelöst und keine Änderungen an Konten vorgenommen. Der Zugriff setzt
+    die ausdrückliche Freigabe durch den Kontoinhaber mittels starker Kundenauthentifizierung voraus
+    und kann jederzeit widerrufen werden.
+  </p>
+
+  <h2>Verfügbarkeit</h2>
+  <p>
+    Die Anwendung wird auf privater Infrastruktur betrieben. Es besteht keine Zusage einer
+    bestimmten Verfügbarkeit; Unterbrechungen für Wartung, Updates oder aufgrund technischer
+    Störungen sind möglich.
+  </p>
+
+  <h2>Haftung</h2>
+  <p>
+    Die Anwendung dient der persönlichen Übersicht und ersetzt weder die Kontoauszüge der Bank noch
+    eine steuerliche oder buchhalterische Beratung. Maßgeblich sind ausschließlich die
+    Aufzeichnungen der kontoführenden Bank. Eine Haftung für die Richtigkeit, Vollständigkeit und
+    Aktualität der dargestellten Daten ist ausgeschlossen.
+  </p>
+
+  <h2>Änderungen</h2>
+  <p>
+    Diese Bedingungen können angepasst werden, sofern sich Funktionsumfang oder Betriebsweise
+    ändern. Es gilt österreichisches Recht.
+  </p>
+
+  <p class="text-muted">
+    <small>Stand: 17.08.2026</small>
+  </p>
+</LegalLayout>
