@@ -14,6 +14,11 @@ export interface Props {
   canonicalPath?: string;
   ogImage?: string;
   sections?: SectionRef[];
+  /**
+   * Keeps the page out of search indexes. Also drops the hreflang set — a
+   * noindex page has no business advertising locale alternates.
+   */
+  noindex?: boolean;
 }
 
 const {
@@ -24,6 +29,7 @@ const {
   canonicalPath = Astro.url.pathname,
   ogImage = '/og-image.png',
   sections,
+  noindex = false,
 } = Astro.props;
 
 const navLabel = t(locale, 'nav.pageNavigation');
@@ -64,21 +70,26 @@ const personSchema = {
 
     <title>{title}</title>
     <meta name="description" content={description} />
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
     <link rel="canonical" href={canonicalUrl} />
 
     <link rel="preload" href={generalSansVariable} as="font" type="font/woff2" crossorigin />
     <link rel="preload" href={commitMono400} as="font" type="font/woff2" crossorigin />
     <link rel="preload" href={commitMono500} as="font" type="font/woff2" crossorigin />
 
-    <link rel="alternate" hreflang={locale} href={canonicalUrl} />
-    {altLocaleUrl && (
-      <link
-        rel="alternate"
-        hreflang={locale === 'de' ? 'en' : 'de'}
-        href={`${siteUrl}${altLocaleUrl}`}
-      />
+    {!noindex && (
+      <>
+        <link rel="alternate" hreflang={locale} href={canonicalUrl} />
+        {altLocaleUrl && (
+          <link
+            rel="alternate"
+            hreflang={locale === 'de' ? 'en' : 'de'}
+            href={`${siteUrl}${altLocaleUrl}`}
+          />
+        )}
+        <link rel="alternate" hreflang="x-default" href={`${siteUrl}/`} />
+      </>
     )}
-    <link rel="alternate" hreflang="x-default" href={`${siteUrl}/`} />
 
     <meta property="og:type" content="website" />
     <meta property="og:title" content={title} />

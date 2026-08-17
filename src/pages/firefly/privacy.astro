@@ -1,0 +1,99 @@
+---
+import LegalLayout from '../../layouts/LegalLayout.astro';
+
+export const prerender = true;
+
+// Pflichtfeld-Seite für die Enable-Banking-Registrierung der privaten
+// Firefly-III-Instanz. Bewusst nicht im Footer verlinkt, nicht in der Sitemap
+// und auf noindex — sie nennt die Wohnadresse und beschreibt private
+// Kontodaten. Deutsch only: es gibt kein EN-Pendant, deshalb auch kein
+// altLocaleUrl (der Sprachwechsel würde ins Leere zeigen).
+const locale = 'de' as const;
+---
+<LegalLayout
+  title="Datenschutzerklärung — Firefly III (private Finanzverwaltung)"
+  description="Datenschutzerklärung für die selbst gehostete, privat genutzte Firefly-III-Instanz von Benjamin Franz Nößler."
+  locale={locale}
+  canonicalPath="/firefly/privacy"
+  noindex
+>
+  <h2>Verantwortlicher</h2>
+  <address>
+    <strong>Benjamin Franz Nößler</strong><br />
+    Fasangasse 26/4, 1030 Wien, Österreich<br />
+    E-Mail: <a href="mailto:benjamin@noessler.at">benjamin@noessler.at</a>
+  </address>
+
+  <h2>Zweck und Umfang</h2>
+  <p>
+    Diese Anwendung ist eine selbst gehostete Instanz von Firefly III zur privaten
+    Haushaltsbuchhaltung. Sie wird ausschließlich vom Verantwortlichen selbst als Privatperson
+    genutzt. Es gibt keine Registrierung, keine weiteren Nutzerkonten und keine Bereitstellung für
+    Dritte. Betreiber und betroffene Person sind identisch. Die Anwendung wird nicht zu
+    gewerblichen oder beruflichen Zwecken eingesetzt.
+  </p>
+
+  <h2>Verarbeitete Daten</h2>
+  <p>
+    Über die PSD2-Schnittstelle der Bank werden abgerufen: Kontostammdaten (IBAN, Kontobezeichnung,
+    Währung), Kontostände sowie gebuchte Umsätze (Buchungs- und Valutadatum, Betrag,
+    Verwendungszweck, Name und IBAN der Gegenpartei). Es werden ausschließlich private Konten des
+    Verantwortlichen abgerufen. Es findet kein Zugriff auf Konten Dritter und keiner auf
+    Geschäftskonten statt.
+  </p>
+
+  <h2>Rechtsgrundlage</h2>
+  <p>
+    Art. 6 Abs. 1 lit. a DSGVO — ausdrückliche Einwilligung, erteilt über die starke
+    Kundenauthentifizierung (SCA) gegenüber der kontoführenden Bank.
+  </p>
+
+  <h2>Empfänger</h2>
+  <p>
+    Der Zugriff auf die Bankschnittstelle erfolgt über Enable Banking Oy (Otakaari 5, 02150 Espoo,
+    Finnland), einen nach PSD2 lizenzierten Kontoinformationsdienst innerhalb der EU. Darüber hinaus
+    werden keine Daten an Dritte übermittelt. Eine Übermittlung in Drittstaaten findet nicht statt.
+  </p>
+
+  <h2>Speicherung</h2>
+  <p>
+    Die Verarbeitung und Speicherung erfolgt auf einem vom Verantwortlichen selbst betriebenen
+    Server in Wien, Österreich. Der Zugriff ist auf ein privates, verschlüsseltes Netzwerk
+    beschränkt; die Anwendung ist aus dem öffentlichen Internet nicht erreichbar.
+  </p>
+  <p>
+    Sicherungskopien werden verschlüsselt aufbewahrt. Soweit sie außerhalb der eigenen
+    Infrastruktur abgelegt werden, erfolgt dies ausschließlich bei einem Auftragsverarbeiter
+    innerhalb der EU (Hetzner Online GmbH, Industriestr. 25, 91710 Gunzenhausen, Deutschland).
+  </p>
+
+  <h2>Speicherdauer</h2>
+  <p>
+    Die Daten werden für die Dauer der privaten Buchführung gespeichert und gelöscht, sobald sie
+    für diesen Zweck nicht mehr benötigt werden.
+  </p>
+
+  <h2>Widerruf</h2>
+  <p>
+    Die Einwilligung zum Kontozugriff kann jederzeit widerrufen werden — im Online-Banking der
+    kontoführenden Bank, über die
+    <a
+      href="https://enablebanking.com/data-sharing-consents/"
+      rel="noopener external"
+      target="_blank">Consent-Übersicht von Enable Banking ↗</a>
+    oder durch Löschung der Verbindung in dieser Anwendung. Der Zugriff endet zudem automatisch mit
+    Ablauf der von der Bank gesetzten Gültigkeitsdauer.
+  </p>
+
+  <h2>Rechte der betroffenen Person</h2>
+  <p>
+    Es bestehen die Rechte auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung,
+    Datenübertragbarkeit und Widerspruch (Art. 15–21 DSGVO) sowie das Recht auf Beschwerde bei der
+    Österreichischen Datenschutzbehörde (Barichgasse 40–42, 1030 Wien,
+    <a href="https://www.dsb.gv.at" rel="noopener external" target="_blank">dsb.gv.at ↗</a>).
+  </p>
+
+  <p class="text-muted">
+    <small>Stand: 17.08.2026</small>
+  </p>
+</LegalLayout>
