@@ -10,13 +10,26 @@ export interface Props {
 
 const { locale, showLanguageToggle = true } = Astro.props;
 const home = getLocalizedPath(locale, '/');
-const aboutPath = getLocalizedPath(locale, locale === 'de' ? '/ueber' : '/about');
-const navLinks = [
-  { href: `${home}#services`, label: t(locale, 'nav.services') },
-  { href: `${home}#work`, label: t(locale, 'nav.work') },
-  { href: aboutPath, label: t(locale, 'nav.about') },
-  { href: `${home}#contact`, label: t(locale, 'nav.contact') },
-];
+
+/* Portfolio-first nav (bfn-wiki decision 2026-08-07, extended 2026-08-30):
+   four real routes instead of homepage anchors, work first, and the offer
+   moved out of the bar entirely. /bundle lives in the footer and in the
+   closing block on the homepage. */
+const routes = {
+  work: locale === 'de' ? '/portfolio' : '/portfolio',
+  werkstatt: locale === 'de' ? '/werkstatt' : '/lab',
+  now: locale === 'de' ? '/jetzt' : '/now',
+  about: locale === 'de' ? '/ueber' : '/about',
+} as const;
+
+const navLinks = (['work', 'werkstatt', 'now', 'about'] as const).map((key) => ({
+  href: getLocalizedPath(locale, routes[key]),
+  label: t(locale, `nav.${key}`),
+}));
+
+/* Trailing slash is inconsistent between dev and the built output, so compare
+   on a normalised path. */
+const current = Astro.url.pathname.replace(/\/+$/, '') || '/';
 ---
 <header class="site-header">
   <div class="container header-inner">
@@ -43,7 +56,12 @@ const navLinks = [
     <nav aria-label={t(locale, 'nav.primary')} class="site-nav">
       <ul>
         {navLinks.map((link) => (
-          <li><a href={link.href}>{link.label}</a></li>
+          <li>
+            <a
+              href={link.href}
+              aria-current={current === link.href.replace(/\/+$/, '') ? 'page' : undefined}
+            >{link.label}</a>
+          </li>
         ))}
       </ul>
     </nav>
@@ -133,6 +151,7 @@ const navLinks = [
     transition: color var(--transition), border-color var(--transition);
   }
   .site-nav a:hover,
+  .site-nav a[aria-current="page"],
   .site-nav a[aria-current="location"] {
     color: var(--color-text);
     border-bottom-color: var(--color-accent);

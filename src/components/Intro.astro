@@ -1,0 +1,93 @@
+---
+import { t, tArray, type Locale } from '../i18n/util';
+
+export interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const paragraphs = tArray(locale, 'home.intro');
+
+/* The portrait is a deliberate placeholder until the shoot happens. It is
+   marked as such on the page rather than faked with a stock image: an empty
+   labelled frame is honest, a stock photo is the exact thing this rebuild
+   is getting rid of. Swap the <figure> contents for an <Image /> once the
+   files land in src/assets/portrait/. */
+---
+<section class="section intro" aria-labelledby="intro-headline">
+  <div class="container intro-grid">
+    <div class="intro-text">
+      <p class="label-meta intro-kicker">{t(locale, 'home.kicker')}</p>
+      <h1 id="intro-headline" class="intro-headline">{t(locale, 'home.headline')}</h1>
+      {paragraphs.map((paragraph) => <p class="intro-body">{paragraph}</p>)}
+    </div>
+
+    <figure class="portrait" aria-label={t(locale, 'home.portraitAlt')}>
+      <div class="portrait-frame">
+        <span class="portrait-note label-meta">{t(locale, 'home.portraitNote')}</span>
+      </div>
+    </figure>
+  </div>
+</section>
+
+<style>
+  /* Asymmetric on purpose (DESIGN.md): text carries more weight than the
+     portrait, and the portrait sits slightly lower than the headline so the
+     first line of the page is type, not image. */
+  .intro-grid {
+    display: grid;
+    gap: var(--space-7);
+    grid-template-columns: 1fr;
+  }
+
+  @media (min-width: 56rem) {
+    .intro-grid {
+      grid-template-columns: 1.3fr 1fr;
+      align-items: start;
+      gap: var(--space-8);
+    }
+    .portrait {
+      margin-block-start: var(--space-6);
+    }
+  }
+
+  .intro-kicker {
+    color: var(--color-text-subtle);
+    margin-block-end: var(--space-4);
+  }
+
+  .intro-headline {
+    font-size: var(--fs-2xl);
+    letter-spacing: var(--tracking-display);
+    max-width: 18ch;
+    margin-block-end: var(--space-6);
+  }
+
+  .intro-body {
+    max-width: 46ch;
+    color: var(--color-text-muted);
+  }
+
+  .intro-body + .intro-body {
+    margin-block-start: var(--space-4);
+  }
+
+  .portrait {
+    margin: 0;
+  }
+
+  .portrait-frame {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+    padding: var(--space-4);
+    aspect-ratio: 4 / 5;
+    background: var(--color-surface);
+    border: 1px dashed var(--color-border-strong);
+    border-radius: var(--radius-sm);
+  }
+
+  .portrait-note {
+    color: var(--color-text-subtle);
+  }
+</style>

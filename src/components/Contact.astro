@@ -1,22 +1,35 @@
 ---
-import { t, type Locale } from '../i18n/util';
+import { t, type Locale, getLocalizedPath } from '../i18n/util';
 import ContactForm from './ContactForm.astro';
 import { socialLinks } from '../data/social';
 
 export interface Props {
   locale: Locale;
+  /** Homepage uses the quiet closing voice; other pages keep the old copy. */
+  variant?: 'closing' | 'default';
 }
 
-const { locale } = Astro.props;
+const { locale, variant = 'default' } = Astro.props;
+const closing = variant === 'closing';
+const keys = closing
+  ? { label: 'homeClose.label', heading: 'homeClose.heading', body: 'homeClose.body' }
+  : { label: 'contact.label', heading: 'contact.heading', body: 'contact.body' };
+const bundleHref = getLocalizedPath(locale, '/bundle');
 // TODO Loom-URL eintragen (60–90s Intro). Block rendert nur, wenn PUBLIC_LOOM_INTRO_URL gesetzt ist.
 const loomUrl = import.meta.env.PUBLIC_LOOM_INTRO_URL;
 ---
 <section class="section contact-section" id="contact" aria-labelledby="contact-heading">
   <div class="container contact-inner">
     <header class="contact-header">
-      <p class="section-label">{t(locale, 'contact.label')}</p>
-      <h2 id="contact-heading" class="contact-heading">{t(locale, 'contact.heading')}</h2>
-      <p class="contact-body">{t(locale, 'contact.body')}</p>
+      <p class="section-label">{t(locale, keys.label as 'contact.label')}</p>
+      <h2 id="contact-heading" class="contact-heading">{t(locale, keys.heading as 'contact.heading')}</h2>
+      <p class="contact-body">{t(locale, keys.body as 'contact.body')}</p>
+
+      {closing && (
+        <p class="contact-offer">
+          <a href={bundleHref}>{t(locale, 'homeClose.offerLink')}</a>
+        </p>
+      )}
 
       {loomUrl && (
         <p class="contact-call">
@@ -61,6 +74,11 @@ const loomUrl = import.meta.env.PUBLIC_LOOM_INTRO_URL;
 </section>
 
 <style>
+  .contact-offer {
+    margin-block-start: var(--space-4);
+    font-size: var(--fs-sm);
+  }
+
   /* Documented exception to the section grammar.
      Contact is the page's closing chord — conversion moment, give it room
      to land. Two deliberate deviations from the standard section pattern:

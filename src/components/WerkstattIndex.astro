@@ -1,0 +1,131 @@
+---
+import { getCollection } from 'astro:content';
+import { t, type Locale, getLocalizedPath } from '../i18n/util';
+
+export interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+
+const entries = (await getCollection('werkstatt'))
+  .filter((entry) => entry.data.locale === locale && !entry.data.draft)
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
+const base = locale === 'de' ? '/werkstatt' : '/lab';
+const dateFormat = new Intl.DateTimeFormat(locale === 'de' ? 'de-AT' : 'en-GB', {
+  year: 'numeric',
+  month: '2-digit',
+});
+const homeHref = getLocalizedPath(locale, '/');
+---
+<section class="section" aria-labelledby="werkstatt-title">
+  <div class="container">
+    <p class="section-label">{t(locale, 'werkstattPage.kicker')}</p>
+    <h1 id="werkstatt-title" class="werkstatt-title">{t(locale, 'werkstattPage.title')}</h1>
+    <p class="section-lede">{t(locale, 'werkstattPage.lede')}</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    {entries.length === 0 ? (
+      <p class="text-muted">{t(locale, 'werkstattPage.empty')}</p>
+    ) : (
+      <ul class="entries">
+        {entries.map((entry) => (
+          <li class="entry">
+            <div class="entry-meta">
+              <span class="entry-date tabular">{dateFormat.format(entry.data.date)}</span>
+              <span class="entry-topic">{entry.data.topic}</span>
+            </div>
+            <div class="entry-text">
+              <h2 class="entry-title">
+                <a href={getLocalizedPath(locale, `${base}/${entry.data.key}`)}>{entry.data.title}</a>
+              </h2>
+              <p class="text-muted entry-summary">{entry.data.summary}</p>
+            </div>
+          </li>
+        ))}
+      </ul>
+    )}
+
+    <p class="werkstatt-back"><a href={homeHref}>{t(locale, 'werkstattPage.backToHome')}</a></p>
+  </div>
+</section>
+
+<style>
+  .werkstatt-title {
+    font-size: var(--fs-2xl);
+    letter-spacing: var(--tracking-display);
+    margin-block-end: var(--space-5);
+  }
+
+  .entries {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border-top: 1px solid var(--color-rule);
+  }
+
+  .entry {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-3);
+    padding-block: var(--space-6);
+    border-bottom: 1px solid var(--color-rule);
+  }
+
+  @media (min-width: 46rem) {
+    .entry {
+      grid-template-columns: 12rem 1fr;
+      gap: var(--space-6);
+    }
+  }
+
+  .entry-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: var(--space-3);
+  }
+
+  @media (min-width: 46rem) {
+    .entry-meta {
+      flex-direction: column;
+      gap: var(--space-2);
+    }
+  }
+
+  .entry-date,
+  .entry-topic {
+    font-family: var(--font-mono);
+    font-feature-settings: var(--font-features-mono);
+    font-size: var(--fs-sm);
+    color: var(--color-text-subtle);
+  }
+
+  .entry-title {
+    font-size: var(--fs-xl);
+    letter-spacing: var(--tracking-heading-xl);
+    margin-block-end: var(--space-3);
+  }
+
+  .entry-title a {
+    color: var(--color-text);
+    text-decoration: none;
+  }
+
+  .entry-title a:hover {
+    color: var(--color-accent);
+  }
+
+  .entry-summary {
+    max-width: 62ch;
+  }
+
+  .werkstatt-back {
+    margin-block-start: var(--space-8);
+    font-size: var(--fs-sm);
+  }
+</style>

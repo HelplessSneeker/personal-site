@@ -1,0 +1,25 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import NowBoard from '../../components/NowBoard.astro';
+import { t, getAltUrl } from '../../i18n/util';
+
+export const prerender = true;
+
+const locale = 'en' as const;
+const altUrl = getAltUrl(Astro.url.pathname, locale);
+---
+<BaseLayout
+  title={t(locale, 'nowPage.metaTitle')}
+  description={t(locale, 'nowPage.description')}
+  locale={locale}
+  altLocaleUrl={altUrl}
+  canonicalPath="/en/now"
+>
+  <Header locale={locale} />
+  <main id="main">
+    <NowBoard locale={locale} />
+  </main>
+  <Footer locale={locale} />
+</BaseLayout>

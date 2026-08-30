@@ -442,7 +442,7 @@ code, pre, kbd, samp {
    No-JS: .js flag is never set, so nothing is ever hidden.
    Reduced-motion: elements render in final state, no transition. */
 
-html.js .section:not(.hero):not(.is-visible),
+html.js .section:not(.hero):not(.intro):not(.is-visible),
 html.js .site-footer:not(.is-visible) {
   opacity: 0;
   transform: translateY(14px);

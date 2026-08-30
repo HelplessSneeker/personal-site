@@ -130,7 +130,7 @@ const personSchema = {
 
     <script>
       const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      const sections = document.querySelectorAll<HTMLElement>('.section:not(.hero)');
+      const sections = document.querySelectorAll<HTMLElement>('.section:not(.hero):not(.intro)');
       const footer = document.querySelector<HTMLElement>('.site-footer');
       // On pages without animated sections (legal pages), don't fade the
       // footer in alone — it'd be a single isolated reveal in an otherwise

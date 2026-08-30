@@ -1,0 +1,34 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import WerkstattEntry from '../../components/WerkstattEntry.astro';
+import { getAltUrl } from '../../i18n/util';
+
+export const prerender = true;
+
+export async function getStaticPaths() {
+  const entries = await getCollection('werkstatt');
+  return entries
+    .filter((entry) => entry.data.locale === 'de' && !entry.data.draft)
+    .map((entry) => ({ params: { slug: entry.data.key }, props: { entry } }));
+}
+
+const locale = 'de' as const;
+const { entry } = Astro.props;
+const altUrl = getAltUrl(Astro.url.pathname, locale);
+---
+<BaseLayout
+  title={`${entry.data.title} — Werkstatt`}
+  description={entry.data.summary}
+  locale={locale}
+  altLocaleUrl={altUrl}
+  canonicalPath={`/werkstatt/${entry.data.key}`}
+>
+  <Header locale={locale} />
+  <main id="main">
+    <WerkstattEntry locale={locale} entry={entry} />
+  </main>
+  <Footer locale={locale} />
+</BaseLayout>

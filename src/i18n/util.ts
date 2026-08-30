@@ -69,6 +69,10 @@ export function getAltUrl(url: URL | string, currentLocale: Locale): string {
     '/ueber/': '/en/about',
     '/portfolio': '/en/portfolio',
     '/portfolio/': '/en/portfolio',
+    '/jetzt': '/en/now',
+    '/jetzt/': '/en/now',
+    '/werkstatt': '/en/lab',
+    '/werkstatt/': '/en/lab',
     '/bundle': '/en/bundle',
     '/bundle/': '/en/bundle',
     '/impressum': '/en/imprint',
@@ -81,6 +85,10 @@ export function getAltUrl(url: URL | string, currentLocale: Locale): string {
     '/en/about/': '/ueber',
     '/en/portfolio': '/portfolio',
     '/en/portfolio/': '/portfolio',
+    '/en/now': '/jetzt',
+    '/en/now/': '/jetzt',
+    '/en/lab': '/werkstatt',
+    '/en/lab/': '/werkstatt',
     '/en/bundle': '/bundle',
     '/en/bundle/': '/bundle',
     '/en/imprint': '/impressum',
@@ -90,6 +98,14 @@ export function getAltUrl(url: URL | string, currentLocale: Locale): string {
   };
 
   if (routeMap[pathname]) return routeMap[pathname];
+
+  /* Werkstatt entries share a slug across locales but not a route segment:
+     /werkstatt/<slug> <-> /en/lab/<slug>. Handled before the generic
+     prefix fallback, which would produce /en/werkstatt/<slug>. */
+  const deEntry = pathname.match(/^\/werkstatt\/([^/]+)\/?$/);
+  if (deEntry) return `/en/lab/${deEntry[1]}`;
+  const enEntry = pathname.match(/^\/en\/lab\/([^/]+)\/?$/);
+  if (enEntry) return `/werkstatt/${enEntry[1]}`;
 
   if (targetLocale === 'en') {
     return `/en${pathname === '/' ? '/' : pathname}`;

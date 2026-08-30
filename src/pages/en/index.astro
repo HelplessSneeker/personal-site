@@ -2,11 +2,10 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
-import Hero from '../../components/Hero.astro';
-import Proof from '../../components/Proof.astro';
-import Services from '../../components/Services.astro';
-import Process from '../../components/Process.astro';
+import Intro from '../../components/Intro.astro';
+import NowTeaser from '../../components/NowTeaser.astro';
 import SelectedWork from '../../components/SelectedWork.astro';
+import WerkstattTeaser from '../../components/WerkstattTeaser.astro';
 import Contact from '../../components/Contact.astro';
 import { t, getAltUrl } from '../../i18n/util';
 
@@ -14,31 +13,21 @@ export const prerender = true;
 
 const locale = 'en' as const;
 const altUrl = getAltUrl(Astro.url.pathname, locale);
-
-const sections = [
-  { id: 'top', label: t(locale, 'nav.top') },
-  { id: 'services', label: t(locale, 'nav.services') },
-  { id: 'process', label: t(locale, 'process.label') },
-  { id: 'work', label: t(locale, 'nav.work') },
-  { id: 'contact', label: t(locale, 'nav.contact') },
-];
 ---
 <BaseLayout
-  title={t(locale, 'site.title')}
-  description={t(locale, 'site.description')}
+  title={t(locale, 'home.metaTitle')}
+  description={t(locale, 'home.description')}
   locale={locale}
   altLocaleUrl={altUrl}
   canonicalPath="/en/"
-  sections={sections}
 >
   <Header locale={locale} />
   <main id="main">
-    <Hero locale={locale} />
-    <Proof locale={locale} />
-    <Services locale={locale} />
-    <Process locale={locale} />
+    <Intro locale={locale} />
+    <NowTeaser locale={locale} />
     <SelectedWork locale={locale} />
-    <Contact locale={locale} />
+    <WerkstattTeaser locale={locale} />
+    <Contact locale={locale} variant="closing" />
   </main>
   <Footer locale={locale} />
 </BaseLayout>

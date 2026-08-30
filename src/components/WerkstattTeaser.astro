@@ -1,0 +1,97 @@
+---
+import { getCollection } from 'astro:content';
+import { t, type Locale, getLocalizedPath } from '../i18n/util';
+
+export interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+
+const TEASER_LIMIT = 2;
+const entries = (await getCollection('werkstatt'))
+  .filter((entry) => entry.data.locale === locale && !entry.data.draft)
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .slice(0, TEASER_LIMIT);
+
+const indexHref = getLocalizedPath(locale, locale === 'de' ? '/werkstatt' : '/lab');
+const entryHref = (slug: string) =>
+  getLocalizedPath(locale, `${locale === 'de' ? '/werkstatt' : '/lab'}/${slug}`);
+---
+{entries.length > 0 && (
+  <section class="section" aria-labelledby="werkstatt-teaser-label">
+    <div class="container">
+      <h2 id="werkstatt-teaser-label" class="section-label">{t(locale, 'homeWerkstatt.label')}</h2>
+      <p class="section-lede">{t(locale, 'homeWerkstatt.lede')}</p>
+
+      <ul class="entry-list">
+        {entries.map((entry) => (
+          <li class="entry">
+            <span class="entry-topic label-meta">{entry.data.topic}</span>
+            <div class="entry-text">
+              <h3 class="entry-title">
+                <a href={entryHref(entry.data.key)}>{entry.data.title}</a>
+              </h3>
+              <p class="entry-summary text-muted">{entry.data.summary}</p>
+            </div>
+          </li>
+        ))}
+      </ul>
+
+      <p class="entry-more">
+        <a href={indexHref}>{t(locale, 'homeWerkstatt.link')}</a>
+      </p>
+    </div>
+  </section>
+)}
+
+<style>
+  .entry-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border-top: 1px solid var(--color-rule);
+  }
+
+  .entry {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-2);
+    padding-block: var(--space-5);
+    border-bottom: 1px solid var(--color-rule);
+  }
+
+  @media (min-width: 40rem) {
+    .entry {
+      grid-template-columns: 10rem 1fr;
+      gap: var(--space-5);
+    }
+  }
+
+  .entry-topic {
+    color: var(--color-text-subtle);
+  }
+
+  .entry-title {
+    font-size: var(--fs-lg);
+    margin-block-end: var(--space-2);
+  }
+
+  .entry-title a {
+    color: var(--color-text);
+    text-decoration: none;
+  }
+
+  .entry-title a:hover {
+    color: var(--color-accent);
+  }
+
+  .entry-summary {
+    max-width: 58ch;
+  }
+
+  .entry-more {
+    margin-block-start: var(--space-6);
+    font-size: var(--fs-sm);
+  }
+</style>

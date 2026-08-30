@@ -1,0 +1,132 @@
+---
+import { render, type CollectionEntry } from 'astro:content';
+import { t, type Locale, getLocalizedPath } from '../i18n/util';
+
+export interface Props {
+  locale: Locale;
+  entry: CollectionEntry<'werkstatt'>;
+}
+
+const { locale, entry } = Astro.props;
+const { Content } = await render(entry);
+
+const dateFormat = new Intl.DateTimeFormat(locale === 'de' ? 'de-AT' : 'en-GB', {
+  year: 'numeric',
+  month: '2-digit',
+  day: '2-digit',
+});
+const indexHref = getLocalizedPath(locale, locale === 'de' ? '/werkstatt' : '/lab');
+---
+<article class="section">
+  <div class="container">
+    <header class="entry-head">
+      <p class="entry-meta">
+        <span class="entry-topic">{entry.data.topic}</span>
+        <span class="entry-sep" aria-hidden="true">·</span>
+        <span class="entry-date tabular">{dateFormat.format(entry.data.date)}</span>
+      </p>
+      <h1 class="entry-title">{entry.data.title}</h1>
+      <p class="entry-summary">{entry.data.summary}</p>
+    </header>
+
+    <div class="prose">
+      <Content />
+    </div>
+
+    <p class="entry-back"><a href={indexHref}>{t(locale, 'werkstattPage.backToIndex')}</a></p>
+  </div>
+</article>
+
+<style>
+  .entry-head {
+    max-width: var(--container-prose);
+    margin-block-end: var(--space-8);
+  }
+
+  .entry-meta {
+    display: flex;
+    align-items: baseline;
+    gap: var(--space-2);
+    font-family: var(--font-mono);
+    font-feature-settings: var(--font-features-mono);
+    font-size: var(--fs-sm);
+    color: var(--color-text-subtle);
+    margin-block-end: var(--space-5);
+  }
+
+  .entry-title {
+    font-size: var(--fs-2xl);
+    letter-spacing: var(--tracking-display);
+    margin-block-end: var(--space-5);
+  }
+
+  .entry-summary {
+    font-size: var(--fs-lg);
+    line-height: 1.4;
+    color: var(--color-text-muted);
+    text-wrap: pretty;
+  }
+
+  /* Prose measure stays inside the 65-75ch bar from PRODUCT.md. Paragraph
+     spacing is generous because these entries are read, not skimmed. */
+  .prose {
+    max-width: var(--container-prose);
+  }
+
+  .prose :global(p) {
+    margin-block-end: var(--space-5);
+  }
+
+  .prose :global(h2) {
+    font-size: var(--fs-xl);
+    letter-spacing: var(--tracking-heading-xl);
+    margin-block: var(--space-8) var(--space-4);
+  }
+
+  .prose :global(h3) {
+    font-size: var(--fs-lg);
+    margin-block: var(--space-6) var(--space-3);
+  }
+
+  .prose :global(ul),
+  .prose :global(ol) {
+    margin-block-end: var(--space-5);
+    padding-inline-start: var(--space-5);
+  }
+
+  .prose :global(li) {
+    margin-block-end: var(--space-2);
+  }
+
+  .prose :global(blockquote) {
+    margin: var(--space-6) 0;
+    padding: var(--space-4) var(--space-5);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    color: var(--color-text-muted);
+  }
+
+  .prose :global(code) {
+    background: var(--color-surface);
+    padding: 0.1em 0.35em;
+    border-radius: var(--radius-sm);
+  }
+
+  .prose :global(pre) {
+    overflow-x: auto;
+    padding: var(--space-4);
+    background: var(--color-surface-sunk);
+    border-radius: var(--radius-sm);
+    margin-block-end: var(--space-5);
+  }
+
+  .prose :global(pre code) {
+    background: none;
+    padding: 0;
+  }
+
+  .entry-back {
+    margin-block-start: var(--space-8);
+    font-size: var(--fs-sm);
+  }
+</style>

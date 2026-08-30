@@ -1,0 +1,72 @@
+---
+import { t, type Locale, getLocalizedPath } from '../i18n/util';
+import { nowTeaser } from '../data/now';
+
+export interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const entries = nowTeaser();
+const href = getLocalizedPath(locale, locale === 'de' ? '/jetzt' : '/now');
+---
+<section class="section" aria-labelledby="now-teaser-label">
+  <div class="container">
+    <h2 id="now-teaser-label" class="section-label">{t(locale, 'homeNow.label')}</h2>
+    <p class="section-lede">{t(locale, 'homeNow.lede')}</p>
+
+    <ul class="now-list">
+      {entries.map((entry) => (
+        <li class="now-item">
+          <span class="now-meta tabular">{entry.meta[locale]}</span>
+          <span class="now-title">{entry.title[locale]}</span>
+        </li>
+      ))}
+    </ul>
+
+    <p class="now-more">
+      <a href={href}>{t(locale, 'homeNow.link')}</a>
+    </p>
+  </div>
+</section>
+
+<style>
+  .now-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border-top: 1px solid var(--color-rule);
+  }
+
+  .now-item {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-1);
+    padding-block: var(--space-4);
+    border-bottom: 1px solid var(--color-rule);
+  }
+
+  @media (min-width: 40rem) {
+    .now-item {
+      grid-template-columns: 10rem 1fr;
+      gap: var(--space-5);
+      align-items: baseline;
+    }
+  }
+
+  .now-meta {
+    font-family: var(--font-mono);
+    font-feature-settings: var(--font-features-mono);
+    font-size: var(--fs-sm);
+    color: var(--color-text-subtle);
+  }
+
+  .now-title {
+    color: var(--color-text);
+  }
+
+  .now-more {
+    margin-block-start: var(--space-6);
+    font-size: var(--fs-sm);
+  }
+</style>

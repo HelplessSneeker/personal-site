@@ -18,7 +18,9 @@
     "services": "Services",
     "work": "Work",
     "about": "About",
-    "contact": "Contact"
+    "contact": "Contact",
+    "werkstatt": "Lab",
+    "now": "Now"
   },
   "hero": {
     "kicker": "Astro + AI integration · Vienna · project-based",
@@ -139,10 +141,22 @@
     "label": "How we'll work together",
     "intro": "Four steps, transparent prices, no sales theatre. On most projects I stay on as the point of contact after launch.",
     "steps": [
-      { "title": "Discovery call", "body": "30 minutes, free. Understanding the problem and the scope — I'll be honest about whether I'm a fit." },
-      { "title": "Fixed-price quote", "body": "Clear scope, clear price. Sites from €1,800, self-hosted stack from €2,190. No hidden hours, no \"available on request\"." },
-      { "title": "Build with milestones", "body": "Clean stages, regular previews, launch on schedule." },
-      { "title": "Care plan or handover", "body": "Hosting, updates, smaller changes from a single source — or you take over, your code. Most clients stay." }
+      {
+        "title": "Discovery call",
+        "body": "30 minutes, free. Understanding the problem and the scope — I'll be honest about whether I'm a fit."
+      },
+      {
+        "title": "Fixed-price quote",
+        "body": "Clear scope, clear price. Sites from €1,800, self-hosted stack from €2,190. No hidden hours, no \"available on request\"."
+      },
+      {
+        "title": "Build with milestones",
+        "body": "Clean stages, regular previews, launch on schedule."
+      },
+      {
+        "title": "Care plan or handover",
+        "body": "Hosting, updates, smaller changes from a single source — or you take over, your code. Most clients stay."
+      }
     ]
   },
   "portfolioPage": {
@@ -306,8 +320,14 @@
       "description": "A new website (Astro, fast, bilingual) plus a self-hosted billing stack with EN16931 hybrid PDF, EPC QR for SEPA payment, and the Austrian small-business VAT clause built in. Both run on European cloud infrastructure (Hetzner) I manage end-to-end.",
       "setupLabel": "One-time setup",
       "setupItems": [
-        { "label": "Website setup (concept, design, build, launch)", "price": "€1,800" },
-        { "label": "Invoice Ninja setup (EN16931 + EPC-QR + VAT clause + branding)", "price": "€390" }
+        {
+          "label": "Website setup (concept, design, build, launch)",
+          "price": "€1,800"
+        },
+        {
+          "label": "Invoice Ninja setup (EN16931 + EPC-QR + VAT clause + branding)",
+          "price": "€390"
+        }
       ],
       "monthlyLabel": "Care & hosting",
       "monthlyPrice": "€89",
@@ -404,5 +424,70 @@
       "loomIntro": "Prefer a 90-second walkthrough first?",
       "loomLinkLabel": "Watch the bundle Loom"
     }
+  },
+  "home": {
+    "metaTitle": "Benjamin Franz Nößler — full-stack developer in Vienna",
+    "description": "Benjamin Franz Nößler, full-stack developer based in Vienna. What I build, what I run, and what I am working on right now.",
+    "kicker": "Vienna · Full-stack · Self-hosting",
+    "headline": "I build software, then run it myself.",
+    "intro": [
+      "By day I work on digitalisation for the City of Vienna. Alongside that I build websites for small businesses, tools I need myself, and a home lab that reliably teaches me new failure modes.",
+      "Most of it runs on servers I administer myself, and I usually stay involved after it goes live. This site shows what came of that: things built, things running, and some notes from the workshop."
+    ],
+    "portraitAlt": "Placeholder, a portrait photograph goes here",
+    "portraitNote": "Portrait to follow"
+  },
+  "homeNow": {
+    "label": "Now",
+    "lede": "What I am actually working on at the moment.",
+    "link": "Everything currently running"
+  },
+  "homeWork": {
+    "label": "Work",
+    "lede": "Three tracks: built for clients, built for myself, operated. Every line carries a date.",
+    "link": "See the portfolio"
+  },
+  "homeWerkstatt": {
+    "label": "Lab",
+    "lede": "Longer notes from the engine room. Networking, operating systems, agents, and whatever last cost me an evening.",
+    "link": "Into the lab"
+  },
+  "homeClose": {
+    "label": "Contact",
+    "heading": "Get in touch.",
+    "body": "Email is fastest. If you are here about a website with ongoing care, scope and pricing live on their own page.",
+    "offerLink": "See website and hosting"
+  },
+  "nowPage": {
+    "metaTitle": "Now — Benjamin Franz Nößler",
+    "description": "What Benjamin Franz Nößler is working on, learning, and running on the side.",
+    "kicker": "Current state",
+    "title": "What is running right now",
+    "lede": "Not a changelog, just where things stand today. If something has been here for months, it is either still true or I forgot to remove it.",
+    "updatedLabel": "Last updated",
+    "groups": {
+      "focus": "In focus",
+      "building": "In progress",
+      "learning": "Learning",
+      "offscreen": "Away from the desk"
+    },
+    "status": {
+      "active": "active",
+      "slow": "slow",
+      "parked": "parked"
+    },
+    "backToHome": "Back to the start"
+  },
+  "werkstattPage": {
+    "metaTitle": "Lab — Benjamin Franz Nößler",
+    "description": "Notes from the engine room: home lab, networking, operating systems and a fleet of agents.",
+    "kicker": "Notes",
+    "title": "Lab",
+    "lede": "Not a how-to, more of a log. I write down what cost me time, hoping it costs less next time. Happy to describe architecture and reasoning, less happy to publish hostnames and network detail.",
+    "empty": "Nothing here yet. The first entry is being written.",
+    "readMore": "Read on",
+    "backToHome": "Back to the start",
+    "backToIndex": "Back to the lab",
+    "publishedLabel": "Written"
   }
 }

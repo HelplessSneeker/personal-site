@@ -1,0 +1,151 @@
+---
+import { t, type Locale, getLocalizedPath } from '../i18n/util';
+import { nowEntries, NOW_UPDATED, type NowEntry } from '../data/now';
+
+export interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+
+const GROUP_ORDER: NowEntry['group'][] = ['focus', 'building', 'learning', 'offscreen'];
+const groups = GROUP_ORDER.map((group) => ({
+  group,
+  label: t(locale, `nowPage.groups.${group}` as 'nowPage.groups.focus'),
+  entries: nowEntries.filter((entry) => entry.group === group),
+})).filter((section) => section.entries.length > 0);
+
+const updated = new Intl.DateTimeFormat(locale === 'de' ? 'de-AT' : 'en-GB', {
+  year: 'numeric',
+  month: '2-digit',
+  day: '2-digit',
+}).format(new Date(NOW_UPDATED));
+
+const homeHref = getLocalizedPath(locale, '/');
+---
+<section class="section" aria-labelledby="now-title">
+  <div class="container now-head">
+    <p class="section-label">{t(locale, 'nowPage.kicker')}</p>
+    <h1 id="now-title" class="now-title">{t(locale, 'nowPage.title')}</h1>
+    <p class="section-lede">{t(locale, 'nowPage.lede')}</p>
+    <p class="now-updated label-meta">
+      {t(locale, 'nowPage.updatedLabel')} <span class="tabular">{updated}</span>
+    </p>
+  </div>
+</section>
+
+{groups.map((section) => (
+  <section class="section" aria-labelledby={`now-group-${section.group}`}>
+    <div class="container">
+      <h2 id={`now-group-${section.group}`} class="section-label">{section.label}</h2>
+      <ul class="now-entries">
+        {section.entries.map((entry) => (
+          <li class="now-entry" id={entry.id}>
+            <div class="now-entry-meta">
+              <span class="now-entry-date tabular">{entry.meta[locale]}</span>
+              <span class={`now-status now-status--${entry.status}`}>
+                {t(locale, `nowPage.status.${entry.status}` as 'nowPage.status.active')}
+              </span>
+            </div>
+            <div class="now-entry-text">
+              <h3 class="now-entry-title">{entry.title[locale]}</h3>
+              <p class="text-muted">{entry.body[locale]}</p>
+            </div>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+))}
+
+<section class="section">
+  <div class="container">
+    <p class="now-back"><a href={homeHref}>{t(locale, 'nowPage.backToHome')}</a></p>
+  </div>
+</section>
+
+<style>
+  .now-title {
+    font-size: var(--fs-2xl);
+    letter-spacing: var(--tracking-display);
+    max-width: 16ch;
+    margin-block-end: var(--space-5);
+  }
+
+  .now-updated {
+    color: var(--color-text-subtle);
+    margin-block-start: var(--space-5);
+  }
+
+  .now-entries {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border-top: 1px solid var(--color-rule);
+  }
+
+  .now-entry {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-3);
+    padding-block: var(--space-6);
+    border-bottom: 1px solid var(--color-rule);
+  }
+
+  @media (min-width: 46rem) {
+    .now-entry {
+      grid-template-columns: 12rem 1fr;
+      gap: var(--space-6);
+    }
+  }
+
+  .now-entry-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: var(--space-3);
+  }
+
+  @media (min-width: 46rem) {
+    .now-entry-meta {
+      flex-direction: column;
+      gap: var(--space-2);
+    }
+  }
+
+  .now-entry-date {
+    font-family: var(--font-mono);
+    font-feature-settings: var(--font-features-mono);
+    font-size: var(--fs-sm);
+    color: var(--color-text-subtle);
+  }
+
+  /* Status is a word, not a coloured dot: a legend nobody reads is worse
+     than three characters of mono. Accent only on the active state so the
+     page has one point of emphasis rather than a traffic light. */
+  .now-status {
+    font-family: var(--font-mono);
+    font-feature-settings: var(--font-features-mono);
+    font-size: var(--fs-xs);
+    letter-spacing: var(--tracking-label);
+    text-transform: uppercase;
+    color: var(--color-text-subtle);
+  }
+
+  .now-status--active {
+    color: var(--color-accent);
+  }
+
+  .now-entry-title {
+    font-size: var(--fs-lg);
+    margin-block-end: var(--space-3);
+  }
+
+  .now-entry-text p {
+    max-width: 62ch;
+  }
+
+  .now-back {
+    font-size: var(--fs-sm);
+  }
+</style>

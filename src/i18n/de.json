@@ -16,9 +16,11 @@
     "pageNavigation": "Seitennavigation",
     "skipToContent": "Zum Inhalt springen",
     "services": "Leistungen",
-    "work": "Arbeiten",
-    "about": "Über",
-    "contact": "Kontakt"
+    "work": "Arbeit",
+    "about": "Über mich",
+    "contact": "Kontakt",
+    "werkstatt": "Werkstatt",
+    "now": "Jetzt"
   },
   "hero": {
     "kicker": "Astro + AI-Integration · Wien · projektbasiert",
@@ -139,10 +141,22 @@
     "label": "So arbeiten wir",
     "intro": "Vier Schritte, transparente Preise, kein Verkaufstheater. Bei den meisten bleibe ich als Ansprechperson nach dem Launch.",
     "steps": [
-      { "title": "Discovery-Call", "body": "30 Minuten, kostenlos. Verständnis für Problem und Scope — ich sage ehrlich, ob ich passe." },
-      { "title": "Festpreis-Angebot", "body": "Klare Leistung, klarer Preis. Sites ab 1.800 €, Self-Hosted-Stack ab 2.190 €. Keine versteckten Stunden, kein „Auf Anfrage“." },
-      { "title": "Build mit Milestones", "body": "Saubere Etappen, regelmäßige Vorschauen, Launch nach Plan." },
-      { "title": "Wartung oder Übergabe", "body": "Hosting, Updates, kleinere Änderungen aus einer Hand — oder du übernimmst, dein Code. Die meisten bleiben." }
+      {
+        "title": "Discovery-Call",
+        "body": "30 Minuten, kostenlos. Verständnis für Problem und Scope — ich sage ehrlich, ob ich passe."
+      },
+      {
+        "title": "Festpreis-Angebot",
+        "body": "Klare Leistung, klarer Preis. Sites ab 1.800 €, Self-Hosted-Stack ab 2.190 €. Keine versteckten Stunden, kein „Auf Anfrage“."
+      },
+      {
+        "title": "Build mit Milestones",
+        "body": "Saubere Etappen, regelmäßige Vorschauen, Launch nach Plan."
+      },
+      {
+        "title": "Wartung oder Übergabe",
+        "body": "Hosting, Updates, kleinere Änderungen aus einer Hand — oder du übernimmst, dein Code. Die meisten bleiben."
+      }
     ]
   },
   "portfolioPage": {
@@ -306,8 +320,14 @@
       "description": "Neue Website (Astro, schnell, zweisprachig) und eine selbst gehostete Rechnungs-Lösung mit EN16931-Hybrid-PDF, EPC-QR-Code zum Bezahlen und KU-Klausel. Beides läuft auf europäischer Cloud-Infrastruktur (Hetzner), voll von mir verwaltet.",
       "setupLabel": "Setup einmalig",
       "setupItems": [
-        { "label": "Website Setup (Konzept, Design, Umsetzung, Launch)", "price": "1.800 €" },
-        { "label": "Invoice Ninja Setup (EN16931 + EPC-QR + KU-Klausel + Branding)", "price": "390 €" }
+        {
+          "label": "Website Setup (Konzept, Design, Umsetzung, Launch)",
+          "price": "1.800 €"
+        },
+        {
+          "label": "Invoice Ninja Setup (EN16931 + EPC-QR + KU-Klausel + Branding)",
+          "price": "390 €"
+        }
       ],
       "monthlyLabel": "Wartung & Hosting",
       "monthlyPrice": "89 €",
@@ -404,5 +424,70 @@
       "loomIntro": "Lieber erst ein 90-Sekunden-Walkthrough?",
       "loomLinkLabel": "Bundle-Loom ansehen"
     }
+  },
+  "home": {
+    "metaTitle": "Benjamin Franz Nößler — Fullstack-Entwickler in Wien",
+    "description": "Benjamin Franz Nößler, Fullstack-Entwickler aus Wien. Was ich baue, was ich betreibe und woran ich gerade sitze.",
+    "kicker": "Wien · Fullstack · Self-Hosting",
+    "headline": "Ich baue Software und betreibe sie danach selbst.",
+    "intro": [
+      "Tagsüber arbeite ich in der Digitalisierung der Stadt Wien. Daneben baue ich Websites für kleine Betriebe, Werkzeuge, die ich selbst brauche, und ein Homelab, das mir zuverlässig neue Fehler beibringt.",
+      "Das meiste davon läuft auf Servern, die ich selbst verwalte, und ich bleibe in der Regel dabei, nachdem es live gegangen ist. Diese Seite zeigt, was daraus geworden ist: gebaute Sachen, betriebene Sachen und ein paar Notizen aus der Werkstatt."
+    ],
+    "portraitAlt": "Platzhalter, hier kommt ein Porträtfoto hin",
+    "portraitNote": "Porträt folgt"
+  },
+  "homeNow": {
+    "label": "Jetzt",
+    "lede": "Woran ich gerade tatsächlich sitze.",
+    "link": "Alles, was gerade läuft"
+  },
+  "homeWork": {
+    "label": "Arbeit",
+    "lede": "Drei Spuren: für Kunden gebaut, selbst gebaut, betrieben. An jeder Zeile steht ein Datum.",
+    "link": "Zum Portfolio"
+  },
+  "homeWerkstatt": {
+    "label": "Werkstatt",
+    "lede": "Längere Notizen aus dem Maschinenraum. Netz, Betriebssysteme, Agenten, und was mich zuletzt Zeit gekostet hat.",
+    "link": "In die Werkstatt"
+  },
+  "homeClose": {
+    "label": "Kontakt",
+    "heading": "Schreib mir.",
+    "body": "Am schnellsten per E-Mail. Wenn es konkret um eine Website mit laufender Betreuung geht, stehen Umfang und Preise auf einer eigenen Seite.",
+    "offerLink": "Website und Betrieb ansehen"
+  },
+  "nowPage": {
+    "metaTitle": "Jetzt — Benjamin Franz Nößler",
+    "description": "Woran Benjamin Franz Nößler gerade arbeitet, was er lernt und was nebenher läuft.",
+    "kicker": "Aktueller Stand",
+    "title": "Was gerade läuft",
+    "lede": "Keine Chronik, sondern der Stand von heute. Wenn hier etwas seit Monaten steht, stimmt es entweder noch, oder ich habe vergessen es zu streichen.",
+    "updatedLabel": "Zuletzt aktualisiert",
+    "groups": {
+      "focus": "Im Fokus",
+      "building": "In Arbeit",
+      "learning": "Weiterbildung",
+      "offscreen": "Abseits vom Schreibtisch"
+    },
+    "status": {
+      "active": "läuft",
+      "slow": "langsam",
+      "parked": "geparkt"
+    },
+    "backToHome": "Zur Startseite"
+  },
+  "werkstattPage": {
+    "metaTitle": "Werkstatt — Benjamin Franz Nößler",
+    "description": "Notizen aus dem Maschinenraum: Homelab, Netzwerk, Betriebssysteme und die eigene Agentenflotte.",
+    "kicker": "Notizen",
+    "title": "Werkstatt",
+    "lede": "Kein Ratgeber, eher Protokoll. Ich schreibe auf, was mich Zeit gekostet hat, in der Hoffnung, dass es beim nächsten Mal weniger kostet. Über Aufbau und Begründung schreibe ich gern, über Hostnamen und Netzwerkdetails nicht.",
+    "empty": "Hier steht noch nichts. Der erste Eintrag entsteht gerade.",
+    "readMore": "Weiterlesen",
+    "backToHome": "Zur Startseite",
+    "backToIndex": "Zurück zur Werkstatt",
+    "publishedLabel": "Geschrieben"
   }
 }

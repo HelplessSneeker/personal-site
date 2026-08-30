@@ -1,0 +1,25 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Header from '../../../components/Header.astro';
+import Footer from '../../../components/Footer.astro';
+import WerkstattIndex from '../../../components/WerkstattIndex.astro';
+import { t, getAltUrl } from '../../../i18n/util';
+
+export const prerender = true;
+
+const locale = 'en' as const;
+const altUrl = getAltUrl(Astro.url.pathname, locale);
+---
+<BaseLayout
+  title={t(locale, 'werkstattPage.metaTitle')}
+  description={t(locale, 'werkstattPage.description')}
+  locale={locale}
+  altLocaleUrl={altUrl}
+  canonicalPath="/en/lab"
+>
+  <Header locale={locale} />
+  <main id="main">
+    <WerkstattIndex locale={locale} />
+  </main>
+  <Footer locale={locale} />
+</BaseLayout>
