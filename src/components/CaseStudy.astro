@@ -29,7 +29,7 @@ const indexLabel = String(index + 1).padStart(2, '0');
   <header class="case-head">
     <span class="case-index" aria-hidden="true">{indexLabel}</span>
     <div class="case-head-text">
-      <h2 id={`case-${study.slug}-title`} class="case-title">{title}</h2>
+      <h3 id={`case-${study.slug}-title`} class="case-title">{title}</h3>
       <p class="case-meta">{meta}</p>
     </div>
   </header>
@@ -37,30 +37,30 @@ const indexLabel = String(index + 1).padStart(2, '0');
   <div class="case-body">
     <div class="case-text">
       <section class="case-block" aria-labelledby={`case-${study.slug}-problem`}>
-        <h3 id={`case-${study.slug}-problem`} class="case-block-label label-meta">{problemLabel}</h3>
+        <h4 id={`case-${study.slug}-problem`} class="case-block-label label-meta">{problemLabel}</h4>
         <p class="case-prose">{problem}</p>
       </section>
 
       <section class="case-block" aria-labelledby={`case-${study.slug}-solution`}>
-        <h3 id={`case-${study.slug}-solution`} class="case-block-label label-meta">{solutionLabel}</h3>
+        <h4 id={`case-${study.slug}-solution`} class="case-block-label label-meta">{solutionLabel}</h4>
         <p class="case-prose">{solution}</p>
       </section>
 
       <section class="case-block" aria-labelledby={`case-${study.slug}-stack`}>
-        <h3 id={`case-${study.slug}-stack`} class="case-block-label label-meta">{stackLabel}</h3>
+        <h4 id={`case-${study.slug}-stack`} class="case-block-label label-meta">{stackLabel}</h4>
         <ul class="case-stack" role="list">
           {study.stack.map((item) => <li>{item}</li>)}
         </ul>
       </section>
 
       <section class="case-block case-block--outcome" aria-labelledby={`case-${study.slug}-outcome`}>
-        <h3 id={`case-${study.slug}-outcome`} class="case-block-label label-meta">{outcomeLabel}</h3>
+        <h4 id={`case-${study.slug}-outcome`} class="case-block-label label-meta">{outcomeLabel}</h4>
         <p class="case-prose">{outcome}</p>
       </section>
 
       {study.links && study.links.length > 0 && (
         <section class="case-block case-block--links" aria-labelledby={`case-${study.slug}-links`}>
-          <h3 id={`case-${study.slug}-links`} class="case-block-label label-meta">{linksLabel}</h3>
+          <h4 id={`case-${study.slug}-links`} class="case-block-label label-meta">{linksLabel}</h4>
           <ul class="case-links" role="list">
             {study.links.map((link) => (
               <li>

@@ -1,5 +1,13 @@
 export type ProjectStatus = 'archived' | 'live' | 'in-development' | 'case-study';
 
+/**
+ * Portfolio track (see PRODUCT.md → Information Architecture).
+ * `client` = built for paying clients, `personal` = built without a client.
+ * Employment entries (`status: 'case-study'`) carry no track: they belong to
+ * the /ueber layer, not to the portfolio.
+ */
+export type ProjectTrack = 'client' | 'personal';
+
 export interface ProjectLink {
   href: string;
   labelKey: 'work.visitLink' | 'work.githubLink';
@@ -17,6 +25,8 @@ export interface Project {
   descriptionDe: string;
   descriptionEn: string;
   stack: string[];
+  /** Portfolio track. Omitted on employment entries, which stay off /portfolio. */
+  track?: ProjectTrack;
   context?: { de: string; en: string };
   role?: { de: string; en: string };
   years?: string;
@@ -42,6 +52,7 @@ export const projects: Project[] = [
     descriptionEn:
       'Marketing site for a Vienna-based outdoor-surfaces cleaning business operating across Vienna, Lower Austria, Burgenland and Carinthia — terraces, driveways, stone and concrete surfaces, walkways, green areas. Clear structure, fast load times, inquiries straight through the site instead of phone tag.',
     stack: ['TypeScript', 'Astro'],
+    track: 'client',
     context: { de: 'Freelance', en: 'Freelance' },
     role: { de: 'Konzept, Design & Entwicklung', en: 'Concept, design & build' },
     status: 'live',
@@ -64,6 +75,7 @@ export const projects: Project[] = [
     descriptionEn:
       'Marketing landing page I built for a friend — his Carinthia-based nonprofit is a curated member community for young founders, athletes, and ambitious 18- to 30-year-olds. Concept, design, and build end-to-end.',
     stack: ['TypeScript', 'Astro', 'Tailwind CSS'],
+    track: 'client',
     context: { de: 'Freelance', en: 'Freelance' },
     role: { de: 'Konzept, Design & Entwicklung', en: 'Concept, design & build' },
     status: 'live',
@@ -96,6 +108,7 @@ export const projects: Project[] = [
     descriptionEn:
       'Marketing landing page I built for a friend running a 360° virtual tours and drone videos business in Austria. Concept, design, and build end-to-end — a practical example of how I approach a landing page.',
     stack: ['TypeScript', 'React', 'Vite', 'Tailwind CSS', 'shadcn/ui'],
+    track: 'client',
     context: { de: 'Freelance', en: 'Freelance' },
     role: { de: 'Konzept, Design & Entwicklung', en: 'Concept, design & build' },
     status: 'live',
@@ -149,6 +162,7 @@ export const projects: Project[] = [
     descriptionEn:
       'End-to-end web app showcase — self-hosted calendar app with multi-device auth, email reminders and a bilingual UI. Evidence of web app work beyond marketing sites.',
     stack: ['TypeScript', 'Next.js', 'NestJS', 'Prisma'],
+    track: 'personal',
     context: { de: 'Eigenes Projekt', en: 'Personal project' },
     role: { de: 'Architektur & Entwicklung', en: 'Architecture & build' },
     status: 'live',
@@ -166,6 +180,46 @@ export const projects: Project[] = [
       en: 'Showcase for cleanly built web apps — full stack from a single hand.',
     },
     caseStudySlug: 'b-cal',
+  },
+  {
+    id: 'immo-radar',
+    title: 'immo-radar',
+    descriptionDe:
+      'Marktanalyse für Kärntner Anlageimmobilien. Ein täglicher Voll-Crawl zweier Immobilienportale zieht sämtliche Inserate ein; Mehrfach-Inserate desselben Objekts werden zu einem echten Objekt zusammengeführt, statt die Statistik zu verfälschen. Daraus wachsen Zeitreihen über Bruttorendite und Quadratmeterpreise, gegen die sich das eigene Portfolio mit dem Markt-Median vergleichen lässt. Serverseitig gerendertes HTML, bewusst ohne Client-Framework. Läuft seit Juli 2026 täglich, vorerst nur privat zugänglich.',
+    descriptionEn:
+      'Market analysis for investment property in Carinthia. A daily full crawl of two property portals pulls in every listing; duplicate listings of the same object are merged into one real property instead of skewing the statistics. That builds time series of gross yield and price per square metre, against which my own portfolio can be measured against the market median. Server-rendered HTML, deliberately without a client framework. Running daily since July 2026, private for now.',
+    stack: ['TypeScript', 'Node', 'PostgreSQL'],
+    track: 'personal',
+    context: { de: 'Eigenes Projekt', en: 'Personal project' },
+    role: { de: 'Architektur & Entwicklung', en: 'Architecture & build' },
+    years: '2026',
+    status: 'in-development',
+    statusDe: 'Demo folgt',
+    statusEn: 'Demo coming',
+    links: [{ href: 'https://github.com/HelplessSneeker/immo-radar', labelKey: 'work.githubLink' }],
+    outcome: {
+      de: 'Kaufentscheidungen gegen echte Marktdaten statt gegen Bauchgefühl.',
+      en: 'Buying decisions measured against real market data instead of gut feeling.',
+    },
+  },
+  {
+    id: 'personal-site',
+    title: 'bfnoessler.at',
+    descriptionDe:
+      'Diese Site. Astro 6 mit handgeschriebenem CSS-Token-System, ohne Framework und ohne Tracking, zweisprachig mit eigener Stimme je Sprache. Design-System, Inhalte, Build und Betrieb liegen in derselben Hand.',
+    descriptionEn:
+      'This site. Astro 6 on a hand-written CSS token system, no framework, no tracking, bilingual with its own voice per language. Design system, content, build, and operation all in the same hands.',
+    stack: ['Astro 6', 'TypeScript', 'Hand-written CSS', 'Node standalone'],
+    track: 'personal',
+    context: { de: 'Eigene Marke', en: 'Own brand' },
+    role: { de: 'Konzept, Design & Entwicklung', en: 'Concept, design & build' },
+    years: '2026',
+    status: 'live',
+    outcome: {
+      de: 'Die Seite, auf der du gerade liest.',
+      en: 'The page you are reading right now.',
+    },
+    caseStudySlug: 'personal-site',
   },
   // Doc-RAG-Demo — on ice (project paused). Keep the data here so we can
   // un-comment when the demo gets revived; remove if it's permanently shelved.

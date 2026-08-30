@@ -9,19 +9,14 @@ export interface Props {
 
 const { locale } = Astro.props;
 
-// Split into client work (freelance) and personal work (own lab / projects).
-// Both share the same shipped/in-dev filter so case-study employment items
-// stay on the about page.
+// Split by portfolio track (see PRODUCT.md → IA). Both groups share the same
+// shipped/in-dev filter so case-study employment items stay on the about page;
+// those carry no track either way.
 const shipped = projects.filter(
   (p) => p.status === 'live' || p.status === 'in-development'
 );
-const clientContexts = new Set(['Freelance']);
-const clientProjects = shipped.filter((p) =>
-  p.context ? clientContexts.has(p.context.de) : false
-);
-const personalProjects = shipped.filter(
-  (p) => !p.context || !clientContexts.has(p.context.de)
-);
+const clientProjects = shipped.filter((p) => p.track === 'client');
+const personalProjects = shipped.filter((p) => p.track === 'personal');
 ---
 <section class="section work-section" id="work" aria-labelledby="work-heading">
   <div class="container">
