@@ -4,11 +4,11 @@ description: Persona-Seite — Benjamin Franz Nößler, Kärntner Bua in Wien
 colors:
   bg-light: "oklch(96.5% 0.010 88)"
   surface-light: "oklch(93.8% 0.012 86)"
-  text-light: "oklch(20% 0.020 230)"
-  text-muted-light: "oklch(44% 0.019 230)"
-  rule-light: "oklch(84% 0.012 232)"
-  carrier-light: "oklch(45% 0.086 226)"
-  carrier-deep-light: "oklch(37% 0.080 226)"
+  text-light: "oklch(20% 0.024 264)"
+  text-muted-light: "oklch(44% 0.022 264)"
+  rule-light: "oklch(84% 0.014 258)"
+  carrier-light: "oklch(47% 0.196 264)"
+  carrier-deep-light: "oklch(38% 0.176 264)"
   on-carrier-light: "oklch(96.5% 0.016 250)"
 typography:
   display:
@@ -66,7 +66,7 @@ rounded:
 
 Grundlage ist Look-Variante **A „Typenschild"**, gerendert unter `/look/a`.
 bfn hat sie gegen B („Kladde") und C („Anzeigetafel") gewählt und Blau statt
-des ursprünglichen Miniums verlangt; unter den drei Blautönen hat **Stahlblau**
+des ursprünglichen Miniums verlangt; unter den drei Blautönen hat **Kobalt**
 gewonnen.
 
 ### Haltung
@@ -85,16 +85,17 @@ Drittel der Startseite.
 |---|---|---|
 | Grund | `oklch(96.5% 0.010 88)` | Seitengrund, Kachelzellen |
 | Grund gesenkt | `oklch(93.8% 0.012 86)` | Kachel bei Hover |
-| Text | `oklch(20% 0.020 230)` | Fließtext, Werte, Überschriften |
-| Text gedämpft | `oklch(44% 0.019 230)` | Notizen, Zeitstempel, Beschriftung |
-| Haarlinie | `oklch(84% 0.012 232)` | Rasterfugen, Trennlinien |
-| Träger | `oklch(45% 0.086 226)` | Porträtfläche, Band, Live-Punkt |
-| Träger tief | `oklch(37% 0.080 226)` | Trägerton als Text auf Grund |
+| Text | `oklch(20% 0.024 264)` | Fließtext, Werte, Überschriften |
+| Text gedämpft | `oklch(44% 0.022 264)` | Notizen, Zeitstempel, Beschriftung |
+| Haarlinie | `oklch(84% 0.014 258)` | Rasterfugen, Trennlinien |
+| Träger | `oklch(47% 0.196 264)` | Porträtfläche, Band, Live-Punkt |
+| Träger tief | `oklch(38% 0.176 264)` | Trägerton als Text auf Grund |
 | Auf Träger | `oklch(96.5% 0.016 250)` | Text auf Trägerflächen |
 
-Der Grund bleibt **warm** (Hue 88), obwohl der Träger kühl ist (Hue 226). Das ist
+Der Grund bleibt **warm** (Hue 88), obwohl der Träger kühl ist (Hue 264). Das ist
 Absicht: Blau auf kühlem Grau wäre der Dark-Tech-Standard, von dem die
-Entscheidung weg will.
+Entscheidung weg will. Der Träger ist mit Chroma 0.196 der lauteste der drei
+erwogenen Töne — er soll Plakat sein, nicht Firmenfarbe.
 
 Kein `#000`, kein `#fff`. Radius ist `0` — das Raster lebt von harten Kanten.
 

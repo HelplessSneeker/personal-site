@@ -69,7 +69,7 @@ export const palettes: Palette[] = [
 ];
 
 /** Von bfn am 03.09.2026 gewählt. */
-export const defaultPalette = palettes.find((p) => p.id === 'stahl') ?? palettes[0];
+export const defaultPalette = palettes.find((p) => p.id === 'kobalt') ?? palettes[0];
 
 export function paletteById(id: string | undefined): Palette | undefined {
   return palettes.find((p) => p.id === id);
