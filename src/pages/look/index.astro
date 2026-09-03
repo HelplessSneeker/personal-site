@@ -1,0 +1,224 @@
+---
+/**
+ * Auswahlseite. Kein Entwurf, sondern der Zettel daneben: was unterscheidet
+ * die drei, worauf soll bfn schauen. Fliegt mit dem Rest von /look/ raus,
+ * sobald eine Variante gewonnen hat.
+ */
+import LookLayout from '../../layouts/LookLayout.astro';
+
+const variants = [
+  {
+    id: 'a',
+    name: 'Typenschild',
+    lane: 'warm-industriell',
+    type: 'Clash Display · Switzer',
+    color: 'Bein, Tinte, Minium — Minium trägt Porträtfläche und Trennband',
+    move: 'Strenges Raster aus Haarlinien statt Karten. Kacheln liegen im selben Feld.',
+    hero: 'Richtung A',
+    interaction: 'Kachel-Fußzeile wechselt bei Hover von „Stand" auf „Quelle".',
+  },
+  {
+    id: 'b',
+    name: 'Kladde',
+    lane: 'handgemacht-warm',
+    type: 'Panchang · General Sans',
+    color: 'Papier mit Korn, Tintenblau, Ocker nur als Textmarker',
+    move: 'Angeklebte Zettel, jeder anders schief, Klebestreifen obendrauf.',
+    hero: 'Richtung B — hier steht der Vergleich',
+    interaction: 'Zettel richten sich beim Überfahren gerade, Marker zieht beim Laden durch.',
+  },
+  {
+    id: 'c',
+    name: 'Anzeigetafel',
+    lane: 'Daten als Entwurf',
+    type: 'Supreme · Switzer',
+    color: 'Getränktes Tintenfeld oben, Bein unten, Signalgrün nur für „lebt"',
+    move: 'Kein Kachelraster, sondern Tafelzeilen wie eine Abfahrtstafel.',
+    hero: 'Richtung A',
+    interaction: 'Werte zählen beim Laden hoch, Zeilen steigen gestaffelt ein.',
+  },
+];
+---
+
+<LookLayout title="Look-Varianten · Persona-Showcase">
+  <main>
+    <header>
+      <p class="eyebrow">Personal Site · Persona-Showcase</p>
+      <h1>Drei Looks, ein Inhalt</h1>
+      <p class="lede">
+        Hero plus erste Kachelreihe, dreimal gebaut. Text, Zahlen und Platzhalter sind in allen
+        dreien identisch — was sich unterscheidet, ist ausschließlich der Look. Zwei fliegen raus,
+        der Gewinner kommt in <code>DESIGN.md</code>.
+      </p>
+    </header>
+
+    <ol>
+      {
+        variants.map((v) => (
+          <li>
+            <a href={`/look/${v.id}`}>
+              <span class="tag">{v.id.toUpperCase()}</span>
+              <span class="name">{v.name}</span>
+              <span class="lane">{v.lane}</span>
+            </a>
+            <dl>
+              <div><dt>Schrift</dt><dd>{v.type}</dd></div>
+              <div><dt>Farbe</dt><dd>{v.color}</dd></div>
+              <div><dt>Bau</dt><dd>{v.move}</dd></div>
+              <div><dt>Hero</dt><dd>{v.hero}</dd></div>
+              <div><dt>Belohnung</dt><dd>{v.interaction}</dd></div>
+            </dl>
+          </li>
+        ))
+      }
+    </ol>
+
+    <footer>
+      <h2>Worauf es beim Anschauen ankommt</h2>
+      <ul>
+        <li>Klingt der Hero nach dir, wenn er gesetzt ist statt im Chat zu stehen?</li>
+        <li>Trägt die Kachelreihe den Ton, oder wirkt sie wie ein Dashboard?</li>
+        <li>Die Kochwochen-Kachel ist absichtlich zwei Tage alt — ist die ehrliche Degradation sichtbar genug?</li>
+        <li>Die Porträtfläche ist beschrifteter Platzhalter, kein Bild. Trägt die Komposition trotzdem?</li>
+      </ul>
+    </footer>
+  </main>
+</LookLayout>
+
+<style>
+  main {
+    --paper: oklch(96.5% 0.008 250);
+    --ink: oklch(22% 0.02 250);
+    --muted: oklch(48% 0.018 250);
+    --hair: oklch(87% 0.01 250);
+
+    min-height: 100vh;
+    max-width: 60rem;
+    margin: 0 auto;
+    padding: clamp(3rem, 8vw, 6rem) clamp(1.25rem, 5vw, 3rem) 7rem;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Switzer', system-ui, sans-serif;
+  }
+  .eyebrow {
+    margin: 0 0 1rem;
+    font-family: 'Commit Mono', ui-monospace, monospace;
+    font-size: 0.75rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  h1 {
+    margin: 0;
+    font-family: 'Clash Display', sans-serif;
+    font-weight: 600;
+    font-size: clamp(2rem, 5vw, 3.25rem);
+    line-height: 1.02;
+    letter-spacing: -0.03em;
+  }
+  .lede {
+    max-width: 60ch;
+    margin: 1.25rem 0 0;
+    font-size: 1.0625rem;
+    line-height: 1.6;
+    color: var(--muted);
+  }
+  code {
+    font-family: 'Commit Mono', ui-monospace, monospace;
+    font-size: 0.9em;
+  }
+
+  ol {
+    display: grid;
+    gap: 2.5rem;
+    margin: clamp(2.5rem, 5vw, 4rem) 0 0;
+    padding: 0;
+    list-style: none;
+  }
+  li {
+    padding-top: 1.75rem;
+    border-top: 1px solid var(--hair);
+  }
+  li a {
+    display: flex;
+    align-items: baseline;
+    gap: 0.85rem;
+    color: inherit;
+    text-decoration: none;
+  }
+  .tag {
+    font-family: 'Commit Mono', ui-monospace, monospace;
+    font-size: 0.75rem;
+    padding: 0.2rem 0.45rem;
+    background: var(--ink);
+    color: var(--paper);
+  }
+  .name {
+    font-family: 'Clash Display', sans-serif;
+    font-weight: 600;
+    font-size: 1.625rem;
+    letter-spacing: -0.02em;
+  }
+  li a:hover .name {
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+  }
+  .lane {
+    font-size: 0.9375rem;
+    color: var(--muted);
+  }
+
+  dl {
+    display: grid;
+    gap: 0.4rem;
+    margin: 1rem 0 0;
+  }
+  dl > div {
+    display: grid;
+    grid-template-columns: 7rem minmax(0, 1fr);
+    gap: 1rem;
+    font-size: 0.9375rem;
+    line-height: 1.5;
+  }
+  dt {
+    font-family: 'Commit Mono', ui-monospace, monospace;
+    font-size: 0.6875rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    padding-top: 0.25em;
+  }
+  dd {
+    margin: 0;
+  }
+
+  footer {
+    margin-top: 4rem;
+    padding-top: 1.75rem;
+    border-top: 1px solid var(--hair);
+  }
+  footer h2 {
+    margin: 0 0 1rem;
+    font-family: 'Clash Display', sans-serif;
+    font-weight: 600;
+    font-size: 1.25rem;
+    letter-spacing: -0.015em;
+  }
+  footer ul {
+    margin: 0;
+    padding-left: 1.1rem;
+    display: grid;
+    gap: 0.5rem;
+    max-width: 62ch;
+    font-size: 0.9375rem;
+    line-height: 1.55;
+    color: var(--muted);
+  }
+
+  @media (max-width: 34rem) {
+    dl > div {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 0.15rem;
+    }
+  }
+</style>

@@ -1,0 +1,126 @@
+---
+/**
+ * Hülle für die drei Look-Varianten. Bewusst OHNE global.css: die bestehende
+ * Designsprache ist trocken und evidenzgetrieben, also genau das, wovon die
+ * Persona-Seite wegwill. Jede Variante bringt ihre Tokens selbst mit.
+ *
+ * Alles unter /look/ ist Wegwerfware zum Anschauen: noindex, nicht verlinkt,
+ * fliegt raus, sobald eine Variante gewonnen hat.
+ */
+interface Props {
+  title: string;
+}
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="de-AT">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>{title}</title>
+    <style is:global>
+      /* Commit Mono kommt sonst aus global.css, die hier bewusst fehlt. */
+      @import '@fontsource/commit-mono/latin-400.css';
+      @import '@fontsource/commit-mono/latin-500.css';
+
+      @font-face {
+        font-family: 'Clash Display';
+        src: url('../assets/fonts/clash-display-variable.woff2') format('woff2');
+        font-weight: 200 700;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: 'Panchang';
+        src: url('../assets/fonts/panchang-variable.woff2') format('woff2');
+        font-weight: 200 800;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: 'Supreme';
+        src: url('../assets/fonts/supreme-variable.woff2') format('woff2');
+        font-weight: 100 800;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: 'Switzer';
+        src: url('../assets/fonts/switzer-variable.woff2') format('woff2');
+        font-weight: 100 900;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: 'General Sans';
+        src: url('../assets/fonts/general-sans-variable.woff2') format('woff2');
+        font-weight: 200 700;
+        font-display: swap;
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+      html {
+        -webkit-text-size-adjust: 100%;
+      }
+      body {
+        margin: 0;
+      }
+      img {
+        display: block;
+        max-width: 100%;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.01ms !important;
+        }
+      }
+
+      /* Die Dev-Toolbar sitzt sonst auf jedem Screenshot mitten im Entwurf. */
+      astro-dev-toolbar {
+        display: none !important;
+      }
+
+      /* Schaltleiste zwischen den Varianten. Gehört nicht zum Entwurf,
+         deshalb neutral, klein und oben — fixiert hätte sie auf jedem
+         Vollseiten-Screenshot quer über der Kachelreihe gelegen. */
+      .variant-switch {
+        display: flex;
+        justify-content: center;
+        gap: 0.25rem;
+        padding: 0.5rem;
+        font: 500 0.75rem/1 ui-monospace, monospace;
+        background: color-mix(in oklch, #1b1b1f 88%, transparent);
+        color: #f2ede4;
+      }
+      .variant-switch a {
+        padding: 0.4rem 0.7rem;
+        color: inherit;
+        text-decoration: none;
+        border: 1px solid transparent;
+      }
+      .variant-switch a:hover {
+        border-color: currentColor;
+      }
+      .variant-switch a[aria-current='page'] {
+        background: #f2ede4;
+        color: #1b1b1f;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="variant-switch" aria-label="Look-Varianten">
+      <a href="/look/a" aria-current={Astro.url.pathname.startsWith('/look/a') ? 'page' : undefined}>A · Typenschild</a>
+      <a href="/look/b" aria-current={Astro.url.pathname.startsWith('/look/b') ? 'page' : undefined}>B · Kladde</a>
+      <a href="/look/c" aria-current={Astro.url.pathname.startsWith('/look/c') ? 'page' : undefined}>C · Anzeigetafel</a>
+      <a href="/look" aria-current={Astro.url.pathname === '/look' ? 'page' : undefined}>Übersicht</a>
+    </nav>
+    <slot />
+  </body>
+</html>
