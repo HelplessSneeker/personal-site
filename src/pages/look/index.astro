@@ -6,36 +6,18 @@
  */
 import LookLayout from '../../layouts/LookLayout.astro';
 
-const variants = [
-  {
-    id: 'a',
-    name: 'Typenschild',
-    lane: 'warm-industriell',
-    type: 'Clash Display · Switzer',
-    color: 'Bein, Tinte, Minium — Minium trägt Porträtfläche und Trennband',
-    move: 'Strenges Raster aus Haarlinien statt Karten. Kacheln liegen im selben Feld.',
-    hero: 'Richtung A',
-    interaction: 'Kachel-Fußzeile wechselt bei Hover von „Stand" auf „Quelle".',
-  },
+import { palettes } from '../../data/lookPalettes';
+
+const beaten = [
   {
     id: 'b',
     name: 'Kladde',
-    lane: 'handgemacht-warm',
-    type: 'Panchang · General Sans',
-    color: 'Papier mit Korn, Tintenblau, Ocker nur als Textmarker',
-    move: 'Angeklebte Zettel, jeder anders schief, Klebestreifen obendrauf.',
-    hero: 'Richtung B — hier steht der Vergleich',
-    interaction: 'Zettel richten sich beim Überfahren gerade, Marker zieht beim Laden durch.',
+    why: 'Handgemacht, Panchang, Zettel an der Pinnwand. Trägt Hero B — der Vergleich, gegen den sich Hero A durchgesetzt hat.',
   },
   {
     id: 'c',
     name: 'Anzeigetafel',
-    lane: 'Daten als Entwurf',
-    type: 'Supreme · Switzer',
-    color: 'Getränktes Tintenfeld oben, Bein unten, Signalgrün nur für „lebt"',
-    move: 'Kein Kachelraster, sondern Tafelzeilen wie eine Abfahrtstafel.',
-    hero: 'Richtung A',
-    interaction: 'Werte zählen beim Laden hoch, Zeilen steigen gestaffelt ein.',
+    why: 'Getränktes Tintenfeld, Tafelzeilen statt Kacheln. Bleibt liegen, bis der Rohbau steht.',
   },
 ];
 ---
@@ -44,29 +26,38 @@ const variants = [
   <main>
     <header>
       <p class="eyebrow">Personal Site · Persona-Showcase</p>
-      <h1>Drei Looks, ein Inhalt</h1>
+      <h1>A hat gewonnen, jetzt der Ton</h1>
       <p class="lede">
-        Hero plus erste Kachelreihe, dreimal gebaut. Text, Zahlen und Platzhalter sind in allen
-        dreien identisch — was sich unterscheidet, ist ausschließlich der Look. Zwei fliegen raus,
-        der Gewinner kommt in <code>DESIGN.md</code>.
+        bfn hat am 03.09.2026 Variante A gewählt und Blau statt Minium verlangt. Drei Trägertöne
+        auf demselben Entwurf; der Grund bleibt in allen dreien warmes Bein. Was gewinnt, kommt in
+        <code>DESIGN.md</code>. B und C stehen weiter, damit der Vergleich nachvollziehbar bleibt.
       </p>
     </header>
 
     <ol>
       {
-        variants.map((v) => (
+        palettes.map((p) => (
+          <li>
+            <a href={`/look/a/${p.id}`}>
+              <span class="tag">A</span>
+              <span class="name">{p.name}</span>
+            </a>
+            <dl>
+              <div><dt>Charakter</dt><dd>{p.character}</dd></div>
+            </dl>
+          </li>
+        ))
+      }
+      {
+        beaten.map((v) => (
           <li>
             <a href={`/look/${v.id}`}>
               <span class="tag">{v.id.toUpperCase()}</span>
               <span class="name">{v.name}</span>
-              <span class="lane">{v.lane}</span>
+              <span class="lane">geschlagen</span>
             </a>
             <dl>
-              <div><dt>Schrift</dt><dd>{v.type}</dd></div>
-              <div><dt>Farbe</dt><dd>{v.color}</dd></div>
-              <div><dt>Bau</dt><dd>{v.move}</dd></div>
-              <div><dt>Hero</dt><dd>{v.hero}</dd></div>
-              <div><dt>Belohnung</dt><dd>{v.interaction}</dd></div>
+              <div><dt>Was war</dt><dd>{v.why}</dd></div>
             </dl>
           </li>
         ))
@@ -76,8 +67,8 @@ const variants = [
     <footer>
       <h2>Worauf es beim Anschauen ankommt</h2>
       <ul>
-        <li>Klingt der Hero nach dir, wenn er gesetzt ist statt im Chat zu stehen?</li>
-        <li>Trägt die Kachelreihe den Ton, oder wirkt sie wie ein Dashboard?</li>
+        <li>Trägt der Ton die Porträtfläche, oder wirkt sie wie ein Platzhalter, der auf ein Bild wartet?</li>
+        <li>Ist das Band über der Kachelreihe zu laut, zu leise, oder richtig?</li>
         <li>Die Kochwochen-Kachel ist absichtlich zwei Tage alt — ist die ehrliche Degradation sichtbar genug?</li>
         <li>Die Porträtfläche ist beschrifteter Platzhalter, kein Bild. Trägt die Komposition trotzdem?</li>
       </ul>

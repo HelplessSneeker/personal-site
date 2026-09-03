@@ -1,0 +1,16 @@
+---
+/**
+ * Variante A in einem der drei Blautöne. bfn hat A gewählt und Blau statt
+ * Minium verlangt; welches Blau, wird wieder gerendert entschieden.
+ */
+import LookLayout from '../../../layouts/LookLayout.astro';
+import Typenschild from '../../../components/look/Typenschild.astro';
+import { paletteById } from '../../../data/lookPalettes';
+
+const palette = paletteById(Astro.params.ton);
+if (!palette) return Astro.rewrite('/404');
+---
+
+<LookLayout title={`Look A · Typenschild · ${palette.name}`}>
+  <Typenschild palette={palette} />
+</LookLayout>

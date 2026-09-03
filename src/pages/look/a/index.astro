@@ -1,0 +1,10 @@
+---
+/** /look/a zeigt den Standardton; die Alternativen hängen in der Schaltleiste. */
+import LookLayout from '../../../layouts/LookLayout.astro';
+import Typenschild from '../../../components/look/Typenschild.astro';
+import { defaultPalette } from '../../../data/lookPalettes';
+---
+
+<LookLayout title={`Look A · Typenschild · ${defaultPalette.name}`}>
+  <Typenschild palette={defaultPalette} />
+</LookLayout>
