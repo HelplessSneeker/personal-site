@@ -3,7 +3,10 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import CaseStudy from '../../components/CaseStudy.astro';
+import ProjectCard from '../../components/ProjectCard.astro';
+import OperatedList from '../../components/OperatedList.astro';
 import { caseStudies } from '../../data/caseStudies';
+import { projects } from '../../data/projects';
 import { t, getAltUrl, getLocalizedPath } from '../../i18n/util';
 
 export const prerender = true;
@@ -11,7 +14,12 @@ export const prerender = true;
 const locale = 'en' as const;
 const altUrl = getAltUrl(Astro.url.pathname, locale);
 const home = getLocalizedPath(locale, '/');
-const contactHref = `${home}#contact`;
+
+// Three tracks (PRODUCT.md → Information Architecture). Employment entries
+// carry no track and stay on /ueber; archived ones stay out entirely.
+const shipped = projects.filter((p) => p.status === 'live' || p.status === 'in-development');
+const clientProjects = shipped.filter((p) => p.track === 'client');
+const personalProjects = shipped.filter((p) => p.track === 'personal');
 ---
 <BaseLayout
   title={t(locale, 'portfolioPage.metaTitle')}
@@ -31,36 +39,61 @@ const contactHref = `${home}#contact`;
       </div>
     </section>
 
-    <section class="section portfolio-list">
+    <section class="section portfolio-track portfolio-track--first" aria-labelledby="track-client">
       <div class="container">
+        <h2 id="track-client" class="section-label">{t(locale, 'portfolioPage.tracks.client.label')}</h2>
+        <p class="track-lede">{t(locale, 'portfolioPage.tracks.client.lede')}</p>
+        <div class="project-list" role="list">
+          {clientProjects.map((project, i) => (
+            <ProjectCard project={project} locale={locale} index={i} />
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="section portfolio-track" aria-labelledby="track-personal">
+      <div class="container">
+        <h2 id="track-personal" class="section-label">{t(locale, 'portfolioPage.tracks.personal.label')}</h2>
+        <p class="track-lede">{t(locale, 'portfolioPage.tracks.personal.lede')}</p>
+        <div class="project-list" role="list">
+          {personalProjects.map((project, i) => (
+            <ProjectCard project={project} locale={locale} index={i} />
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="section portfolio-track portfolio-track--operated" aria-labelledby="track-operated">
+      <div class="container">
+        <h2 id="track-operated" class="section-label">{t(locale, 'portfolioPage.tracks.operated.label')}</h2>
+        <p class="track-lede">{t(locale, 'portfolioPage.tracks.operated.lede')}</p>
+        <OperatedList locale={locale} />
+      </div>
+    </section>
+
+    <section class="section portfolio-detail" aria-labelledby="portfolio-detail-heading">
+      <div class="container">
+        <h2 id="portfolio-detail-heading" class="section-label">{t(locale, 'portfolioPage.detail.label')}</h2>
+        <p class="track-lede">{t(locale, 'portfolioPage.detail.lede')}</p>
         {caseStudies.map((study, i) => (
           <CaseStudy study={study} locale={locale} index={i} />
         ))}
       </div>
     </section>
 
-    <section class="section portfolio-cta" id="contact" aria-labelledby="portfolio-cta-heading">
-      <div class="container portfolio-cta-inner">
-        <p class="section-label">{t(locale, 'portfolioPage.cta.kicker')}</p>
-        <h2 id="portfolio-cta-heading" class="portfolio-cta-heading">{t(locale, 'portfolioPage.cta.heading')}</h2>
-        <p class="portfolio-cta-body">{t(locale, 'portfolioPage.cta.body')}</p>
-        <div class="portfolio-cta-actions">
-          <a href={contactHref} class="btn btn-primary">
-            {t(locale, 'portfolioPage.cta.button')} <span aria-hidden="true">→</span>
-          </a>
-          <a href={home} class="portfolio-back">{t(locale, 'portfolioPage.backToHome')}</a>
-        </div>
-        <p class="portfolio-cta-direct">
-          <span class="label-meta">{t(locale, 'portfolioPage.cta.emailLabel')}</span>
-          <a href="mailto:benjamin@noessler.at">benjamin@noessler.at</a>
-        </p>
+    <nav class="section portfolio-close" aria-label={t(locale, 'nav.pageNavigation')}>
+      <div class="container">
+        <a href={home} class="portfolio-back">{t(locale, 'portfolioPage.backToHome')}</a>
       </div>
-    </section>
+    </nav>
   </main>
   <Footer locale={locale} />
 </BaseLayout>
 
 <style>
+  /* Intro reuses `.hero` so it isn't pulled into the scroll-fade orchestration
+     run on `.section:not(.hero)` in BaseLayout. The portfolio overture
+     should be visible immediately, not animated in. */
   .portfolio-intro {
     padding-block: var(--space-9) var(--space-7);
     border-top: none;
@@ -71,11 +104,13 @@ const contactHref = `${home}#contact`;
     }
   }
 
+  /* The cap lives on the text elements, not on the container: capping the
+     `.container` itself re-centres the narrowed box and knocks the overture
+     out of line with every section label below it. */
   .portfolio-intro-inner {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    max-width: 62ch;
   }
 
   .portfolio-rule {
@@ -111,51 +146,53 @@ const contactHref = `${home}#contact`;
     max-width: 44rem;
   }
 
-  .portfolio-list {
-    padding-block: var(--section-continued) var(--space-8);
+  /* The first track continues the intro visually: shorter lead-in, no top
+     border duplicating the overture's own rule. The following tracks take
+     the default section rhythm so the three tracks read as equals. */
+  .portfolio-track--first {
+    padding-block-start: var(--section-continued);
     border-top: none;
   }
 
-  .portfolio-cta {
-    padding-block-start: var(--section-pause);
-  }
-
-  .portfolio-cta-inner {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: var(--space-4);
-    max-width: 40rem;
-  }
-
-  .portfolio-cta-inner .section-label {
-    margin-bottom: 0;
-  }
-
-  .portfolio-cta-heading {
-    font-family: var(--font-display);
-    font-size: var(--fs-2xl);
-    font-weight: var(--weight-medium);
-    letter-spacing: var(--tracking-heading-xl);
-    line-height: 1.05;
-    margin: 0;
-    text-wrap: balance;
-  }
-
-  .portfolio-cta-body {
+  .track-lede {
     font-size: var(--fs-md);
     line-height: var(--lh-relaxed);
-    color: var(--color-text);
+    color: var(--color-text-muted);
     margin: 0;
+    max-width: 58ch;
     text-wrap: pretty;
   }
 
-  .portfolio-cta-actions {
+  .project-list {
     display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: var(--space-5);
-    margin-top: var(--space-2);
+    flex-direction: column;
+    gap: 0;
+    border-top: 1px solid var(--color-rule);
+    margin-top: var(--space-6);
+  }
+
+  /* Track 3 is the load-bearing one (PRODUCT.md). It gets the deliberate
+     pause in front of it that the closing chord would otherwise get, so the
+     reader arrives at the running-since column after a beat of silence. */
+  .portfolio-track--operated {
+    padding-block-start: var(--section-pause);
+  }
+
+  .portfolio-detail :global(.case-study:first-of-type) {
+    padding-block-start: var(--space-6);
+  }
+
+  /* The last case study already carries its own generous bottom padding;
+     the section would otherwise stack a second full section gap on top and
+     leave the page ending on a hole. */
+  .portfolio-detail {
+    padding-block-end: var(--space-5);
+  }
+
+  /* No CTA here by design (PRODUCT.md principle 8: the portfolio does not
+     sell). The page ends on a quiet way back, not on a conversion moment. */
+  .portfolio-close {
+    padding-block: var(--space-7);
   }
 
   .portfolio-back {
@@ -174,25 +211,5 @@ const contactHref = `${home}#contact`;
   .portfolio-back:hover {
     color: var(--color-accent);
     text-decoration-color: currentColor;
-  }
-
-  .portfolio-cta-direct {
-    margin: var(--space-3) 0 0 0;
-    padding-top: var(--space-4);
-    border-top: 1px solid var(--color-rule);
-    display: flex;
-    flex-wrap: wrap;
-    align-items: baseline;
-    gap: var(--space-3);
-    font-size: var(--fs-sm);
-    width: 100%;
-  }
-  .portfolio-cta-direct .label-meta {
-    color: var(--color-text-subtle);
-  }
-  .portfolio-cta-direct a {
-    color: var(--color-accent);
-    font-family: var(--font-mono);
-    font-feature-settings: var(--font-features-mono);
   }
 </style>

@@ -2,12 +2,18 @@
 
 ### Users
 
-**Two audiences, one page — but no longer co-equal.** The homepage's primary job is to convert SMB prospects into recurring-relationship clients (build + host + maintain). Peers remain a real second audience, but the page is no longer trying to be a stack-taste portfolio that *also* happens to convert SMBs; it's a recurring-revenue acquisition page that *also* survives a peer's close inspection.
+> **2026-08-07 — Portfolio-First-Pivot.** This section was rewritten. The page is no longer a recurring-revenue acquisition page; it is a portfolio that also sells. Rationale and alternatives in `bfn-wiki/decisions/2026-08-07 - Personal-Site-Portfolio-First.md` — that decision, not this file, is the source of truth for *why*.
 
-1. **SMB prospects (primary)** — Austrian and German small-business owners (a physiotherapy practice owner, a local trade business, the person behind scanzy.at) evaluating Benjamin for a landing-page redesign that comes with ongoing hosting & maintenance. They're not buying a one-shot project — they're buying a relationship and a single point of contact who handles the whole stack so they don't have to. They're not reading for stack credibility — they're reading for *"does this person seem like they'd actually finish the job, not ghost me, and still be there in two years to update it."* Likely viewing on a phone, likely skimming, likely suspicious of web-designer fluff and of subscriptions that feel like SaaS lock-in.
-2. **Engineers, recruiters, technical peers (secondary)** — people who open the site after seeing Benjamin's name on GitHub, LinkedIn, or a referral. They look for: stack taste, architectural judgement, how the site itself is built, whether the person sounds like someone they'd want on a team. The page must still survive their gaze, but it should not contort itself to lead with stack-credibility signals at the expense of the SMB conversion.
+**The traffic changed, so the page changes.** With cold outreach stopped (30.06.2026), LinkedIn / Malt / Freelancermap act as discovery surfaces, and every real lead so far arrived through a referral. Nobody lands here cold anymore. This site is the **verification surface** — what someone opens *after* they already heard the name. That visitor asks "is this person real?", not "what does it cost?". A page that opens with a monthly price answers the wrong question first.
 
-**Positioning posture (explicit)**: lead with the recurring relationship, not the one-shot project. Hosting & Betrieb is the *headline offer*, the landing-page redesign is how that relationship begins. Canonical Phase-1 storefront-bundle (per `primus-sb/wiki/firma/angebote.md`, Stand 16.05.2026):
+1. **The verifier (primary)** — a referral contact, a recruiter, an agency lead, or a peer who just heard Benjamin's name or found him on a platform. They are 30 seconds into deciding whether he is worth a conversation. They want: what has he actually built, does it still run, does he have judgement, is he interesting. They are skeptical of claims and receptive to evidence. Anything that reads as a sales page *lowers* their trust; anything that reads as "here's the thing, here's how long it's been running" raises it.
+2. **SMB prospects (secondary, still converting)** — Austrian and German small-business owners evaluating Benjamin for a redesign plus ongoing hosting & maintenance. They are no longer served by the homepage hero; they are served by a calm closing block on the homepage that leads to `/bundle`, which stays complete and unchanged. They're reading for *"would this person finish the job, not ghost me, and still be there in two years."* Likely on a phone, likely skimming, suspicious of web-designer fluff.
+
+**Positioning posture (explicit)**: **evidence over claims, running systems over skill lists.** The strongest sentence on this site is not "I do reliable hosting" — it is a line of mono metadata reading `invoice.bfnoessler.at · running since 05/2026 · Hetzner / Coolify`. Never state a capability the page can't point at. This resolves the guardrail in `bfn-wiki/strategie/positionierung.md`: skills get pitched once they are *visible*, so making infrastructure visible is what earns the right to pitch it.
+
+**Hard prohibition**: no skill grid, no technology logo wall, no proficiency bars, no "my stack" icon rows. That format is interchangeable, and it is self-assessment dressed as proof. Capability is expressed through named things with dates on them.
+
+The offer still exists and still matters — it just lives on `/bundle` instead of the hero. Canonical Phase-1 storefront-bundle (per `bfn-wiki/angebot/bundle.md`, Stand 16.05.2026):
 
 - **Base — Website + Invoice Ninja**: 1.800 € Setup (Website) + 390 € Setup (Invoice Ninja with EN16931 + EPC-QR + KU-Klausel) + **89 €/Monat** Wartung & Hosting.
 - **Add-ons** (jederzeit zubuchbar): Cal.com (+10 €/M), Umami Analytics (+5 €/M), Listmonk Newsletter (+10 €/M). Setups einmalig 50–90 €.
@@ -18,15 +24,40 @@
 
 Reframe wording so this reads as *"one point of contact, predictable monthly cost, you don't have to think about your site again"* — never as "subscription as gatekeeper" or generic SaaS lock-in. Invoice Ninja with EN16931-Hybrid-PDF is a real B2B differentiator (e-invoicing pflicht is incoming), not a side-feature; treat it as load-bearing in the pitch.
 
-**Context of use**: Daylight, mixed devices, low attention. No one is here for a tour — they want to decide in under 90 seconds whether to keep reading, bookmark, or send the inquiry form. The site must reward skimmers *and* survive close inspection.
+**Context of use**: Daylight, mixed devices, low attention. No one is here for a tour — they want to decide in under 90 seconds whether to keep reading, bookmark, or reach out. The site must reward skimmers *and* survive close inspection.
 
 **Job to be done**:
-- Prospects (primary): "Will this person redesign my site, then keep it running so I don't have to think about it — and how much will that cost me per month?"
-- Peers (secondary): "Who is this, what do they actually build, and is the work interesting?"
+- Verifier (primary): "Who is this, what has he actually built and does it still run, and is the work interesting enough to talk to him?"
+- SMB prospect (secondary): "Would this person redesign my site and then keep it running — and what does that cost per month?"
 
-**Source of truth for pricing, scope, and offer composition**: `primus-sb/wiki/firma/angebote.md` and `primus-sb/wiki/firma/strategie.md`. If this file conflicts with the wiki, the wiki wins. Mirror wiki updates here when they affect site copy or IA.
+**Source of truth for pricing, scope, and offer composition**: `bfn-wiki/angebot/bundle.md` and `bfn-wiki/strategie/`. If this file conflicts with the wiki, the wiki wins. Mirror wiki updates here when they affect site copy or IA.
 
-**IA implication**: the canonical Phase-1 deliverable per `wiki/firma/strategie.md` is a **dedicated Bundle-Pricing-Page** (`/preise` DE, `/en/pricing` EN) that contains Base-Card, Add-on-Cards, Pro-Bundle-Card, Trust-Block and Cal.com-Booking. The homepage Services section is the overview/teaser, not the full pricing surface. Phase-2 outreach (cold agency mails, warm-referral pitches) needs a linkable pricing URL that stands alone out-of-context — anchor-link on homepage is too weak.
+### Information Architecture
+
+Four surfaces, in descending priority:
+
+| Route (DE / EN) | Role |
+|---|---|
+| `/` · `/en/` | Portfolio-first entry: who, what got built, what is running. No price above the fold. Closing block leads to `/bundle`. |
+| `/portfolio` · `/en/portfolio` | Three tracks (below). The substance of the site. |
+| `/lab` · `/en/lab` | Prose surface: homelab, infrastructure, debugging write-ups, the agent fleet. Own rhythm, no CTA. |
+| `/bundle` · `/en/bundle` | Unchanged. Stays in the nav, no longer the first item. |
+
+**The three portfolio tracks** — this is the central new structure. Not a mixed chronological list; three distinct tracks, because each answers a different question:
+
+1. **Built for clients** (*Für Kunden gebaut*) — Vordermann, FoundersGroup, SCANZY. Answers "does he ship for real people." Existing case studies feed this track.
+2. **Built for myself** (*Selbst gebaut*) — immo-radar, b-leads, b-cal, backup-guard, this site. Answers "does he build when nobody pays him."
+3. **Operated** (*Betrieben*) — the Hetzner VPS, the home server, the Tailscale network, Invoice Ninja, Uptime Kuma. Answers "can he actually run infrastructure over time."
+
+**Track 3 is the load-bearing one.** It is the reason the hosting offer is credible, and it works *because* it isn't selling. Its defining element is a **`running since` metadatum** on every entry, set in mono with tabular figures — this is the single most persuasive detail on the site. Never write track-3 entries as feature bullets; write them as facts with dates.
+
+**Lab is deliberately separate from Portfolio.** Portfolio is structure (entries, metadata, scannable); Lab is prose (narrative, unfinished, personal). Merging them would blunt both. Link between them where a portfolio entry has a matching write-up, never mirror content.
+
+**Lab is bilingual** (DE + EN), matching the rest of the site. Content lives as Markdown; every entry needs a DE and an EN file. An entry ships only when both exist — a half-translated Lab reads worse than a small one.
+
+**Security constraint on Lab and Track 3**: describe **roles, architecture, and reasoning** — never operational specifics. No hostnames, no Tailscale node names, no IP addresses, no port numbers, no directory layouts, no service topology that maps the network. "Seven agents with distinct roles, coordinating over a private mesh" is the register. "primus at 116.x.x.x runs the gateway on port N" is not. When in doubt, drop the detail: the credibility comes from the reasoning, not the coordinates.
+
+**On the agent fleet specifically**: this is the strongest differentiator on the site and should be shown — what the agents do, how the roles are split, why it's built that way, what it changed about how he works. Show the design, not the deployment.
 
 ### Brand Personality
 
@@ -109,4 +140,5 @@ Treat mono deliberately: it carries the "engineered" signal. Every place mono ap
 4. **Asymmetry with reason.** Centered layouts are the safe default; asymmetric ones feel designed. Break the grid only where the content benefits — and be consistent about it.
 5. **Built to last.** Avoid anything that will look dated in 18 months: neon accents, glassmorphism, animated gradients, scroll-driven effects. Favor choices that would read as quietly correct in print.
 6. **Every word earns its place.** The copy is already terse and honest — the design must not pad it with headings that restate, icons that decorate, or sections that exist to fill space.
-7. **Lead with the relationship, not the transaction.** The page's primary conversion is into a recurring hosting & care arrangement. Wherever the page mentions price, scope, or process, it should imply continuity by default — "wir arbeiten weiter" rather than "wir liefern aus." Hero, Services, and Trust must each carry one clear beat of "this is the start of an ongoing thing." Never sell continuity through urgency or fear; sell it through calm reliability.
+7. **Show the thing, don't claim the skill.** Every capability the site asserts must be attached to something named that exists — a client site, a tool, a running service with a date on it. If a sentence would survive unchanged on any other developer's site, it is a claim, not evidence, and it comes out. This principle outranks persuasion: an honest smaller list beats an impressive vaguer one.
+8. **Continuity is the sales beat, and it stays quiet.** Where the page does mention price, scope, or process (`/bundle`, the homepage closing block), it implies continuity by default — "wir arbeiten weiter" rather than "wir liefern aus." Never sell continuity through urgency or fear; sell it through calm reliability. Nowhere else on the site does a CTA appear. The portfolio and the lab do not sell; that restraint is precisely what makes them persuasive.
