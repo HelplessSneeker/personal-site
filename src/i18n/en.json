@@ -1,38 +1,34 @@
 {
   "site": {
-    "title": "Benjamin Franz Nößler — Astro + AI integration developer · Vienna",
-    "description": "Fast websites with AI integration. From Vienna — Astro frontends for agencies that need capacity and small businesses who want to understand their website again."
+    "title": "Benjamin Franz Nößler — Fullstack developer · Vienna",
+    "description": "Benjamin Franz Nößler, software developer based in Vienna: Java with Spring Boot on the back end, TypeScript with Angular and React on the front end, plus my own system of AI agents."
   },
   "meta": {
     "jobTitle": "Fullstack Developer"
-  },
-  "availability": {
-    "label": "Availability",
-    "value": "Currently available"
   },
   "nav": {
     "top": "Top",
     "primary": "Primary navigation",
     "pageNavigation": "Page sections",
     "skipToContent": "Skip to content",
-    "services": "Services",
     "work": "Work",
     "about": "About",
     "contact": "Contact"
   },
   "hero": {
-    "kicker": "Astro + AI integration · Vienna · project-based",
-    "headline": "Fast websites with AI integration. From Vienna.",
-    "body": "For agencies that need Astro capacity — and small businesses who want to understand their website again.",
+    "kicker": "Fullstack developer · Vienna",
+    "headline": "I build software, then run it myself.",
+    "body": "Java on the back end and TypeScript on the front end since my IT apprenticeship in 2017, and my own system of AI agents since May 2026. I review generated code like a colleague's.",
     "ctaPrimaryLoom": "Watch the Loom intro",
-    "ctaPrimaryContact": "Get in touch",
+    "ctaPrimaryWork": "See the work",
     "ctaSecondary": "benjamin@noessler.at"
   },
   "proof": {
     "ariaLabel": "At a glance",
     "items": [
       "Vienna",
-      "Active clients: Vordermann, FoundersGroup, SCANZY"
+      "Software development since 2017",
+      "Own AI agents since May 2026"
     ]
   },
   "stack": {
@@ -46,25 +42,30 @@
         "items": [
           "TypeScript",
           "JavaScript",
-          "Python",
           "Java",
+          "Python",
           "SQL"
         ]
       },
       "frontend": {
         "label": "Frontend",
         "items": [
+          "Angular",
           "React",
           "Next.js",
-          "Astro"
+          "Astro",
+          "Ionic",
+          "Capacitor"
         ]
       },
       "backend": {
         "label": "Backend",
         "items": [
+          "Spring Boot",
+          "Hibernate",
           "NestJS",
-          "Fastify",
           "Node.js",
+          "Prisma",
           "PostgreSQL",
           "Redis"
         ]
@@ -82,30 +83,12 @@
         "label": "Tools",
         "items": [
           "Git",
-          "Vitest",
-          "Zod"
+          "Claude Code",
+          "JUnit",
+          "Jest",
+          "Cypress"
         ]
       }
-    }
-  },
-  "services": {
-    "label": "What I do",
-    "intro": "Three areas I'm building in right now. Clean frontends, AI integration with substance, and a modular self-hosted stack for SMBs that want to run their own tools.",
-    "sites": {
-      "title": "Astro sites",
-      "kicker": "Fast, maintainable, headless",
-      "description": "Marketing sites and landing pages on Astro. Server output where needed, static where possible. No WordPress-plugin hell, no 200 KB of JS for a headline."
-    },
-    "ai": {
-      "title": "AI integration",
-      "kicker": "RAG, LLM plumbing, eval setup",
-      "description": "Embeddings, retrieval, tool use, eval pipelines. Self-hosted or cloud — whichever fits the use case. Not hype-chasing, but finding the spots where an LLM actually changes something."
-    },
-    "stack": {
-      "title": "Self-hosted stack",
-      "kicker": "Website + invoicing + tooling",
-      "description": "Website, Invoice Ninja, booking, newsletter — on a single Coolify instance, EU region, EN16931-compliant. Run and cared for end-to-end by me — more for SMBs than for agencies.",
-      "cta": "See packages and pricing"
     }
   },
   "work": {
@@ -133,17 +116,7 @@
   },
   "fromEmployment": {
     "label": "From employment",
-    "intro": "Selected projects from my permanent role — for context, not as a freelance portfolio."
-  },
-  "process": {
-    "label": "How we'll work together",
-    "intro": "Four steps, transparent prices, no sales theatre. On most projects I stay on as the point of contact after launch.",
-    "steps": [
-      { "title": "Discovery call", "body": "30 minutes, free. Understanding the problem and the scope — I'll be honest about whether I'm a fit." },
-      { "title": "Fixed-price quote", "body": "Clear scope, clear price. Sites from €1,800, self-hosted stack from €2,190. No hidden hours, no \"available on request\"." },
-      { "title": "Build with milestones", "body": "Clean stages, regular previews, launch on schedule." },
-      { "title": "Care plan or handover", "body": "Hosting, updates, smaller changes from a single source — or you take over, your code. Most clients stay." }
-    ]
+    "intro": "Selected projects from my employment history."
   },
   "portfolioPage": {
     "metaTitle": "Portfolio: built, self-built, operated · Benjamin Franz Nößler",
@@ -182,20 +155,18 @@
   "aboutPage": {
     "title": "About me",
     "metaTitle": "About Benjamin Franz Nößler — background & tech",
-    "description": "Benjamin Franz Nößler — background, work history and the technical part. Fullstack developer based in Vienna, day job on the City of Vienna's digital team, freelance for small businesses on the side.",
+    "description": "Benjamin Franz Nößler — background, work history and the technical part. Fullstack developer based in Vienna, day job on the City of Vienna's digital team.",
     "kicker": "Fullstack developer · Vienna",
-    "lede": "Day job on the City of Vienna's digital team, freelance for small businesses on the side — website, operation, and the digital tools around it.",
+    "lede": "Developer since my IT apprenticeship in 2017, day job on the City of Vienna's digital team.",
     "bodyParagraphs": [
-      "I help small Austrian businesses get visible online and stay that way: build or rebuild the website, then take over operation and care, plus the digital tools around it — booking, newsletter, invoicing.",
-      "I've been building web apps for years in employment and in my own projects (e.g. <a class=\"inline-link\" href=\"https://github.com/HelplessSneeker/b-cal\" rel=\"noopener external\" target=\"_blank\">b-cal</a>); on the freelance side I'm deliberately starting with a smaller scope and scope larger projects together.",
-      "I prefer projects meant to last longer than a quarter: cleanly built, self-hosted on infrastructure I manage end-to-end, with tools I'll still trust in two years. On most projects I stay on as the point of contact after launch."
+      "More than four years of professional fullstack work: TypeScript with Angular and React on the front end, plus mobile apps with Ionic and Capacitor; NestJS and Java with Spring Boot and Hibernate on the back end. I also build web apps in my own projects (e.g. <a class=\"inline-link\" href=\"https://github.com/HelplessSneeker/b-cal\" rel=\"noopener external\" target=\"_blank\">b-cal</a>).",
+      "Since May 2026 I have been running my own system of AI agents based on Claude and OpenClaw: it plans my day, rates the links I collect, watches my servers and writes code with me. I build agentically with Claude Code and review its code like a colleague's.",
+      "I prefer projects meant to last longer than a quarter: cleanly built, self-hosted on infrastructure I manage end-to-end, with tools I'll still trust in two years."
     ],
     "facts": {
       "label": "At a glance",
       "locationLabel": "Location",
       "location": "Vienna, Austria",
-      "availabilityLabel": "Availability",
-      "availability": "Currently available · project-based",
       "languagesLabel": "Languages",
       "languages": "German, English",
       "linksLabel": "Online"
@@ -205,8 +176,8 @@
   },
   "contact": {
     "label": "Contact",
-    "heading": "Tell me about your project.",
-    "body": "Send me a few sentences about your project. I usually reply within 48 hours.",
+    "heading": "Get in touch.",
+    "body": "A few sentences are enough. I usually reply within 48 hours.",
     "directEmailLabel": "Email",
     "noscript": {
       "before": "JavaScript is required for this form. You can email me directly at ",
@@ -218,7 +189,7 @@
       "emailLabel": "Email",
       "emailPlaceholder": "you@example.com",
       "messageLabel": "Message",
-      "messagePlaceholder": "What's this about? A few sentences about the project, the current page, or your audience is perfect.",
+      "messagePlaceholder": "What's this about?",
       "submitLabel": "Send message",
       "submittingLabel": "Sending…",
       "successHeading": "Thanks for your message.",
@@ -247,7 +218,6 @@
     "builtWith": "Built with Astro · Hosted on Hetzner",
     "viewSource": "View source",
     "aboutPage": "About me",
-    "bundle": "Self-hosted stack",
     "imprint": "Imprint",
     "privacy": "Privacy",
     "backToHome": "Back to homepage",

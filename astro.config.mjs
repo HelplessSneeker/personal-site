@@ -15,7 +15,10 @@ export default defineConfig({
       // /firefly/* sind noindex-Pflichtseiten für ein externes
       // Registrierungsformular — sie gehören nicht in die Sitemap, sonst
       // reicht man Google genau die URLs an, die es nicht indexieren soll.
-      filter: (page) => !page.includes('/api/') && !page.includes('/firefly/'),
+      // /bundle ist seit 27.10.2026 ebenfalls noindex: Websites sind kein
+      // Angebot mehr, die Seite bleibt nur für bestehende Links erreichbar.
+      filter: (page) =>
+        !page.includes('/api/') && !page.includes('/firefly/') && !page.includes('/bundle'),
       serialize(item) {
         return { ...item, lastmod: new Date().toISOString() };
       },

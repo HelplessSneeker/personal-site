@@ -14,9 +14,9 @@
   </g>
 
   <rect x="92" y="284" width="60" height="2" fill="#28527f"/>
-  <text x="92" y="326" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" letter-spacing="3.4" fill="#83878b">FREELANCE · WIEN</text>
+  <text x="92" y="326" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" letter-spacing="3.4" fill="#83878b">FULLSTACK-ENTWICKLER · WIEN</text>
   <text x="89" y="406" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="96" font-weight="600" letter-spacing="-3" fill="#15171a">Benjamin Nößler</text>
-  <text x="92" y="468" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="37" font-weight="400" fill="#454a4d">Websites für österreichische Betriebe — gebaut,</text>
-  <text x="92" y="517" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="37" font-weight="400" fill="#454a4d">gehostet, gepflegt. Aus einer Hand.</text>
-  <text x="92" y="566" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" fill="#28527f">Festpreis · eigene Infrastruktur in Wien · DSGVO<tspan fill="#83878b">  ·  benjamin.noessler.at</tspan></text>
+  <text x="92" y="468" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="37" font-weight="400" fill="#454a4d">Ich baue Software und betreibe sie danach selbst.</text>
+  <text x="92" y="517" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="37" font-weight="400" fill="#454a4d">Java im Backend, TypeScript im Frontend.</text>
+  <text x="92" y="566" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="21" fill="#28527f">Softwareentwicklung seit 2017 · KI-Agenten seit Mai 2026<tspan fill="#83878b">  ·  bfnoessler.at</tspan></text>
 </svg>

@@ -12,7 +12,6 @@ const { locale, showLanguageToggle = true } = Astro.props;
 const home = getLocalizedPath(locale, '/');
 const aboutPath = getLocalizedPath(locale, locale === 'de' ? '/ueber' : '/about');
 const navLinks = [
-  { href: `${home}#services`, label: t(locale, 'nav.services') },
   { href: `${home}#work`, label: t(locale, 'nav.work') },
   { href: aboutPath, label: t(locale, 'nav.about') },
   { href: `${home}#contact`, label: t(locale, 'nav.contact') },

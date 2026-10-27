@@ -1,38 +1,34 @@
 {
   "site": {
-    "title": "Benjamin Franz Nößler — Astro + AI-Integration Developer · Wien",
-    "description": "Schnelle Websites mit AI-Integration. Aus Wien — Astro-Frontends für Agenturen, die Kapazität brauchen, und KMU, die ihre Website wieder selbst verstehen wollen."
+    "title": "Benjamin Franz Nößler — Fullstack-Entwickler · Wien",
+    "description": "Benjamin Franz Nößler, Softwareentwickler aus Wien: Java mit Spring Boot im Backend, TypeScript mit Angular und React im Frontend, dazu ein eigenes System aus KI-Agenten."
   },
   "meta": {
     "jobTitle": "Fullstack-Entwickler"
-  },
-  "availability": {
-    "label": "Verfügbarkeit",
-    "value": "Aktuell verfügbar"
   },
   "nav": {
     "top": "Start",
     "primary": "Primärnavigation",
     "pageNavigation": "Seitennavigation",
     "skipToContent": "Zum Inhalt springen",
-    "services": "Leistungen",
     "work": "Arbeiten",
     "about": "Über",
     "contact": "Kontakt"
   },
   "hero": {
-    "kicker": "Astro + AI-Integration · Wien · projektbasiert",
-    "headline": "Schnelle Websites mit AI-Integration. Aus Wien.",
-    "body": "Für Agenturen, die Astro-Kapazität brauchen — und KMU, die ihre Website wieder selbst verstehen wollen.",
+    "kicker": "Fullstack-Entwickler · Wien",
+    "headline": "Ich baue Software und betreibe sie danach selbst.",
+    "body": "Seit der IT-Lehre 2017 Java im Backend und TypeScript im Frontend, seit Mai 2026 mit einem eigenen System aus KI-Agenten. Den generierten Code prüfe ich wie handgeschriebenen.",
     "ctaPrimaryLoom": "Loom-Intro ansehen",
-    "ctaPrimaryContact": "Direkt anfragen",
+    "ctaPrimaryWork": "Arbeiten ansehen",
     "ctaSecondary": "benjamin@noessler.at"
   },
   "proof": {
     "ariaLabel": "Eckdaten",
     "items": [
       "Wien",
-      "Aktive Kunden: Vordermann, FoundersGroup, SCANZY"
+      "Softwareentwicklung seit 2017",
+      "Eigene KI-Agenten seit Mai 2026"
     ]
   },
   "stack": {
@@ -46,25 +42,30 @@
         "items": [
           "TypeScript",
           "JavaScript",
-          "Python",
           "Java",
+          "Python",
           "SQL"
         ]
       },
       "frontend": {
         "label": "Frontend",
         "items": [
+          "Angular",
           "React",
           "Next.js",
-          "Astro"
+          "Astro",
+          "Ionic",
+          "Capacitor"
         ]
       },
       "backend": {
         "label": "Backend",
         "items": [
+          "Spring Boot",
+          "Hibernate",
           "NestJS",
-          "Fastify",
           "Node.js",
+          "Prisma",
           "PostgreSQL",
           "Redis"
         ]
@@ -82,30 +83,12 @@
         "label": "Werkzeuge",
         "items": [
           "Git",
-          "Vitest",
-          "Zod"
+          "Claude Code",
+          "JUnit",
+          "Jest",
+          "Cypress"
         ]
       }
-    }
-  },
-  "services": {
-    "label": "Was ich mache",
-    "intro": "Drei Felder, in denen ich aktuell baue. Saubere Frontends, AI-Integration mit Substanz, und ein modularer Self-Hosted-Stack für KMU, die ihre Tools selbst betreiben wollen.",
-    "sites": {
-      "title": "Astro Sites",
-      "kicker": "Schnell, wartbar, headless",
-      "description": "Marketing-Sites und Landingpages auf Astro. Server-Output wo nötig, Static wo möglich. Keine WordPress-Plugins-Hölle, kein 200-KB-JS-Bundle für eine Headline."
-    },
-    "ai": {
-      "title": "AI-Integration",
-      "kicker": "RAG, LLM-Plumbing, Eval-Setup",
-      "description": "Embeddings, Retrieval, Tool-Use, Eval-Pipelines. Selfhosted oder Cloud — was zum Use-Case passt. Kein Hype-Reiten, sondern Stellen finden, wo ein LLM wirklich etwas verändert."
-    },
-    "stack": {
-      "title": "Self-Hosted Stack",
-      "kicker": "Website + E-Rechnung + Tooling",
-      "description": "Website, Invoice Ninja, Buchung, Newsletter — auf einer eigenen Coolify-Instanz, EU-Region, EN16931-konform. Voll von mir betrieben und gepflegt — eher für KMU als für Agenturen.",
-      "cta": "Pakete + Preise ansehen"
     }
   },
   "work": {
@@ -133,17 +116,7 @@
   },
   "fromEmployment": {
     "label": "Aus dem Hauptberuf",
-    "intro": "Ausgewählte Projekte aus meiner Festanstellung — als Kontext, nicht als Freelance-Portfolio."
-  },
-  "process": {
-    "label": "So arbeiten wir",
-    "intro": "Vier Schritte, transparente Preise, kein Verkaufstheater. Bei den meisten bleibe ich als Ansprechperson nach dem Launch.",
-    "steps": [
-      { "title": "Discovery-Call", "body": "30 Minuten, kostenlos. Verständnis für Problem und Scope — ich sage ehrlich, ob ich passe." },
-      { "title": "Festpreis-Angebot", "body": "Klare Leistung, klarer Preis. Sites ab 1.800 €, Self-Hosted-Stack ab 2.190 €. Keine versteckten Stunden, kein „Auf Anfrage“." },
-      { "title": "Build mit Milestones", "body": "Saubere Etappen, regelmäßige Vorschauen, Launch nach Plan." },
-      { "title": "Wartung oder Übergabe", "body": "Hosting, Updates, kleinere Änderungen aus einer Hand — oder du übernimmst, dein Code. Die meisten bleiben." }
-    ]
+    "intro": "Ausgewählte Projekte aus meinen Anstellungen."
   },
   "portfolioPage": {
     "metaTitle": "Portfolio: gebaut, selbst gebaut, betrieben · Benjamin Franz Nößler",
@@ -182,20 +155,18 @@
   "aboutPage": {
     "title": "Über mich",
     "metaTitle": "Über Benjamin Franz Nößler — Hintergrund & Technik",
-    "description": "Benjamin Franz Nößler — Hintergrund, Werdegang und der technische Teil. Fullstack-Entwickler aus Wien, hauptberuflich in der Digitalisierung der Stadt Wien, daneben freiberuflich für kleine Betriebe.",
+    "description": "Benjamin Franz Nößler — Hintergrund, Werdegang und der technische Teil. Fullstack-Entwickler aus Wien, hauptberuflich in der Digitalisierung der Stadt Wien.",
     "kicker": "Fullstack-Entwickler · Wien",
-    "lede": "Hauptberuflich in der Digitalisierung der Stadt Wien, daneben freiberuflich für kleine Betriebe — Website, Betrieb und die digitalen Werkzeuge drumherum.",
+    "lede": "Softwareentwickler seit der IT-Lehre 2017, hauptberuflich in der Digitalisierung der Stadt Wien.",
     "bodyParagraphs": [
-      "Ich helfe kleinen österreichischen Betrieben, online sichtbar zu sein und es zu bleiben: Website neu bauen oder überarbeiten, danach Betrieb und Pflege übernehmen, dazu die digitalen Werkzeuge drumherum — Buchung, Newsletter, Rechnungen.",
-      "Webapps baue ich seit Jahren in Anstellung und in eigenen Projekten (z. B. <a class=\"inline-link\" href=\"https://github.com/HelplessSneeker/b-cal\" rel=\"noopener external\" target=\"_blank\">b-cal</a>); im Freelance-Bereich starte ich bewusst mit kleinerem Scope und spreche bei größeren Vorhaben den passenden Umfang ab.",
-      "Ich arbeite am liebsten an Dingen, die länger als ein Quartal leben sollen: sauber gebaut, selbst gehostet und voll von mir verwaltet, mit Werkzeugen, denen ich auch in zwei Jahren noch vertraue. Bei den meisten Projekten bleibe ich nach dem Launch als Ansprechperson dabei."
+      "Über vier Jahre Berufserfahrung im Fullstack: im Frontend TypeScript mit Angular und React, dazu Mobile-Apps mit Ionic und Capacitor, im Backend NestJS sowie Java mit Spring Boot und Hibernate. Webapps baue ich auch in eigenen Projekten (z. B. <a class=\"inline-link\" href=\"https://github.com/HelplessSneeker/b-cal\" rel=\"noopener external\" target=\"_blank\">b-cal</a>).",
+      "Seit Mai 2026 betreibe ich ein eigenes System aus KI-Agenten auf Basis von Claude und OpenClaw: Es plant meinen Tag, bewertet die Links, die ich sammle, überwacht meine Server und schreibt mit mir Code. Ich entwickle agentisch mit Claude Code und prüfe den generierten Code wie handgeschriebenen.",
+      "Ich arbeite am liebsten an Dingen, die länger als ein Quartal leben sollen: sauber gebaut, selbst gehostet und voll von mir verwaltet, mit Werkzeugen, denen ich auch in zwei Jahren noch vertraue."
     ],
     "facts": {
       "label": "Eckdaten",
       "locationLabel": "Standort",
       "location": "Wien, Österreich",
-      "availabilityLabel": "Verfügbarkeit",
-      "availability": "Aktuell verfügbar · projektbasiert",
       "languagesLabel": "Sprachen",
       "languages": "Deutsch, Englisch",
       "linksLabel": "Online"
@@ -205,8 +176,8 @@
   },
   "contact": {
     "label": "Kontakt",
-    "heading": "Erzähl mir von deinem Projekt.",
-    "body": "Schreib mir ein paar Sätze zur Anfrage. Antwort meist innerhalb von 48 Stunden.",
+    "heading": "Schreib mir.",
+    "body": "Ein paar Sätze reichen. Antwort meist innerhalb von 48 Stunden.",
     "directEmailLabel": "E-Mail",
     "noscript": {
       "before": "Für dieses Formular wird JavaScript benötigt. Schreib mir gerne direkt an ",
@@ -218,7 +189,7 @@
       "emailLabel": "E-Mail",
       "emailPlaceholder": "du@example.com",
       "messageLabel": "Nachricht",
-      "messagePlaceholder": "Worum geht es? Gerne 2–3 Sätze zum Projekt, zur aktuellen Seite oder zur Zielgruppe.",
+      "messagePlaceholder": "Worum geht es?",
       "submitLabel": "Nachricht senden",
       "submittingLabel": "Wird gesendet…",
       "successHeading": "Danke für deine Nachricht.",
@@ -247,7 +218,6 @@
     "builtWith": "Gebaut mit Astro · Gehostet auf Hetzner",
     "viewSource": "Quellcode ansehen",
     "aboutPage": "Über mich",
-    "bundle": "Self-Hosted Stack",
     "imprint": "Impressum",
     "privacy": "Datenschutz",
     "backToHome": "Zur Startseite",

@@ -14,7 +14,6 @@ const paragraphs = tArray(locale, 'aboutPage.bodyParagraphs');
 const home = getLocalizedPath(locale, '/');
 const facts = [
   { label: t(locale, 'aboutPage.facts.locationLabel'), value: t(locale, 'aboutPage.facts.location') },
-  { label: t(locale, 'aboutPage.facts.availabilityLabel'), value: t(locale, 'aboutPage.facts.availability') },
   { label: t(locale, 'aboutPage.facts.languagesLabel'), value: t(locale, 'aboutPage.facts.languages') },
 ];
 const social = [
@@ -106,8 +105,7 @@ const social = [
 
   /* Two-column intro: body on the left, facts card on the right. The right
      column stops the page reading as "one paragraph in a half-empty page"
-     and gives a cold visitor the trust signals (location, availability,
-     languages, profiles) without scrolling. */
+     and gives a cold visitor the trust signals (location, languages, profiles) without scrolling. */
   .about-page-grid {
     display: grid;
     grid-template-columns: 1fr;

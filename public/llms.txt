@@ -1,21 +1,19 @@
 # Benjamin Franz Nößler
 
-> Freelance web developer based in Vienna, Austria. Builds fast, editable websites with AI integration — Astro frontends for agencies that need extra capacity, and for small businesses who want to understand and maintain their own site again.
+> Fullstack software developer based in Vienna, Austria. Developer since an IT apprenticeship in 2017: Java with Spring Boot and Hibernate on the back end, TypeScript with Angular and React on the front end, plus mobile apps with Ionic and Capacitor. Since May 2026: an own system of AI agents based on Claude and OpenClaw, and agentic development with Claude Code.
 
-Stack focus: Astro, TypeScript, Node.js, React, Next.js, Python. AI integration via LLM APIs (OpenAI, Anthropic), retrieval, and pragmatic workflow automation.
+Stack: Java, Spring Boot, Hibernate, TypeScript, Angular, React, Next.js, Astro, NestJS, Node.js, PostgreSQL, Redis, Linux, Docker, Coolify.
 
 Working languages: German (native), English.
 
 ## Core pages
 
-- [Home (DE)](https://bfnoessler.at/): Overview, services, active clients, contact.
+- [Home (DE)](https://bfnoessler.at/): Overview, selected work, contact.
 - [Home (EN)](https://bfnoessler.at/en/): Same overview in English.
-- [About (DE)](https://bfnoessler.at/ueber): Background, approach, how the collaboration works.
+- [About (DE)](https://bfnoessler.at/ueber): Background, work history, stack.
 - [About (EN)](https://bfnoessler.at/en/about): Same in English.
-- [Portfolio (DE)](https://bfnoessler.at/portfolio): Selected client work and case references.
+- [Portfolio (DE)](https://bfnoessler.at/portfolio): Client work, own projects and operated systems.
 - [Portfolio (EN)](https://bfnoessler.at/en/portfolio): Same in English.
-- [Bundle (DE)](https://bfnoessler.at/bundle): Packaged website offering for small businesses.
-- [Bundle (EN)](https://bfnoessler.at/en/bundle): Same in English.
 
 ## Contact
 
