@@ -8,23 +8,19 @@ export interface Props {
 const { locale } = Astro.props;
 const home = getLocalizedPath(locale, '/');
 // Loom-URL (60–90s Intro): wenn gesetzt, führt der Primärbutton dorthin;
-// wenn leer, fällt der Button auf #contact zurück und das Label wechselt
-// auf "Direkt anfragen" — damit Label und Aktion ehrlich zusammenpassen.
+// wenn leer, fällt der Button auf #work zurück und das Label wechselt
+// auf "Arbeiten ansehen" — damit Label und Aktion ehrlich zusammenpassen.
 const loomUrl = import.meta.env.PUBLIC_LOOM_INTRO_URL;
-const primaryHref = loomUrl || `${home}#contact`;
+const primaryHref = loomUrl || `${home}#work`;
 const primaryLabel = loomUrl
   ? t(locale, 'hero.ctaPrimaryLoom')
-  : t(locale, 'hero.ctaPrimaryContact');
+  : t(locale, 'hero.ctaPrimaryWork');
 ---
 <section class="section hero" id="top" aria-labelledby="hero-heading">
   <div class="container hero-stack">
     <span class="hero-rule" aria-hidden="true"></span>
     <div class="hero-top-row">
       <p class="hero-kicker label-meta">{t(locale, 'hero.kicker')}</p>
-      <span class="availability-pill" aria-label={t(locale, 'availability.label')}>
-        <span class="availability-dot" aria-hidden="true"></span>
-        {t(locale, 'availability.value')}
-      </span>
     </div>
     <h1 id="hero-heading" class="hero-headline">{t(locale, 'hero.headline')}</h1>
     <p class="hero-body">{t(locale, 'hero.body')}</p>
@@ -68,10 +64,7 @@ const primaryLabel = loomUrl
 
   /* Hero composition.
      Single column at every breakpoint — the page overture is one column of
-     editorial copy, not a split with a metadata sidebar. The availability
-     pill rides next to the kicker on a single top row instead of occupying
-     a separate panel; that keeps it as the page's first signal without
-     ceding half the width to a near-empty column. */
+     editorial copy, not a split with a metadata sidebar. */
   .hero-stack {
     display: flex;
     flex-direction: column;
@@ -87,27 +80,6 @@ const primaryLabel = loomUrl
   }
   .hero-top-row .hero-kicker {
     margin-bottom: 0;
-  }
-
-  .availability-pill {
-    display: inline-flex;
-    align-items: center;
-    gap: var(--space-2);
-    padding: 0.25rem 0.6rem;
-    border: 1px solid var(--color-accent);
-    border-radius: 999px;
-    color: var(--color-accent);
-    font-family: var(--font-mono);
-    font-feature-settings: var(--font-features-mono);
-    font-size: var(--fs-xs);
-    letter-spacing: 0.04em;
-  }
-
-  .availability-dot {
-    width: 0.5rem;
-    height: 0.5rem;
-    border-radius: 50%;
-    background: var(--color-accent);
   }
 
   /* Leading editorial rule — "start of article" mark, common in print and
