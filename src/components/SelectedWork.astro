@@ -13,7 +13,7 @@ const { locale } = Astro.props;
 // shipped/in-dev filter so case-study employment items stay on the about page;
 // those carry no track either way.
 const shipped = projects.filter(
-  (p) => p.status === 'live' || p.status === 'in-development'
+  (p) => p.status === 'live' || p.status === 'in-development' || p.status === 'archived'
 );
 const clientProjects = shipped.filter((p) => p.track === 'client');
 const personalProjects = shipped.filter((p) => p.track === 'personal');

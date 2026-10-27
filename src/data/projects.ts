@@ -158,16 +158,19 @@ export const projects: Project[] = [
     id: 'b-cal',
     title: 'b-cal',
     descriptionDe:
-      'End-to-End-Webapp-Showcase — selbst gehostete Kalender-App mit Multi-Device-Auth, Email-Reminders und zweisprachigem UI. Beleg für Webapp-Arbeit jenseits von Marketing-Sites.',
+      'End-to-End-Webapp-Showcase — Kalender-App mit Multi-Device-Auth, Email-Reminders und zweisprachigem UI. Beleg für Webapp-Arbeit jenseits von Marketing-Sites.',
     descriptionEn:
-      'End-to-end web app showcase — self-hosted calendar app with multi-device auth, email reminders and a bilingual UI. Evidence of web app work beyond marketing sites.',
+      'End-to-end web app showcase — calendar app with multi-device auth, email reminders and a bilingual UI. Evidence of web app work beyond marketing sites.',
     stack: ['TypeScript', 'Next.js', 'NestJS', 'Prisma'],
     track: 'personal',
     context: { de: 'Eigenes Projekt', en: 'Personal project' },
     role: { de: 'Architektur & Entwicklung', en: 'Architecture & build' },
-    status: 'live',
+    // Die Demo auf cal.bfnoessler.at ist seit 08.2026 abgeschaltet, die
+    // Domain gehört jetzt dem Radicale-Kalender. Sichtbar bleibt der Code.
+    status: 'archived',
+    statusDe: 'Code auf GitHub',
+    statusEn: 'Code on GitHub',
     links: [
-      { href: 'https://cal.bfnoessler.at', labelKey: 'work.visitLink' },
       { href: 'https://github.com/HelplessSneeker/b-cal', labelKey: 'work.githubLink' },
     ],
     image: '/projects/b-cal.png',
