@@ -71,28 +71,23 @@ export const caseStudies: CaseStudy[] = [
     slug: 'b-cal',
     title: { de: 'b-cal', en: 'b-cal' },
     meta: {
-      de: 'Eigenes Produkt · Architektur, Build, Betrieb · seit 2025',
-      en: 'Personal product · architecture, build, ops · since 2025',
+      de: 'Eigenes Projekt · Architektur und Entwicklung · 2025',
+      en: 'Personal project · architecture and build · 2025',
     },
     problem: {
       de: 'Kalender-Apps wie Google oder Outlook ziehen Termine, Erinnerungen und Auth in fremde Ökosysteme. Ich wollte einen Beleg, dass ich eine vollwertige Webapp aus einer Hand bauen und betreiben kann, ohne mich an einen Anbieter zu binden. Frontend, Backend, Datenbank, Auth, Mail-Versand, Deploy.',
       en: 'Calendar apps like Google or Outlook pull events, reminders and auth into someone else\'s ecosystem. I wanted hard evidence that I can build and run a full web app end-to-end, with no vendor in between: frontend, backend, database, auth, mail, deploy.',
     },
     solution: {
-      de: 'Next.js-Frontend gegen ein NestJS-Backend, Prisma als ORM auf PostgreSQL. Eigene Sessions statt Drittanbieter-Auth, Multi-Device, E-Mail-Erinnerungen über SMTP. UI zweisprachig (DE/EN), Dark- und Light-Theme. Selbst gehostet auf eigener Hetzner-Infrastruktur, Code öffentlich, Demo direkt im Browser nutzbar.',
-      en: 'Next.js on the front, NestJS on the back, Prisma over PostgreSQL. Own session-based auth instead of a third-party provider, multi-device, email reminders via SMTP. Bilingual UI (DE/EN), dark and light themes. Self-hosted on my own Hetzner infrastructure, code public, demo usable straight in the browser.',
+      de: 'Next.js-Frontend gegen ein NestJS-Backend, Prisma als ORM auf PostgreSQL. Eigene Sessions statt Drittanbieter-Auth, Multi-Device, E-Mail-Erinnerungen über SMTP. UI zweisprachig (DE/EN), Dark- und Light-Theme. Lief als Demo auf eigener Hetzner-Infrastruktur, der Code ist öffentlich.',
+      en: 'Next.js on the front, NestJS on the back, Prisma over PostgreSQL. Own session-based auth instead of a third-party provider, multi-device, email reminders via SMTP. Bilingual UI (DE/EN), dark and light themes. It ran as a demo on my own Hetzner infrastructure; the code is public.',
     },
     stack: ['TypeScript', 'Next.js', 'NestJS', 'Prisma', 'PostgreSQL', 'SMTP', 'Hetzner'],
     outcome: {
-      de: 'Lebende Beleg-App: jeder Layer (Auth, ORM, UI, Mail, Deploy) ist sichtbar, lesbar, nutzbar. Wird als Referenz gegenüber Agenturen und KMU eingesetzt, um Webapp-Tiefe jenseits klassischer Marketing-Sites zu zeigen.',
-      en: 'A living reference app: every layer (auth, ORM, UI, mail, deploy) is visible, readable, and usable. I use it with agencies and small businesses to demonstrate web app depth beyond classic marketing sites.',
+      de: 'Referenz-App: Jeder Layer (Auth, ORM, UI, Mail, Deploy) ist im Code nachvollziehbar.',
+      en: 'A reference app: every layer (auth, ORM, UI, mail, deploy) can be followed in the code.',
     },
     links: [
-      {
-        href: 'https://cal.bfnoessler.at',
-        label: { de: 'cal.bfnoessler.at', en: 'cal.bfnoessler.at' },
-        external: true,
-      },
       {
         href: 'https://github.com/HelplessSneeker/b-cal',
         label: { de: 'GitHub', en: 'GitHub' },

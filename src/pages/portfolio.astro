@@ -17,7 +17,9 @@ const home = getLocalizedPath(locale, '/');
 
 // Three tracks (PRODUCT.md → Information Architecture). Employment entries
 // carry no track and stay on /ueber; archived ones stay out entirely.
-const shipped = projects.filter((p) => p.status === 'live' || p.status === 'in-development');
+const shipped = projects.filter(
+  (p) => p.status === 'live' || p.status === 'in-development' || p.status === 'archived'
+);
 const clientProjects = shipped.filter((p) => p.track === 'client');
 const personalProjects = shipped.filter((p) => p.track === 'personal');
 ---
